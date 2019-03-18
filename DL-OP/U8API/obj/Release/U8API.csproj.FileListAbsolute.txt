@@ -1,0 +1,14 @@
+E:\devpro\DL-OP\U8API\bin\Release\U8API.dll
+E:\devpro\DL-OP\U8API\bin\Release\U8API.pdb
+E:\devpro\DL-OP\U8API\obj\Release\U8API.dll
+E:\devpro\DL-OP\U8API\obj\Release\U8API.pdb
+E:\devpro\DL-OP\U8API\obj\Release\U8API.csprojResolveAssemblyReference.cache
+E:\devpro\DL-OP\U8API\bin\Release\Interop.MSXML2.dll
+E:\devpro\DL-OP(20190108,PE预留)\U8API\bin\Release\U8API.dll
+E:\devpro\DL-OP(20190108,PE预留)\U8API\bin\Release\U8API.pdb
+E:\devpro\DL-OP(20190108,PE预留)\U8API\bin\Release\Interop.MSXML2.dll
+E:\devpro\DL-OP(20190108,PE预留)\U8API\obj\Release\U8API.csproj.CoreCompileInputs.cache
+E:\devpro\DL-OP(20190108,PE预留)\U8API\obj\Release\U8API.csproj.CopyComplete
+E:\devpro\DL-OP(20190108,PE预留)\U8API\obj\Release\U8API.dll
+E:\devpro\DL-OP(20190108,PE预留)\U8API\obj\Release\U8API.pdb
+E:\devpro\DL-OP(20190108,PE预留)\U8API\obj\Release\U8API.csprojAssemblyReference.cache

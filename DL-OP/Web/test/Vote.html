@@ -1,0 +1,44 @@
+﻿<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus?">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" >
+    <title>为多联投票！为多联加油！
+</title>
+
+ </head>
+ <body  onload="reload_yanzhengma()" >
+ 
+
+  <form name="form_main" method="post" action=""> 
+   <input type="hidden" name="op" value="init" /> 
+      <div style="height:30px"><img id="imgYanZhengma" border="0" src="reload_yanzhengma()" /> <br></div>
+   	      
+	      <input id="yanzhengma" type="text" maxlength="4" size="6" name="yanzhengma" /> 
+	       <a href="javascript:reload_yanzhengma();">看不清，换一张！</a> 
+     <div > 
+	 <button type="button" onclick="form_votes('mycheckbox')">投票</button>
+     </div> 
+  </form>
+  <script type="text/javascript">
+      //投票
+      function form_votes(mycheckbox) {
+          document.getElementById("yanzhengma").value = parent[1].document.getElementById("hfyzm").value;
+          document.form_main.action = 'http://www.paihang360.com/zt/slgd2016/company.jsp?record_ids=147614,';
+          document.form_main.op.value = 'op_submit';
+          document.form_main.submit();
+      }
+      //刷新验证码
+      function reload_yanzhengma() {
+          document.getElementById("imgYanZhengma").src = "http://www.paihang360.com/zt/slgd2016/Num.jsp?" + Math.random();
+      }
+
+</script>
+</body>
+</html>

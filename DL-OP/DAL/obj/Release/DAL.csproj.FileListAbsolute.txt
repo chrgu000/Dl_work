@@ -1,0 +1,49 @@
+E:\devpro\DL-OP\DAL\bin\Release\DAL.dll
+E:\devpro\DL-OP\DAL\bin\Release\DAL.pdb
+E:\devpro\DL-OP\DAL\bin\Release\Model.dll
+E:\devpro\DL-OP\DAL\bin\Release\Model.pdb
+E:\devpro\DL-OP\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+E:\devpro\DL-OP\DAL\obj\Release\DAL.dll
+E:\devpro\DL-OP\DAL\obj\Release\DAL.pdb
+E:\devpro\DL-OP(2016-03-11)\DL-OP\DAL\bin\Release\DAL.dll
+E:\devpro\DL-OP(2016-03-11)\DL-OP\DAL\bin\Release\DAL.pdb
+E:\devpro\DL-OP(2016-03-11)\DL-OP\DAL\bin\Release\Model.dll
+E:\devpro\DL-OP(2016-03-11)\DL-OP\DAL\bin\Release\Model.pdb
+E:\devpro\DL-OP(2016-03-11)\DL-OP\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+E:\devpro\DL-OP(2016-03-11)\DL-OP\DAL\obj\Release\DAL.dll
+E:\devpro\DL-OP(2016-03-11)\DL-OP\DAL\obj\Release\DAL.pdb
+E:\devpro\DL-OP(2016-03-11.17日改)\DL-OP(2016-03-11)\DL-OP\DAL\bin\Release\DAL.dll
+E:\devpro\DL-OP(2016-03-11.17日改)\DL-OP(2016-03-11)\DL-OP\DAL\bin\Release\DAL.pdb
+E:\devpro\DL-OP(2016-03-11.17日改)\DL-OP(2016-03-11)\DL-OP\DAL\bin\Release\Model.dll
+E:\devpro\DL-OP(2016-03-11.17日改)\DL-OP(2016-03-11)\DL-OP\DAL\bin\Release\Model.pdb
+E:\devpro\DL-OP(2016-03-11.17日改)\DL-OP(2016-03-11)\DL-OP\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+E:\devpro\DL-OP(2016-03-11.17日改)\DL-OP(2016-03-11)\DL-OP\DAL\obj\Release\DAL.dll
+E:\devpro\DL-OP(2016-03-11.17日改)\DL-OP(2016-03-11)\DL-OP\DAL\obj\Release\DAL.pdb
+E:\devpro\DL-OP(2016-03-11.18日.晚)\DL-OP(2016-03-11.17晚改2)\DL-OP(2016-03-11.17日改)\DL-OP(2016-03-11)\DL-OP\DAL\bin\Release\DAL.dll
+E:\devpro\DL-OP(2016-03-11.18日.晚)\DL-OP(2016-03-11.17晚改2)\DL-OP(2016-03-11.17日改)\DL-OP(2016-03-11)\DL-OP\DAL\bin\Release\DAL.pdb
+E:\devpro\DL-OP(2016-03-11.18日.晚)\DL-OP(2016-03-11.17晚改2)\DL-OP(2016-03-11.17日改)\DL-OP(2016-03-11)\DL-OP\DAL\bin\Release\Model.dll
+E:\devpro\DL-OP(2016-03-11.18日.晚)\DL-OP(2016-03-11.17晚改2)\DL-OP(2016-03-11.17日改)\DL-OP(2016-03-11)\DL-OP\DAL\bin\Release\Model.pdb
+E:\devpro\DL-OP(2016-03-11.18日.晚)\DL-OP(2016-03-11.17晚改2)\DL-OP(2016-03-11.17日改)\DL-OP(2016-03-11)\DL-OP\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+E:\devpro\DL-OP(2016-03-11.18日.晚)\DL-OP(2016-03-11.17晚改2)\DL-OP(2016-03-11.17日改)\DL-OP(2016-03-11)\DL-OP\DAL\obj\Release\DAL.dll
+E:\devpro\DL-OP(2016-03-11.18日.晚)\DL-OP(2016-03-11.17晚改2)\DL-OP(2016-03-11.17日改)\DL-OP(2016-03-11)\DL-OP\DAL\obj\Release\DAL.pdb
+I:\多联工作\DL-OP（20160903）\DL-OP\DAL\bin\Release\DAL.dll
+I:\多联工作\DL-OP（20160903）\DL-OP\DAL\bin\Release\DAL.pdb
+I:\多联工作\DL-OP（20160903）\DL-OP\DAL\bin\Release\Model.dll
+I:\多联工作\DL-OP（20160903）\DL-OP\DAL\bin\Release\Model.pdb
+I:\多联工作\DL-OP（20160903）\DL-OP\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+I:\多联工作\DL-OP（20160903）\DL-OP\DAL\obj\Release\DAL.dll
+I:\多联工作\DL-OP（20160903）\DL-OP\DAL\obj\Release\DAL.pdb
+C:\Users\echo\Documents\Tencent Files\68724173\FileRecv\DL-OP(20160914)\DL-OP\DAL\bin\Release\DAL.dll
+C:\Users\echo\Documents\Tencent Files\68724173\FileRecv\DL-OP(20160914)\DL-OP\DAL\bin\Release\DAL.pdb
+C:\Users\echo\Documents\Tencent Files\68724173\FileRecv\DL-OP(20160914)\DL-OP\DAL\bin\Release\Model.dll
+C:\Users\echo\Documents\Tencent Files\68724173\FileRecv\DL-OP(20160914)\DL-OP\DAL\bin\Release\Model.pdb
+C:\Users\echo\Documents\Tencent Files\68724173\FileRecv\DL-OP(20160914)\DL-OP\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+C:\Users\echo\Documents\Tencent Files\68724173\FileRecv\DL-OP(20160914)\DL-OP\DAL\obj\Release\DAL.dll
+C:\Users\echo\Documents\Tencent Files\68724173\FileRecv\DL-OP(20160914)\DL-OP\DAL\obj\Release\DAL.pdb
+E:\devpro\DL-OP(20190108,PE预留)\DAL\bin\Release\DAL.dll
+E:\devpro\DL-OP(20190108,PE预留)\DAL\bin\Release\DAL.pdb
+E:\devpro\DL-OP(20190108,PE预留)\DAL\bin\Release\Model.dll
+E:\devpro\DL-OP(20190108,PE预留)\DAL\bin\Release\Model.pdb
+E:\devpro\DL-OP(20190108,PE预留)\DAL\obj\Release\DAL.dll
+E:\devpro\DL-OP(20190108,PE预留)\DAL\obj\Release\DAL.pdb
+E:\devpro\DL-OP(20190108,PE预留)\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache

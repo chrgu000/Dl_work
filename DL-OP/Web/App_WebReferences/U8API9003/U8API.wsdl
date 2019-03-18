@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="U8FHD_API">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strBillNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="U8FHD_APIResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="U8FHD_APIResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="U8XTZHD_API">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strBillNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="U8XTZHD_APIResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="U8XTZHD_APIResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="U8XSDD_API">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strBillNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="U8XSDD_APIResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="U8XSDD_APIResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="U8TSXSDD_API">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strBillNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="U8TSXSDD_APIResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="U8TSXSDD_APIResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="U8OpenAndCloseOrder_API">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="U8csocode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="U8OpenAndCloseOrder_APIResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="U8OpenAndCloseOrder_APIResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="U8OpenAndCloseOrderDataSet_API">
+        <s:complexType />
+      </s:element>
+      <s:element name="U8OpenAndCloseOrderDataSet_APIResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="U8OpenAndCloseOrderDataSet_APIResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="U8FHD_APISoapIn">
+    <wsdl:part name="parameters" element="tns:U8FHD_API" />
+  </wsdl:message>
+  <wsdl:message name="U8FHD_APISoapOut">
+    <wsdl:part name="parameters" element="tns:U8FHD_APIResponse" />
+  </wsdl:message>
+  <wsdl:message name="U8XTZHD_APISoapIn">
+    <wsdl:part name="parameters" element="tns:U8XTZHD_API" />
+  </wsdl:message>
+  <wsdl:message name="U8XTZHD_APISoapOut">
+    <wsdl:part name="parameters" element="tns:U8XTZHD_APIResponse" />
+  </wsdl:message>
+  <wsdl:message name="U8XSDD_APISoapIn">
+    <wsdl:part name="parameters" element="tns:U8XSDD_API" />
+  </wsdl:message>
+  <wsdl:message name="U8XSDD_APISoapOut">
+    <wsdl:part name="parameters" element="tns:U8XSDD_APIResponse" />
+  </wsdl:message>
+  <wsdl:message name="U8TSXSDD_APISoapIn">
+    <wsdl:part name="parameters" element="tns:U8TSXSDD_API" />
+  </wsdl:message>
+  <wsdl:message name="U8TSXSDD_APISoapOut">
+    <wsdl:part name="parameters" element="tns:U8TSXSDD_APIResponse" />
+  </wsdl:message>
+  <wsdl:message name="U8OpenAndCloseOrder_APISoapIn">
+    <wsdl:part name="parameters" element="tns:U8OpenAndCloseOrder_API" />
+  </wsdl:message>
+  <wsdl:message name="U8OpenAndCloseOrder_APISoapOut">
+    <wsdl:part name="parameters" element="tns:U8OpenAndCloseOrder_APIResponse" />
+  </wsdl:message>
+  <wsdl:message name="U8OpenAndCloseOrderDataSet_APISoapIn">
+    <wsdl:part name="parameters" element="tns:U8OpenAndCloseOrderDataSet_API" />
+  </wsdl:message>
+  <wsdl:message name="U8OpenAndCloseOrderDataSet_APISoapOut">
+    <wsdl:part name="parameters" element="tns:U8OpenAndCloseOrderDataSet_APIResponse" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpGetIn" />
+  <wsdl:message name="HelloWorldHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="U8FHD_APIHttpGetIn">
+    <wsdl:part name="strBillNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="U8FHD_APIHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="U8XTZHD_APIHttpGetIn">
+    <wsdl:part name="strBillNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="U8XTZHD_APIHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="U8XSDD_APIHttpGetIn">
+    <wsdl:part name="strBillNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="U8XSDD_APIHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="U8TSXSDD_APIHttpGetIn">
+    <wsdl:part name="strBillNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="U8TSXSDD_APIHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="U8OpenAndCloseOrder_APIHttpGetIn">
+    <wsdl:part name="U8csocode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="U8OpenAndCloseOrder_APIHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="U8OpenAndCloseOrderDataSet_APIHttpGetIn" />
+  <wsdl:message name="U8OpenAndCloseOrderDataSet_APIHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpPostIn" />
+  <wsdl:message name="HelloWorldHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="U8FHD_APIHttpPostIn">
+    <wsdl:part name="strBillNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="U8FHD_APIHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="U8XTZHD_APIHttpPostIn">
+    <wsdl:part name="strBillNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="U8XTZHD_APIHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="U8XSDD_APIHttpPostIn">
+    <wsdl:part name="strBillNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="U8XSDD_APIHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="U8TSXSDD_APIHttpPostIn">
+    <wsdl:part name="strBillNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="U8TSXSDD_APIHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="U8OpenAndCloseOrder_APIHttpPostIn">
+    <wsdl:part name="U8csocode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="U8OpenAndCloseOrder_APIHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="U8OpenAndCloseOrderDataSet_APIHttpPostIn" />
+  <wsdl:message name="U8OpenAndCloseOrderDataSet_APIHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="U8APISoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="U8FHD_API">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">U8FHD_API</wsdl:documentation>
+      <wsdl:input message="tns:U8FHD_APISoapIn" />
+      <wsdl:output message="tns:U8FHD_APISoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="U8XTZHD_API">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">U8XTZHD_API</wsdl:documentation>
+      <wsdl:input message="tns:U8XTZHD_APISoapIn" />
+      <wsdl:output message="tns:U8XTZHD_APISoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="U8XSDD_API">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">U8XSDD_API</wsdl:documentation>
+      <wsdl:input message="tns:U8XSDD_APISoapIn" />
+      <wsdl:output message="tns:U8XSDD_APISoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="U8TSXSDD_API">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">U8TSTSXSDD_API</wsdl:documentation>
+      <wsdl:input message="tns:U8TSXSDD_APISoapIn" />
+      <wsdl:output message="tns:U8TSXSDD_APISoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="U8OpenAndCloseOrder_API">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">U8OpenAndCloseOrder_API</wsdl:documentation>
+      <wsdl:input message="tns:U8OpenAndCloseOrder_APISoapIn" />
+      <wsdl:output message="tns:U8OpenAndCloseOrder_APISoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="U8OpenAndCloseOrderDataSet_API">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">U8OpenAndCloseOrderDataSet_API</wsdl:documentation>
+      <wsdl:input message="tns:U8OpenAndCloseOrderDataSet_APISoapIn" />
+      <wsdl:output message="tns:U8OpenAndCloseOrderDataSet_APISoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="U8APIHttpGet">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpGetIn" />
+      <wsdl:output message="tns:HelloWorldHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="U8FHD_API">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">U8FHD_API</wsdl:documentation>
+      <wsdl:input message="tns:U8FHD_APIHttpGetIn" />
+      <wsdl:output message="tns:U8FHD_APIHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="U8XTZHD_API">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">U8XTZHD_API</wsdl:documentation>
+      <wsdl:input message="tns:U8XTZHD_APIHttpGetIn" />
+      <wsdl:output message="tns:U8XTZHD_APIHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="U8XSDD_API">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">U8XSDD_API</wsdl:documentation>
+      <wsdl:input message="tns:U8XSDD_APIHttpGetIn" />
+      <wsdl:output message="tns:U8XSDD_APIHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="U8TSXSDD_API">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">U8TSTSXSDD_API</wsdl:documentation>
+      <wsdl:input message="tns:U8TSXSDD_APIHttpGetIn" />
+      <wsdl:output message="tns:U8TSXSDD_APIHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="U8OpenAndCloseOrder_API">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">U8OpenAndCloseOrder_API</wsdl:documentation>
+      <wsdl:input message="tns:U8OpenAndCloseOrder_APIHttpGetIn" />
+      <wsdl:output message="tns:U8OpenAndCloseOrder_APIHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="U8OpenAndCloseOrderDataSet_API">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">U8OpenAndCloseOrderDataSet_API</wsdl:documentation>
+      <wsdl:input message="tns:U8OpenAndCloseOrderDataSet_APIHttpGetIn" />
+      <wsdl:output message="tns:U8OpenAndCloseOrderDataSet_APIHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="U8APIHttpPost">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpPostIn" />
+      <wsdl:output message="tns:HelloWorldHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="U8FHD_API">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">U8FHD_API</wsdl:documentation>
+      <wsdl:input message="tns:U8FHD_APIHttpPostIn" />
+      <wsdl:output message="tns:U8FHD_APIHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="U8XTZHD_API">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">U8XTZHD_API</wsdl:documentation>
+      <wsdl:input message="tns:U8XTZHD_APIHttpPostIn" />
+      <wsdl:output message="tns:U8XTZHD_APIHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="U8XSDD_API">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">U8XSDD_API</wsdl:documentation>
+      <wsdl:input message="tns:U8XSDD_APIHttpPostIn" />
+      <wsdl:output message="tns:U8XSDD_APIHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="U8TSXSDD_API">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">U8TSTSXSDD_API</wsdl:documentation>
+      <wsdl:input message="tns:U8TSXSDD_APIHttpPostIn" />
+      <wsdl:output message="tns:U8TSXSDD_APIHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="U8OpenAndCloseOrder_API">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">U8OpenAndCloseOrder_API</wsdl:documentation>
+      <wsdl:input message="tns:U8OpenAndCloseOrder_APIHttpPostIn" />
+      <wsdl:output message="tns:U8OpenAndCloseOrder_APIHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="U8OpenAndCloseOrderDataSet_API">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">U8OpenAndCloseOrderDataSet_API</wsdl:documentation>
+      <wsdl:input message="tns:U8OpenAndCloseOrderDataSet_APIHttpPostIn" />
+      <wsdl:output message="tns:U8OpenAndCloseOrderDataSet_APIHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="U8APISoap" type="tns:U8APISoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="U8FHD_API">
+      <soap:operation soapAction="http://tempuri.org/U8FHD_API" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="U8XTZHD_API">
+      <soap:operation soapAction="http://tempuri.org/U8XTZHD_API" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="U8XSDD_API">
+      <soap:operation soapAction="http://tempuri.org/U8XSDD_API" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="U8TSXSDD_API">
+      <soap:operation soapAction="http://tempuri.org/U8TSXSDD_API" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="U8OpenAndCloseOrder_API">
+      <soap:operation soapAction="http://tempuri.org/U8OpenAndCloseOrder_API" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="U8OpenAndCloseOrderDataSet_API">
+      <soap:operation soapAction="http://tempuri.org/U8OpenAndCloseOrderDataSet_API" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="U8APISoap12" type="tns:U8APISoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="U8FHD_API">
+      <soap12:operation soapAction="http://tempuri.org/U8FHD_API" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="U8XTZHD_API">
+      <soap12:operation soapAction="http://tempuri.org/U8XTZHD_API" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="U8XSDD_API">
+      <soap12:operation soapAction="http://tempuri.org/U8XSDD_API" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="U8TSXSDD_API">
+      <soap12:operation soapAction="http://tempuri.org/U8TSXSDD_API" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="U8OpenAndCloseOrder_API">
+      <soap12:operation soapAction="http://tempuri.org/U8OpenAndCloseOrder_API" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="U8OpenAndCloseOrderDataSet_API">
+      <soap12:operation soapAction="http://tempuri.org/U8OpenAndCloseOrderDataSet_API" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="U8APIHttpGet" type="tns:U8APIHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="U8FHD_API">
+      <http:operation location="/U8FHD_API" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="U8XTZHD_API">
+      <http:operation location="/U8XTZHD_API" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="U8XSDD_API">
+      <http:operation location="/U8XSDD_API" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="U8TSXSDD_API">
+      <http:operation location="/U8TSXSDD_API" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="U8OpenAndCloseOrder_API">
+      <http:operation location="/U8OpenAndCloseOrder_API" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="U8OpenAndCloseOrderDataSet_API">
+      <http:operation location="/U8OpenAndCloseOrderDataSet_API" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="U8APIHttpPost" type="tns:U8APIHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="U8FHD_API">
+      <http:operation location="/U8FHD_API" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="U8XTZHD_API">
+      <http:operation location="/U8XTZHD_API" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="U8XSDD_API">
+      <http:operation location="/U8XSDD_API" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="U8TSXSDD_API">
+      <http:operation location="/U8TSXSDD_API" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="U8OpenAndCloseOrder_API">
+      <http:operation location="/U8OpenAndCloseOrder_API" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="U8OpenAndCloseOrderDataSet_API">
+      <http:operation location="/U8OpenAndCloseOrderDataSet_API" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="U8API">
+    <wsdl:port name="U8APISoap" binding="tns:U8APISoap">
+      <soap:address location="http://192.168.0.249:9003/u8api/U8API.asmx" />
+    </wsdl:port>
+    <wsdl:port name="U8APISoap12" binding="tns:U8APISoap12">
+      <soap12:address location="http://192.168.0.249:9003/u8api/U8API.asmx" />
+    </wsdl:port>
+    <wsdl:port name="U8APIHttpGet" binding="tns:U8APIHttpGet">
+      <http:address location="http://192.168.0.249:9003/u8api/U8API.asmx" />
+    </wsdl:port>
+    <wsdl:port name="U8APIHttpPost" binding="tns:U8APIHttpPost">
+      <http:address location="http://192.168.0.249:9003/u8api/U8API.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

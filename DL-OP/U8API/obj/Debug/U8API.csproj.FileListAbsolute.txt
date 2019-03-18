@@ -1,0 +1,13 @@
+E:\devpro\DL-OP\U8API\bin\Debug\U8API.dll
+E:\devpro\DL-OP\U8API\bin\Debug\U8API.pdb
+E:\devpro\DL-OP\U8API\bin\Debug\Interop.MSXML2.dll
+E:\devpro\DL-OP\U8API\obj\Debug\U8API.dll
+E:\devpro\DL-OP\U8API\obj\Debug\U8API.pdb
+E:\devpro\DL-OP\U8API\obj\Debug\U8API.csprojAssemblyReference.cache
+E:\devpro\DL-OP\U8API\obj\Debug\U8API.csproj.CoreCompileInputs.cache
+E:\devpro\DL-OP\U8API\obj\Debug\U8API.csproj.CopyComplete
+E:\devpro\DL-OP(20190108,PE预留)\U8API\bin\Debug\U8API.dll
+E:\devpro\DL-OP(20190108,PE预留)\U8API\bin\Debug\U8API.pdb
+E:\devpro\DL-OP(20190108,PE预留)\U8API\bin\Debug\Interop.MSXML2.dll
+E:\devpro\DL-OP(20190108,PE预留)\U8API\obj\Debug\U8API.dll
+E:\devpro\DL-OP(20190108,PE预留)\U8API\obj\Debug\U8API.pdb

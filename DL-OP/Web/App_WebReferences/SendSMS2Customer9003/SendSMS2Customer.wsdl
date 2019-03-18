@@ -1,0 +1,980 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="SendSMS_Old">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="num" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="content" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSMS_OldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendSMS_OldResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mobiles" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="content" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendSMSResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReceiveSMSReport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="report" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReceiveSMSReportResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="getreport">
+        <s:complexType />
+      </s:element>
+      <s:element name="getreportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getreportResult" type="tns:ArrayOfStatusReportModel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfStatusReportModel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="StatusReportModel" nillable="true" type="tns:StatusReportModel" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="StatusReportModel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="mobile" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="submitDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="receiveDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="errorCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="msgGroup" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="reportStatus" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getSubmitReport">
+        <s:complexType />
+      </s:element>
+      <s:element name="getSubmitReportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getSubmitReportResult" type="tns:ArrayOfSubmitReportModel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSubmitReportModel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SubmitReportModel" nillable="true" type="tns:SubmitReportModel" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SubmitReportModel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="mobiles" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="submitDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="receiveDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="errorCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="msgGroup" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="reportStatus" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Insert_Report">
+        <s:complexType />
+      </s:element>
+      <s:element name="Insert_ReportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Insert_ReportResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendFHSMS2Customer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="phoneno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="orderno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="content" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendFHSMS2CustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendFHSMS2CustomerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_access_token">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_access_tokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_access_tokenResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendQY_Message_Text">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="touser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="toparty" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="totag" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="agentid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strWxMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendQY_Message_TextResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendQY_Message_TextResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendQY_Message_Image">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="touser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="toparty" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="totag" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="agentid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="url" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="picurl" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendQY_Message_ImageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendQY_Message_ImageResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MakeQR">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="content" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MAACode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MakeQRResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MakeQRResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="boolean" type="s:boolean" />
+      <s:element name="ArrayOfStatusReportModel" nillable="true" type="tns:ArrayOfStatusReportModel" />
+      <s:element name="ArrayOfSubmitReportModel" nillable="true" type="tns:ArrayOfSubmitReportModel" />
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SendSMS_OldSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSMS_Old" />
+  </wsdl:message>
+  <wsdl:message name="SendSMS_OldSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSMS_OldResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSMS" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiveSMSReportSoapIn">
+    <wsdl:part name="parameters" element="tns:ReceiveSMSReport" />
+  </wsdl:message>
+  <wsdl:message name="ReceiveSMSReportSoapOut">
+    <wsdl:part name="parameters" element="tns:ReceiveSMSReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="getreportSoapIn">
+    <wsdl:part name="parameters" element="tns:getreport" />
+  </wsdl:message>
+  <wsdl:message name="getreportSoapOut">
+    <wsdl:part name="parameters" element="tns:getreportResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSubmitReportSoapIn">
+    <wsdl:part name="parameters" element="tns:getSubmitReport" />
+  </wsdl:message>
+  <wsdl:message name="getSubmitReportSoapOut">
+    <wsdl:part name="parameters" element="tns:getSubmitReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="Insert_ReportSoapIn">
+    <wsdl:part name="parameters" element="tns:Insert_Report" />
+  </wsdl:message>
+  <wsdl:message name="Insert_ReportSoapOut">
+    <wsdl:part name="parameters" element="tns:Insert_ReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendFHSMS2CustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:SendFHSMS2Customer" />
+  </wsdl:message>
+  <wsdl:message name="SendFHSMS2CustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:SendFHSMS2CustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_access_tokenSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_access_token" />
+  </wsdl:message>
+  <wsdl:message name="Get_access_tokenSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_access_tokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendQY_Message_TextSoapIn">
+    <wsdl:part name="parameters" element="tns:SendQY_Message_Text" />
+  </wsdl:message>
+  <wsdl:message name="SendQY_Message_TextSoapOut">
+    <wsdl:part name="parameters" element="tns:SendQY_Message_TextResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendQY_Message_ImageSoapIn">
+    <wsdl:part name="parameters" element="tns:SendQY_Message_Image" />
+  </wsdl:message>
+  <wsdl:message name="SendQY_Message_ImageSoapOut">
+    <wsdl:part name="parameters" element="tns:SendQY_Message_ImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="MakeQRSoapIn">
+    <wsdl:part name="parameters" element="tns:MakeQR" />
+  </wsdl:message>
+  <wsdl:message name="MakeQRSoapOut">
+    <wsdl:part name="parameters" element="tns:MakeQRResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendSMS_OldHttpGetIn">
+    <wsdl:part name="num" type="s:string" />
+    <wsdl:part name="content" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSMS_OldHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSHttpGetIn">
+    <wsdl:part name="mobiles" type="s:string" />
+    <wsdl:part name="content" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="ReceiveSMSReportHttpGetIn">
+    <wsdl:part name="report" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ReceiveSMSReportHttpGetOut" />
+  <wsdl:message name="getreportHttpGetIn" />
+  <wsdl:message name="getreportHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfStatusReportModel" />
+  </wsdl:message>
+  <wsdl:message name="getSubmitReportHttpGetIn" />
+  <wsdl:message name="getSubmitReportHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfSubmitReportModel" />
+  </wsdl:message>
+  <wsdl:message name="Insert_ReportHttpGetIn" />
+  <wsdl:message name="Insert_ReportHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="SendFHSMS2CustomerHttpGetIn">
+    <wsdl:part name="phoneno" type="s:string" />
+    <wsdl:part name="orderno" type="s:string" />
+    <wsdl:part name="content" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendFHSMS2CustomerHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="Get_access_tokenHttpGetIn" />
+  <wsdl:message name="Get_access_tokenHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SendQY_Message_TextHttpGetIn">
+    <wsdl:part name="touser" type="s:string" />
+    <wsdl:part name="toparty" type="s:string" />
+    <wsdl:part name="totag" type="s:string" />
+    <wsdl:part name="agentid" type="s:string" />
+    <wsdl:part name="strWxMessage" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendQY_Message_TextHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="SendQY_Message_ImageHttpGetIn">
+    <wsdl:part name="touser" type="s:string" />
+    <wsdl:part name="toparty" type="s:string" />
+    <wsdl:part name="totag" type="s:string" />
+    <wsdl:part name="agentid" type="s:string" />
+    <wsdl:part name="title" type="s:string" />
+    <wsdl:part name="description" type="s:string" />
+    <wsdl:part name="url" type="s:string" />
+    <wsdl:part name="picurl" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendQY_Message_ImageHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="MakeQRHttpGetIn">
+    <wsdl:part name="content" type="s:string" />
+    <wsdl:part name="MAACode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MakeQRHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSMS_OldHttpPostIn">
+    <wsdl:part name="num" type="s:string" />
+    <wsdl:part name="content" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSMS_OldHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSHttpPostIn">
+    <wsdl:part name="mobiles" type="s:string" />
+    <wsdl:part name="content" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="ReceiveSMSReportHttpPostIn">
+    <wsdl:part name="report" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ReceiveSMSReportHttpPostOut" />
+  <wsdl:message name="getreportHttpPostIn" />
+  <wsdl:message name="getreportHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfStatusReportModel" />
+  </wsdl:message>
+  <wsdl:message name="getSubmitReportHttpPostIn" />
+  <wsdl:message name="getSubmitReportHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfSubmitReportModel" />
+  </wsdl:message>
+  <wsdl:message name="Insert_ReportHttpPostIn" />
+  <wsdl:message name="Insert_ReportHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="SendFHSMS2CustomerHttpPostIn">
+    <wsdl:part name="phoneno" type="s:string" />
+    <wsdl:part name="orderno" type="s:string" />
+    <wsdl:part name="content" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendFHSMS2CustomerHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="Get_access_tokenHttpPostIn" />
+  <wsdl:message name="Get_access_tokenHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SendQY_Message_TextHttpPostIn">
+    <wsdl:part name="touser" type="s:string" />
+    <wsdl:part name="toparty" type="s:string" />
+    <wsdl:part name="totag" type="s:string" />
+    <wsdl:part name="agentid" type="s:string" />
+    <wsdl:part name="strWxMessage" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendQY_Message_TextHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="SendQY_Message_ImageHttpPostIn">
+    <wsdl:part name="touser" type="s:string" />
+    <wsdl:part name="toparty" type="s:string" />
+    <wsdl:part name="totag" type="s:string" />
+    <wsdl:part name="agentid" type="s:string" />
+    <wsdl:part name="title" type="s:string" />
+    <wsdl:part name="description" type="s:string" />
+    <wsdl:part name="url" type="s:string" />
+    <wsdl:part name="picurl" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendQY_Message_ImageHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="MakeQRHttpPostIn">
+    <wsdl:part name="content" type="s:string" />
+    <wsdl:part name="MAACode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MakeQRHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="SendSMS2CustomerSoap">
+    <wsdl:operation name="SendSMS_Old">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SendSMS_Old</wsdl:documentation>
+      <wsdl:input message="tns:SendSMS_OldSoapIn" />
+      <wsdl:output message="tns:SendSMS_OldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SendSMS_New</wsdl:documentation>
+      <wsdl:input message="tns:SendSMSSoapIn" />
+      <wsdl:output message="tns:SendSMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveSMSReport">
+      <wsdl:input message="tns:ReceiveSMSReportSoapIn" />
+      <wsdl:output message="tns:ReceiveSMSReportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getreport">
+      <wsdl:input message="tns:getreportSoapIn" />
+      <wsdl:output message="tns:getreportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSubmitReport">
+      <wsdl:input message="tns:getSubmitReportSoapIn" />
+      <wsdl:output message="tns:getSubmitReportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insert_Report">
+      <wsdl:input message="tns:Insert_ReportSoapIn" />
+      <wsdl:output message="tns:Insert_ReportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendFHSMS2Customer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SendFHSMS2Customer</wsdl:documentation>
+      <wsdl:input message="tns:SendFHSMS2CustomerSoapIn" />
+      <wsdl:output message="tns:SendFHSMS2CustomerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_access_token">
+      <wsdl:input message="tns:Get_access_tokenSoapIn" />
+      <wsdl:output message="tns:Get_access_tokenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendQY_Message_Text">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SendQY_Message_Text</wsdl:documentation>
+      <wsdl:input message="tns:SendQY_Message_TextSoapIn" />
+      <wsdl:output message="tns:SendQY_Message_TextSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendQY_Message_Image">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SendQY_Message_Image</wsdl:documentation>
+      <wsdl:input message="tns:SendQY_Message_ImageSoapIn" />
+      <wsdl:output message="tns:SendQY_Message_ImageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MakeQR">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">MakeQR</wsdl:documentation>
+      <wsdl:input message="tns:MakeQRSoapIn" />
+      <wsdl:output message="tns:MakeQRSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SendSMS2CustomerHttpGet">
+    <wsdl:operation name="SendSMS_Old">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SendSMS_Old</wsdl:documentation>
+      <wsdl:input message="tns:SendSMS_OldHttpGetIn" />
+      <wsdl:output message="tns:SendSMS_OldHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SendSMS_New</wsdl:documentation>
+      <wsdl:input message="tns:SendSMSHttpGetIn" />
+      <wsdl:output message="tns:SendSMSHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveSMSReport">
+      <wsdl:input message="tns:ReceiveSMSReportHttpGetIn" />
+      <wsdl:output message="tns:ReceiveSMSReportHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getreport">
+      <wsdl:input message="tns:getreportHttpGetIn" />
+      <wsdl:output message="tns:getreportHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSubmitReport">
+      <wsdl:input message="tns:getSubmitReportHttpGetIn" />
+      <wsdl:output message="tns:getSubmitReportHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insert_Report">
+      <wsdl:input message="tns:Insert_ReportHttpGetIn" />
+      <wsdl:output message="tns:Insert_ReportHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendFHSMS2Customer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SendFHSMS2Customer</wsdl:documentation>
+      <wsdl:input message="tns:SendFHSMS2CustomerHttpGetIn" />
+      <wsdl:output message="tns:SendFHSMS2CustomerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_access_token">
+      <wsdl:input message="tns:Get_access_tokenHttpGetIn" />
+      <wsdl:output message="tns:Get_access_tokenHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendQY_Message_Text">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SendQY_Message_Text</wsdl:documentation>
+      <wsdl:input message="tns:SendQY_Message_TextHttpGetIn" />
+      <wsdl:output message="tns:SendQY_Message_TextHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendQY_Message_Image">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SendQY_Message_Image</wsdl:documentation>
+      <wsdl:input message="tns:SendQY_Message_ImageHttpGetIn" />
+      <wsdl:output message="tns:SendQY_Message_ImageHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MakeQR">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">MakeQR</wsdl:documentation>
+      <wsdl:input message="tns:MakeQRHttpGetIn" />
+      <wsdl:output message="tns:MakeQRHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SendSMS2CustomerHttpPost">
+    <wsdl:operation name="SendSMS_Old">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SendSMS_Old</wsdl:documentation>
+      <wsdl:input message="tns:SendSMS_OldHttpPostIn" />
+      <wsdl:output message="tns:SendSMS_OldHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SendSMS_New</wsdl:documentation>
+      <wsdl:input message="tns:SendSMSHttpPostIn" />
+      <wsdl:output message="tns:SendSMSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveSMSReport">
+      <wsdl:input message="tns:ReceiveSMSReportHttpPostIn" />
+      <wsdl:output message="tns:ReceiveSMSReportHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getreport">
+      <wsdl:input message="tns:getreportHttpPostIn" />
+      <wsdl:output message="tns:getreportHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSubmitReport">
+      <wsdl:input message="tns:getSubmitReportHttpPostIn" />
+      <wsdl:output message="tns:getSubmitReportHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insert_Report">
+      <wsdl:input message="tns:Insert_ReportHttpPostIn" />
+      <wsdl:output message="tns:Insert_ReportHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendFHSMS2Customer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SendFHSMS2Customer</wsdl:documentation>
+      <wsdl:input message="tns:SendFHSMS2CustomerHttpPostIn" />
+      <wsdl:output message="tns:SendFHSMS2CustomerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_access_token">
+      <wsdl:input message="tns:Get_access_tokenHttpPostIn" />
+      <wsdl:output message="tns:Get_access_tokenHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendQY_Message_Text">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SendQY_Message_Text</wsdl:documentation>
+      <wsdl:input message="tns:SendQY_Message_TextHttpPostIn" />
+      <wsdl:output message="tns:SendQY_Message_TextHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendQY_Message_Image">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SendQY_Message_Image</wsdl:documentation>
+      <wsdl:input message="tns:SendQY_Message_ImageHttpPostIn" />
+      <wsdl:output message="tns:SendQY_Message_ImageHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MakeQR">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">MakeQR</wsdl:documentation>
+      <wsdl:input message="tns:MakeQRHttpPostIn" />
+      <wsdl:output message="tns:MakeQRHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SendSMS2CustomerSoap" type="tns:SendSMS2CustomerSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendSMS_Old">
+      <soap:operation soapAction="http://tempuri.org/SendSMS_Old" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <soap:operation soapAction="http://tempuri.org/SendSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveSMSReport">
+      <soap:operation soapAction="http://tempuri.org/ReceiveSMSReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getreport">
+      <soap:operation soapAction="http://tempuri.org/getreport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSubmitReport">
+      <soap:operation soapAction="http://tempuri.org/getSubmitReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_Report">
+      <soap:operation soapAction="http://tempuri.org/Insert_Report" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendFHSMS2Customer">
+      <soap:operation soapAction="http://tempuri.org/SendFHSMS2Customer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_access_token">
+      <soap:operation soapAction="http://tempuri.org/Get_access_token" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendQY_Message_Text">
+      <soap:operation soapAction="http://tempuri.org/SendQY_Message_Text" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendQY_Message_Image">
+      <soap:operation soapAction="http://tempuri.org/SendQY_Message_Image" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakeQR">
+      <soap:operation soapAction="http://tempuri.org/MakeQR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SendSMS2CustomerSoap12" type="tns:SendSMS2CustomerSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendSMS_Old">
+      <soap12:operation soapAction="http://tempuri.org/SendSMS_Old" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <soap12:operation soapAction="http://tempuri.org/SendSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveSMSReport">
+      <soap12:operation soapAction="http://tempuri.org/ReceiveSMSReport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getreport">
+      <soap12:operation soapAction="http://tempuri.org/getreport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSubmitReport">
+      <soap12:operation soapAction="http://tempuri.org/getSubmitReport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_Report">
+      <soap12:operation soapAction="http://tempuri.org/Insert_Report" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendFHSMS2Customer">
+      <soap12:operation soapAction="http://tempuri.org/SendFHSMS2Customer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_access_token">
+      <soap12:operation soapAction="http://tempuri.org/Get_access_token" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendQY_Message_Text">
+      <soap12:operation soapAction="http://tempuri.org/SendQY_Message_Text" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendQY_Message_Image">
+      <soap12:operation soapAction="http://tempuri.org/SendQY_Message_Image" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakeQR">
+      <soap12:operation soapAction="http://tempuri.org/MakeQR" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SendSMS2CustomerHttpGet" type="tns:SendSMS2CustomerHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="SendSMS_Old">
+      <http:operation location="/SendSMS_Old" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <http:operation location="/SendSMS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveSMSReport">
+      <http:operation location="/ReceiveSMSReport" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="getreport">
+      <http:operation location="/getreport" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSubmitReport">
+      <http:operation location="/getSubmitReport" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_Report">
+      <http:operation location="/Insert_Report" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendFHSMS2Customer">
+      <http:operation location="/SendFHSMS2Customer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_access_token">
+      <http:operation location="/Get_access_token" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendQY_Message_Text">
+      <http:operation location="/SendQY_Message_Text" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendQY_Message_Image">
+      <http:operation location="/SendQY_Message_Image" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakeQR">
+      <http:operation location="/MakeQR" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SendSMS2CustomerHttpPost" type="tns:SendSMS2CustomerHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="SendSMS_Old">
+      <http:operation location="/SendSMS_Old" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <http:operation location="/SendSMS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveSMSReport">
+      <http:operation location="/ReceiveSMSReport" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="getreport">
+      <http:operation location="/getreport" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSubmitReport">
+      <http:operation location="/getSubmitReport" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_Report">
+      <http:operation location="/Insert_Report" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendFHSMS2Customer">
+      <http:operation location="/SendFHSMS2Customer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_access_token">
+      <http:operation location="/Get_access_token" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendQY_Message_Text">
+      <http:operation location="/SendQY_Message_Text" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendQY_Message_Image">
+      <http:operation location="/SendQY_Message_Image" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakeQR">
+      <http:operation location="/MakeQR" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SendSMS2Customer">
+    <wsdl:port name="SendSMS2CustomerSoap" binding="tns:SendSMS2CustomerSoap">
+      <soap:address location="http://192.168.0.249:9003/other/SendSMS2Customer.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SendSMS2CustomerSoap12" binding="tns:SendSMS2CustomerSoap12">
+      <soap12:address location="http://192.168.0.249:9003/other/SendSMS2Customer.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SendSMS2CustomerHttpGet" binding="tns:SendSMS2CustomerHttpGet">
+      <http:address location="http://192.168.0.249:9003/other/SendSMS2Customer.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SendSMS2CustomerHttpPost" binding="tns:SendSMS2CustomerHttpPost">
+      <http:address location="http://192.168.0.249:9003/other/SendSMS2Customer.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
