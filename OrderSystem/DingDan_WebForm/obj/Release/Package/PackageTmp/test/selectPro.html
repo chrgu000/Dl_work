@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="js/arr.js"></script>
+    <link href="../js/plugins/iview/iview.css" rel="stylesheet" />
+    <script src="../js/plugins/vue/vue.min.js"></script>
+    <script src="../js/plugins/iview/iview.min.js"></script>
+    <script src="../js/plugins/vue/axios.js"></script>
+</head>
+
+<body>
+    <div id="vm">
+        <i-button type="error" id="btn" @click="msg">btn</i-button>
+        <i-button type="primary" @click="selectProShow=!selectProShow">{{hideProText}}</i-button>
+        <div v-show="selectProShow" style="width:95%;margin:10px auto;border:1px solid #ccc;height:550px">
+            <div style="float: left;width:35%;height: 550px;overflow-y: scroll;">
+                <h2 style="text-align: center">产品分类</h2>
+                <Tree :data="proClass" @on-select-change="selectProClass" ref="proClassTree"></Tree>
+            </div>
+            <div style="width:60%;border:1px solid hotpink;height:550px;float:right;">
+                <h2 style="text-align: center">产品列表</h2>
+                <i-table height="523" highlight-row="true" border :columns="proListColumns" :data="proList" :no-data-text="noDataText" @on-row-click="selectProList"></i-table>
+            </div>
+        </div>
+    </div>
+    <script>
+    axios.defaults.baseURL = '/handler/producthandler.ashx';
+    axios.interceptors.request.use(
+        config => {
+            let ret = ''
+            for (let it in config.data) {
+                ret += encodeURIComponent(it) + '=' + encodeURIComponent(config.data[it]) + '&'
+            }
+            config.data = ret;
+            return config;
+        },
+        err => {
+            return Promise.reject(err);
+        });
+
+    var vm = new Vue({
+        el: '#vm',
+        data: {
+            noDataText: '无数据',
+            proClass: [],
+            proList: [],
+            selectProShow: true,
+            proListColumns: [{
+                    type: 'selection',
+                    width: 60,
+                    align: 'center'
+                },
+                {
+                    title: '新品',
+                    key: 'img'
+                },
+                {
+                    title: '首字母拼音',
+                    key: 'PY'
+                },
+                {
+                    title: '产品名称',
+                    key: 'cInvName'
+                },
+                {
+                    title: '规格',
+                    key: 'cInvStd'
+                },
+                {
+                    title: '单位',
+                    key: 'cComUnitName'
+                } 
+            ]
+        },
+
+        mounted: function() {
+            this.transDate();
+        },
+        computed: {
+            hideProText: function() {
+                if (!this.selectProShow) {
+                    return '显示产品选择'
+                } else {
+                    return '隐藏产品选择'
+                }
+            }
+        },
+        methods: {
+            transDate: function() {
+                var result = [],
+                    temp = {},
+                    list = arr,
+                    idstr = "id",
+                    pidstr = "pid";
+                for (i = 0; i < list.length; i++) {
+                    temp[list[i][idstr]] = list[i]; //将nodes数组转成对象类型
+                }
+                for (j = 0; j < list.length; j++) {
+                    tempVp = temp[list[j][pidstr]]; //获取每一个子对象的父对象
+                    if (tempVp) { //判断父对象是否存在，如果不存在直接将对象放到第一层
+                        if (!tempVp["children"]) tempVp["children"] = []; //如果父元素的nodes对象不存在，则创建数组
+                        tempVp["children"].push(list[j]); //将本对象压入父对象的nodes数组
+                    } else {
+                        result.push(list[j]); //将不存在父对象的对象直接放入一级目录
+                    }
+                }
+                this.proClass = result;
+
+
+            },
+            selectProClass: function() {
+                var _this=this;
+                axios({
+                    // url: '/handler/producthandler.ashx',
+                    method: 'post',
+                    data: {
+                        "Action": "Get_Product_List",
+                        "cInvCCode": this.$refs.proClassTree.getSelectedNodes()[0].id,
+                        "kpdw": "999999",
+                        "iShowType": 1
+                    }
+                }).then(function(res) {
+                    console.log(this);
+                    _this.proList = res.data.dt;
+                    
+                    console.log(this.proList);
+
+                }, function() {
+                    console.log('err');
+                });
+
+            },
+            selectProList:function(a,b){
+                console.log(a,b);
+            },
+            msg: function() {
+                // this.$Message.info('This is a info tip');
+                console.log(this);
+            }
+        }
+
+    })
+    </script>
+</body>
+
+</html>

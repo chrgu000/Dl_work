@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="../js/plugins/iview/2.10/iview.css" rel="stylesheet" />
+    <link href="../js/plugins/vue/loading.css" rel="stylesheet" />
+    <title></title>
+</head>
+
+<body>
+        <div id="vm" style="width:95%;margin:20px auto">
+        <i-button type="primary" @click="selectTableVisible=!selectTableVisible">{{SelectTableButtonText}}</i-button>
+        <br><br>
+        <div v-show="selectTableVisible" >
+                  <product-class-tree :tree-data='productClass'  :table-height="600"  ></product-class-tree>
+        </div>
+    </div>
+    <script src="../js/plugins/vue/vue-2.5.13.min.js"></script>
+    <script src="../js/plugins/vue/axios.js"></script>
+    <script src="../js/plugins/vue/axios_FUN.js"></script>
+    <script src="../js/plugins/iview/2.10/iview.min.js"></script>
+    <script src="../js/datas/ProClass.js"></script>
+    <script src="../js/Template/product-class-tree.js"></script>
+    <script src="../js/Template/my-table.js"></script>
+    <script src="../js/Template/buytest.js"></script>
+ 
+</body>
+
+</html>

@@ -1,0 +1,320 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>多联网上订单系统</title>
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="../js/plugins/layui-1.0.9/css/layui.css" media="all" />
+    <link href="../js/plugins/dataTables/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <style>
+        .layui-table th, .layui-table td {
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .btns {
+            border-bottom: 1px solid #7bd1e0;
+            height: 50px;
+            line-height: 50px;
+        }
+
+        .bl {
+            vertical-align: middle;
+            line-height: 36px;
+        }
+
+        form {
+            min-height: 500px;
+        }
+
+        .selected {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div style="margin: 0px;" class="iframe">
+        <div class="layui-tab">
+
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+                    <form action="" class="layui-form">
+                        <div class="layui-form-item btns">
+                            <div class="layui-inline">
+                                <label class="layui-form-label">账单年</label>
+                                <div class="layui-input-inline" style="width: 80px;">
+                                    <select class="layui-select" id="year">
+                                        <option value="2016">2016</option>
+                                        <option value="2017">2017</option>
+                                        <option value="2018">2018</option>
+                                        <option value="2019">2019</option>
+                                        <option value="2020">2020</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="layui-inline">
+                                <label class="layui-form-label">账单月</label>
+                                <div class="layui-input-inline" style="width: 80px;">
+                                    <select class="layui-select" id="month">
+                                        <option value="0">全部</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">单位</label>
+                                <div class="layui-input-inline" style="width: 200px;">
+                                    <select class="layui-select" id="kpdw">
+                                        <option value="0">全部</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">是否确认</label>
+                                <div class="layui-input-inline" style="width: 80px;">
+                                    <select class="layui-select" id="check">
+                                        <option value="-1">全部</option>
+                                        <option value="0">未确认</option>
+                                        <option value="1">已确认</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <input type="button" id="btn" class="layui-btn" value="查询">
+                                <!--<input type="button" id="btn1"   class="layui-btn" value="测试">
+                                <input type="button" onclick="window.location.reload()" class="layui-btn" value="刷新"></div>-->
+                            </div>
+                            </div>
+                            <div class="layui-form-item"></div>
+
+                            <table class="layui-table" id="detail" cellpadding="0" cellspacing="0" style="width:80%"></table>
+                            <div class="layui-form-item" id="show" style="font-size:16px;width: 800px;height:300px;border:1px solid black;margin: 10px auto auto 20px;display: none">
+                                <div style='text-align:center'>
+                                    <span style='font-size:30px;font-weight:bold'>对账单</span>
+                                </div>
+
+                                <div>
+                                    <span style='text-decoration:underline' id="ccusname_s"></span>
+                                    ,您好:
+                                </div>
+
+                                <div style="margin-left: 20px">
+                                    在过去的业务合作中，感谢您对我公司的支持。经核对，截至
+                                    <span style='text-decoration:underline' id="strEndDate_s"></span>
+                                    止：
+                                </div>
+
+                                <div style="margin-left: 20px">
+                                    您尚欠我公司货款金额￥
+                                    <span style='text-decoration:underline' id="dblAmount_s"></span>
+                                    元，大写
+                                    <span style='text-decoration:underline' id="strUper_s"></span>
+                                    。
+                                </div>
+
+                                <div style="margin-left:600px">
+                                    <span style="margin-right:0">四川多联实业有限公司</span>
+                                </div>
+                                <br />
+                                <span id="lngSOAid_s" style="display: none"></span>
+                                <div>
+                                    <span id="check_s"></span>
+                                    <input type="button" class="layui-btn" value="确认" id="check_btn" onclick="ck()">
+                                </div>
+
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../js/plugins/layui-1.0.9/layui.js"></script>
+    <script src="../js/plugins/dataTables/js/jquery.dataTables.min.js"></script>
+    <!-- <script type="text/javascript" src="../js/Project/function.js?v=1"></script> -->
+
+<script type="text/javascript">
+    var a=Date.parse(new Date());
+    document.write(' <script type="text/javascript"  charset="utf-8" src="\/js\/Project\/function.js?v='+a+'"><\/script>')
+</script>
+    
+    <script>
+
+        layui.use(['element', 'util', 'laydate', 'form'], function () {
+            //  var $ = layui.jquery,
+            var form = layui.form(),
+                util = layui.util,
+              laydate = layui.laydate,
+              element = layui.element(); //Tab的切换功能，切换事件监听等，需要依赖element模块
+
+
+            $.ajax({
+                url: "../Handler/ProductHandler.ashx",
+                type: "Post",
+                dataType: "Json",
+                data: { "Action": "Get_KPDW" },
+                success: function (data) {
+
+                    var html = "";
+                    $.each(data.dt, function (i, v) {
+                        html += '<option value=' + v.cCusCode + '>' + v.cCusName + '</option>'
+                    })
+                    $("#kpdw").append(html);
+                    form.render();
+                    draw_tb(data.dt);
+                }
+            })
+
+
+            $("#btn").click(function () {
+                //  alert($("#kpdw  option:selected").val());
+                $.ajax({
+                    url: "../Handler/ProductHandler.ashx",
+                    type: "Post",
+                    dataType: "Json",
+                    data: {
+                        "Action": "DLproc_U8SOASearchBySel",
+                        "year": $("#year  option:selected").val(),
+                        "month": $("#month  option:selected").val(),
+                        "kpdw": $("#kpdw  option:selected").val(),
+                        "check": $("#check  option:selected").val()
+                    },
+                    success: function (data) {
+
+                        draw_tb(data);
+
+                    }
+                })
+            })
+
+
+
+        })
+
+        function draw_tb(data) {
+            var table = $("#detail").DataTable({
+                scrollY: "300px",
+                info: false,
+                autoWidth: false,
+                paging: false,
+                searching: false,
+                destroy: true,
+                data: data.dt,
+                "language": {
+                    "lengthMenu": "每页 _MENU_ 条记录",
+                    "zeroRecords": "没有找到记录",
+                    "info": "第 _PAGE_ 页 ( 总共 _PAGES_ 页 )",
+                    "infoEmpty": "无记录",
+                    "infoFiltered": "(从 _MAX_ 条记录过滤)"
+                },
+                "columns": [
+            {
+                "title": "操作", "data": null,
+                render: function () {
+                    return "<input  type='button' class='layui-btn layui-btn-small' onclick='show(this);' value='查看详细'/>";
+                }
+            },
+            {
+                data: "bytCheck", title: "确认状态",
+                render: function (data, type, row, meta) {
+                    if (data == 1) {
+                        return "已确认";
+                    } else {
+                        return "<span style='color:red;font-weight:bold;font-size:18px'>未确认</span>";
+                    }
+                }
+            },
+           {
+               data: "strEndDate", "title": "账单截至日期",
+               render: function (data, type, row, meta) {
+                   return return_date(data);
+               }
+           },
+           { data: "ccusname", "title": "顾客名称" },
+           {
+               data: "datSendTime", "title": "账单接收时间",
+               render: function (data, type, row, meta) {
+                   return return_datetime(data);
+               }
+           },
+           { data: "dblAmount", "title": "账单金额", "class": "center" },
+           { data: "strOper", "title": "发送人", "class": "center" },
+           {
+               data: "datCheckTime", "title": "确认时间", "class": "center",
+               render: function (data, type, row, meta) {
+                   return return_datetime(data);
+               }
+           },
+            { data: "intPeriodYear", "title": "年度", "class": "center" },
+             { data: "intPeriod", "title": "月份", "class": "center" },
+             { data: "strUper", "title": "大写金额", "class": "center", visible: false },
+             { data: "lngSOAid", "title": "ID", "class": "center", visible: false },
+                ]
+            });
+        }
+
+        function show(obj) {
+            $(obj).parents("tbody").find("tr").removeClass("selected");
+            $(obj).parents("tr").addClass("selected");
+            var table = $("#detail").DataTable();
+            var data = table.row($(obj).parents('tr')).data();
+            $("#lngSOAid_s").text(data.lngSOAid);
+            $("#ccusname_s").text(data.ccusname);
+            $("#strEndDate_s").text(return_date(data.strEndDate));
+            $("#dblAmount_s").text(data.dblAmount);
+            $("#strUper_s").text(data.strUper);
+            if (data.bytCheck == 1) {
+                $("#check_s").text("该账单已确认。");
+                $("#check_btn").hide();
+            } else {
+                $("#check_s").text("如无异议，请确认。");
+                $("#check_btn").show();
+            }
+            $("#show").show();
+        }
+
+        function ck() {
+            layer.confirm("是否要确认账单?", { icon: 3 }, function () {
+                $.ajax({
+                    url: "../Handler/ProductHandler.ashx",
+                    type: "Post",
+                    dataType: "Json",
+                    data: { "Action": "DL_ConfimSOAByUpd", "id": $("#lngSOAid_s").text() },
+                    success: function (res) {
+                        if (res.flag == 1) {
+                            layer.alert(res.message, { icon: 1 });
+                            $("#check_s").text("该账单已确认。");
+                            $("#check_btn").hide();
+                            var table = $("#detail").DataTable();
+                            var d = table.row('.selected').data();
+                            d.bytCheck = 1;
+                            $("#detail tbody .selected").find("td:eq(1)").text("已确认")
+
+                        } else {
+                            layer.alert(res.message, { icon: 2 });
+                        }
+                    }
+                })
+            })
+        }
+
+
+
+    </script>
+
+</body>
+</html>

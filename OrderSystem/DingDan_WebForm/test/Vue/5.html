@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script src="js/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+<div id="view">
+<input type="text" v-model:value="msg">
+<br>
+<span>{{msg}}</span>
+<br>
+<span @mouseover="bb">span </span>
+
+</div>
+    <script>
+        var v=new Vue({
+            el:"#view",
+            data:{
+                msg:"asfasdf"
+            },
+            methods:{
+                bb:function(){
+                    this.msg=new Date();
+                  axios.post('/handler/Adminhandler.ashx',
+                    {
+                        
+                            "Action":"Get_ArrearDetail",
+                            "code":"Q201706015"
+                        
+                    }).then(function(data){
+                    console.log(data)
+                  })
+                }
+            }
+        })
+    </script>
+</body>
+</html>

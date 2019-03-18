@@ -1,0 +1,362 @@
+﻿
+<div class="modal-header">
+    <!--  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+    <h4 class="modal-title" id="myModalLabel">延期结款情况通知单</h4>
+</div>
+<div class="modal-body">
+    <link href="/js/plugins/bootstrapTable/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        .modal-body table {
+            font-size: 14px;
+            width: 1000px;
+        }
+
+        td {
+            border: 1px solid black;
+        }
+
+        #detail tr {
+            height: 50px;
+        }
+
+        .modal-body td {
+            width: 150px;
+        }
+.form-horizontal .control-label {
+    padding-top: 7px;
+    margin-bottom: 0;
+    text-align: right;
+}
+    </style>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-1  control-label">尊敬的</label>
+            <div class="col-sm-3" id="cCusName_div">
+                <input type="text" id="cCusName" class="form-control t_head"   value=" " />
+                </div>
+            <div id="cCusCode_div" style="display:none">
+                <input type="text" id="cCusCode" value=" " class="t_head" />
+            </div>
+            <!--<label class="col-sm-1  control-label">客户</label>-->
+        </div>
+        <div class="row">
+            <div class="col-sm-12">你的结款期已过。截止目前为止，您尚有以下货款未结清，请在本通知发出之日起两日内予以确认。如未按期确认，将影响您在本系统下单及年终考评。谢谢您的支持！</div>
+        </div>
+        <!--table start-->
+        <table cellspacing="0" cellpadding="0" id="detail">
+
+            <tr>
+                <td>结款日</td>
+                <td colspan="2">
+                    <div class="col-sm-10" id="dAccountDay_div">
+                        <input class="layui-input t_head" id="dAccountDay" placeholder="点击选择日期" onclick="layui.laydate({elem: this, istime: false, format: 'YYYY-MM-DD'})">
+                    </div>
+                </td>
+                <td>欠款周期</td>
+                <td colspan="3">
+                    <div class="row">
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-4" id="dArrearsCycleStart_div">
+                            <input class="layui-input t_head" placeholder="开始日期" id="dArrearsCycleStart" onclick="layui.laydate({elem: this, istime:false, format: 'YYYY-MM-DD'})">
+                        </div>
+                        <label class="col-sm-1 control-label">至</label>
+                        <div class="col-sm-4" id="dArrearsCycleEnd_div">
+                            <input class="layui-input t_head" placeholder="结束日期" id="dArrearsCycleEnd" onclick="layui.laydate({elem: this, istime:false, format: 'YYYY-MM-DD'})">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr class="ccus_tr">
+                <td colspan="2" id="ccus_add" rowspan="1">
+                    各分户欠款数据
+                </td>
+                <td >
+                    <div class="cSubCusCode_div">
+                        <input type="text" value="" placeholder="客户编码" class="form-control cSubCusCode" />
+                    </div>
+                </td>
+                <td colspan="2" class=" no_del cSubCusName">
+                    <div class=" cSubCusName_div"></div>
+                </td>
+                <td>欠款金额</td>
+                <td  >
+                    <div class="row">
+                        <label class="col-sm-2  control-label"> ￥:</label>
+                        <div class="col-sm-9 iSumSubCusCode_div"> <input type="text" value="0" placeholder="小写" class="form-control money iSumSubCusCode" /></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" rowspan="2">合计</td>
+                <td colspan="2" rowspan="2">欠款金额</td>
+                <td colspan="3" style="border-bottom:none">
+                    <div class="row">
+                        <label class="col-sm-2  control-label"> ￥:</label>
+                        <div class="col-sm-9" ><u id="iSumArrears" class="t_head">0.00</u><!--<input type="text" value="" placeholder="输入小写数字" class="form-control" id="iSumArrears" />--></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" style="border-top:none">
+                    <div class="row">
+                        <label class="col-sm-2  control-label">大写:</label><div class="col-sm-10" ><u id="iSumArrearsCapital" class="t_head">零元整</u> </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" rowspan="2">其中</td>
+                <td colspan="2">以前年度未结清货款金额 </td>
+                <td colspan="3">
+                    <div class="row">
+                        <label class="col-sm-2  control-label"> ￥:</label>
+                        <div class="col-sm-9" id="iSumPreviousUncleared_div"> <input type="text" id="iSumPreviousUncleared" value="0" placeholder="输入小写数字" class="form-control  money t_head" /></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">其中本年度未结清货款金额 </td>
+                <td colspan="3">
+                    <div class="row">
+                        <label class="col-sm-2  control-label"> ￥:</label>
+                        <div class="col-sm-9" id="iSumUncleared_div"> <input type="text" value="0" id="iSumUncleared" placeholder="输入小写数字" class="form-control  money t_head" /></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="4">其中（以前年度未结清货款金额）</td>
+                <td>逾期一月未结清货款金额 </td>
+                <td>
+                    <div class="row">
+                        <label class="col-sm-2  control-label"> ￥:</label>
+                        <div class="col-sm-9" id="iPreviousOneMonthMoney_div"> <input type="text" id="iPreviousOneMonthMoney" value="0" placeholder="小写" class="form-control  money t_head" /></div>
+                    </div>
+                </td>
+                <td>逾期两月未结清货款金额 </td>
+                <td>
+                    <div class="row">
+                        <label class="col-sm-2  control-label"> ￥:</label>
+                        <div class="col-sm-9" id="iPreviousTwoMonthMoney_div"> <input type="text" id="iPreviousTwoMonthMoney" value="0" placeholder="小写" class="form-control  money t_head" /></div>
+                    </div>
+                </td>
+                <td>逾期三月未结清货款金额 </td>
+                <td>
+                    <div class="row">
+                        <label class="col-sm-2  control-label"> ￥:</label>
+                        <div class="col-sm-9" id="iPreviousThreeMonthMoney_div"> <input type="text" value="0" id="iPreviousThreeMonthMoney" placeholder="小写" class="form-control  money t_head" /></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>违约金额 </td>
+                <td>
+                    <div class="row">
+                        <label class="col-sm-2  control-label"> ￥:</label>
+                        <div class="col-sm-9" id="iPreviousOneMonthLiquidatedDamages_div"> <input type="text" value="0" placeholder="小写" class="form-control  money p_m t_head" id="iPreviousOneMonthLiquidatedDamages" /></div>
+                    </div>
+                </td>
+                <td>违约金额 </td>
+                <td>
+                    <div class="row">
+                        <label class="col-sm-2  control-label"> ￥:</label>
+                        <div class="col-sm-9" id="iPreviousTwoMonthLiquidatedDamages_div"> <input type="text" value="0" placeholder="小写" class="form-control money p_m t_head" id="iPreviousTwoMonthLiquidatedDamages" /></div>
+                    </div>
+                </td>
+                <td>违约金额 </td>
+                <td>
+                    <div class="row">
+                        <label class="col-sm-2  control-label"> ￥:</label>
+                        <div class="col-sm-9" id="iPreviousThreeMonthLiquidatedDamages_div"> <input type="text" value="0" placeholder="小写" class="form-control money p_m t_head" id="iPreviousThreeMonthLiquidatedDamages" /></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" rowspan="2">本年至今累计违约金 </td>
+                <td colspan="4" style="border-bottom:none">
+                    <div class="row">
+                        <label class="col-sm-2  control-label"> ￥:</label>
+                        <div class="col-sm-9" id="iSumPreviousLiquidatedDamages_div">
+                            <input type="text" name="name" id="iSumPreviousLiquidatedDamages" class="form-control money  t_head" value="0" />
+                            <!--<u type="text" id="iSumPreviousLiquidatedDamages" class="t_head">0.00</u>-->
+                            <!--<input type="text" id="iSumPreviousLiquidatedDamages" value="" placeholder="输入小写数字" class="form-control  " />-->
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4" style="border-top:none">
+                    <div class="row">
+                        <label class="col-sm-2  control-label">大写:</label><div class="col-sm-10"><u id="iSumPreviousLiquidatedDamagesCapital" class="t_head">零元整</u> </div>
+                    </div>
+                </td>
+            </tr>
+            <!---->
+            <tr>
+                <td rowspan="4">其中（本年度未结清货款金额）</td>
+                <td>逾期一月未结清货款金额 </td>
+                <td>
+                    <div class="row">
+                        <label class="col-sm-2  control-label"> ￥:</label>
+                        <div class="col-sm-9" id="iOneMonthMoney_div"> <input type="text" id="iOneMonthMoney" value="0" placeholder="小写" class="form-control money  t_head" /></div>
+                    </div>
+                </td>
+                <td>逾期两月未结清货款金额 </td>
+                <td>
+                    <div class="row">
+                        <label class="col-sm-2  control-label"> ￥:</label>
+                        <div class="col-sm-9" id="iTwoMonthMoney_div"> <input type="text" id="iTwoMonthMoney" value="0" placeholder="小写" class="form-control  money t_head " /></div>
+                    </div>
+                </td>
+                <td>逾期三月未结清货款金额 </td>
+                <td>
+                    <div class="row">
+                        <label class="col-sm-2  control-label"> ￥:</label>
+                        <div class="col-sm-9" id="iThreeMonthMoney_div"> <input type="text" value="0" id="iThreeMonthMoney" placeholder="小写" class="form-control  money t_head" /></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>违约金额 </td>
+                <td>
+                    <div class="row">
+                        <label class="col-sm-2  control-label"> ￥:</label>
+                        <div class="col-sm-9" id="iOneMonthLiquidatedDamages_div"> <input type="text" value="0" placeholder="小写" class="form-control  money n_m t_head" id="iOneMonthLiquidatedDamages" /></div>
+                    </div>
+                </td>
+                <td>违约金额 </td>
+                <td>
+                    <div class="row">
+                        <label class="col-sm-2  control-label"> ￥:</label>
+                        <div class="col-sm-9" id="iTwoMonthLiquidatedDamages_div"> <input type="text" value="0" placeholder="小写" class="form-control money n_m t_head" id="iTwoMonthLiquidatedDamages" /></div>
+                    </div>
+                </td>
+                <td>违约金额 </td>
+                <td>
+                    <div class="row">
+                        <label class="col-sm-2  control-label"> ￥:</label>
+                        <div class="col-sm-9" id="iThreeMonthLiquidatedDamages_div"> <input type="text" value="0" placeholder="小写" class="form-control money n_m t_head" id="iThreeMonthLiquidatedDamages" /></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" rowspan="2">本年至今累计违约金 </td>
+                <td colspan="4" style="border-bottom:none">
+                    <div class="row">
+                        <label class="col-sm-2  control-label"> ￥:</label>
+                        <div class="col-sm-9" id="iSumLiquidatedDamages_div">
+                            <input type="text" name="name" id="iSumLiquidatedDamages" class="form-control money  t_head" value="0" />
+                         <!--   <u type="text" id="iSumLiquidatedDamages" class="t_head">0.00</u>-->
+                            <!--<input type="text" id="iSumLiquidatedDamages" value="" placeholder="输入小写数字" class="form-control  money" />-->
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4" style="border-top:none">
+                    <div class="row">
+                        <label class="col-sm-2  control-label">大写:</label><div class="col-sm-10"><u id="iSumLiquidatedDamagesCapital" class="t_head">零元整</u> </div>
+                    </div>
+                </td>
+            </tr>
+            <tr style="display:none">
+                <td   rowspan="2">合计</td>
+                <td colspan="2" rowspan="2">违约金额</td>
+                <td colspan="4" style="border-bottom:none">
+                    <div class="row">
+                        <label class="col-sm-2  control-label"> ￥:</label>
+                        <div class="col-sm-9"><u id="iSumDamages" class="t_head">0.00</u></div>
+                    </div>
+                </td>
+            </tr>
+            <tr style="display:none">
+                <td colspan="4" style="border-top:none">
+                    <div class="row">
+                        <label class="col-sm-2  control-label">大写:</label><div class="col-sm-10"><u id="iSumDamagesCapital" class="t_head">零元整</u> </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>备注</td>
+                <td colspan="6" ><div  id="cRemark_div"><input id="cRemark" value="" placeholder="填写备注信息" class="form-control  t_head" /></div> </td>
+            </tr>
+            <!--客户填写start-->
+            <tr class="c_write">
+                <td rowspan="3">客户填写</td>
+                <td colspan="6">根据多联公司经销合同之规定，我方结款日已经到期。但由于本人（公司）资金尚未到位，未能结清所有货款，特申请将结款日期延后，以上数据确认无误。 </td>
+            </tr>
+            <tr class="c_write">
+                <td colspan="6">
+                    <div class="row">
+                        <label class="col-sm-2">申请延款日期：</label>
+                        <div class="col-sm-9">
+                            <div class="col-sm-3" id="dExtensionDateStart_div"><input id="dExtensionDateStart" class="layui-input" placeholder="点击选择日期" onclick="layui.laydate({elem: this, istime:false, format: 'YYYY-MM-DD'})"></div>
+                            <label class="col-sm-1 control-label">至</label>
+                            <div class="col-sm-3" id="dExtensionDateEnd_div"><input class="layui-input" id="dExtensionDateEnd" placeholder="点击选择日期" onclick="layui.laydate({elem: this, istime:false, format: 'YYYY-MM-DD'})"></div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr class="c_write">
+                <td colspan="6">
+                    <div class="row">
+                        <label class="col-sm-2">确认人：</label>
+                        <div class="col-sm-6" id="cCusConfirm_div">
+                            <button class="btn btn-primary" type="button" id="cCusConfirm">客户确认</button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <!--客户填写end-->
+            <!--经理填写start-->
+            <tr class="m_write">
+                <td rowspan="3">销售经理确认</td>
+                <!--<td colspan="6">
+                    <div class="row">
+                        <label class="col-sm-2">违约金意见  ：</label>
+                        <div class="col-sm-10" id="bDeductionLiquidatedDamages_div">
+                            <u id="bDeductionLiquidatedDamages"> </u>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr class="m_write">-->
+                <td colspan="6">
+                    <div class="row">
+                        <label class="col-sm-2"> 停止发货  ：</label>
+                        <div class="col-sm-10 " id="bStopShipment_div">
+                            <u id="bStopShipment"></u>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr class="m_write">
+                <td colspan="6">
+                    <div class="row">
+                        <label class="col-sm-2"> 其他说明：</label>
+                        <div class="col-sm-9" id="cMemo_div"> <!--<input type="text" class="form-control" value=" " id="cMemo" />--></div>
+                    </div>
+                </td>
+            </tr>
+            <tr class="m_write">
+                <td colspan="6">
+                    <div class="row">
+                        <label class="col-sm-2 ">销售经理确认： </label>
+                        <div class="col-sm-4" id="cSaleConfirm_div">
+                           <!-- <button type="button" class="btn btn-primary" id="cSaleConfirm">确认</button>-->
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <!--经理填写end-->
+        </table>
+        <!--table end-->
+    </form>
+</div>
+<div class="modal-footer">
+    <!--data-dismiss="modal"-->
+    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+    <button type="button" class="btn btn-primary" id="submit">提交</button>
+    <button type="button" class="btn btn-success" id="confirm">复核</button>
+    <button type="button" class="btn btn-info " id="print">打印</button>
+</div>
+

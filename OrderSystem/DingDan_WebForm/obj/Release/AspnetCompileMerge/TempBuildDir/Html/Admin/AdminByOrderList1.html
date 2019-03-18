@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="../../js/plugins/vue/vue-2.5.13.min.js"></script>
+    <link href="../../js/plugins/element/2.2.1/index.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"> -->
+    <link href="../../js/plugins/vue/loading.css" rel="stylesheet" />
+    <style type="text/css">
+    #vm {
+        width: 95%;
+        margin: 20px auto;
+    }
+
+
+    table td {
+        color: #484848;
+        font-size: 12px;
+    }
+
+    .el-table,
+    .el-table td,
+    .el-table th {
+        border: 1px solid #ccc;
+    }
+
+    .el-table th {
+        background-color: #006699;
+        font-size: 14px;
+        color: #fff;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="vm">
+        <!-- <el-button type="primary">上传<i class="el-icon-upload el-icon--right"></i></el-button>  
+         <el-button-group>
+            <el-button type="primary" icon="el-icon-edit"></el-button>
+            <el-button type="primary" icon="el-icon-share"></el-button>
+            <el-button type="primary" icon="el-icon-delete"></el-button>
+        </el-button-group> -->
+        <el-table :data="OrderArr" style="width: 100%" max-height="620" border size="mini" fit="true">
+            <el-table-column label="序号" type="index" fixed width="70" align="center">
+            </el-table-column>
+            <el-table-column fixed label="操作" width="190" align="center">
+                <template slot-scope="scope">
+                    <el-button-group>
+                        <el-button round @click.native.prevent="showOrderDetail(scope.row)" type="primary" size="small">
+                            详情
+                        </el-button>
+                        <el-button v-if="scope.row.bytStatus===2" @click.native.prevent="sendWX(scope.row)" type="success" size="small">
+                            微信
+                        </el-button>
+                        <el-button round v-if="scope.row.bytStatus===2" @click.native.prevent="cancelOrder(scope.row)" type="danger" size="small">
+                            作废
+                        </el-button>
+                    </el-button-group>
+                    <!--  <el-button   @click.native.prevent="showOrderDetail(scope.row)" type="primary" size="mini">
+                        详情
+                    </el-button>
+                     <el-button @click.native.prevent="showOrderDetail(scope.row)" type="success" size="mini">
+                        微信
+                    </el-button>
+                    <el-button v-if="scope.row.bytStatus===2" @click.native.prevent="cancelOrder(scope.row)" type="danger" size="mini">
+                        作废
+                    </el-button> -->
+                </template>
+            </el-table-column>
+            <el-table-column prop="strBillNo" label="网单号" width="150" align="center" sortable>
+            </el-table-column>
+            <!--   <el-table-column prop="bytStatus" label="订单状态" width="80" align="center" :formatter="formatter">
+            </el-table-column> -->
+            <el-table-column prop="bytStatus" label="订单状态" width="100" align="center" :filters="[{ text: '待审核', value: 1 }, { text: '待确认', value: 2 }]" :filter-method="filterStatus" filter-placement="bottom-end" :filter-multiple="false">
+                <template slot-scope="scope">
+                    <el-tag :type="scope.row.bytStatus === 1 ? 'primary' :scope.row.bytStatus===2?'danger':'info'" hit>{{scope.row.bytStatus === 1 ?'待审核':scope.row.bytStatus===2?'待确认':'已作废'}}</el-tag>
+                </template>
+            </el-table-column>
+            <el-table-column prop="datBillTime" label="下单时间" width="180" align="center">
+            </el-table-column>
+            <el-table-column prop="strAllAcount" label="客户编码" width="120" align="center">
+            </el-table-column>
+            <el-table-column prop="adminCreateOrderName" label="下单人" width="80" align="center">
+            </el-table-column>
+            <el-table-column prop="cdefine11" label="货运信息" width="350" align="center">
+            </el-table-column>
+            <el-table-column prop="strRemarks" label="备注" align="center">
+            </el-table-column>
+        </el-table>
+        <el-dialog :title="orderDetailTitle" :visible.sync="dialogTableVisible" width="80%">
+            <el-table :data="OrderDetailData" max-height="500">
+                <el-table-column label="序号" type="index" width="70" align="center">
+                </el-table-column>
+                <el-table-column property="cinvname" label="产品名称" width="200" align="center"></el-table-column>
+                <el-table-column property="cInvStd" label="产品规格" width="200" align="center"></el-table-column>
+                <el-table-column property="cComUnitQTY" label="基本包装数量" width="120" align="center"></el-table-column>
+                <el-table-column property="cInvDefine2QTY" label="小包装数量" width="100" align="center"></el-table-column>
+                <el-table-column property="cInvDefine1QTY" label="大包装数量" width="100" align="center"></el-table-column>
+                <el-table-column property="iquantity" label="基本单位汇总" width="130" align="center"></el-table-column>
+                <el-table-column property="cdefine22" label="包装结果" align="center"></el-table-column>
+            </el-table>
+        </el-dialog>
+    </div>
+    <script src="../../js/plugins/vue/axios.js"></script>
+    <script src="../../js/plugins/vue/axios_FUN.js"></script>
+    <script src="../../js/plugins/element/2.2.1/index.js"></script>
+    <script type="text/javascript">
+    axios.defaults.baseURL = '/handler/adminhandler.ashx';
+
+    var vm = new Vue({
+        el: '#vm',
+        data: {
+            dialogTableVisible: false,
+            OrderArr: [],
+            OrderObj: {},
+            OrderDetailData: [],
+           
+        },
+        methods: {
+            showOrderDetail(row) {
+                this.OrderDetailData = this.OrderObj[row.lngopOrderId]
+                this.dialogTableVisible = true;
+            },
+
+            cancelOrder(row) {
+                var _this = this;
+                vm.$confirm('你确定要作废' + row.strBillNo + '订单？', {
+                    type: 'warning'
+                }).then(() => {
+                    axios({
+                        method: 'post',
+                        data: {
+                            "Action": "CancelOrder",
+                            "lngopOrderId": row.lngopOrderId
+                        }
+                    }).then(function(res) {
+
+                        if (res) {
+                            row.bytStatus = 99;
+                            _this.$message.success(res.message);
+
+                        }
+                    });
+                }).catch(() => {
+                    return;
+                })
+            },
+            sendWX(row) {
+                console.log(row);
+                this.$confirm('你确定要重新给客户发送微信消息？', {
+                    type: 'warning'
+                }).catch(() => {
+                    return;
+                })
+            },
+            filterStatus(value, row) {
+                return row.bytStatus === value;
+            },
+
+            SetOrderData(data) {
+                for (var i in data) {
+                    if (!this.OrderObj[data[i].lngopOrderId]) {
+                        this.OrderObj[data[i].lngopOrderId] = [];
+                        this.OrderArr.push(data[i]);
+                    }
+                    this.OrderObj[data[i].lngopOrderId].push(data[i])
+                };
+
+
+            }
+        },
+        created() {
+            var _this = this;
+            axios({
+                method: 'post',
+                data: {
+                    "Action": "GetBuyOrderList",
+                }
+            }).then(function(res) {
+
+                if (res) {
+                    _this.SetOrderData(JSON.parse(res.data));
+
+                }
+            });
+        },
+        computed: {
+            orderDetailTitle() {
+                if (this.OrderDetailData.length > 0) {
+
+                    return "订单编号：" + this.OrderDetailData[0].strBillNo;
+                } else {
+                    return "";
+                }
+            }
+        }
+    })
+    </script>
+</body>
+
+</html>

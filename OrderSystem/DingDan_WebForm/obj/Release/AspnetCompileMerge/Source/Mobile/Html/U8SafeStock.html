@@ -1,0 +1,302 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+    <title>安全库存预警信息</title>
+    <!-- 引入样式 -->
+    <link href="../js/mintui/2.2.13/style.css" rel="stylesheet" />
+    <link href="../js/vue/loading.css" rel="stylesheet" />
+    <!--<link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css">-->
+    <style>
+    body {
+        background-color: #eee;
+    }
+
+    .wrapper {
+        overflow: scroll;
+    }
+
+    .mint-navbar {
+        margin-top: 40px;
+    }
+
+    .mint-tab-container {
+        margin-top: 100px;
+    }
+    .left{
+        margin-left: 6px;
+    }
+    .right {
+        float: right;
+         margin-right: 6px;
+    }
+
+    .title {
+        font-size: 14px;
+        color: #c62828;
+        font-weight: bold;
+        height: 38px;
+        line-height: 38px;
+        margin-left: 6px;
+        
+    }
+
+    .content {
+        border-top: 1px solid #ddd;
+        height: 38px;
+        line-height: 38px;
+        font-size: 13px;
+    }
+
+    .mt-tab-container-div {
+        margin-bottom: 15px;
+        background-color: #fff;
+        border-radius: 5px;
+    }
+
+    .nodata {
+        text-align: center;
+        font-size: 40px;
+        color: rgba(0, 0, 0, 0.3);
+        margin-top: 50px;
+    }
+    .nomore{
+        text-align: center;
+        color: #888;
+        font-weight: bold;
+    }
+    ul li{
+        list-style-type: none;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="vm">
+        <mt-header title="安全库存预警信息" fixed>
+            <mt-button @click="openPicker" type="danger" slot="right" v-text="Now"></mt-button>
+        </mt-header>
+        <mt-navbar v-model="selected" fixed>
+            <mt-tab-item id="1">挤塑
+                <mt-badge type="error" size="small" v-if="stocks_jisu.length>0" v-text="stocks_jisu.length"> </mt-badge>
+            </mt-tab-item>
+            <mt-tab-item id="2">注塑
+                <mt-badge type="error" size="small" v-if="stocks_zusu.length>0" v-text="stocks_zusu.length"> </mt-badge>
+            </mt-tab-item>
+            <!--   <mt-tab-item id="3">模具
+                <mt-badge type="error" size="small" v-if="stocks_muju.length>0" v-text="stocks_muju.length"> </mt-badge>
+            </mt-tab-item>
+            <mt-tab-item id="4">其他
+                <mt-badge type="error" size="small" v-if="stocks_other.length>0" v-text="stocks_other.length"> </mt-badge>
+            </mt-tab-item> -->
+        </mt-navbar>
+        <mt-tab-container v-model="selected">
+            <mt-tab-container-item id="1">
+                <div class="wrapper" :style="{height:h+'px'}">
+                    <div class="nodata" v-if="stocks_jisu.length==0"  v-text="'暂无预警信息'"></div>
+                    <mt-loadmore :bottom-method="loadBottom_jisu" :bottom-all-loaded="allLoaded_jisu" :auto-fill="false" ref="loadmore_jisu" bottom-pull-text="" bottom-drop-text="释放加载更多">
+                         <div class="mt-tab-container-div" v-for="(item,index) in jisu">
+                            <div class="title"  ><span v-text="(index+1)+'.存货名称：'+item.cInvName"></span> </div>
+                            <div class="content"><span class="left" v-text="'存货编码：'+item.cInvCode"> </span><span class="right"  v-text="'包装量：'+item.cPackingType"> </span></div>
+                             <div class="content"><span class="left" v-text="'规格型号：'+item.cInvStd" > </span><span class="right" v-text="'最低库存：'+item.iLowSum"> </span></div>
+                            <div class="content"><span class="left"  v-text="'结存数量：'+item.iQuantity"> </span><span class="right" v-text="'可用数量：'+item.relQuantity"> </span></div>
+                        </div>
+                    </mt-loadmore>
+                      <div class="nomore" v-show="jisu.length!=0&&stocks_jisu.length==jisu.length"  v-text="'没有更多了'"> </div>
+                </div>
+
+            </mt-tab-container-item>
+            <mt-tab-container-item id="2">
+                <div class="wrapper" :style="{height:h+'px'}">
+                    <div class="nodata" v-if="stocks_zusu.length==0" v-text="'暂无预警信息'"></div>
+                    <mt-loadmore :bottom-method="loadBottom_zusu" :bottom-all-loaded="allLoaded_zusu" :auto-fill="false" ref="loadmore_zusu" bottom-pull-text="" bottom-drop-text="释放加载更多">
+                          <div class="mt-tab-container-div" v-for="(item,index) in zusu">
+                            <div class="title"  ><span v-text="(index+1)+'.存货名称：'+item.cInvName"></span> </div>
+                            <div class="content"><span class="left" v-text="'存货编码：'+item.cInvCode"> </span><span class="right"  v-text="'包装量：'+item.cPackingType"> </span></div>
+                             <div class="content"><span class="left" v-text="'规格型号：'+item.cInvStd" > </span><span class="right" v-text="'最低库存：'+item.iLowSum"> </span></div>
+                            <div class="content"><span class="left"  v-text="'结存数量：'+item.iQuantity"> </span><span class="right" v-text="'可用数量：'+item.relQuantity"> </span></div>
+                        </div>
+                    </mt-loadmore>
+                     <div class="nomore" v-show="zusu.length!=0&&stocks_zusu.length==zusu.length" v-text="'没有更多了'"></div>
+                </div>
+            </mt-tab-container-item>
+        </mt-tab-container>
+        <mt-datetime-picker ref="picker" type="date" v-model="pickerValue" year-format="{value} 年" month-format="{value} 月" date-format="{value} 日" @confirm="handleChange">
+        </mt-datetime-picker>
+    </div>
+    <script src="../js/vue/axios.js"></script>
+    <script src="../js/vue/axios_FUN.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="../js/mintui/2.2.13/index.js"></script>
+    <!--<script src="https://unpkg.com/mint-ui/lib/index.js"></script>-->
+    <script>
+    var vm = new Vue({
+        el: "#vm",
+        data: {
+            list: [],
+            allLoaded: false,
+            list1: [],
+            allLoaded_jisu:false,
+            allLoaded_zusu: false,
+            selected: "1",
+            stocks_jisu: [],
+            stocks_zusu: [],
+            // stocks_muju: [],
+            // stocks_other: [],
+            jisu: [],
+            zusu: [],
+            Now: "",
+            pickerValue: "",
+            distance: 30, // 每次加载的数据条数
+        },
+        methods: {
+            openPicker() {
+                this.$refs.picker.open();
+            },
+            handleChange(val) {
+                var d = FormatDate(new Date(this.pickerValue), 'yyyyMMdd')
+                this.getDate(d);
+            },
+            loadBottom_jisu: function() {
+                this.$refs.loadmore_jisu.onBottomLoaded();
+                this.getList_jisu();
+            },
+            getList_jisu: function() {
+                      if (this.stocks_jisu.length == 0) {
+                    return false;
+                }
+
+                var i = 0,
+                    len = this.jisu.length;
+
+                if (len >= this.stocks_jisu.length) {
+                    this.allLoaded_jisu = true;
+                    return;
+                }
+                let a = this.stocks_jisu.length - this.jisu.length;
+                if (a < this.distance) {
+                    this.allLoaded_jisu = true;
+                    for (i; i < a; i++) {
+                        this.jisu.push(this.stocks_jisu[len + i]);
+                    }
+                } else {
+                    for (i; i < this.distance; i++) {
+                        this.jisu.push(this.stocks_jisu[len + i]);
+                    }
+                }
+
+            },
+            loadBottom_zusu: function() {
+                this.$refs.loadmore_zusu.onBottomLoaded();
+                this.getList_zusu();
+            },
+            getList_zusu: function() {
+
+                if (this.stocks_zusu.length == 0) {
+                    return false;
+                }
+
+                var i = 0,
+                    len = this.zusu.length;
+
+                if (len >= this.stocks_zusu.length) {
+                    this.allLoaded_zusu = true;
+                    return;
+                }
+                let a = this.stocks_zusu.length - this.zusu.length;
+                if (a < this.distance) {
+                     this.allLoaded_zusu = true;
+                    for (i; i < a; i++) {
+                        this.zusu.push(this.stocks_zusu[len + i]);
+                    }
+                } else {
+                    for (i; i < this.distance; i++) {
+                        this.zusu.push(this.stocks_zusu[len + i]);
+                    }
+                }
+
+
+            },
+            getDate(date) {
+                this.stocks_jisu = [];
+                this.stocks_zusu = [];
+                this.jisu = [];
+                this.zusu = [];
+                // this.stocks_muju = [];
+                // this.stocks_other = [];
+                axios({
+                    url: "/handler/mobilehandler.ashx",
+                    method: "post",
+                    data: {
+                        "Action": "GetSafeStock",
+                        "date": date
+                    }
+                }).then((res) => {
+                    if (res) {
+                        vm.Now = res.message;
+                        if (res.data.length == 0) {
+                            return false;
+                        }
+                        res.data.forEach((o) => {
+                            switch (o.cInvDepCode) {
+                                case '0502':
+                                    vm.stocks_jisu.push(o);
+                                    break;
+                                case '0503':
+                                    vm.stocks_zusu.push(o);
+                                    break;
+                                    // case '0504':
+                                    //     vm.stocks_muju.push(o);
+                                    //     break;
+                                    // default:
+                                    //     vm.stocks_other.push(o);
+                                    //     break;
+                            }
+                        });
+                         this.getList_jisu();
+                        this.getList_zusu();
+                    }
+
+                })
+            }
+
+        },
+        mounted: function() {
+            //this.getList();
+            //this.getList_zusu();
+        },
+        created() {
+            this.h = document.documentElement.clientHeight - 96;
+            this.pickerValue = new Date();
+            this.getDate(GetQueryString('date'));
+        }
+    })
+
+    function FormatDate(date, fmt) {
+        var o = {
+            "M+": date.getMonth() + 1, //月份
+            "d+": date.getDate(), //日
+            "h+": date.getHours(), //小时
+            "m+": date.getMinutes(), //分
+            "s+": date.getSeconds(), //秒
+            "q+": Math.floor((date.getMonth() + 3) / 3), //季度
+            "S": date.getMilliseconds() //毫秒
+        };
+        if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
+        for (var k in o)
+            if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+        return fmt;
+    }
+
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+    </script>
+</body>
+
+</html>

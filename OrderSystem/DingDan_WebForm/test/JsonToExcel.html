@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+</head>
+<body>
+    <script src="js/JsonExportExcel.min.js"></script>
+    <script src="Vue/js/jquery-1.8.2.min.js"></script>
+    <!-- <script type="text/javascript" src="../node_modules/xlsx/dist/xlsx.core.min.js"></script>
+    <script type="text/javascript" src="../src/index.js"></script> -->
+    <script>
+
+$(function(){
+    GetAllCodeConfigProducts();
+})
+    function GetAllCodeConfigProducts(){
+    $.ajax({
+            type: "Post",
+            url: "../Handler/ProductHandler.ashx",
+            dataType: "Json",
+            data: { "Action": "GetCodeConfigProducts", "code": '01' },
+            success: function (res) {
+                if (res.flag != 1) {
+                    layer.alert(res.message, { icon: 2 });
+                    return false;
+                }
+                console.log(res.Products[0])
+               download(res.Products)
+            }
+    });
+}
+
+   var download=function (data) {
+        var option={};
+
+        // abc.data=[['sd卡分行看好了','sd卡分行看好了','sd卡分行看好了'],[1,2,3],[1,2,3]];
+        // option.datas=[{one:'一行一列',two:'一行二列'},{one:'二行一列',two:'二行二列'}];
+        // option.filter=['two','one'];
+        option.fileName = 'excel'
+              option.datas=[
+          {
+            sheetData:data,
+            sheetName:'sheet1',
+            sheetFilter:['','cInvCode','cInvName','cInvStd','UnitGroup','cComUnitName'],
+            sheetHeader:['自定义编码','系统产品编码','产品名称','产品规格','单位组','基本单位'],
+
+          } 
+        ];
+        // option.datas=[
+        //   {
+        //     sheetData:[{one:'一行3列一行3列一行3列一行3列',two:'一行二列'},{one:'二行一列',two:'二行二列'}],
+        //     sheetName:'asdf花样百出',
+        //      sheetFilter:['two','one'],
+        //     sheetHeader:['第一列1','第二列'],
+
+        //   } 
+        // ];
+        var toExcel=new ExportJsonExcel(option);
+        console.log(toExcel);
+         toExcel.saveExcel();
+    };
+    </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>新增特殊订单</title>
+	<meta name="renderer" content="webkit" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<link rel="stylesheet" href="/js/plugins/layui-2.2.2/layui/css/layui.css" media="all" />
+<style>
+	.layui-table th{
+		font-size: 12px;
+		font-weight: bold;
+	}
+	.layui-table td{
+		font-size: 12px;
+
+	}
+	.NumberError{
+		background-color: pink
+	}
+</style>
+</head>
+<body>
+
+	<div id="view">
+ 		<div style="margin: 0px;" class="iframe">
+    <div class="layui-tab">
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form layui-form-pane" action="" id="buy_form">
+                    <div class="layui-form-item btns">
+                        <input type="button" class="layui-btn  layui-btn-normal layui-btn-sm " id="select_product" value="选择商品" />
+                        <input type="button" class="layui-btn   layui-btn-normal layui-btn-sm"   id="del" value="删除勾选项" />
+                        <input type="button" class="layui-btn   layui-btn-danger layui-btn-sm" id="submit_buy_list" value="提交正式订单" />
+                        <input type="button" class="layui-btn    layui-btn-sm" page="buy" onclick='javascript:window.location.href="adminbuyorder.html"' value="跳转普通订单" />
+                        <!-- <input type="button" class="layui-btn   layui-btn-normal layui-btn-sm" page="buy" id="add" value="增加数据" /> -->
+                    </div>
+                    <div class="layui-row layui-col-space15">
+                        <div class="layui-col-md3">
+                            <label class="layui-form-label">备 注</label>
+                            <div class="layui-input-block"  >
+                                <textarea name="desc" placeholder="点击输入备注内容" id="strRemarks" class="layui-input"></textarea>
+                            </div>
+                        </div>
+                        <div class="layui-col-md3">
+                            <label class="layui-form-label">开票单位</label>
+                            <div class="layui-input-block " id="TxtCustomer_div"  >
+                                <select id="TxtCustomer" lay-filter="kpdw" name="TxtCustomer">
+                                    <option value lay-search>请选择开票单位</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layui-col-md3 layui-hide" >
+                            <label class="layui-form-label">信 用 额</label>
+                            <div class="layui-input-block">
+                                <label id="TxtCusCredit"  class="layui-form-label" style="width: 180px"></label>
+                                <label style="display:none" id="cdiscountname"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    
+                   <br>
+                    <table  id="tb" lay-filter="tb"></table>
+                <div class="layui-row">
+                    <div class="layui-col-md3">
+                        <label class="layui-form-label">商品总重量:</label>
+                        <label class="layui-form-label" id="weight">0</label>
+                    </div>
+                    <div class="layui-col-md3 layui-col-md-offset6">
+                        <label class="layui-form-label">总金额:</label>
+                        <label class="layui-form-label"   id="money">0</label>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+	</div>
+	<script type="text/html" id="toolBar">
+  <a class="layui-btn layui-btn-mini" lay-event="detail">查看详情</a>
+</script>
+<script type="text/html" id="ToolBar">
+  <a class="layui-btn layui-btn-mini" lay-event="edit">更新</a>
+  <a class="layui-btn layui-btn-danger layui-btn-mini" lay-event="del">删除</a>
+</script>
+
+<script type="text/html" id="idTpl">
+    <div>{{d.LAY_TABLE_INDEX+1}}</div>
+</script>
+<script type="text/html" id="unitGroupTpl">
+    <div>{{ (d.cinvdefine13).toString()+d.cComUnitName+'='+ Math.round(d.cinvdefine13/d.cinvdefine14).toString()+d.cInvDefine2+'=1'+d.cInvDefine1}}</div>
+</script>
+
+	<script src="/js/plugins/layui-2.2.2/layui/layui.all.js"></script>
+	<script type="text/javascript" src="/js/admin/Project/AdminBuySpecialOrder.js?v="+Math.random()></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+D:\work\DingDan_WebForm\DingDan_WebForm\bin\DingDan_WebForm.dll.config
+D:\work\DingDan_WebForm\DingDan_WebForm\bin\DingDan_WebForm.dll
+D:\work\DingDan_WebForm\DingDan_WebForm\bin\DingDan_WebForm.pdb
+D:\work\DingDan_WebForm\DingDan_WebForm\obj\Debug\DingDan_WebForm.dll
+D:\work\DingDan_WebForm\DingDan_WebForm\obj\Debug\DingDan_WebForm.pdb
+D:\work\DingDan_WebForm\DingDan_WebForm\obj\Debug\DingDan_WebForm.csprojResolveAssemblyReference.cache
+D:\work\DingDan_WebForm\DingDan_WebForm\bin\BLL.dll
+D:\work\DingDan_WebForm\DingDan_WebForm\bin\DAL.dll
+D:\work\DingDan_WebForm\DingDan_WebForm\bin\BLL.pdb
+D:\work\DingDan_WebForm\DingDan_WebForm\bin\DAL.pdb
+F:\DingDan_WebForm\DingDan_WebForm\bin\DingDan_WebForm.dll.config
+F:\DingDan_WebForm\DingDan_WebForm\bin\DingDan_WebForm.dll
+F:\DingDan_WebForm\DingDan_WebForm\bin\DingDan_WebForm.pdb
+F:\DingDan_WebForm\DingDan_WebForm\bin\BLL.dll
+F:\DingDan_WebForm\DingDan_WebForm\bin\DAL.dll
+F:\DingDan_WebForm\DingDan_WebForm\bin\BLL.pdb
+F:\DingDan_WebForm\DingDan_WebForm\bin\DAL.pdb
+F:\DingDan_WebForm\DingDan_WebForm\obj\Debug\DingDan_WebForm.csprojResolveAssemblyReference.cache
+F:\DingDan_WebForm\DingDan_WebForm\obj\Debug\DingDan_WebForm.dll
+F:\DingDan_WebForm\DingDan_WebForm\obj\Debug\DingDan_WebForm.pdb
+F:\DingDan_WebForm\DingDan_WebForm\bin\Model.dll
+F:\DingDan_WebForm\DingDan_WebForm\bin\Model.pdb
+F:\DingDan_WebForm - 副本 (2)\DingDan_WebForm\obj\Debug\DingDan_WebForm.csprojResolveAssemblyReference.cache
+F:\DingDan_WebForm - 副本 (2)\DingDan_WebForm\obj\Debug\DingDan_WebForm.dll
+F:\DingDan_WebForm - 副本 (2)\DingDan_WebForm\obj\Debug\DingDan_WebForm.pdb
+F:\DingDan_WebForm - 副本 (2)\DingDan_WebForm\bin\DingDan_WebForm.dll.config
+F:\DingDan_WebForm - 副本 (2)\DingDan_WebForm\bin\DingDan_WebForm.dll
+F:\DingDan_WebForm - 副本 (2)\DingDan_WebForm\bin\DingDan_WebForm.pdb
+F:\DingDan_WebForm - 副本 (2)\DingDan_WebForm\bin\BLL.dll
+F:\DingDan_WebForm - 副本 (2)\DingDan_WebForm\bin\DAL.dll
+F:\DingDan_WebForm - 副本 (2)\DingDan_WebForm\bin\Model.dll
+F:\DingDan_WebForm - 副本 (2)\DingDan_WebForm\bin\BLL.pdb
+F:\DingDan_WebForm - 副本 (2)\DingDan_WebForm\bin\DAL.pdb
+F:\DingDan_WebForm - 副本 (2)\DingDan_WebForm\bin\Model.pdb
+F:\DingDan_WebForm_V2\DingDan_WebForm\bin\DingDan_WebForm.dll.config
+F:\DingDan_WebForm_V2\DingDan_WebForm\bin\DingDan_WebForm.dll
+F:\DingDan_WebForm_V2\DingDan_WebForm\bin\DingDan_WebForm.pdb
+F:\DingDan_WebForm_V2\DingDan_WebForm\bin\BLL.dll
+F:\DingDan_WebForm_V2\DingDan_WebForm\bin\DAL.dll
+F:\DingDan_WebForm_V2\DingDan_WebForm\bin\Model.dll
+F:\DingDan_WebForm_V2\DingDan_WebForm\bin\BLL.pdb
+F:\DingDan_WebForm_V2\DingDan_WebForm\bin\DAL.pdb
+F:\DingDan_WebForm_V2\DingDan_WebForm\bin\Model.pdb
+F:\DingDan_WebForm_V2\DingDan_WebForm\obj\Debug\DingDan_WebForm.csprojResolveAssemblyReference.cache
+F:\DingDan_WebForm_V2\DingDan_WebForm\obj\Debug\DingDan_WebForm.dll
+F:\DingDan_WebForm_V2\DingDan_WebForm\obj\Debug\DingDan_WebForm.pdb
+F:\DingDan_WebForm_V2_SignalR\DingDan_WebForm\obj\Debug\DingDan_WebForm.csprojResolveAssemblyReference.cache
+F:\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\DingDan_WebForm.dll.config
+F:\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\DingDan_WebForm.dll
+F:\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\DingDan_WebForm.pdb
+F:\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\BLL.dll
+F:\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\DAL.dll
+F:\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\Microsoft.AspNet.SignalR.Core.dll
+F:\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\Model.dll
+F:\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\Newtonsoft.Json.dll
+F:\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\SignalR.dll
+F:\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\Owin.dll
+F:\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\Microsoft.Owin.dll
+F:\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\Microsoft.Owin.Security.dll
+F:\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\BLL.pdb
+F:\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\DAL.pdb
+F:\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\Model.pdb
+F:\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\SignalR.pdb
+F:\DingDan_WebForm_V2_SignalR\DingDan_WebForm\obj\Debug\DingDan_WebForm.dll
+F:\DingDan_WebForm_V2_SignalR\DingDan_WebForm\obj\Debug\DingDan_WebForm.pdb
+F:\工作目录\陈佳\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\DingDan_WebForm.dll.config
+F:\工作目录\陈佳\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\DingDan_WebForm.dll
+F:\工作目录\陈佳\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\DingDan_WebForm.pdb
+F:\工作目录\陈佳\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\BLL.dll
+F:\工作目录\陈佳\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\DAL.dll
+F:\工作目录\陈佳\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\Microsoft.AspNet.SignalR.Core.dll
+F:\工作目录\陈佳\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\工作目录\陈佳\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\Model.dll
+F:\工作目录\陈佳\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\Newtonsoft.Json.dll
+F:\工作目录\陈佳\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\SignalR.dll
+F:\工作目录\陈佳\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\Owin.dll
+F:\工作目录\陈佳\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\Microsoft.Owin.dll
+F:\工作目录\陈佳\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\Microsoft.Owin.Security.dll
+F:\工作目录\陈佳\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\BLL.pdb
+F:\工作目录\陈佳\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\DAL.pdb
+F:\工作目录\陈佳\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\Model.pdb
+F:\工作目录\陈佳\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\SignalR.pdb
+F:\工作目录\陈佳\DingDan_WebForm_V2_SignalR\DingDan_WebForm\obj\Debug\DingDan_WebForm.csprojResolveAssemblyReference.cache
+F:\工作目录\陈佳\DingDan_WebForm_V2_SignalR\DingDan_WebForm\obj\Debug\DingDan_WebForm.dll
+F:\工作目录\陈佳\DingDan_WebForm_V2_SignalR\DingDan_WebForm\obj\Debug\DingDan_WebForm.pdb
+E:\devpro\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\DingDan_WebForm.dll.config
+E:\devpro\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\DingDan_WebForm.dll
+E:\devpro\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\DingDan_WebForm.pdb
+E:\devpro\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\BLL.dll
+E:\devpro\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\DAL.dll
+E:\devpro\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\Microsoft.AspNet.SignalR.Core.dll
+E:\devpro\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\devpro\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\Model.dll
+E:\devpro\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\Newtonsoft.Json.dll
+E:\devpro\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\SignalR.dll
+E:\devpro\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\Microsoft.Owin.dll
+E:\devpro\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\Owin.dll
+E:\devpro\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\Microsoft.Owin.Security.dll
+E:\devpro\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\BLL.pdb
+E:\devpro\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\DAL.pdb
+E:\devpro\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\Model.pdb
+E:\devpro\DingDan_WebForm_V2_SignalR\DingDan_WebForm\bin\SignalR.pdb
+E:\devpro\DingDan_WebForm_V2_SignalR\DingDan_WebForm\obj\Debug\DingDan_WebForm.csprojAssemblyReference.cache
+E:\devpro\DingDan_WebForm_V2_SignalR\DingDan_WebForm\obj\Debug\DingDan_WebForm.csproj.CoreCompileInputs.cache
+E:\devpro\DingDan_WebForm_V2_SignalR\DingDan_WebForm\obj\Debug\DingDan_WebForm.csproj.CopyComplete
+E:\devpro\DingDan_WebForm_V2_SignalR\DingDan_WebForm\obj\Debug\DingDan_WebForm.dll
+E:\devpro\DingDan_WebForm_V2_SignalR\DingDan_WebForm\obj\Debug\DingDan_WebForm.pdb
+E:\devpro\DingDan_WebForm_V2_SignalR(20190121增加PE)\DingDan_WebForm\bin\DingDan_WebForm.dll.config
+E:\devpro\DingDan_WebForm_V2_SignalR(20190121增加PE)\DingDan_WebForm\bin\DingDan_WebForm.dll
+E:\devpro\DingDan_WebForm_V2_SignalR(20190121增加PE)\DingDan_WebForm\bin\DingDan_WebForm.pdb
+E:\devpro\DingDan_WebForm_V2_SignalR(20190121增加PE)\DingDan_WebForm\bin\BLL.dll
+E:\devpro\DingDan_WebForm_V2_SignalR(20190121增加PE)\DingDan_WebForm\bin\DAL.dll
+E:\devpro\DingDan_WebForm_V2_SignalR(20190121增加PE)\DingDan_WebForm\bin\Microsoft.AspNet.SignalR.Core.dll
+E:\devpro\DingDan_WebForm_V2_SignalR(20190121增加PE)\DingDan_WebForm\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\devpro\DingDan_WebForm_V2_SignalR(20190121增加PE)\DingDan_WebForm\bin\Model.dll
+E:\devpro\DingDan_WebForm_V2_SignalR(20190121增加PE)\DingDan_WebForm\bin\Newtonsoft.Json.dll
+E:\devpro\DingDan_WebForm_V2_SignalR(20190121增加PE)\DingDan_WebForm\bin\SignalR.dll
+E:\devpro\DingDan_WebForm_V2_SignalR(20190121增加PE)\DingDan_WebForm\bin\Microsoft.Owin.dll
+E:\devpro\DingDan_WebForm_V2_SignalR(20190121增加PE)\DingDan_WebForm\bin\Owin.dll
+E:\devpro\DingDan_WebForm_V2_SignalR(20190121增加PE)\DingDan_WebForm\bin\Microsoft.Owin.Security.dll
+E:\devpro\DingDan_WebForm_V2_SignalR(20190121增加PE)\DingDan_WebForm\bin\BLL.pdb
+E:\devpro\DingDan_WebForm_V2_SignalR(20190121增加PE)\DingDan_WebForm\bin\DAL.pdb
+E:\devpro\DingDan_WebForm_V2_SignalR(20190121增加PE)\DingDan_WebForm\bin\Model.pdb
+E:\devpro\DingDan_WebForm_V2_SignalR(20190121增加PE)\DingDan_WebForm\bin\SignalR.pdb
+E:\devpro\DingDan_WebForm_V2_SignalR(20190121增加PE)\DingDan_WebForm\obj\Debug\DingDan_WebForm.csprojResolveAssemblyReference.cache
+E:\devpro\DingDan_WebForm_V2_SignalR(20190121增加PE)\DingDan_WebForm\obj\Debug\DingDan_WebForm.dll
+E:\devpro\DingDan_WebForm_V2_SignalR(20190121增加PE)\DingDan_WebForm\obj\Debug\DingDan_WebForm.pdb

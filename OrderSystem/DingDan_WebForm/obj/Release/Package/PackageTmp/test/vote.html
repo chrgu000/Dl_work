@@ -1,0 +1,318 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <link href="../../js/plugins/mdui/css/mdui.min.css" rel="stylesheet" />
+    <style>
+        .rank_name {
+            width: 70%;
+        }
+
+        .rank_num {
+            width: 140px;
+        }
+    </style>
+</head>
+<br>
+<body class="mdui-appbar-with-toolbar mdui-appbar-with-tab">
+
+    <div class="mdui-appbar mdui-appbar-fixed">
+        <div class="mdui-toolbar mdui-color-blue-900">
+            <a href="index.html" class="mdui-btn mdui-btn-icon">
+                <i class="mdui-icon material-icons">home</i>
+            </a>
+            <a href="javascript:;" class="mdui-typo-title" id="title">自动投票</a>
+            <div class="mdui-toolbar-spacer"></div>
+            <a href="javascript:;" mdui-dialog="{target: '#setting'}" class="mdui-btn mdui-btn-icon">
+                <i class="mdui-icon material-icons">settings</i>
+            </a>
+            <a href="javascript:;" onclick='location.reload()' class="mdui-btn mdui-btn-icon">
+                <i class="mdui-icon material-icons">refresh</i>
+            </a>
+        </div>
+
+        <div class="mdui-tab mdui-tab-full-width mdui-color-blue-a200" mdui-tab>
+            <a href="#tab1" class="mdui-ripple mdui-ripple-white">操作统计</a>
+            <a href="#tab2" class="mdui-ripple mdui-ripple-white">成功信息</a>
+            <a href="#tab3" class="mdui-ripple mdui-ripple-white">错误信息</a>
+
+        </div>
+    </div>
+
+    <div class="mdui-container-fluid">
+        <div id="tab1">
+            <button class="mdui-btn mdui-color-teal-600 mdui-ripple" id="start">
+                <i class="mdui-icon material-icons">play_arrow</i>
+                开始投票
+            </button>
+            <button class="mdui-btn mdui-color-pink-500 mdui-ripple" id="stop">
+                <i class="mdui-icon material-icons">stop</i>
+                停止投票
+            </button>
+            <button class="mdui-btn mdui-btn-raised  mdui-btn-dense  mdui-color-blue mdui-ripple">
+                <i class="mdui-icon material-icons mdui-text-color-red-500  ">directions_bike</i>
+                <span id="now_num"></span>
+            </button>
+            <div class="mdui-list-item mdui-ripple ">
+                <!--     <i class="mdui-list-item-icon mdui-icon material-icons mdui-color-red">assistant_photo</i>
+                -->
+                <h4>本次投票累计</h4>
+                <br />
+
+                <div class="mdui-list-item   mdui-ripple">
+                    <i class="mdui-icon material-icons  mdui-text-color-cyan-700">cloud_done</i>
+                    成功:
+                    <span class=" mdui-text-color-red" id="Scount">0</span>
+                </div>
+                <div class="mdui-list-item">
+                    <i class="mdui-icon material-icons mdui-text-color-red-400">local_offer</i>
+                    失败:
+                    <span class=" mdui-text-color-red" id="Ecount">0</span>
+                </div>
+            </div>
+            <div class="mdui-divider"></div>
+            <br>
+            <div id="res_html" style="display: none"></div>
+            <ul class="mdui-list">
+                <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-icon material-icons mdui-text-color-red-400">assistant_photo</i>
+                    <div class="mdui-list-item-content  mdui-text-color-red-400 rank_name" id="Rank1_name"></div>
+                    <button class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-color-blue mdui-ripple rank_num">
+                        <i class="mdui-icon material-icons mdui-text-color-red">directions_run</i>
+                        <span id="Rank1_num">0</span>
+                    </button>
+                </li>
+                <li class="mdui-divider  "></li>
+                <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-icon material-icons mdui-text-color-blue-400">assistant_photo</i>
+                    <div class="mdui-list-item-content mdui-text-color-blue-400 rank_name" id="Rank2_name"></div>
+                    <button class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-color-blue mdui-ripple rank_num">
+                        <i class="mdui-icon material-icons mdui-text-color-red">directions_run</i>
+                        <span id="Rank2_num">0</span>
+                    </button>
+                </li>
+                <li class="mdui-divider"></li>
+                <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-icon material-icons mdui-text-color-amber-900">assistant_photo</i>
+                    <div class="mdui-list-item-content mdui-text-color-amber-900 rank_name" id="Rank3_name"></div>
+                    <button class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-color-blue mdui-ripple rank_num">
+                        <i class="mdui-icon material-icons mdui-text-color-red">directions_run</i>
+                        <span id="Rank3_num">0</span>
+                    </button>
+                </li>
+                <li class="mdui-divider"></li>
+                <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-icon material-icons mdui-text-color-cyan">assistant_photo</i>
+                    <div class="mdui-list-item-content mdui-text-color-cyan rank_name" id="Rank4_name"></div>
+                    <button class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-color-blue mdui-ripple rank_num">
+                        <i class="mdui-icon material-icons mdui-text-color-red">directions_run</i>
+                        <span id="Rank4_num">0</span>
+                    </button>
+                </li>
+                <li class="mdui-divider"></li>
+                <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-icon material-icons mdui-text-color-green-700">assistant_photo</i>
+                    <div class="mdui-list-item-content mdui-text-color-green-700 rank_name" id="Rank5_name"></div>
+                    <button class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-color-blue mdui-ripple rank_num">
+                        <i class="mdui-icon material-icons mdui-text-color-red">directions_run</i>
+                        <span id="Rank5_num">0</span>
+                    </button>
+                </li>
+                <li class="mdui-divider"></li>
+            </ul>
+        </div>
+        <div id="tab2">
+            <ul class="mdui-list" id="success"></ul>
+        </div>
+        <div id="tab3">
+            <ul class="mdui-list" id="error"></ul>
+        </div>
+    </div>
+
+    <div class="mdui-dialog" id="setting" style="display: none;width:50%; top: 95.406px; height: 300px;">
+        <div class="mdui-dialog-title mdui-color-indigo-a200">参数设置</div>
+        <div class="mdui-dialog-content" style="height: 300px;">
+
+            <div class="mdui-divider-dark"></div>
+            <form class="mdui-row">
+                <br>
+                <div class="mdui-col mdui-text-color-blue">
+                    <div>延迟秒数</div>
+                    <label class="mdui-slider mdui-slider-discrete">
+                        <input type="range" step="1" min="7" max="50" id="delay_num" value="7" />
+                    </label>
+                </div>
+                <br>
+                <div class="mdui-divider-dark"></div>
+                <br>
+                <div class="mdui-col mdui-text-color-blue">
+                    <div>执行次数</div>
+                    <label class="mdui-radio ">
+                        <input type="radio" name="run_radio" value="0">
+                        <i class="mdui-radio-icon"></i>
+                        重复执行
+                    </label>
+                    <label class="mdui-radio ">
+                        <input type="radio" name="run_radio" value="1" checked="true">
+                        <i class="mdui-radio-icon"></i>
+                        自定义次数
+                    </label>
+                    <label class="mdui-slider mdui-slider-discrete">
+                        <input type="range" step="10" min="1" max="1000" id="run_num" value="10" />
+                    </label>
+                </div>
+
+            </form>
+
+        </div>
+        <div class="mdui-divider"></div>
+        <div class="mdui-dialog-actions">
+            <!-- <button class="mdui-btn   mdui-ripple mdui-float-left" mdui-dialog-cancel="">取消</button>
+            -->
+            <button class="mdui-btn mdui-ripple" id="fastSearchBtn" mdui-dialog-confirm="">确认</button>
+        </div>
+    </div>
+
+    <script src="../../js/plugins/mdui/js/mdui.min.js"></script>
+    <script>
+        var $$ = mdui.JQ;
+        var interval, Scount = 0, Ecount = 0, delay = 0, delay_num = 0, run_num = 0, run_count = 0;
+
+        $$(function () {
+
+
+            $$('#stop').hide();
+            $$(document).on('click', '#start', function () {
+                delay_num = $$('#delay_num').val();
+                run_count = 0;
+                if ($$('input[name=run_radio]:checked').val() == 1) {
+                    run_num = $$('#run_num').val();
+                } else {
+                    run_num = 0;
+                }
+                interval = setInterval(start, delay_num * 1000);
+
+
+                $$('#start').hide();
+                $$('#stop').show();
+                mdui.snackbar({ message: '开始自动投票', timeout: 1000 });
+            })
+            $$(document).on('click', '#stop', function () {
+                clearInterval(interval);
+                $$('#stop').hide();
+                $$('#start').show();
+                mdui.snackbar({ message: '结束自动投票', timeout: 1000 });
+            })
+        })
+
+        function vote() {
+            $$.ajax({
+                method: 'POST',
+                url: '/handler/mobileHandler.ashx',
+                dataType: 'json',
+                async: false,
+                data: { 'Action': 'vote' },
+                success: function (res) {
+                    // console.log(res);
+
+                    if (res.flag != 1) {
+                        mdui.snackbar({ message: res.message, timeout: 1000 });
+                        return false;
+                    }
+                    res.html = res.html.trim();
+                    // console.log(res)
+                    var html = '';
+                    var MsgRegex = /<script>window.alert\(\'([^\"]*)\'\);self.location.href=document.referrer;/;
+                    // var RankRegex = /<div class="qiye-list com hvideo">\s<ul class="clearfix">\s([^\']*?)<\/ul>/;
+                    // var RankRegex = /<div class="qiye-list com hvideo">\s*<ul class="clearfix">\s*([^\"]*?)\s*<\/ul>/;
+
+                    // console.log(res["html"].match(RankRegex))
+                    if (res.message == '投票成功') {
+                        html += ' <li class="mdui-list-item mdui-ripple"> <i class="mdui-list-item-icon mdui-icon material-icons mdui-color-cyan-700">move_to_inbox</i><div class="mdui-list-item-content">\
+                        <div class="mdui-list-item-title">'+ res.message + '</div>\
+                        <div class="mdui-list-item-text">提交时间：'+ res.endTime + '</div>\
+                        <div class="mdui-list-item-text">延迟毫秒：'+ (delay + delay_num * 1000) + '</div>\
+                        </div></li><li class="mdui-divider"></li>';
+                        $$('#success').prepend(html);
+                        if ($$('#success .mdui-list-item').length > 6) {
+                            $$('#success .mdui-list-item').last().remove();
+                            $$('#success .mdui-divider').last().remove();
+                        }
+                        Scount += 1;
+                        $$('#Scount').text(Scount);
+
+
+                    } else if (res.message == '投票失败') {
+
+                        var n = res['html'].match(MsgRegex);
+                        var emsg = n.length > 0 ? n[1] : '未获取错误原因';
+                        html += ' <li class="mdui-list-item mdui-ripple"> <i class="mdui-list-item-icon mdui-icon material-icons mdui-color-deep-orange-a700">move_to_inbox</i><div class="mdui-list-item-content">\
+                            <div class="mdui-list-item-title">'+ emsg + '</div>\
+                            <div class="mdui-list-item-text">提交时间：'+ res.endTime + '</div>\
+                            </div></li><li class="mdui-divider"></li>';
+                        $$('#error').prepend(html);
+                        Ecount += 1;
+                        $$('#Ecount').text(Ecount);
+                    }
+
+                    mdui.snackbar({ message: res.message, timeout: 1000 });
+                    Rank(res);
+                }
+            });
+        }
+        function start() {
+            if (run_num != 0 && run_num == run_count) {
+                clearInterval(interval);
+                $$('#stop').hide();
+                $$('#start').show();
+                return false;
+            }
+            delay = parseInt(Math.random() * 3000);
+            setTimeout(vote, delay);
+            run_count += 1;
+        }
+
+        function Rank(res) {
+            var RankRegex = /<div class='txt'>([^\"]*?)<\/div>/g;
+            var n = res['html'].match(RankRegex);
+            if (n.length > 0) {
+
+                var h = n[0] + n[1] + n[2] + n[3] + n[4];
+                $$('#res_html').html(h);
+            }
+
+            var res_html = $$('#res_html .txt');
+            $$.each(res_html, function (i, v) {
+                var a = i + 1;
+                $$('#Rank' + a + '_name').text(v.children[0].innerText);
+                $$('#Rank' + a + '_num').text(v.children[1].innerText);
+            })
+
+            if ($$('#Rank1_name').text() == '四川多联实业有限公司') {
+                $$('#now_num').text('你领先第二名:' + ($$('#Rank1_num').text().split('：')[1] - $$('#Rank2_num').text().split('：')[1]) + '票');
+            } else {
+                $$.each($$('.rank_name'), function (i, v) {
+                    if ($$(v).text() == '四川多联实业有限公司') {
+                        $$('#now_num').text('离第一名还差:' + ($$('#Rank1_num').text().split('：')[1] - $$('#Rank' + (i + 1) + '_num').text().split('：')[1]) + '票');
+                    }
+                })
+            }
+        }
+
+
+
+        function stop() {
+
+        }
+        function test() {
+            console.log('test');
+        }
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="../../js/plugins/vue/vue-2.5.13.min.js"></script>
+    <link href="../../js/plugins/element/2.2.1/index.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"> -->
+    <link href="../../js/plugins/vue/loading.css" rel="stylesheet" />
+    <style type="text/css">
+    #vm {
+        width: 50%;
+        margin: 100px auto;
+        /*border: 1px solid #ccc;*/
+        text-align: center;
+    }
+
+    .el-input__inner {
+        width: 350px;
+    }
+
+    .el-row {
+        margin-top: 30px;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="vm">
+        <el-row :gutter="20">
+            <el-col :span="16" :offset="3">
+                选择登录账号：
+                <el-select v-model="mainValue" phone='' filterable placeholder="请选择选择登录账号" ref="mainRef" @change="mainChange">
+                    <el-option v-for="item in mainData" :key="item.cCusCode" :label="item.cCusCode +'----'+ item.cCusName" :value="item.cCusCode">
+                        <span style="float: left">{{ item.cCusCode }}</span>
+                        <span style="float: right; color: #8492a6; font-size: 13px">{{ item.cCusName }}</span>
+                    </el-option>
+                </el-select>
+            </el-col>
+        </el-row>
+        <el-row :gutter="24" style="margin-top: 20px">
+            <el-col :span="16" :offset="3">
+                选择客户电话：
+                <el-select v-model="phoneValue" filterable placeholder="选择下单账号登录电话">
+                    <el-option v-for="item in phoneArr" :key="item" :value="item">
+                    </el-option>
+                </el-select>
+            </el-col>
+        </el-row>
+        <el-row :gutter="20" style="margin-top: 20px" v-show="loginVisible">
+            <el-button type="primary" @click="cancelOrder">登 录<i class="el-icon-upload el-icon--right"></i></el-button>
+        </el-row>
+        <!--         <h1>Main:{{mainValue}}</h1>
+        <h1>Sub:{{phoneValue}}</h1> -->
+    </div>
+    <script src="../../js/plugins/vue/axios.js"></script>
+    <script src="../../js/plugins/vue/axios_FUN.js"></script>
+    <script src="../../js/plugins/element/2.2.1/index.js"></script>
+    <script type="text/javascript">
+    axios.defaults.baseURL = '/handler/adminhandler.ashx';
+    var vm = new Vue({
+        el: '#vm',
+        data: {
+            mainData: [],
+            subData: [],
+
+            mainValue: '',
+            phoneValue: '',
+             
+        },
+        methods: {
+            cancelOrder(row) {
+                var _this = this;
+                vm.$confirm('你确定要作废' + row.strBillNo + '订单？', {
+                    type: 'warning'
+                }).then(() => {
+                    axios({
+                        method: 'post',
+                        data: {
+                            "Action": "CancelOrder",
+                            "lngopOrderId": row.lngopOrderId
+                        }
+                    }).then(function(res) {
+
+                        if (res) {
+                            row.bytStatus = 99;
+                            _this.$message.success(res.message);
+                        }
+                    });
+                }).catch(() => {
+                    return;
+                })
+            },
+            mainChange(val) {
+                this.phoneValue = '';
+                if (this.phoneArr.length == 1) {
+                    this.phoneValue = this.phoneArr[0];
+                }
+            }
+        },
+        computed: {
+            phoneArr() {
+                let str = '';
+                this.mainData.forEach((o) => {
+                    if (o.cCusCode == this.mainValue) {
+                        str = o.ccusphone;
+                    }
+                });
+                this.subData.forEach((o) => {
+                    if (o.ccuscode == this.mainValue) {
+                        str += ';' + o.strSubPhone;
+                    }
+                })
+
+                return str.split(';');
+            },
+            loginVisible() {
+                if (this.mainValue.trim() != '' && this.phoneValue.trim() != '') {
+                    return true;
+                } else {
+                    return false;
+                }
+            } 
+        },  
+        created() {
+            var _this = this;
+            axios({
+                method: 'post',
+                data: {
+                    "Action": "GetAllUserCode",
+                }
+            }).then(function(res) {
+                console.log(res);
+                if (res) {
+                    _this.mainData = res.MainCode;
+                    _this.subData = res.SubCode;
+                }
+                 console.log( _this.mainData);
+            });
+        } 
+
+    })
+    </script>
+</body>
+
+</html>

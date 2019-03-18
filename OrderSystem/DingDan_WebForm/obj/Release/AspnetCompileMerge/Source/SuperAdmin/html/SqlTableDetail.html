@@ -1,0 +1,318 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>数据库表详情</title>
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="/js/plugins/layui-v2/layui/css/layui.css" media="all" />
+    <style></style>
+</head>
+<body>
+    <div>
+        <div style="width: 95%;margin:20px auto">
+
+            <form action="" class="layui-form layui-form-pane">
+                <div class="layui-form-item">
+
+                    <div class="layui-inline">
+                      <label class="layui-form-label">选择表</label>
+                        <div class="layui-input-block">
+                            
+                            <select   id="TableName"  lay-search>
+                                   <option value="">选择表</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="layui-inline">
+                        <div class="layui-input-block">
+                            <button class="layui-btn layui-btn-normal" id="btn" type="button"><i class="layui-icon">&#xe615;</i> 查询数据表</button>
+                        </div>
+                    </div>
+                </div>
+                 <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">表名</label>
+                        <div class="layui-input-block">
+                             <input type="text" id="t_name"  autocomplete="off" disabled="" class="layui-input">
+                        </div>
+                    </div>
+                <div class="layui-inline">
+                        <label class="layui-form-label">表说明</label>
+                        <div class="layui-input-block">
+                             <input type="text" id="t_des" style="width:800px"  autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <div class="layui-input-block">
+                            <button class="layui-btn  " id="Save" type="button"><i class="layui-icon">&#xe618;</i>   保存表说明</button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="layui-row">
+                    <table id="tb"  lay-filter="tb"></table>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <script type="text/html" id="idTpl">
+        <div>{{d.LAY_TABLE_INDEX+1}}</div>
+    </script>
+    <script type="text/html" id="ToolBar">
+     <a class="layui-btn layui-btn-mini  " lay-event="edit">编辑</a>
+        <!-- <a class="layui-btn layui-btn-mini layui-btn-danger" lay-event="save">保存</a> -->
+        <!-- <a class="layui-btn layui-btn-danger layui-btn-mini" lay-event="del">更新表说明</a> -->
+    </script>
+    <script type="text/html" id="timeTpl">{{d.createtime.replace('T',' ')}}</script>
+    <script src="/js/plugins/layui-v2/layui/layui.all.js"></script>
+<!--     <script>$ = layui.jquery;</script> -->
+    <script src="../js/SuperAdmin_Fun.js"></script>
+    <script type="text/javascript">
+        ; !(function () {
+            var form = layui.form, table = layui.table ,AllSqlTables={};
+
+
+
+            //表格配置
+            var tb_options = {
+                elem: "#tb",
+                id: "tb",
+                page: 0,
+                limit: 500,
+                height: 600,
+                // size: 'lg',
+                even: true,
+                data: [],
+                cols: [
+                    [
+
+                        {
+                            fixed: 'left',
+                            field: '字段序号',
+                            title: '序号',
+                            width: 60,
+                            align: 'center',
+                            templet: '#idTpl',
+                        },
+                        { title: '操作',
+                            fixed: 'left',
+                            width: 100,
+                            align: 'center',
+                            toolbar: '#ToolBar'
+                        },
+                {
+                    field: '字段名',
+                    title: '字段名',
+                    width: 250,
+                    align: 'center',
+                },
+                {
+                    field: '字段说明',
+                    title: '字段说明',
+                    width: 300,
+                    align: 'center',
+                }
+,
+                         {
+                             field: '标识',
+                             title: '标识',
+                             width: 60,
+                             align: 'center',
+                         }, {
+                             field: '主键',
+                             title: '主键',
+                             width: 60,
+                             align: 'center',
+                         },
+                {
+                    field: '类型',
+                    title: '类型',
+                    width: 100,
+                    align: 'center',
+                },
+                         {
+                             field: '占用字节数',
+                             title: '占用字节数',
+                             width: 100,
+                             align: 'center',
+                         }, {
+                             field: '长度',
+                             title: '长度',
+                             width: 60,
+                             align: 'center',
+                         },
+                {
+                    field: '小数位数',
+                    title: '小数位数',
+                    width: 100,
+                    align: 'center',
+                },
+                         {
+                             field: '允许空',
+                             title: '允许空',
+                             width: 80,
+                             align: 'center',
+                         }, {
+                             field: '默认值',
+                             title: '默认值',
+                             width: 200,
+                             align: 'center',
+                         }
+
+                    ]
+                ]
+            };
+
+            $('#btn').click(function () {
+                Search($('#Number').val())
+            })
+
+            var TableName=GetQueryString('TableName');
+            GetAllSqlTables();
+            if (TableName!=null&&TableName!='') {
+                Search(TableName);
+            }else{
+            table.render(tb_options);
+
+            }
+
+ 
+
+
+                //保存字段说明
+             table.on('tool(tb)',function(obj){
+           layer.open({
+                type:1,
+                title:'修改字段：'+obj.data['字段名'],
+                area:['400px','250px'],
+                content:'<div style=" margin:10px auto;width:90%">  <form action="" class="layui-form layui-form-pane">\
+<textarea type="text"    placeholder="请输入字段说明" id="ColumnDes"  class="layui-textarea">'+obj.data['字段说明']+'</textarea> </form></div>',
+                btn:['确定','关闭'],
+                btn1:function(){
+                    var d={};
+                    var ColumnDes=$('#ColumnDes').val().trim()
+                    d.Action='UpdateSqlTableDescription';
+                    d.TableName=obj.data['表名'];
+                    d.Column='column';
+                    d.ColumnName=obj.data['字段名'];
+                    d.Description=ColumnDes;
+                     UpdateSqlTableDescription(d,obj);
+                 
+                }
+               })
+
+             })
+
+             //保存表说明
+             $("#Save").click(function(){
+                if ($('#t_name').val()=='') {
+                    errMsg('请先查询表数据!');
+                    return false;
+                }
+
+                       var d={};
+                    d.Action='UpdateSqlTableDescription';
+                    d.TableName=$('#t_name').val();
+                    d.Description=$('#t_des').val().trim();
+                     UpdateSqlTableDescription(d);
+             })
+
+            function GetAllSqlTables(){
+                                $.ajax({
+                    type: "Post",
+                    url: "/Handler/AdminHandler.ashx",
+                    dataType: "Json",
+                    async:false,
+                    data: {
+                        "Action": "GetSqlTables",
+                        "Type": 0,
+                        "TableName": 'dl_'
+                    },
+                    success: function (res) {
+                        if (res.flag != "1") {
+                            layer.alert(res.message, { icon: 2 });
+                            return false;
+                        }
+
+                        AllSqlTables=res.table;
+                       
+                        var html='<option value>选择表名</option>';
+                        $.each(AllSqlTables,function(i,v){
+                            html+='<option value="'+v.TableName+'">'+v.TableName+' ： '+v.TableDes+'</option>'
+                        })
+                        $('#TableName').html(html);
+                        form.render('select');
+                         
+                    }
+                });
+            }
+
+            function Search(TableName) {
+                if ($("#TableName").val() == '') {
+                    layer.msg('表名不能为空！');
+                    return false;
+                }
+
+                $.ajax({
+                    type: "Post",
+                    url: "/Handler/AdminHandler.ashx",
+                    dataType: "Json",
+                    data: {
+                        "Action": "GetSqlTableDetail",
+                        //"Type": $("#Type").val(),
+                        "TableName": $("#TableName").val()
+                    },
+                    success: function (res) {
+                        if (res.flag != "1") {
+                            layer.alert(res.message, { icon: 2 });
+                            return false;
+                        }
+
+                        tb_options.data = res.table;
+                        table.render(tb_options);
+                        $('#t_name').val(res.table[0]["表名"]);
+                        $('#t_des').val(res.table[0]["表说明"]);
+                        if (res.table.length > 0) {
+                            layer.msg('查询成功！');
+                        } else {
+                            errMsg('未查询数据表，请核实后重新查询！')
+                        }
+                    }
+                });
+            }
+
+            function UpdateSqlTableDescription(d,obj){
+                $.ajax({
+                    type: "Post",
+                    url: "/Handler/AdminHandler.ashx",
+                    dataType: "Json",
+                    data: d,
+                    success: function (res) {
+                        if (res.flag != "1") {
+                            errMsg(res.message);
+                            return false;
+                        }
+                        layer.closeAll();
+                        layer.msg('保存成功',{icon:1});
+                        if (obj) {
+                     obj.update({
+                        '字段说明':d.Description
+                     })
+                        }
+                    }
+                });
+            }
+
+  
+        })();
+
+
+
+
+    </script>
+</body>
+</html>

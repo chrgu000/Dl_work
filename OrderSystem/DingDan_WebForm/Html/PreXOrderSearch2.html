@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>多联网上订单系统</title>
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="../js/plugins/layui-1.0.9/css/layui.css" media="all" />
+    <link href="../js/plugins/dataTables/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <style>
+        .layui-table th, .layui-table td {
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .btns {
+            border-bottom: 1px solid #7bd1e0;
+            height: 50px;
+            line-height: 50px;
+        }
+         .bl {
+            vertical-align: middle;
+            line-height: 36px;
+        }
+    </style>
+</head>
+<body>
+    <div style="margin: 0px;" class="iframe">
+        <div class="layui-tab">
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+                    <form class="layui-form" action=""  id="buy_form">
+                        <div class="layui-form-item btns">
+                            <div class="layui-inline">
+                                <label class="layui-form-label">订单编号</label>
+                                <div class="layui-input-inline" style="width: 200px;">
+                                    <input id="strbillno" type="text" class="layui-input" placeholder="输入需要查询的订单号"></div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">时间范围</label>
+                                <div class="layui-input-inline">
+                                    <input class="layui-input" placeholder="开始日期" id="start_date"></div>
+                                <div class="layui-input-inline">
+                                    <input class="layui-input" placeholder="截止日期" id="end_date"></div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">订单状态</label>
+                                <div class="layui-input-inline" style="width: 200px;">
+                                    <select class="layui-select" id="orderStatus">
+                                        <option value="0">全部</option>
+                                        <option value="4">已审核</option>
+                                        <option value="1">未审核</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <input type="button" id="btn" class="layui-btn" value="查询">
+                           <!--     <input type="button" id="btn1" class="layui-btn" value="测试">-->
+                                <input type="button" onclick="window.location.reload()" class="layui-btn" value="刷新"></div>
+                        </div>
+                        <div class="layui-form-item">
+                            <table class="layui-table" id="PreXOrder_list"></table>
+                        </div>
+                         <br>
+                        <div id="detail" >
+                            <div class="layui-form-item">
+                                <div class="layui-inline" id="info" style="width: 100%; " >
+                                  
+                                </div>
+
+                            </div>
+                            <table class="layui-table" id="PreXOrder_detail"></table>
+                           
+                            <div class="layui-form-item">
+                                <div style="float: left"></div>
+                                <div style="float: right">
+                                    <div class="layui-inline" style="width: 100%">
+                                        <label class="layui-form-label">总金额:</label>
+                                        <label class="layui-form-label" style="text-align: left" id="money"></label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../js/plugins/layui-1.0.9/layui.js"></script>
+    <script src="../js/plugins/dataTables/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="../js/Project/PreXOrderSearch.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>后台预约列表</title>
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link href="/js/plugins/bootstrapTable/bootstrap.min.css" rel="stylesheet" />
+    <link href="/js/plugins/bootstrapTable/bootstrap-table.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/js/plugins/layui-v2/layui/css/layui.css" media="all" />
+    <style>
+.btn-group{
+   margin-right: 15px;
+}
+
+.tr_selected  {
+    background-color: #479AC7;
+    color:#ffffff;
+    font-weight: bold;
+}
+
+.table-hover>tbody>tr:hover{
+        background-color: #479AC7;
+    color:#ffffff;
+    font-weight: bold;
+}
+    .step-title {
+            padding: 20px 0 20px 20px;
+            float: left;
+            color: #001db1;
+            cursor: pointer;
+        }
+ 
+        .step {
+            min-height: 150px;
+        }
+
+        .step-title span {
+            font-size: 30px;
+            font-weight: 100;
+            padding-right: 20px;
+        }
+
+        .step-content {
+            padding: 20px 0 20px 40px;
+            width: 80%;
+            margin: 0 auto;
+            float: left;
+        }
+
+        hr {
+            width: 90%;
+            /*background-color:black;*/
+            margin: 0 auto;
+        }
+
+        .time_selected {
+            background-color: #7ABD54;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .en_time:hover {
+            background-color: #7ABD54;
+        }
+
+        .dis_time {
+            background-color: #eeeeee;
+            cursor: not-allowed;
+        }
+ 
+
+        .ztInfo_selected, #ztInfo_table tbody  tr:hover{
+          background-color: #479AC7;
+          color:#ffffff;
+          font-weight: bold;
+        }
+            #order_table tbody tr:hover {
+                background-color: #7ABD54;
+                color: #fff;
+            }
+
+        
+    </style>
+
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="panel-body" style="padding-bottom:0px;">
+            <div class="panel panel-primary">
+                <div class="panel-heading">后台预约列表</div>
+                <div class="panel-body">
+                    <div id="toolbar" class="btn-group">
+                        <div class="btn-group"  >
+                            <button type="button" class="btn btn-success  b_info">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                查看信息
+                            </button>
+
+                        </div>
+
+                        <div class="btn-group"  >
+                            <button type="button" class="btn btn-primary  b_modify_order">
+                                <span class="glyphicon glyphicon-wrench"></span>
+                                修改订单
+                            </button>
+                            <button type="button" class="btn btn-primary">
+                                <span class="glyphicon glyphicon-cog b_modify_info" ></span>
+                                修改车辆
+                            </button>
+                        </div>
+
+                        <div class="btn-group"  >
+                            <button type="button" class="btn btn-danger   b_cancel">
+                                <span class="glyphicon glyphicon-remove"></span>
+                                作废预约
+                            </button>
+
+                        </div>
+                    </div>
+                    <table id="tb" data-reorderable-columns="true"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/plugins/layui-v2/layui/layui.all.js"></script>
+    <script type="text/javascript" src="/js/admin/Project/AdminMAAList.js"></script>
+    <script src="/js/plugins/bootstrapTable/bootstrap.min.js"></script>
+    <script src="/js/plugins/bootstrapTable/bootstrap-table.min.js"></script>
+    <script src="/js/plugins/bootstrapTable/bootstrap-table-zh-CN.min.js"></script>
+
+</body>
+
+    <div id="modify_order_div" style="width:95%;margin:0 auto;border:1px solid #eeeeee;margin-top:30px;height: auto">
+    <form class="layui-form layui-form-pane">
+        <div class="step" id="step1">
+            <div class="step-title">
+                <span>预约时段</span>
+                <br>
+                <br>
+                <button class="layui-btn layui-btn-small" id="get_times" type="button">更新预约时段</button>
+
+            </div>
+            <div class="step-content">
+                <table class="layui-table layui-hide" id="time_table"></table>
+            </div>
+        </div>
+        <hr>
+        <div class="step" id="step2">
+            <div class="step-title">
+                <span>自提信息</span>
+                <br>
+                <br>
+                <button class="layui-btn layui-btn-small" id="get_ztinfo" type="button">获取自提信息</button>
+            </div >
+            <div class="step-content">
+
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">自提车牌</label>
+                        <div class="layui-input-inline"  >
+                            <input type="text" name="cCarNumber" required lay-verify="required" autocomplete="off" class="layui-input"></div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">司机姓名</label>
+                        <div class="layui-input-inline"  >
+                            <input type="text" name="cDriver" required lay-verify="required" autocomplete="off" class="layui-input"></div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">司机电话</label>
+                        <div class="layui-input-inline"  >
+                            <input type="text" name="cDriverPhone" required lay-verify="phone1" autocomplete="off" class="layui-input"></div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">司机身份证</label>
+                        <div class="layui-input-inline" >
+                            <input type="text" name="cIdentity" required lay-verify="identity1" autocomplete="off" class="layui-input"></div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">车型</label>
+                        <div class="layui-input-inline"  >
+                            <select name="cCarType" lay-verify="required" id="cartype">
+                                <option value="">请选择车型</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">备注</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="cMemo"   placeholder="请输入备注" autocomplete="off" class="layui-input"></div>
+                </div>
+            </div>
+        </div>
+        <hr>
+           </form>
+    </div>
+
+</html>

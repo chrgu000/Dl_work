@@ -1,0 +1,376 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login_V2.aspx.cs" Inherits="DingDan_WebForm.Login_V2" %>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/templatemo_style1.css" rel="stylesheet" />
+    <link href="css/login/bootstrap-social.css" rel="stylesheet" />
+    <link href="js/plugins/layui/css/layui.css" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+   
+
+</head>
+<body class="templatemo-bg-image-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div style="margin-top: 70px; ">
+                    <div style="width:183px;height:73px">
+                    <div class="admin-login-box" style="float: left">
+                        <a href="">
+                            <img src="images/dl_logo2.png" alt="" <%--style="height: 90%;"--%>>
+                        </a>
+                    </div>
+                        </div>
+                    <div style="float: left; margin-top: 10px" class="logo-fo">
+                        <div style="font-size: 18px; color: yellow;">
+                            塑胶管道&nbsp;&nbsp;|&nbsp;&nbsp;开关插座&nbsp;&nbsp;|&nbsp;&nbsp;电线&nbsp;&nbsp;|&nbsp;&nbsp;卫浴洁具
+                        </div>
+                        <div style="font-size: 10px; color: #fff">
+                            品质水电建材 集成服务商
+                            <a style="color: #fff" href="http://www.duolian.com">
+                                &nbsp;&nbsp; <span class="glyphicon glyphicon-search"></span>
+                                &nbsp;
+                                www.duolian.com
+                            </a>
+                            &nbsp;
+                            <span class="glyphicon glyphicon-earphone"></span>
+                            &nbsp;
+                            400-8786-333
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h1></h1>
+        <div class="col-sm-12">
+            <form class="form-horizontal templatemo-login-form-2"     >
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h1>多联网上订单系统</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="templatemo-one-signin col-sm-6">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <div class="templatemo-input-icon-container">
+                                    <i class="fa fa-user"></i>
+                                    <input type="text" class="form-control" id="name" placeholder="用户名">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                              
+                                <div class="templatemo-input-icon-container">
+                                    <i class="fa fa-lock"></i>
+                                    <input type="password" class="form-control" id="pass" placeholder="密码">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+
+                                <div class="templatemo-input-icon-container">
+                                    <i class="fa fa-phone"></i>
+                                    <input type="text" class="form-control" id="phone" placeholder="绑定的手机号">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <div class="templatemo-input-icon-container">
+                                    <i class="fa fa-qrcode"></i>
+                                    <input type="text" class="form-control" id="phone_code" placeholder="验证码">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                              <!--  <button   id="login" class="btn btn-danger">登  &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;   &nbsp;   &nbsp;录</button>-->  
+                                <a href="#"  class="btn btn-danger" id="login">登  &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;   &nbsp;   &nbsp;录</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="templatemo-other-signin col-sm-6">
+                        <h1></h1>
+                        <label class="margin-bottom-15">
+                            
+                        </label>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <div class="checkbox">
+                                    
+                                        <input type="radio" id="" value="1" checked="checked" name="sms"> 短信接收验证码
+                                  
+                                   <%-- <label>
+                                        <input type="radio" id="" value="2"   name="sms"> 短信通道2
+                                    </label>--%>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" checked id="wx_checkbox" value="">  微信同步接收验证码
+                                        <i class="fa fa-question-circle" data-toggle="modal" data-target="#myModal"> </i> <span data-toggle="modal" data-target="#myModal">查看微信帮助</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input type="button" value="发送验证码" id="get_code" class="btn btn-warning">
+                            </div>
+                        </div>
+                
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">多联微信企业号说明</h4>
+                </div>
+                <div class="modal-body">
+                    <h4>为了能正确接收我公司发送的相关微信信息，您需要按如下步骤操作：</h4>
+                    <p>一、关注公司 微信企业号 <img src="../images/wx.jpg"   style=" width:150px;height:150px" /></p>
+                    <p>二、点击按钮测试是否能接收公司发送的微信信息 <input type="button" id="wx"   value="发送测试信息" class="btn btn-info" /></p>
+                    <p>三、如不能接收测试信息，请联系公司客服处理</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/Scripts/bootstrap.min.js"></script>
+    <script src="js/plugins/layui/layui.js"></script>
+    <script>
+        layui.use(['form', 'layer'], function () {
+            var form = layui.form(),
+                layer = layui.layer;
+        })
+        function check() {
+            if ($("#name").val().trim() == "") {
+                layer.msg("请输入用户名！", { icon: 2 });
+                return false;
+            }
+            if ($("#pass").val().trim() == "") {
+                layer.msg("请输入密码！", { icon: 2 });
+                return false;
+            }
+            if (!/^1[345678]\d{9}/.test($("#phone").val().trim()) && $("#phone").val().trim() != 1) {
+                layer.msg("手机号码不正确！", { icon: 2 });
+                return false;
+            }
+            if (!/^\d{4}/.test($("#phone_code").val().trim()) && $("#phone_code").val().trim() != 1) {
+                layer.msg("验证码不正确！", { icon: 2 });
+                return false;
+            }
+        }
+
+
+
+        //判断获取验证码
+        $("#get_code").click(function () {
+            var name = $("#name").val().trim();
+            var phone = $("#phone").val().trim();
+            if ($("#name").val().trim() == "") {
+                layer.msg("请输入用户名！", { icon: 2 });
+                return false;
+            }
+            if (!/^1[345678]\d{9}/.test($("#phone").val().trim())) {
+                layer.msg("手机号码不正确！", { icon: 2 });
+                return false;
+            }
+
+            $.ajax({
+                url: "Handler/LoginHandler.ashx",
+                type: "Post",
+                data: { "Action": "Get_Code", "name": name, "phone": phone, "sms": $("input:radio:checked").val(), "wx": $("#wx_checkbox").is(':checked') == true ? "1" : "0" },
+                success: function (data) {
+                    if (data == "ok") {
+                        layer.msg("短信发送成功！");
+                        myCountDown = setInterval(countDown, 1000);
+                    } else {
+                        layer.msg(data);
+                    }
+
+
+                },
+                error: function (e) {
+                    alert("出现错误，请联系管理员！");
+                }
+            })
+        })
+
+
+        //判断登录
+        $("#login").click(function () {
+            var name = $("#name").val().trim();
+            var phone = $("#phone").val().trim();
+            var pass = $("#pass").val().trim();
+            var code = $("#phone_code").val().trim();
+            if (name == "") {
+                layer.msg("请输入用户名！", { icon: 2 });
+                return false;
+            }
+            if (pass == "") {
+                layer.msg("请输入密码！", { icon: 2 });
+                return false;
+            }
+            if (!/^1[345678]\d{9}/.test(phone) && phone != 1) {
+                layer.msg("手机号码不正确！", { icon: 2 });
+                return false;
+            }
+            if (!/^\d{4}/.test(code) && code != 1) {
+                layer.msg("验证码不正确！", { icon: 2 });
+                return false;
+            }
+            $.ajax({
+                url: "Handler/LoginHandler.ashx",
+                type: "Post",
+                data: { "Action": "Login", "name": name, "pass": pass, "phone": phone, "code": code },
+                success: function (data) {
+
+                    if (data == 3) {
+                        window.location.href = "index_v2.aspx";
+                    }
+                    else if (data == 2) {
+                        window.location.href = "Admin_v2.aspx";
+                    }
+                    else if (data == 99) {
+                        window.location.href = "/superadmin/index.html";
+                    }
+                    else {
+
+                        alert(data);
+                    }
+                },
+                error: function (e) {
+                    alert("出现错误，请联系管理员！");
+                }
+            });
+
+
+
+            //$.ajax({
+            //    url: "Handler/LoginHandler.ashx",
+            //    type: "Post",
+            //    data: { "Action": "Login", "name":name, "pass": "test", "phone": "1", "code": "1" },
+            //    success: function (data) {
+            //        if (data == 3) {
+            //            location.href = "index_V2.aspx";
+            //        }
+            //        else {
+            //            alert(data);
+            //        }
+            //    },
+            //    error: function (e) {
+            //        alert("出现错误，请联系管理员！");
+            //    }
+            //});
+        })
+
+        //JQ ajax全局事件
+        $(document).ajaxStart(function () {
+            layer.load();
+        }).ajaxComplete(function (request, status) {
+            layer.closeAll('loading');
+        });
+
+
+
+        $("#wx").click(function () {
+            var phone = $("#phone").val().trim();
+            if (!/^1[345678]\d{9}/.test(phone)) {
+                layer.msg("手机号码不正确！");
+                return false;
+            }
+            $.ajax({
+                url: "Handler/LoginHandler.ashx",
+                type: "Post",
+                data: { "Action": "send_wx", "phone": phone },
+                success: function (data) {
+                    console.log(data);
+                    if (data == 'True') {
+                        layer.msg("发送成功，请查看多联企业微信！")
+                        wx_count = 60;
+                        wx_myCountDown = setInterval(wx_countDown, 1000);
+                    }
+                    else {
+                        layer.msg("发送失败，请重试或联系管理员！")
+                        wx_count = 10;
+                        wx_myCountDown = setInterval(wx_countDown, 1000);
+                    }
+                },
+                error: function (e) {
+                    alert("出现错误，请联系管理员！");
+                }
+            });
+        })
+        var count = 60;
+        var wx_count;
+        var myCountDown;
+        var wx_myCountDown;
+        //点击获取验证码后，按钮倒记时
+        function countDown() {
+
+            $("#get_code").attr("disabled", true);
+
+            $("#get_code").val(count + " 秒后重新获取");
+
+            count--;
+
+            if (count == 0) {
+
+                $("#get_code").val("获取验证码").removeAttr("disabled");
+
+                clearInterval(myCountDown);
+
+                count = 60;
+            }
+        }
+
+        //点击获取微信后，按钮倒记时
+        function wx_countDown() {
+
+            $("#wx").attr("disabled", true);
+
+            $("#wx").val(wx_count + " 秒后重新获取");
+
+            wx_count--;
+
+            if (wx_count == 0) {
+
+                $("#wx").val("发送测试信息").removeAttr("disabled");
+
+                clearInterval(wx_myCountDown);
+                wx_count = 60;
+
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

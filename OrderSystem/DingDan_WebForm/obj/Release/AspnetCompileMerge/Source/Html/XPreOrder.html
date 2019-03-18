@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>多联网上订单系统</title>
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="../js/plugins/layui-1.0.9/css/layui.css" media="all" />
+    <link href="../css/Project/buy.css" rel="stylesheet" />
+
+ 
+</head>
+<body>
+   <div style="margin: 0px;" class="iframe">
+    <div class="layui-tab">
+
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form" action="" id="buy_form">
+                    <div class="layui-form-item btns">
+                        <input type="button" class="layui-btn  layui-btn-normal   layui-btn-small " id="select_product_ts" value="选择商品" />
+                        <input type="button" class="layui-btn   layui-btn-danger layui-btn-small" id="submit_buy_list" value="提交预订订单" />
+               <!--          <button style="margin-left:10px" id="btn1" type="button" class="layui-btn   layui-btn-radius  layui-btn-primary"><i class='layui-icon' style='  margin:0 10px 0 10px; color: red;'>&#xe63b;</i>图标说明</button> -->
+                        <!--<input type="button" class="layui-btn   layui-btn-danger layui-btn-small" id="del_none" value="一键清除零库存" />-->
+                  
+                    <span ><i class='layui-icon' style='  margin:0 10px 0 10px; color: red;'>&#xe63b;</i>图标说明：表示订单该产品有完工入库微信消息提醒.消息推送规则为:该产品在全部完工入库之前没有发生过提货业务。</span>
+                      </div>
+                    <div id="jbxx">
+
+                        <div class="layui-form-item">
+                            <div class="layui-inline" >
+                                <label class="layui-form-label">订单日期</label>
+                                <div class="layui-input-inline bl"  >
+                                    <span id="datCreateTime"></span>
+                                </div>
+                            </div>
+                            <div class="layui-inline"  >
+                                <label class="layui-form-label">开票单位</label>
+                                <div class="layui-input-block bl" id="TxtCustomer_div">
+                                    <select id="TxtCustomer" lay-filter="kpdw_ts" name="kpdw" layer-select>
+                                    <option value>请先选择开票单位</option>
+                                    </select>
+                                </div>
+                                <span style="display:none" id="cdiscountname"></span>
+                            </div>
+                            <div class="layui-inline"  >
+                                <label class="layui-form-label">备 注</label>
+                                <div class="layui-input-block">
+                                    <textarea name="desc" placeholder="点击输入备注内容" id="strRemarks" class="layui-input"></textarea>
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">提货时间</label>
+                                <div class="layui-input-inline bl" id="datDeliveryDate_div">
+                                    <input class="layui-input" placeholder="选择提货时间" id="datDeliveryDate" onclick="layui.laydate({ elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss' })">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                   <table class="layui-table" id="buy_list">
+                            <thead>
+                                <tr>
+                                    <th style="width: 7%">操作</th>
+                                    <th style="width: auto">序号</th>
+                                    <th style="width: 13%">名称</th>
+                                    <th style="width: 10%">规格</th>
+                                    <th style="width: 9%">单位组</th>
+                                    <th style="width: 5%">基本数量</th>
+                                    <th style="width: 5%">基本单位</th>
+                                    <th style="width: 5%">小包装数量</th>
+                                    <th style="width: 5%">小包装单位</th>
+                                    <th style="width: 5%">大包装数量</th>
+                                    <th style="width: 5%">大包装单位</th>
+                                    <th style="width: 6%">基本单位汇总</th>
+                                    <th style="width: 5%">起订量</th>
+                                    <th style="width: 5%">可用库存量</th>
+                                    <th style="width: 8%">包装结果</th>
+                                    <th style="width: 4%">单价</th>
+                                    <th style="width: 5%">金额</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+           <div class="layui-form-item">
+                            <div style="float: left">
+                            </div>
+                            <div style="float:right;margin-right:30px;">
+                                <div class="layui-inline" style="width: 100%">
+                                    <label class="layui-form-label">总金额:</label>
+                                    <label class="layui-form-label" style="text-align:left;font-weight:bold" id="money"></label>
+                                </div>
+                            </div>
+
+
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../js/plugins/layui-1.0.9/layui.js"></script>
+    <!-- <script type="text/javascript" src="../js/Project/function.js?v=1"></script> -->
+    <!-- <script type="text/javascript" src="../js/Project/XPreOrder.js"></script> -->
+
+
+    <script type="text/javascript">
+    var a=Date.parse(new Date());
+    document.write(' <script type="text/javascript"  charset="utf-8" src="\/js\/Project\/function.js?v='+a+'"><\/script>')
+    document.write(' <script type="text/javascript"  charset="utf-8" src="\/js/Project/XPreOrder.js?v='+a+'"><\/script>')
+</script>
+</body>
+</html>

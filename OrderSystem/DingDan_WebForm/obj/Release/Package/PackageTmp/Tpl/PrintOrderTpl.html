@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>网上订单打印</title>
+
+</head>
+<body>
+ <div style="position: fixed;top:0;left:0;background-color: #fff;width:100%;border-bottom: 1px solid #ccc">
+  <button style="width:60px;height: 30px;margin: 10px auto 10px 300px" type="button" id="print">打印</button>
+  <button style="width:100px;height: 30px;margin-left: 40px" type="button" id="Excel">导出Excel</button>
+
+ </div>
+<!-- <div style="margin:10px auto auto 300px;">
+    <button style="width:60px;height: 30px; " type="button" id="print">打印</button>
+    
+</div> -->
+<!--     <div style=" margin:10px auto"> -->
+    <div style=" padding-top: 40px">
+
+        <div id="printArea">
+            <style type="text/css">
+                        * {
+                            margin: 0;
+                            padding: 0;
+                            /*font-size: 12px;*/
+                        }
+
+                        #printArea {
+                            width: 756px;
+                            /*height:1086px;*/
+                            margin: 10px auto;
+                        }
+                            /*.table-d {
+                    width: 100%;
+                    margin: 10px auto;
+
+                }*/
+
+
+                         table {
+                                border-collapse: collapse;
+                                margin: 20px auto;
+                            }
+
+
+                        th {
+                            height: 40px;
+                          
+                            text-align: center;
+                        }
+
+                         tr {
+                            height: 35px;
+                        }
+
+                        .t_h {
+                            font-size: 12px;
+                            text-align: center;
+                            font-weight:bold;
+                            background-color: #eee;
+                              font-family:'Microsoft YaHei';
+                        }
+
+                        .t_c {
+                            font-size: 12px;
+                            text-align: center;
+                            font-weight:500;
+                             font-family: '宋体';
+                        }
+
+                        table, table tr th, table tr td {
+                            border: 1px solid #afafaf;
+                        }
+            </style>
+            <div  >
+            <img src="/images/logo1.png" alt="" style="width:100px;height: 30px;padding-top: 20px">
+                <span style="padding-left:200px;font-size:26px;font-weight: bold;">多联网上订单系统</span>
+            </div>
+        
+            <table id="thead" style="width:756px"   cellspacing="0">
+
+                <tr>
+                    <td class="t_h" style="width:90px">网上订单号</td>
+                    <td class="t_c" id="print_strBillNo" style="width:188px"></td>
+                    <td class="t_h" style="width:90px">开票单位</td>
+                    <td class="t_c" id="print_ccusname" style="width:188px"></td>
+                    <td class="t_h" style="width:90px">订单合计</td>
+                    <td class="t_c"  id="print_sum"  style="width:110px"></td>
+                </tr>
+                <tr>
+                    <td class="t_h" style="width:90px">下单时间</td>
+                    <td class="t_c" id="print_datCreateTime" style="width:188px"></td>
+                    <td class="t_h" style="width:90px">审核时间</td>
+                    <td class="t_c"  id="print_datAuditordTime" style="width:188px"></td>
+                       <td class="t_h" style="width:90px">下单账号</td>
+                    <td class="t_c"  id="print_strAllAcount" style="width:110px"></td>
+                </tr>
+                   <tr>
+                    <td class="t_h" style="width:90px">提货时间</td>
+                    <td class="t_c" id="print_datDeliveryDate" style="width:188px"></td>
+                    <td class="t_h" style="width:90px">打印时间</td>
+                    <td class="t_c"  id="print_Now" style="width:188px"></td>
+                       <td class="t_h" style="width:90px">车型</td>
+                    <td class="t_c"  id="print_cdefine3" style="width:110px"></td>
+                </tr>
+                <tr>
+                    <td class="t_h" style="width:90px">送货地址</td>
+                    <td class="t_c" colspan="5"  id="print_cdefine11" style="width:666px;word-break:break-all;  overflow:auto;"></td>
+                    
+                </tr>
+                     <tr>
+                    <td class="t_h" style="width:90px">装车方式</td>
+                    <td class="t_c" colspan="5"  id="print_strLoadingWays" style="width:666px;word-break:break-all;  overflow:auto;"></td>
+                
+                </tr>
+                <tr>
+                    <td   class="t_h"  >备注</td>
+                    <td class="t_c" colspan="5"  id="print_strRemarks" style="width:666px;word-break:break-all;  overflow:auto;"> </td>
+                </tr>
+            </table>
+     
+               <table  id="tbody" style="width:756px"  cellspacing="0">
+               <thead>
+                <th class="t_h" style="width:5%">序号</th>
+                <th class="t_h" style="width:auto">产品名称</th>
+                <th class="t_h" style="width:15%">产品规格</th>
+                <th class="t_h" style="width:8%">基本数量</th>
+                <th class="t_h" style="width:8%">基本单位</th>
+                <th class="t_h" style="width:12%">包装结果</th>
+                <th class="t_h" style="width:8%">单价</th>
+                <th class="t_h" style="width:8%">金额</th>
+            </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+   
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="../js/plugins/Print-Area/jQuery.print.js"></script>
+    <script src="../js/plugins/Print-Area/jquery.PrintArea.js"></script>
+
+    <script>
+        $(function () {
+var strBillNo= GetQueryString('strBillNo') 
+if (strBillNo!=null&&strBillNo!='') {
+        $.ajax({
+        url: "../Handler/ProductHandler.ashx",
+        dataType: "Json",
+        type: "Post",
+        data: {
+            "Action": "GetOrderDetail",
+            "strBillNo": strBillNo
+        },
+        aysnc: false,
+        success: function(res) {
+        	console.log(res)
+        	if (res.flag!=1) {
+        		alert(res.message);
+        		return false;
+        	}
+           
+        	$('#print_strBillNo').text(res.table[0].strBillNo);
+        	$('#print_ccusname').text(res.table[0].ccusname);
+        	$('#print_strAllAcount').text(res.table[0].strAllAcount);
+        	$('#print_datCreateTime').text(res.table[0].datBillTime.replace('T', ' '));
+            if (res.table[0].datAuditordTime=='1905-06-21T00:00:00'||res.table[0].datAuditordTime==''||res.table[0].datAuditordTime==null) {
+            $('#print_datAuditordTime').text('');
+            }else{
+            $('#print_datAuditordTime').text(res.table[0].datAuditordTime.replace('T',' '));
+
+            }
+            if (res.table[0].iAddressType=='1') {
+            $('#print_cdefine11').text(res.table[0].cdefine11+','+res.table[0].cdefine8);
+            }else if(res.table[0].iAddressType=='2'){
+                $('#print_cdefine11').text(res.table[0].cdefine11+" "+res.table[0].psxx );
+            }
+            else{
+            $('#print_cdefine11').text(res.table[0].cdefine11);
+            }
+        	$('#print_strRemarks').text(res.table[0].strRemarks);
+            $('#print_strLoadingWays').text(res.table[0].strLoadingWays); 
+            $('#print_cdefine3').text(res.table[0].cdefine3);
+            $('#print_datDeliveryDate').text(res.table[0].datDeliveryDate.replace('T',' '));
+        	var sum=0,html='';
+        	$.each(res.table,function(i,v){
+        		html+='<tr> <td class="t_c">'+v.irowno+'</td><td class="t_c">'+v.cinvname+'</td><td class="t_c">'+v.cInvStd+'</td><td class="t_c">'+v.iquantity+'</td><td class="t_c">'+v.cComUnitName+'</td><td class="t_c">'+v.cdefine22+'</td><td class="t_c">'+v.itaxunitprice+'</td><td class="t_c">'+v.isum+'</td></tr>';
+        		sum+=v.isum;
+        	})
+
+        	$('#print_sum').text(Number(sum).toFixed(2));
+        	$('#tbody tbody').html(html);
+            $("#Excel").attr("url","/html/DownloadOrderDetailToExcel.aspx?strbillno="+res.table[0].strBillNo);
+        }
+    });
+}
+
+
+            $('#print').click(function () {
+                 $('#print_Now').text(clockon);
+                // $.print("#printArea");
+                $("#printArea").printArea();
+            })
+        })
+
+        $("#Excel").click(function(){
+            window.location.href=$(this).attr("url");
+        })
+
+//采用正则表达式获取地址栏参数 
+function GetQueryString(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return unescape(r[2]);
+    return null;
+};
+
+function clockon() {
+  var now = new Date();
+  var year = now.getFullYear(); //getFullYear getYear
+  var month = now.getMonth();
+  var date = now.getDate();
+  var day = now.getDay();
+  var hour = now.getHours();
+  var minu = now.getMinutes();
+  var sec = now.getSeconds();
+  var week;
+  month = month + 1;
+  if (month < 10) month = "0" + month;
+  if (date < 10) date = "0" + date;
+  if (hour < 10) hour = "0" + hour;
+  if (minu < 10) minu = "0" + minu;
+  if (sec < 10) sec = "0" + sec;
+  var arr_week = new Array("星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六");
+  week = arr_week[day];
+  var time = "";
+  time = year + "-" + month + "-" + date   + " " + hour + ":" + minu + ":" + sec ;
+  
+return time;
+}
+
+    </script>
+</body>
+</html>

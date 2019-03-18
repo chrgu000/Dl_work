@@ -1,0 +1,12 @@
+﻿{
+   
+     "name": "张三",
+    "sex": "男",
+    "age": 33,
+    data: {
+        "page1": "aa",
+        "page2": "bb",
+        "page3": "cc"
+
+    }
+}

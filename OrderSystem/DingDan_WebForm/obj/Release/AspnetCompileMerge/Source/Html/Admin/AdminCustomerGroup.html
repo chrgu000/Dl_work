@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 引入样式 -->
+    <!--<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">-->
+    <link href="../../js/plugins/element_ui/theme-chalk/index.css" rel="stylesheet" />
+    <title>content</title>
+    <style type="text/css">
+        .el-tree--highlight-current .el-tree-node.is-current>.el-tree-node__content{
+            background-color: #006699;
+            font-size:22px;
+            color:white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <el-row>
+            <el-button type="primary" size="medium" icon="el-icon-plus" @click="handleAdd">添加分组</el-button>
+        </el-row>
+        <br>
+        <el-row>
+            <el-col :span="20" :offset="2">
+                <el-table :data="groups" style="width: 90%" border max-height=400 stripe size="small">
+                    <el-table-column type="index" label="序号" width="80" fixed='left'>
+                    </el-table-column>
+                    <el-table-column label="操作" width="180" fixed='left' align="center">
+                        <template slot-scope="scope">
+                            <el-button size="mini" @click="handleEdit(scope.row)">编辑</el-button>
+                            <el-button size="mini" type="danger" @click="handleDelete(scope.row)">删除</el-button>
+                        </template>
+                    </el-table-column>
+                    <el-table-column prop="groupName" label="组名" width="250">
+                    </el-table-column>
+                    <el-table-column prop="parentName" label="所属分组" width="250">
+                    </el-table-column>
+                    <el-table-column prop="createTime" label="创建日期">
+                    </el-table-column>
+                </el-table>
+            </el-col>
+        </el-row>
+        <!--      <el-dialog :visible.sync="addFormVisible" title="Hello world">
+            <p>欢迎使用 Element</p>
+        </el-dialog> -->
+
+        <!--新增界面-->
+        <el-dialog title="新增" :visible.sync="addFormVisible" :close-on-click-modal="true" :modal="true" width="30">
+            <el-form :model="addForm" label-width="160px" :rules="addFormRules" ref="addForm"  label-position="left" >
+                <el-form-item label="分组名" prop="groupName">
+                    <el-input v-model="addForm.groupName" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="所属分组" prop="groupParent">
+                    <el-input v-model="addForm.groupParent"  :disabled="true" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="选择所属分组">
+                    <div style="width:300px;border:1px solid #ccc;border-radius: 5px">
+                    <el-tree :data="treeData" accordion @node-click="handleAddNodeClick" highlight-current  >
+                        </div>
+                    </el-tree>
+                </el-form-item>
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+                <el-button @click.native="addFormVisible = false">取消</el-button>
+                <el-button type="primary" @click.native="addSubmit" :loading="addLoading">提交</el-button>
+            </div>
+        </el-dialog>
+
+                <!--编辑界面-->
+        <el-dialog title="编辑" :visible.sync="editFormVisible" :close-on-click-modal="true" :modal="true" width="30">
+            <el-form :model="editForm" label-width="160px" :rules="addFormRules" ref="editForm"  label-position="left" >
+                <el-form-item label="分组名" prop="groupName">
+                    <el-input v-model="editForm.groupName" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="所属分组" prop="groupParent">
+                    <el-input v-model="editForm.groupParent"  :disabled="true" auto-complete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="选择所属分组">
+                    <div style="width:300px;border:1px solid #ccc;border-radius: 5px">
+                    <el-tree :data="treeData" accordion @node-click="handleEditNodeClick" highlight-current  >
+                        </div>
+                    </el-tree>
+                </el-form-item>
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+                <el-button @click.native="editFormVisible = false">取消</el-button>
+                <el-button type="primary" @click.native="editSubmit" :loading="addLoading">提交</el-button>
+            </div>
+        </el-dialog>
+    </div>
+    <!--<script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script type="text/javascript" src="../../test/iview/axios.js"></script>-->
+    <script src="../../js/plugins/vue/vue.min.js"></script>
+    <script src="../../js/plugins/vue/axios.js"></script>
+    <script src="../../js/plugins/element_ui/index.js"></script>
+    <script src="../../js/admin/Project/AdminCustomerGroup.js"></script>
+    <script>
+    </script>
+</body>
+
+</html>

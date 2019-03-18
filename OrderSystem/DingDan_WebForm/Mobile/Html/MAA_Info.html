@@ -1,0 +1,341 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>预约详情</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!--标准mui.css-->
+    <link rel="stylesheet" href="../css/mui.min.css">
+    <link rel="stylesheet" href="../css/MAA_Info.css">
+    <link href="../css/loading.css" rel="stylesheet" />
+
+
+    <!--App自定义的css-->
+    <!--<link rel="stylesheet" type="text/css" href="../css/app.css" />
+    -->
+    <style>
+        .mui-card .mui-control-content {
+            padding: 10px;
+        }
+
+        .mui-control-content {
+            height: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">预约详情</h1>
+    </header>
+    <div class="mui-content">
+        <div style="padding: 10px 10px;">
+            <div style="padding: 10px 10px;">
+                <div id="segmentedControl" class="mui-segmented-control">
+                    <a class="mui-control-item mui-active" href="#item1">流程查看</a>
+                    <a class="mui-control-item" href="#item2">预约详情</a>
+                    <a class="mui-control-item" href="#item3">订单详情</a>
+                </div>
+            </div>
+        </div>
+        <div id="item1" class="mui-control-content mui-active">
+
+            <div class="ztb_nav">
+                <div class="ztb_content">
+                    <div style="position:relative;">
+                        <div class="online"></div>
+                        <div class="ztb_main">
+                            <ul class="ztb_content_01">
+                  <!--               <li class="ztb_over">
+                                    <div class="ztb_con_text">
+                                       网上订单提交成功
+                                        <span id="MAAcreatetime" class="ztb_time"></span>
+                                    </div>
+                                </li>
+                                <li class="ztb_on">
+                                    <a href="#" id="carin" class="ztb_con_text" style="pointer-events:none">等待车辆进厂<span id="CarInTime" class="ztb_time"></span></a>
+
+                                </li>
+                                <li>
+                                    <a href="#" class="ztb_con_text">等待装车</a>
+                                </li>
+                                <li>
+                                    <a href="#" id="carout" class="ztb_con_text" style="pointer-events:none">等待车辆出厂</a>
+                                </li> -->
+                                 <li class="ztb_over">
+                                    <div class="ztb_con_text">
+                                       网上订单提交成功
+                                        <span id="MAAcreatetime" class="ztb_time">2017-11-11 11:11:11</span>
+                                    </div>
+                                </li>
+                                   <li class="ztb_over">
+                                    <div class="ztb_con_text">
+                                       已通过前台审核
+                                        <span id="MAAcreatetime" class="ztb_time">2017-11-11 11:21:11</span>
+                                    </div>
+                                </li>
+                                   <li class="ztb_on">
+                                    <div class="ztb_con_text">
+                                      等待财务审核
+                                        <span id="MAAcreatetime" class="ztb_time"></span>
+                                    </div>
+                                </li>
+                                       <li >
+                                    <div class="ztb_con_text">
+                                       等待装车
+                                        <span id="MAAcreatetime" class="ztb_time"></span>
+                                    </div>
+                                </li>
+                                       <li >
+                                    <div class="ztb_con_text">
+                                       装车完成
+                                        <span id="MAAcreatetime" class="ztb_time"></span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div id="item2" class="mui-control-content">
+            <div class="mui-card">
+                <!--页眉，放置标题-->
+                <div class="mui-card-header   mui-bg-primary" style="color:#FFF">预约信息</div>
+                <div class="mui-card-content">
+                    <ul class="mui-table-view">
+                        <li class="mui-table-view-cell">
+                            预约时段：
+                            <span id="MAATime"></span>
+                        </li>
+                        <li class="mui-table-view-cell">
+                            车牌号码：
+                            <span id="cCarNumber"></span>
+                        </li>
+                        <li class="mui-table-view-cell">
+                            车辆型号：
+                            <span id="cCarType"></span>
+                        </li>
+                        <li class="mui-table-view-cell">
+                            司机姓名：
+                            <span id="cDriver"></span>
+                        </li>
+                        <li class="mui-table-view-cell">
+                            司机电话：
+                            <span id="cDriverPhone"></span>
+                        </li>
+                        <li class="mui-table-view-cell">
+                            身份证号：
+                            <span id="cIdentity"></span>
+                        </li>
+                        <li class="mui-table-view-cell">
+                            备注信息：
+                            <span id="cMemo"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="item3" class="mui-control-content">
+            <div class="mui-card">
+                <div class="mui-card-header mui-bg-primary" style="color:#FFF">订单信息</div>
+                <ul class="mui-table-view mui-table-view-chevron" id="orderList">
+                    <li class="mui-table-view-cell mui-collapse">
+                        <a class="mui-navigate-right" href="#">
+
+                            <span class="mui-badge mui-badge-danger"></span>
+                        </a>
+                        <ul class="mui-table-view mui-table-view-chevron"></ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../js/mui/mui.min.js"></script>
+    <script>
+        mui.init({
+            swipeBack: true //启用右滑关闭功能
+        });
+
+    </script>
+    <script>
+        var orders = {};
+        var cMAACode = "";
+        var level = 0;
+        mui.init({
+            swipeBack: true, //启用右滑关闭功能
+            tap: true, //默认为true
+            doubletap: true, //默认为false
+            longtap: true //默认为false
+        });
+
+        mui.ready(function () {
+            var id = GetQueryString("id")
+            if (id == "" || id == null) {
+                mui.alert("地址栏没有id参数！")
+                return false;
+            }
+            mui.ajax('/Handler/ProductHandler.ashx', {
+                data: {
+                    "Action": "MAA_Info",
+                    "MAAOrderId": id
+                },
+                dataType: 'json', //服务器返回json格式数据
+                type: 'post', //HTTP请求类型
+                timeout: 10000, //超时时间设置为10秒；
+                success: function (data) {
+                    if (data.flag != 1) {
+                        mui.alert(data.message);
+                    } else if (data.flag == 1) {
+                        if (data.order.length == 0) {
+                            mui.alert("没有数据！")
+                            return false;
+                        }
+                        var o = data.order[0];
+                        mui("#MAAcreatetime")[0].innerText = (data.order[0].MAAcreatetime).replace("T", " ");
+                        level = data.Level;
+                        if (level == 2) {
+                            var carin = document.getElementById("carin");
+                            var carout = document.getElementById("carout");
+                            carin.style.cssText = '';
+                            carout.style.cssText = '';
+                           
+                            if (o.CarInUser == null) {
+
+                                carin.innerHTML = '等待车辆进厂<span class="mui-btn-primary mui-btn">确认</span>'
+                            }
+                            else {
+                                carin.parentNode.setAttribute("class", "ztb_over")
+                                carin.innerHTML = '车辆已进厂<span id="CarInTime" class="ztb_time"></span>';
+                                mui("#CarInTime")[0].innerText = o.datCarIn.replace("T"," ");
+                            }
+                            if (o.CarOutUser == null) {
+                                carout.innerHTML = '等待车辆出厂<span class="mui-btn-primary mui-btn">确认</span>'
+                            }
+                            else {
+                                carout.parentNode.setAttribute("class", "ztb_over")
+                                carout.innerHTML = '车辆已出厂<span id="CarOutTime" class="ztb_time"></span>';
+                                mui("#CarOutTime")[0].innerText = o.datCarOut.replace("T", " ");
+                            }
+                        }
+                        
+                        mui("#MAATime")[0].innerText = o["datDate"].split("T")[0] + " " + o["datStartTime"] + "~" + o["datEndTime"];
+                        mui("#cCarNumber")[0].innerText = o["cCarNumber"];
+                        mui("#cDriver")[0].innerText = o["cDriver"];
+                        mui("#cDriverPhone")[0].innerText = o["cDriverPhone"];
+                        mui("#cIdentity")[0].innerText = o["cIdentity"];
+                        mui("#cCarType")[0].innerText = o["cCarType"];
+                        mui("#cMemo")[0].innerText = o["cMemo"];
+                        cMAACode = o["cMAACode"];
+                        mui("h1")[0].innerText = cMAACode;
+
+                        mui.each(data.order, function (i, v) {
+                            if (!orders[v["lngopOrderId"]]) {
+                                orders[v["lngopOrderId"]] = [];
+                            }
+                            orders[v["lngopOrderId"]].push(v);
+                        })
+
+                        var html = "";
+                        mui.each(orders, function (i, v) {
+                            html += '<li class="mui-table-view-cell mui-collapse"><a class="mui-navigate-right" href="#">'
+                            html += v[0]["strBillNo"]
+                            html += '<span class="mui-badge mui-badge-primary">'
+                            html += orders[v[0]["lngopOrderId"]].length
+                            html += '</span></a><ul class="mui-table-view mui-table-view-chevron">'
+                            html += '<li class="mui-table-view-cell">'
+                            html += '<table class="mui-table"><thead><tr><th class="mui-col-xs-2">序号</th><th class="mui-col-xs-8">产品名称</th><th class="mui-col-xs-2">数量</th></tr></thead>'
+                            mui.each(v, function (m, n) {
+                                html += '<tr>'
+                                html += '<td>' + (m + 1) + '</td>'
+                                html += '<td>' + n["cinvname"] + '</td>'
+                                html += '<td>' + n["iquantity"] + '</td>'
+                                html += '</tr>'
+                            })
+                            html += '</tbody></table>'
+                            html += '</li></ul></li>'
+                        })
+
+
+                        mui("#orderList")[0].innerHTML = html;
+
+                    }
+                }
+            });
+
+        })
+
+        mui(document).on("tap", "#carin span", function () {
+            mui.confirm("确认该车进厂？", function (o) {
+                if (o.index == 1) {
+                    mui.ajax('/Handler/AdminHandler.ashx', {
+                        data: {
+                            "Action": "MAACarInUpd", "cMAACode": cMAACode
+                        },
+                        dataType: 'json', //服务器返回json格式数据
+                        type: 'post', //HTTP请求类型
+                        timeout: 10000, //超时时间设置为10秒；
+                        success: function (res) {
+                            if (res.flag != 1) {
+                                mui.alert(res.message);
+                                return false;
+                            } else {
+                                mui.alert("车辆进厂确认成功！", function () {
+                                    window.location.reload();
+                                })
+                            }
+                        }
+                    })
+                }
+
+            })
+        })
+
+        mui(document).on("tap", "#carout span", function () {
+            mui.confirm("确认该车出厂？", function (o) {
+                if (o.index == 1) {
+                    mui.ajax('/Handler/AdminHandler.ashx', {
+                        data: {
+                            "Action": "MAACarOutUpd", "cMAACode": cMAACode
+                        },
+                        dataType: 'json', //服务器返回json格式数据
+                        type: 'post', //HTTP请求类型
+                        timeout: 10000, //超时时间设置为10秒；
+                        success: function (res) {
+                            if (res.flag != 1) {
+                                mui.alert(res.message);
+                                return false;
+                            } else {
+                                mui.alert("车辆出厂确认成功！", function () {
+                                    window.location.reload();
+                                })
+                            }
+                        }
+                    });
+                }
+
+            })
+        })
+
+        //采用正则表达式获取地址栏参数
+        function GetQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
+        }
+
+
+    </script>
+</body>
+
+</html>

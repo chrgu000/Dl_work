@@ -1,0 +1,480 @@
+﻿
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>问卷调查</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/plugins/bootstrapTable/bootstrap.min.js"></script>
+    <style>
+        * {
+            font-family: "microsoft yahei","Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+        }
+
+        body, input, textarea, select {
+            font-family: "microsoft yahei",Helvetica,Arial,Verdana,sans-serif;
+            font-size: 14px;
+            position: relative;
+            background: #efefef;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .row {
+            margin: 0 0 0 100px;
+            margin-bottom: 10px;
+        }
+
+        .question {
+            border-bottom: 1px solid #efefef;
+        }
+
+        label {
+            cursor: pointer;
+        }
+
+        .title {
+            border-bottom: 10px solid #3399ff;
+            margin: 40px 0 40px 0;
+        }
+
+        input[type=radio], input[type=checkbox] {
+            margin-right: 10px;
+        }
+
+        .container {
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" style="background: white; margin-top: 50px; padding-top: 50px;">
+        <h1 style="text-align: center">问卷调查</h1>
+        <form id="form1">
+            <div class="row">
+                <div class="col-lg-10 title">
+
+                    <h3>尊敬的经销商伙伴，您好！</h3>
+
+                    <p>
+                        &nbsp&nbsp &nbsp&nbsp当前国家财税政策的变化对您和我公司均有深远影响。为更好地协助您合理有效地开展后期经营工作，我公司拟在近期开展一次财税专题培训。
+                        在此之前，为更好了解您目前的状况和疑惑，我们整理了几个问题敬请你认真填写。有了您的回复，我们才能准确的安排培训内容，真正解除您的困惑。
+                    </p>
+                    <p>&nbsp&nbsp &nbsp&nbsp感谢您的支持！</p>
+
+                </div>
+            </div>
+            <!--        <div class="row">
+                <h4 class="col-lg-2">机构编号:</h4>
+                <div class="col-lg-4">
+                    <input type="text" value=" " class="form-control" placeholder="请输入机构编号" />
+                </div>
+            </div>
+            -->
+            <div id="content">
+                <div class="question" id="question1">
+                    <div class="row">
+                        <h4>
+                            <strong style="color:red">*</strong>
+                            1、您是否已用您的单位名（公司、经营部或个体工商户）在我公司开立为经销户头:
+                        </h4>
+
+                        <label>
+                            <input type="radio" name="question1" value="1">是
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="question1" value="2">正在办理中
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="question1" value="3">暂不考虑，目前暂以个人名义
+                        </label>
+                    </div>
+                </div>
+                <div class="question" id="question2">
+                    <div class="row">
+                        <h4>
+                            <strong style="color:red">*</strong>
+                            2、您在我公司开立的经销户头，户头性质是：
+                        </h4>
+                        <label>
+                            <input type="radio" name="question2" value="1">一般纳税人
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="question2" value="2">小规模纳税人
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="question2" value="3">个体工商户
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="question2" value="4">个人
+                        </label>
+                    </div>
+                </div>
+                <div class="question" id="question3">
+                    <div class="row">
+                        <h4>
+                            <strong style="color:red">*</strong>
+                            3、您准备何时成立一般纳税人：
+                        </h4>
+                        <label>
+                            <input type="radio" name="question3" value="1">3个月内
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="question3" value="2">半年内
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="question3" value="3">一年内
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="question3" value="4">暂不考虑
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="question3" value="5">现已是
+                        </label>
+                    </div>
+                </div>
+                <div class="question" id="question4">
+                    <div class="row">
+                        <h4>
+                            <strong style="color:red">*</strong>
+                            4、您现在做帐、报税的方式：
+                        </h4>
+                        <label>
+                            <input type="radio" name="question4" value="1">本公司会计
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="question4" value="2">委托外部中介机构代理
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="question4" value="3">兼职会计
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="question4" value="4">自己
+                        </label>
+                    </div>
+                </div>
+                <div class="question" id="question5">
+                    <div class="row">
+                        <h4>
+                            <strong style="color:red">*</strong>
+                            5、去年营改增以来，国家税收政策变化，对您经营模式的影响：
+                        </h4>
+                        <label>
+                            <input type="radio" name="question5" value="1">完全没有影响
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="question5" value="2">有一定影响
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="question5" value="3">很大影响
+                        </label>
+
+                    </div>
+                </div>
+                <div class="question" id="question6">
+                    <div class="row">
+                        <h4>
+                            <strong style="color:red">*</strong>
+                            6、税收政策变化，对您影响最大的是：(多选)
+                        </h4>
+                        <label>
+                            <input type="checkbox" name="question6" value="1">不懂如何做帐
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="question6" value="2">销售量大增，怕被关注
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="question6" value="3">不懂如何交税
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="question6" value="4">交税太多，减少了利润
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="question6" value="5">找不到专业、合格的财务人员
+                        </label>
+                    </div>
+                </div>
+                <div class="question" id="question7">
+                    <div class="row">
+                        <h4>
+                            <strong style="color:red">*</strong>
+                            7、您对国家税务总局2017年第16号公告的了解程度：
+                        </h4>
+                        <label>
+                            <input type="radio" name="question7" value="1">了解
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="question7" value="2">不了解
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="question7" value="3">了解并认同
+                        </label>
+                    </div>
+                </div>
+                <div class=" " id="question8">
+                    <div class="row">
+                        <h4>
+                            <strong style="color:red">*</strong>
+                            8、您希望本期培训，培训内容应包括哪些：（请在下面填写，财务人员可参与填写）：
+                        </h4>
+                        <textarea class="form-control  " name="question8" style="height:100px;width:80%"></textarea>
+                    </div>
+
+                </div>
+                <br>
+                <div class="row">
+                    <h4>
+                        <strong>以下问题请由您的专业财务人员填写（若目前无专业财务人员，则不填）</strong>
+                    </h4>
+
+                </div>
+                <div class="question" id="question9">
+                    <div class="row">
+                        <h4>9、2017年7月1日后开具的增值税专用发票，认证期是： </h4>
+                        <label>
+                            <input type="checkbox" name="question9" value="1">180天
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="question9" value="2">90天
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="question9" value="3">360天
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="question9" value="4">270天
+                        </label>
+                    </div>
+                </div>
+                <div class="question" id="question10">
+                    <div class="row">
+                        <h4>10、从7月1日起，对个人购买符合规定的商业健康保险产品支出，允许抵减什么税的扣除：</h4>
+                        <label>
+                            <input type="checkbox" name="question10" value="1">增值税
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="question10" value="2">企业所得税
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="question10" value="3">个人所得税
+                        </label>
+                    </div>
+                </div>
+                <div class="question" id="question11">
+                    <div class="row">
+                        <h4>11、贵单位若是一般纳税人，可用作增值税进项抵扣并需取得增值税专用发票的包括：</h4>
+                        <label>
+                            <input type="checkbox" name="question11" value="1">单位购买用于经营的房产
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="question11" value="2">单位发生的会议费
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="question11" value="3">单位购买办公品、商品
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="question11" value="4">单位购用于职工住宿的房产
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="question11" value="5">在银行办理汇兑转帐等手续费
+                        </label>
+                    </div>
+                </div>
+                <div class="question" id="question12">
+                    <div class="row">
+                        <h4>12、从7月1日起，税控系统开出的普票上，必须填写：</h4>
+                        <label>
+                            <input type="checkbox" name="question12" value="1">购买方的纳税人识别号
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="question12" value="2">购买方的电话地址
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="question12" value="3">购买方的社会统一代码
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="question12" value="4">购买方为个人、社会团体的不需填写
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!--    <div class="row">
+                <textarea class="form-control col-lg-6" name="advise" style="height:100px;width:90%"></textarea>
+            </div>
+            -->
+            <br>
+            <div class="row">
+                <div class="col-lg-6">
+                    <input type="text" class="  form-control" id="name" placeholder="请输入姓名">
+                </div>
+                <div class="col-lg-6">
+                    <input type="text" class="  form-control" id="phone" placeholder="请输入联系电话">
+                </div>
+            </div>
+            <div class="row" style="margin:50px 0 50px 0;">
+                <input type="button" name="btn" id="btn" value="提交" class="btn btn-primary col-lg-2 col-lg-offset-4" />
+            </div>
+
+        </form>
+    </div>
+    <script>
+        $(document).ready(function () {
+
+
+            $("#btn").click(function () {
+                var answer = "";
+                for (var i = 1; i < 6; i++) {
+                    var val = $("#question" + i + " input:radio:checked").val();
+                    if (val == undefined) {
+                        // alert("第" + i + "题还未选择！");
+                        $("#question" + i).addClass("red");
+                        $("html,body").animate({ scrollTop: $("#question" + i).offset().top }, 500);
+                        return false;
+                    } else {
+                        answer += val;
+                    }
+                }
+                    var t = "";
+                $("#question6 input[name=question6]").each(function (i, v) {
+                    if ($(v).prop("checked")) {
+                        t = t + ";" + $(this).val();
+                    }
+                });
+                if (t=="") {
+                	   $("html,body").animate({ scrollTop: $("#question6").offset().top }, 500);
+                	      $("#question6").addClass("red");
+                    return false;
+                }
+
+                if ($("textarea").val().trim() == "") {
+                    $("html,body").animate({ scrollTop: $("#question8").offset().top }, 500);
+                    alert("第八题还未填写！")
+                    return false;
+                }
+
+                if ($("#name").val().trim() == "") {
+                    alert("请输入姓名！")
+                    return false;
+                }
+                if ($("#phone").val().trim() == "") {
+                    alert("请输入联系电话！")
+                    return false;
+                }
+                var answers = {};
+                var a = $(document).find(".question");
+                $.each($(document).find(".question"), function (i, v) {
+                    answers[$(v).attr("id")] = $(v).find("input:radio:checked").val();
+                })
+                answers["question8"] = $("textarea").val().trim();
+                 t = "";
+                $("#question6 input[name=question6]").each(function (i, v) {
+                    if ($(v).prop("checked")) {
+                        t = t + ";" + $(this).val();
+                    }
+                });
+                answers["question6"]=t.substring(1);
+                t="";
+                  $("#question9 input[name=question9]").each(function (i, v) {
+                    if ($(v).prop("checked")) {
+                        t = t + ";" + $(this).val();
+                    }
+                });
+                   answers["question9"]=t.substring(1);
+                   t="";
+                  $("#question9 input[name=question9]").each(function (i, v) {
+                    if ($(v).prop("checked")) {
+                        t = t + ";" + $(this).val();
+                    }
+                });
+                   answers["question10"]=t.substring(1);
+                   t="";
+                  $("#question10 input[name=question10]").each(function (i, v) {
+                    if ($(v).prop("checked")) {
+                        t = t + ";" + $(this).val();
+                    }
+                });
+                   answers["question10"]=t.substring(1);
+                   t="";
+                  $("#question11 input[name=question11]").each(function (i, v) {
+                    if ($(v).prop("checked")) {
+                        t = t + ";" + $(this).val();
+                    }
+                });
+                   answers["question11"]=t.substring(1);
+                       t="";
+                  $("#question12 input[name=question12]").each(function (i, v) {
+                    if ($(v).prop("checked")) {
+                        t = t + ";" + $(this).val();
+                    }
+                });
+                   answers["question12"]=t.substring(1);
+                
+                
+                 
+                $.ajax({
+                    url: "/handler/productHandler.ashx",
+                    type: "Post",
+                    traditional: true,
+                    dataType: "Json",
+                    data: { "Action": "SubmitQuestion", "answers": JSON.stringify(answers), "a": $("textarea").val().trim(), "name": $("#name").val().trim(), "phone": $("#phone").val().trim() },
+                    success: function (data) {
+                        if (data.flag == "1") {
+                            $("#btn").attr("disabled", true)
+                            $("#btn").val("感谢参与")
+                            alert("提交成功，感谢参与！")
+
+                        } else if (data.flag == "0") {
+                            alert("提交错误，请联系管理员！")
+                        }
+                    }
+                })
+            })
+
+            $("input[type=radio]").click(function () {
+                $("div").removeClass("red");
+            })
+
+               $("input[type=checkbox]").click(function () {
+                $("div").removeClass("red");
+            })
+
+        })
+
+    </script>
+</body>
+</html>

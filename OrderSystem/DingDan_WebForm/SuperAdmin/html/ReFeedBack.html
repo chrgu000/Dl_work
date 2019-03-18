@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>答复客户反馈</title>
+    <link href="../../js/plugins/layui-v2/layui/css/layui.css" rel="stylesheet" />
+    <style>
+body {
+    background-color: #ffffff
+}
+    </style>
+ 
+</head>
+<body>
+    <div style="margin: 0px;" class="iframe">
+        <div class="layui-tab">
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+                    <div class="layui-tab">
+                        <ul class="layui-tab-title">
+                            <li class="layui-this">未答复</li>
+                            <li>所有反馈</li>
+                        </ul>
+                        <div class="layui-tab-content">
+                            <div class="layui-tab-item layui-show">
+                                <div class="layui-collapse"  lay-accordion=""></div>
+                            </div>
+                            <div class="layui-tab-item">
+                                <table id="tb"></table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/html" id="bytStatusTpl">
+ <!-- <div>{{d.bytStatus==1?'未答复':'已答复'}}</div> -->
+   {{#  if(d.bytStatus == '1'){ }}
+    <div style="color: #F581B1;">未答复  </div>
+  {{#  } else { }}
+     <span style="color: green;">已答复  </span>  
+  {{#  } }}
+</script>
+
+    <script type="text/html" id="timeTpl">{{d.datBillTime.replace("T"," ")}}</script>
+
+    <script src="../../js/plugins/layui-v2/layui/layui.all.js"></script>
+    <script>
+        var element = layui.element, $ = layui.jquery,table=layui.table;
+        var tb_options={
+            id: 'tb',
+            elem: "#tb",
+            page: true,
+           // height: 300,
+            limit: 10,
+           // width: 800,
+            size: 'lg',
+            even: true,
+            // skin: 'line',
+            data: [],
+             cols:  [[  
+                {field: 'cCusCode', title: '用户', width: 100}
+                ,{field: 'cContacts', title: 'cContacts', width: 120}
+                ,{field: 'cContent', title: '问题', width: 220}
+                ,{field: 'datBillTime', title: '提交时间', width: 220,templet:'#timeTpl' }
+                ,{field: 'bytStatus', title: '状态', width: 120,templet:'#bytStatusTpl'}
+                ,{field: 'cReplay', title: '答复', width: 120}
+                ,{field: 'replayer', title: '答复人', width: 120}
+                ,{field: 'datReplayTime', title: '答复时间', width: 220,templet:'#timeTpl' }
+              
+             ]]
+        };
+        $(function () {
+           
+            GetAllFeedBack();
+
+//回复按钮
+        $(document).on('click','.answer',function (e) {
+            console.log($(this).data("feedid"))
+            var feedid=$(this).data("feedid");
+            layer.open({
+        type:1
+        ,title:"回复反馈"
+         ,area: '80%' 
+        ,content:'<div style="width:90% ; text-align:center;margin:10px auto"><label class="layui-label">反馈意见</label><textarea id="content" style="height:210px"  class="layui-textarea"></textarea></div>'
+        ,btn:["提交","关闭"]
+        ,btn1:function(){
+           $.ajax({
+            url:"/handler/AdminHandler.ashx",
+            type:"Post",
+            dataType:"Json",
+            data:{"Action":"SaveFeedBack","content":$("#content").val().trim(),"lngopCusFeedbackId":feedid},
+            success:function(res){
+                if (res.flag!=1) {
+                    layer.alert(res.message,{icon:2} )
+                    return false;
+                }else{
+                    layer.alert("提交成功！",{icon:1,closeBtn:0},function(){
+                       GetAllFeedBack();
+                        layer.closeAll();
+                    })
+                }
+            },
+            error:function(err){
+                console.log(err)
+            }
+           });
+        }
+    })
+            layui.stope(e)
+        })
+
+
+//获取所有回复
+function GetAllFeedBack(){
+      $.ajax({
+         url:"/Handler/AdminHandler.ashx",
+            type:"Post",
+            dataType:"Json",
+            data:{"Action":"GetAllFeedBack"},
+            success:function(res){
+                if (res.flag!=1) {
+                    layer.alert(res.message,{icon:2})
+                    return false;
+                }
+                console.log(res)
+                var html="";
+                $.each(res.data,function(i,v){
+                    if (v.cReplay==null) {
+                       html+='<div class="layui-colla-item">'  ;
+                       html+='  <h2 class="layui-colla-title">'+v.cContacts+' | '+(v.datBillTime).replace("T"," ")+'</h2>'  
+                       html+='<div class="layui-colla-content"><p>' +v.cContent+'</p>';
+                       html+='<p><button class="layui-btn answer layui-btn-normal" type="button" data-feedid="'+v.lngopCusFeedbackId+'">回复</button></p></div></div>' ;         
+                                      
+                    }
+                })
+                if (html=="") {
+                    html='<p>没有未回复的反馈</p>'
+                }
+                $(".layui-collapse").html(html);
+                element.init();
+                tb_options.data=res.data;
+                table.render(tb_options);
+            }
+    })
+
+}
+
+
+
+        })
+     
+    </script>
+</body>
+</html>

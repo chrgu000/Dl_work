@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link rel="stylesheet" href="/js/plugins/layui-v2/layui/css/layui.css" media="all" />
+	<title>模拟登录</title>
+</head>
+<body>
+	<div style="margin:50px auto;" class="iframe">
+		<form class="layui-form" action="">
+		<!-- 	<div class="layui-col-md3 layui-col-md-offset2">
+				<label class="layui-form-label">客户电话</label>
+				<div class="layui-input-block"  >
+					<input  id="phone" class="layui-input" value="13438904933"/>
+				</div>
+			</div>
+			<div class="layui-col-md1">
+				<button class="layui-btn layui-btn-normal" id="login" type="button" user="single">登录</button>
+			</div>
+			<div class="layui-col-md3 layui-hide" id="select_user_div">
+				<label class="layui-form-label">选择客户</label>
+				<div class="layui-input-block">
+					<select id="select_user"  >
+						<option value=""></option>
+						<option value="0">北京</option>
+						<option value="1">上海</option>
+						<option value="2">广州</option>
+						<option value="3">深圳</option>
+						<option value="4">杭州</option>
+					</select>
+				</div>
+			</div> -->
+		
+
+        <div class="layui-row layui-col-space10">
+            <div class="layui-col-md3 layui-col-md-offset3">
+                <label class="layui-form-label">选择客户</label>
+				<div class="layui-input-block">
+					<select id="select_MainCode"  lay-filter="MainCode" lay-search="">
+					</select>
+				</div>
+            </div>
+             <div class="layui-col-md2  layui-hide" id="SubCode_div">
+                <label class="layui-form-label">选择客户</label>
+				<div class="layui-input-block">
+					<select id="select_SubCode" lay-filter="SubCode"  lay-search="">
+					</select>
+				</div>
+            </div>
+            	<div class="layui-col-md1">
+				<button class="layui-btn layui-btn-normal layui-btn-disabled" id="login" type="button"  disabled='true'>登录</button>
+			</div>
+        </div>
+      
+        </form>
+	</div>
+
+	<script src="/js/plugins/layui-v2/layui/layui.all.js"></script>
+    <script>
+        document.write(' <script type="text/javascript"  charset="utf-8" src="\/js\/admin\/Project\/SimulateLogin.js?v=' + Math.random() + '"><\/script>');
+    </script>
+
+</body>
+</html>

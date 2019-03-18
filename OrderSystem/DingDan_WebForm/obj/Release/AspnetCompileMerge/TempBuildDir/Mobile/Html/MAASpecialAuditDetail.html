@@ -1,0 +1,285 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>特殊预约申请详情</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../css/mui.min.css">
+        <link href="../css/loading.css" rel="stylesheet" />
+
+		<style>
+			table {
+				font-size: 12px;
+			}
+			
+			table th {
+				font-weight: bold;
+			}
+			
+			table th,
+			table td {
+				border: 1px #d4d4d4 solid;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">特殊预约申请详情</h1>
+		</header>
+
+		<div class="mui-content">
+			<div>
+				<div style="padding: 10px 10px;">
+					<div id="segmentedControl" class="mui-segmented-control">
+						<a class="mui-control-item mui-active" href="#item1">审核预约</a>
+						<a class="mui-control-item" href="#item2">预约详情</a>
+						<a class="mui-control-item" href="#item3">订单详情</a>
+						<a class="mui-control-item" href="#item4" id="auditInfo">查看审核</a>
+					</div>
+				</div>
+			</div>
+			<div id="item1" class="mui-control-content mui-active">
+
+				<div class="mui-card">
+
+					<ul class="mui-table-view">
+
+						<li class="mui-table-view-cell mui-radio  ">
+							<input name="opdata" value="4" type="radio">审核通过
+						</li>
+						<li class="mui-table-view-cell mui-radio  ">
+							<input name="opdata" value="99" type="radio">审核不通过
+						</li>
+						<li class="mui-table-view-cell  ">
+							<input class="mui-input-clear" type="text" placeholder="输入审核意见" id="cMemo">
+						</li>
+						<li class="mui-table-view-cell  ">
+							提交
+							<button type="button" class="mui-btn mui-btn-primary" id="sub">
+                                提交
+                            </button>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+			<div id="item2" class="mui-control-content">
+				<div class="mui-card">
+					<ul class="mui-table-view">
+							<li class="mui-table-view-cell">
+							客户编码：
+							<span id="ccuscode"></span>
+						</li>
+						<li class="mui-table-view-cell">
+							预约时段：
+							<span id="MAATime"></span>
+						</li>
+						<li class="mui-table-view-cell">
+							车牌号码：
+							<span id="cCarNumber"></span>
+						</li>
+						<li class="mui-table-view-cell">
+							车辆型号：
+							<span id="cCarType"></span>
+						</li>
+						<li class="mui-table-view-cell">
+							司机姓名：
+							<span id="cDriver"></span>
+						</li>
+						<li class="mui-table-view-cell">
+							司机电话：
+							<span id="cDriverPhone"></span>
+						</li>
+						<li class="mui-table-view-cell">
+							身份证号：
+							<span id="cIdentity"></span>
+						</li>
+						<li class="mui-table-view-cell">
+							备注信息：
+							<span id="Memo"></span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div id="item3" class="mui-control-content">
+				<div class="mui-card">
+					<ul class="mui-table-view">
+					</ul>
+				</div>
+			</div>
+			<div id="item4" class="mui-control-content">
+
+			</div>
+
+		</div>
+		<script src="../js/mui/mui.min.js"></script>
+        <script src="../js/Project/M_Fun.js"></script>
+		<script>
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+			var id = GetQueryString("id");
+			var MAAID = "";
+			getMAADetail();
+
+			mui(document).on("tap", "#sub", function() {
+
+				if(mui("input[name=opdata]:checked").length == 0) {
+					mui.alert("你还未选择是否同意通过审核！", "错误")
+					return false;
+				}
+				if(mui("#cMemo")[0].value.trim() == "") {
+					mui.alert("审核意见为必填项！", "错误")
+					return false;
+				}
+				mui.ajax("/Handler/AdminHandler.ashx", {
+					type: "Post",
+					dataType: "json",
+					async: false,
+					data: {
+						"Action": "AuditSpecialMAA",
+						"MAAID": MAAID,
+						"id": GetQueryString("id"),
+						"opdata": mui("input[name=opdata]:checked")[0].value,
+						"cMemo": mui("#cMemo")[0].value.trim()
+					},
+					success: function(res) {
+						console.log(typeof res)
+						if(res.flag == 1) {
+							mui.alert(res.message, function() {
+								window.location.href = 'MAASpecialAuditList.html';
+							})
+						} else {
+							mui.alert(res.message)
+						}
+					}
+				});
+
+			})
+
+			mui(document).on("tap", "#auditInfo ", function() {
+
+				mui.ajax('/handler/adminhandler.ashx', {
+					data: {
+						"Action": "AuditSpecialMAAInfo",
+						"MAAOrderID": MAAID
+					},
+					dataType: 'json', //服务器返回json格式数据
+					type: 'post', //HTTP请求类型
+					timeout: 10000, //超时时间设置为10秒；
+					success: function(res) {
+						if(res.flag != 1) {
+							mui.alert(res.message)
+							return false;
+						} else {
+							if(res.info.length == 0) {
+								mui.alert("该预约还没有人审核！")
+								return false;
+							} else {
+								var html = "";
+								mui.each(res.info, function(i, v) {
+									html += '<div class="mui-card">';
+									html += '<div class="mui-card-header ">审核人：' + v.cOPName + '</div>';
+									html += '<div class="mui-card-content"><div class="mui-card-content-inner">';
+									var iwfStatus = "";
+									if(v.iwfStatus == 4) {
+										iwfStatus = '审核通过';
+									} else {
+										iwfStatus = '审核不通过';
+									}
+									html += '<p>审核结果：' + iwfStatus + '</p>';
+									html += '<p>审核意见：' + v.cMemo + '</p>';
+									html += '	</div></div>	<div class="mui-card-footer">审核时间：' + v.datProcessTime.replace("T", " ") + '</div></div>';
+
+									mui("#item4")[0].innerHTML = html;
+
+								})
+							}
+						}
+					}
+				})
+			})
+
+			function getMAADetail() {
+				mui.ajax('/Handler/AdminHandler.ashx', {
+					data: {
+						"Action": "Get_SpecialAuditList",
+						"MAAID": id,
+					},
+					dataType: 'json', //服务器返回json格式数据
+					type: 'post', //HTTP请求类型
+					timeout: 10000, //超时时间设置为10秒；
+					success: function(res) {
+						if(res.flag != 1) {
+							mui.alert(res.message);
+							return false;
+						} else {
+							if(res.specialList.length == 0) {
+								mui.alert("没有数据！");
+								return false;
+							}
+							var o = res.specialList[0];
+							
+							//预约详情
+							MAAID = o.MAAOrderID;
+							mui(".mui-title")[0].innerText = o.cMAACode + " 详情";
+							mui("#ccuscode")[0].innerText=o.cCusCode;
+							mui("#MAATime")[0].innerText = o.datDate.split("T")[0] + " " + o.datStartTime + "~" + o.datEndTime;
+							mui("#cCarNumber")[0].innerText = o.cCarNumber;
+							mui("#cCarType")[0].innerText = o.cCarType;
+							mui("#cDriver")[0].innerText = o.cDriver;
+							mui("#cDriverPhone")[0].innerText = o.cDriverPhone;
+							mui("#cIdentity")[0].innerText = o.cIdentity;
+							mui("#Memo")[0].innerText = o.cMemo;
+							
+							//订单详情
+							var or={}
+							mui.each(res.specialList,function(i,v){
+								if(!or[v["strBillNo"]]){
+									or[v["strBillNo"]]=[]
+								}
+								or[v["strBillNo"]].push(v)
+							})
+							console.log(or)
+							var html="";
+							 
+							mui.each(or,function(i,v){
+								html+='<li class="mui-table-view-cell mui-collapse">';
+								html+='<a class="mui-navigate-right" href="#">'+v[0]["strBillNo"]+'</a>'
+								html+='<div class="mui-collapse-content"><table style="font-size:12px" width="100%"><thead><th width="85%">名称</th><th width="15%">数量</th></thead><tbody>'
+								mui.each(or[i],function(m,n){
+									html+='<tr>'
+									html+='<td>'+n["cinvname"]+'</td>'
+									html+='<td>'+n["iquantity"]+'</td>'
+									html+='</tr>'
+								})
+								html+='</tbody></table></div></li>'
+							})
+							
+
+					mui("#item3")[0].querySelector("ul").innerHTML=html
+
+						}
+					}
+				});
+			}
+
+			//采用正则表达式获取地址栏参数
+			function GetQueryString(name) {
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+				var r = window.location.search.substr(1).match(reg);
+				if(r != null) return unescape(r[2]);
+				return null;
+			}
+		</script>
+
+	</body>
+
+</html>

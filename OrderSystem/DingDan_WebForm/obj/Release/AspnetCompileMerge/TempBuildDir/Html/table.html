@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>历史订单</title>
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="../js/plugins/layui-1.0.9/css/layui.css" media="all" />
+    <link href="../js/plugins/bootstrapTable/bootstrap.min.css" rel="stylesheet" />
+    <link href="../js/plugins/bootstrapTable/bootstrap-table.min.css" rel="stylesheet" />
+
+    <style>
+        #tb {
+            font-size: 12px;
+        }
+    </style>
+</head>
+<!--<body onload="document.getElementById('bb').click()">-->
+<body>
+    <div class="container-fluid">
+        <div class="panel-body" style="padding-bottom:0px;">
+            <div class="panel panel-primary">
+                <div class="panel-heading">订单列表</div>
+                <div class="panel-body">
+                    <form id="formSearch" class="form-horizontal layui-form">
+                        <div class="form-group" style="margin-top:5px">
+                            <label class="control-label col-sm-1" for="txt_search_departmentname">时间范围</label>
+                            <div class="col-sm-3">
+                                <div class="col-sm-6">
+                                    <input class="layui-input" placeholder="开始日期" id="start_date">
+                                </div>
+                                <div class="col-sm-6">
+                                    <input class="layui-input" placeholder="截止日期" id="end_date">
+                                </div>
+                            </div>
+                            <label class="control-label col-sm-1">单据类型</label>
+                            <div class="col-sm-2" style="text-align:left;">
+                                <select class="layui-select" id="type">
+                                    <option value="0">已审核</option>
+                                    <option value="1">已作废</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-1"><button type="button" id="bb" style="margin-left:50px" data-toggle="modal" data-target="#myModal" class="btn btn-primary">查询</button></div>
+                        </div>
+                    </form>
+                    <div id="toolbar" class="btn-group">
+                    </div>
+                    <table id="tb" data-reorderable-columns="true"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog" role="document" style="width:1050px;margin:100px auto">
+            <div class="modal-content">
+  
+
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../js/plugins/layui-1.0.9/layui.js"></script>
+    <script type="text/javascript" src="../js/Project/table.js"></script>
+    <script src="../js/plugins/bootstrapTable/bootstrap.min.js"></script>
+    <script src="../js/plugins/bootstrapTable/bootstrap-table.min.js"></script>
+    <script src="../js/plugins/bootstrapTable/bootstrap-table-zh-CN.min.js"></script>
+    <script src="../js/plugins/Print-Area/jquery.PrintArea.js"></script>
+</body>
+</html>

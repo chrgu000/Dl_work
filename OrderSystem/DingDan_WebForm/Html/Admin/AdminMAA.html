@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>排号预约</title>
+  <meta name="renderer" content="webkit" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link rel="stylesheet" href="/js/plugins/layui-v2/layui/css/layui.css" media="all" />
+  <style>
+        .step-title {
+            padding: 20px 0 20px 20px;
+            float: left;
+            color: #001db1;
+            cursor: pointer;
+        }
+
+        .step {
+            min-height: 150px;
+        }
+
+        .step-title span {
+            font-size: 30px;
+            font-weight: 100;
+            padding-right: 20px;
+        }
+
+        .step-content {
+            padding: 20px 0 20px 40px;
+            width: 80%;
+            margin: 0 auto;
+            float: left;
+        }
+
+        hr {
+            width: 90%;
+            background-color:#FFB800!important;
+            margin: 0 auto;
+        }
+
+        .time_selected {
+            background-color: #7ABD54;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .en_time:hover {
+            background-color: #7ABD54;
+        }
+
+        .dis_time {
+            background-color: #eeeeee;
+            cursor: not-allowed;
+        }
+
+        .order_selected {
+        }
+    </style>
+
+</head>
+<body>
+
+  <div class="layui-tab">
+    <div class="layui-tab-content">
+      <form class="layui-form layui-form-pane" action="">
+
+        <div class="layui-tab-item layui-show">
+
+          <div class="layui-form-item btns">
+              <input type="button" class="layui-btn layui-btn-normal  layui-btn-small " onclick="location.reload()" value="刷新" />
+            <button class="layui-btn layui-btn-small" type="button" lay-submit="" id="submit" lay-filter="submit">提交预约</button>
+          </div>
+        </div>
+        <div style="width:90%;margin:0 auto;border:1px solid #eeeeee;margin-top:30px;height: auto">
+          <div class="step" id="step1">
+            <div class="step-title">
+              <span>预约时段</span>
+              <br>
+              <br>
+              <button class="layui-btn layui-btn-small" id="get_times" type="button">更新预约时段</button>
+
+            </div>
+            <div class="step-content">
+              <table class="layui-table layui-hide" id="time_table"></table>
+            </div>
+          </div>
+          <hr>
+          <div class="step" id="step2">
+            <div class="step-title">
+              <span>自提信息</span>
+            </div >
+            <div class="step-content">
+
+              <div class="layui-form-item">
+                <div class="layui-inline">
+                  <label class="layui-form-label">自提车牌</label>
+                  <div class="layui-input-inline" style="width:50%">
+                    <input type="text" name="cCarNumber"      class="layui-input"></div>
+                </div>
+                <div class="layui-inline">
+                  <label class="layui-form-label">司机姓名</label>
+                  <div class="layui-input-inline" style="width:50%">
+                    <input type="text" name="cDriver"   class="layui-input"></div>
+                </div>
+                <div class="layui-inline">
+                  <label class="layui-form-label">司机电话</label>
+                  <div class="layui-input-inline" style="width:50%">
+                    <input type="text" name="cDriverPhone"   class="layui-input"></div>
+                </div>
+              </div>
+              <div class="layui-form-item">
+                <div class="layui-inline">
+                  <label class="layui-form-label">司机身份证</label>
+                  <div class="layui-input-inline" style="width:50%">
+                    <input type="text" name="cIdentity"   class="layui-input"></div>
+                </div>
+                <div class="layui-inline">
+                  <label class="layui-form-label">车型</label>
+                  <div class="layui-input-inline" style="width:150px">
+                    <select name="cCarType" lay-verify="required" id="cartype">
+                      <option value="">请选择车型</option>
+                    </select>
+                  </div>
+                </div>
+                  <div class="layui-inline" style="margin-left: 33px">
+                  <label class="layui-form-label">送货方式</label>
+                  <div class="layui-input-inline" style="width:150px">
+                    <select name="cSCCode" lay-verify="required" id="cSCCode">
+                      <option value="">请选择送货方式</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="layui-form-item">
+                <label class="layui-form-label">备注</label>
+                <div class="layui-input-block">
+                  <input type="text" name="cMemo"   placeholder="请输入备注" autocomplete="off" class="layui-input"></div>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="step" id="step3">
+            <div class="step-title">
+              <span>自提订单</span>
+              <br>
+              <br>
+              <button class="layui-btn layui-btn-small" id="get_orders_ps" type="button">更新配送订单信息</button>
+              <br>
+                <br>
+               <button class="layui-btn layui-btn-small" id="get_orders_zt" type="button">更新自提订单信息</button>
+            </div>
+            <div class="step-content" >
+              <div class="layui-form-item">
+                <div class="layui-inline">
+                  <label class="layui-form-label">已选订单数</label>
+                  <div class="layui-input-inline">
+                    <label class="layui-form-label" style="width:190px"> <strong id="select_order_num">0</strong>
+                    </label>
+                  </div>
+                </div>
+                <div class="layui-inline">
+                  <label class="layui-form-label">已选订单重</label>
+                  <div class="layui-input-inline">
+                    <label class="layui-form-label" style="width:190px"> <strong id="select_order_weight">0吨</strong>
+                    </label>
+                  </div>
+                </div>
+              </div>
+                <table class="layui-table layui-form" id="orderTable" lay-filter="orderTable">
+                </table>
+            </div>
+          </div>
+          <hr>
+      </div>
+    </form>
+  </div>
+
+</div>
+  <script type="text/html" id="toolBar">
+  <a class="layui-btn layui-btn-mini" lay-event="detail">查看详情</a>
+</script>
+<script src="/js/plugins/layui-v2/layui/layui.all.js"></script>
+<script type="text/javascript" src="/js/admin/Project/AdminMAA.js"></script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+﻿<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>多联网上订单操作手册</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/js/plugins/layui-1.0.9/css/layui.css" media="all" />
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/help.css" rel="stylesheet" />
+
+</head>
+
+<body style="  padding-top: 70px; background-color:#d6d6d6">
+
+    <div class="container-fluid">
+        <!-- Static navbar -->
+        <nav class="navbar navbar-default navbar-fixed-top" style="position:fixed; left:0;">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- <a class="navbar-brand" href="#">Project name</a>
+                -->
+            </div>
+            <div class="container">
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="#explain"  >
+                                <span class="glyphicon glyphicon-cog"></span>
+                                使用说明
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#login"  >
+                                <span class="glyphicon glyphicon-send"></span>
+                                系统登录
+                            </a>
+                        </li>
+                          <li>
+                            <a href="#index"  >
+                                <span class="glyphicon glyphicon-list"></span>
+                                主页界面
+                            </a>
+                        </li>
+                        <li class="dropdown">
+
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span>
+                                购物
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#buy" data-nav="buy">新增普通订单</a>
+                                </li>
+                                <li>
+                                    <a href="#buy_sample" data-nav="buy_sample">新增样品资料订单</a>
+                                </li>
+                                <li>
+                                    <a href="#buy_special" data-nav="buy_special">参照特殊订单</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                             <span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span>  
+                                订单管理
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#CheckPendingOrder" data-nav="CheckPendingOrder">待审核订单</a>
+                                </li>
+                                <li>
+                                    <a href="#reject_order" data-nav="reject_order">被驳回订单</a>
+                                </li>
+                                <li>
+                                    <a href="#modify_shippingmethod" data-nav="modify_shippingmethod">更改收货方式</a>
+                                </li>
+                                <li>
+                                    <a href="#OrderConfirm" data-nav="OrderConfirm">待确认订单</a>
+                                </li>
+
+                                <li>
+                                    <a href="#historyorder" data-nav="historyorder">历史订单</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                             <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+                                特殊订单
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#preorder" data-nav="preorder">新增特殊订单</a>
+                                </li>
+                                <li>
+                                    <a href="#preorderlist" data-nav="preorderlist">特殊订单查询</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                             <span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span>
+                                报表
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#soa" data-nav="soa">我的对账单</a>
+                                </li>
+                                <li>
+                                    <a href="#arrear" data-nav="arrear">延期通知单</a>
+                                </li>
+                                <li>
+                                    <a href="#soad" data-nav="soad">账单明细</a>
+                                </li>
+                                <li>
+                                    <a href="#OrderExecute" data-nav="OrderExecute">订单执行情况</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                             <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                我的账户
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#address" data-nav="address">收货地址</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <!--        <form class="navbar-form navbar-right" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" />
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+                -->
+            </div>
+            <!--/.nav-collapse --> </div>
+    </div>
+    <!--/.container-fluid -->
+</nav>
+
+<div class="container-fluid" id="hash_content"></div>
+</div>
+<!-- /container -->
+
+<script src="/js/jquery-1.11.0.min.js"></script>
+<script src="/js/Scripts/bootstrap.min.js"></script>
+<script src="/js/plugins/layui-1.0.9/lay/dest/layui.all.js"></script>
+
+<!-- <script type="text/javascript" src="/js/plugins/layui-1.0.9/layui.js"></script>
+-->
+<script>
+        $(document).ready(function () {
+            $("#hash_content").load("html/explain.html")
+            $(window).on("hashchange", function () {
+                if (window.location.hash != "") {
+                    var hashpage = window.location.hash;
+                        $("#hash_content").load("html/"+hashpage.substr(1)+".html");
+                } else {
+                    $("#hash_content").load("html/explain.html")
+                }
+            })
+  
+ $(".navbar-nav li").click(function () {
+                $this = $(this);
+               // $this.siblings().removeClass("active");
+               $.each($("li"),function(i,v){
+                $(v).removeClass("active");
+            })
+                $this.addClass("active");
+            })
+
+$(document).on("click",".img-responsive",function(){
+                var $this = $(this);
+                layer.open({
+                    type: 2,
+                    shade: 0.7,
+                    title: $this.attr('title'),
+                    closeBtn: 1,
+                    offset: 200,
+                    area: [$this.width() * 1.1, $this.height() * 1.2],
+                    skin: 'layui-layer-nobg', //没有背景色
+                    shadeClose: true,
+                    content: $this.attr('src')
+                });
+})
+
+
+ $(".navbar-nav li").mouseover(function(){
+    $(this).addClass("open");
+ })
+  $(".navbar-nav li").mouseout(function(){
+    $(this).removeClass("open");
+ })
+        })
+         
+    </script>
+
+</body>
+</html>

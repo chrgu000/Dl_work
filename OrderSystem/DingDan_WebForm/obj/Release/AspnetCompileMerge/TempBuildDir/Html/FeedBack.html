@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link href="../js/plugins/layui-v2/layui/css/layui.css" rel="stylesheet" />
+    <title>客户反馈</title>
+</head>
+<body>
+   <div style="margin: 0px;" class="iframe">
+    <div class="layui-tab">
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+<button type="button" id="add" class="layui-btn layui-btn">新增</button>
+    <table id="tb"></table>
+    </div>
+    </div>
+    </div>
+    </div>
+    <script type="text/html" id="bytStatusTpl">
+ <!-- <div>{{d.bytStatus==1?'未答复':'已答复'}}</div> -->
+   {{#  if(d.bytStatus == '1'){ }}
+    <div style="color: #F581B1;"> 未答复  </div>
+  {{#  } else { }}
+     <span style="color: green;"> 已答复  </span>  
+  {{#  } }}
+</script>
+
+ <script type="text/html" id="timeTpl">
+ {{d.datBillTime.replace("T"," ")}}
+ </script>
+ 
+    <script src="../js/plugins/layui-v2/layui/layui.all.js"></script>
+   
+
+    <script>
+        var $ = layui.jquery, layer = layui.layer, table = layui.table;
+       
+
+var tb_options={
+            id: 'tb',
+            elem: "#tb",
+            page: true,
+           // height: 300,
+            limit: 10,
+          //  width: 800,
+            size: 'lg',
+            even: true,
+            // skin: 'line',
+            data: [],
+             cols:  [[  
+                {field: 'cCusCode', title: '用户', width: 100}
+                ,{field: 'cContacts', title: 'cContacts', width: 120}
+                ,{field: 'cContent', title: '问题', width: 220}
+                ,{field: 'datBillTime', title: '提交时间', width: 220,templet:'#timeTpl' }
+                ,{field: 'bytStatus', title: '状态', width: 120,templet:'#bytStatusTpl'}
+                ,{field: 'cReplay', title: '答复', width: 120}
+                ,{field: 'replayer', title: '答复人', width: 120}
+                ,{field: 'datReplayTime', title: '答复时间', width:220,templet:'#timeTpl' }
+              
+             ]]
+        };
+
+       getAllFeedBack()
+
+function getAllFeedBack(){
+    $.ajax({
+         url:"/handler/producthandler.ashx",
+            type:"Post",
+            dataType:"Json",
+            data:{"Action":"GetAllFeedBack"},
+            success:function(res){
+                console.log(res)
+                tb_options.data=res.data;
+                 table.render(tb_options);
+            }
+    })
+}
+
+
+$("#add").click(function(){
+    layer.open({
+        type:1
+        ,title:"新增反馈"
+        ,area:["500px","350px"]
+        ,content:'<div style="width:90% ; text-align:center;margin:10px auto"><label class="layui-label">反馈意见</label><textarea id="question" style="height:210px"  class="layui-textarea"></textarea></div>'
+        ,btn:["提交","关闭"]
+        ,btn1:function(){
+           $.ajax({
+            url:"/handler/producthandler.ashx",
+            type:"Post",
+            dataType:"Json",
+            data:{"Action":"SaveFeedBack","question":$("#question").val().trim()},
+            success:function(res){
+                if (res.flag!=1) {
+                    layer.alert(res.message,{icon:2} )
+                    return false;
+                }else{
+                    layer.alert("提交成功！",{icon:1,closeBtn:0},function(){
+                        getAllFeedBack();
+                        layer.closeAll();
+                    })
+                }
+            },
+            error:function(err){
+                console.log(err)
+            }
+           });
+        }
+    })
+})
+
+
+$(document).ajaxStart(function() {
+    layer.load();
+}).ajaxComplete(function(request, status) {
+    layer.closeAll('loading');
+}).ajaxError(function(err) {
+    console.log(err)
+    layer.alert("页面出错，请联系管理员！", {
+        icon: 2
+    });
+    layer.closeAll('loading');
+});
+
+    </script>
+
+
+</body>
+</html>

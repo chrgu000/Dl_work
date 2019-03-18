@@ -1,0 +1,177 @@
+﻿<div style="margin: 0px;" class="iframe">
+    <div class="layui-tab">
+
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form" action="" id="buy_form">
+                    <div class="layui-form-item btns">
+                        <input type="button" class="layui-btn   layui-btn-small " id="select_product" value="选择商品" />
+                        <input type="button" class="layui-btn   layui-btn-normal layui-btn-small" id="submit_buy_list" value="提交样品订单" />
+                        <input type="button" class="layui-btn   layui-btn-danger layui-btn-small" id="del_none" value="一键清除零库存" />
+                    </div>
+                    <div id="jbxx">
+                        <div class="layui-form-item" 　id="info_div">
+                            <div class="layui-inline" style="width: 20%">
+                                <label class="layui-form-label">订 单 号</label>
+                                <div class="layui-input-block bl">
+                                    <span id="strBillNo" style="font-size: 20px; font-weight: bold">{{ d.dt[0].strBillNo}}</span>
+                                </div>
+                            </div>
+                            <div class="layui-inline" style="width: 51%">
+                                <label class="layui-form-label">制 单 人</label>
+                                <div class="layui-input-block bl" style="width: 130px">
+                                    <span id="strUserName">{{ d.dt[0].ccusname}}</span>
+                                </div>
+                            </div>
+                            <div class="layui-inline" style="width: 20%">
+                                <label class="layui-form-label">销售类型</label>
+                                <div class="layui-input-inline bl" style="width: 130px">
+                                    <span id="cSTCode">
+                                        {{# if (d.dt[0].lngBillType == "0") { }}
+                                        普通订单
+                                        {{# } else if (d.dt[0].lngBillType == "1")
+                                        { }}
+                                        酬宾订单
+                                        {{# } else if (d.dt[0].lngBillType == "1")
+                                        { }}
+                                        特殊订单
+                                        {{# } }}
+                                    </span>
+                                    <span style="display:none" id="cdiscountname">{{ d.dt[0].cdiscountname}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <div class="layui-inline" style="width: 20%">
+                                <label class="layui-form-label">订单日期</label>
+                                <div class="layui-input-inline bl" style="width: 130px">
+                                    <span id="datCreateTime">{{d.dt[0].datBillTime}}</span>
+                                </div>
+                            </div>
+                            <div class="layui-inline" style="width: 51%">
+                                <label class="layui-form-label">开票单位</label>
+                                <div class="layui-input-block bl" id="TxtCustomer_div">
+                                    <span id="TxtCustomer" cpersoncode={{d.dt[0].cpersoncode}}  style="font-size: 20px; font-weight: bold">{{d.dt[0].ccusname}}</span>
+                                </div>
+                            </div>
+                            <div class="layui-inline" style="width: 20%">
+                                <label class="layui-form-label">信 用 额</label>
+                                <div class="layui-input-block bl">
+                                    <span   id="TxtCusCredit" style="font-size: 20px; font-weight: bold">{{d.message}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <div class="layui-inline" style="width: 20%">
+                                <label class="layui-form-label">送货方式</label>
+                                <div class="layui-input-block bl">
+                                    {{# if (d.dt[0].cSCCode == "00") { }}
+                                    <span id="shfs" cSCCode='00'>自提</span>
+                                    {{# } else { }}
+                                    <span id="shfs" cSCCode='01'>配送</span>
+                                    {{# } }}
+                                </div>
+                            </div>
+                            <div class="layui-inline" style="width: 51%">
+                                <label class="layui-form-label">送货地址</label>
+                                <div class="layui-input-block bl">
+                                    <span id="txtAddress">{{d.dt[0].cdefine11}}</span>
+                                </div>
+                            </div>
+                            <div class="layui-inline" style="width: 20%">
+                                <label class="layui-form-label">行 政 区</label>
+                                <div class="layui-input-block　bl"></div>
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <div class="layui-inline" style="width: 20%">
+                                <label class="layui-form-label">提货时间</label>
+                                <div class="layui-input-inline">
+                                    <input class="layui-input" placeholder="选择提货时间" id="datDeliveryDate" onclick="layui.laydate({ elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss' })"></div>
+                            </div>
+                            <div class="layui-inline" style="width: 36%">
+                                <label class="layui-form-label">装车方式</label>
+                                <div class="layui-input-block">
+                                    <input type="text" id="strLoadingWays" lay-verify="title" autocomplete="off" placeholder="请输入装车方式" class="layui-input" 
+                                    value={{ d.dt[0].strLoadingWays}}></div>
+                            </div>
+                            <div class="layui-inline" style="width: 14%">
+                                <label class="layui-form-label">车型</label>
+                                <div class="layui-input-block bl">
+                                    <span id="cdefine3">{{d.dt[0].cdefine3}}</span>
+                                </div>
+                            </div>
+                            <div class="layui-inline" style="width: 20%">
+                                <label class="layui-form-label">备 注</label>
+                                <div class="layui-input-block">
+                                    <textarea name="desc" placeholder="点击输入备注内容" id="strRemarks" class="layui-input" >{{d.dt[0].strRemarks}}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="layui-table" id="buy_list">
+                        <thead>
+                            <tr>
+                                <th style="width: 8%">操作</th>
+                                <th style="width: auto">序号</th>
+                                <th style="width: 13%">名称</th>
+                                <th style="width: 10%">规格</th>
+                                <th style="width: 9%">单位组</th>
+                                <th style="width: 5%">基本数量</th>
+                                <th style="width: 5%">基本单位</th>
+                                <th style="width: 5%">小包装数量</th>
+                                <th style="width: 5%">小包装单位</th>
+                                <th style="width: 5%">大包装数量</th>
+                                <th style="width: 5%">大包装单位</th>
+                                <th style="width: 6%">基本单位汇总</th>
+                                <th style="width: 5%">可用库存量</th>
+                                <th style="width: 7%">包装结果</th>
+                                <th style="width: 4%">单价</th>
+                                <th style="width: 5%">金额</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#  layui.each(d.datatable, function(index, item){ }}
+                            <tr>
+                               <td class='ui-widget-content'><a href='javascript:void(0)'  class='del_this '>删除</a><a href='javascript:void(0)'  class='up_this'>上移</a><a href='javascript:void(0)'  class='down_this'>下移</a></td>
+                                <td code={{item.cInvCode}}>{{index+1}}</td>
+                                <td cinvdefine13={{item.cInvDefine13}} cinvdefine14={{item.cInvDefine14}}>{{item.cInvName}}</td>
+                                <td>{{item.cInvStd}}</td>
+                                <td>{{item.UnitGroup}}</td>
+                                <td class="in">{{item.cComUnitQTY}}</td>
+                                <td>{{item.cComUnitName}}</td>
+                                <td class="in">{{item.cInvDefine2QTY}}</td>
+                                <td>{{item.cInvDefine2}}</td>
+                                <td class="in">{{item.cInvDefine1QTY}}</td>
+                                <td>{{item.cInvDefine1}}</td>
+                                <td>{{item.cInvDefineQTY}}</td>
+                                <td>{{item.Stock}}</td>
+                                <td>{{item.pack}}</td>
+                                <td>{{item.cComUnitPrice}}</td>
+                                 <td>{{item.cComUnitAmount}}</td>
+                            </tr>
+                            {{#  }); }}
+                        </tbody>
+
+                    </table>
+                    <div class="layui-form-item">
+                        <div style="float: left"></div>
+                        <div style="float:right;margin-right:30px;">
+                            <div class="layui-inline" style="width: 100%">
+                                <label class="layui-form-label">总金额:</label>
+                                <label class="layui-form-label" style="text-align:left;font-weight:bold" id="money"></label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+            <div class="layui-tab-item">内容2</div>
+            <div class="layui-tab-item">内容3</div>
+            <div class="layui-tab-item">内容4</div>
+            <div class="layui-tab-item">内容5</div>
+        </div>
+    </div>
+</div>

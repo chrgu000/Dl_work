@@ -1,0 +1,203 @@
+﻿<div class="layui-form-item btns" style="position: fixed;background-color: #eee;z-index: 10;width:100%;padding-left: 10px">
+ 
+                        <input type="button" class="layui-btn  layui-btn-normal layui-btn-small " id="select_product" value="选择商品" />
+                        <input type="button" class="layui-btn layui-btn-normal  layui-btn-small " id="select_SpecialProduct" value="选择商品" />
+                        <input type="button" class="layui-btn layui-btn-small " id="select_history_order" value="获取历史订单" />
+                        <input type="button" class="layui-btn layui-btn-small " id="select_temp_order" value="获取临时订单" />
+                        <input type="button" class="layui-btn   layui-btn-small" id="alert_buy_temp" value="保存临时订单" />
+                        <input type="button" class="layui-btn   layui-btn-danger layui-btn-small" id="submit_buy_list" value="提交正式订单" />
+                        <input type="button" class="layui-btn   layui-btn-warm layui-btn-small" id="del_none" value="一键清除零库存" />
+                        <input type="button" class="layui-btn   layui-btn-warm layui-btn-small" page="buy" id="refresh" value="刷新库存" />
+                        <input class="layui-btn layui-btn-small layui-hide"  type="button" id="upload" value="导入Excel "/>
+                        <input type="file" name="file1" lay-type="file" class=" layui-btn layui-btn-small layui-hide" id="uploadExcel"></div>
+                      
+<div style="margin: 0px;" class="iframe">
+    <div class="layui-tab">
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+              <form class="layui-form layui-form-pane" action="" id="buy_form" style="min-height: 0;margin-top: 50px">
+                    <div id="jbxx">
+                        <div class="layui-form-item layui-hide " id="info_div">
+                            <div class="layui-inline">
+                                <label class="layui-form-label">订单号</label>
+                                <div class="layui-input-inline bl" style="width: 190px">
+                                    <span id="strBillNo" style="font-size: 18px; font-weight: bold;margin-left:15px"></span>
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">制单人</label>
+                                <div class="layui-input-block bl" style="width: 280px">
+                                    <span id="strUserName" style="margin-left:15px;"></span>
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">销售类型</label>
+                                <div class="layui-input-block bl" style="width: 180px;">
+                                    <span id="cSTCode" style="margin-left:15px;"></span>
+                                    <span style="display:none" id="cdiscountname"  ></span>
+                                </div>
+                            </div>
+                        </div>
+              
+
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <label class="layui-form-label">订单日期</label>
+                                <div class="layui-input-inline bl" style="width: 190px">
+                                    <span id="datCreateTime" name="datCreateTime" style="margin-left:15px;"></span>
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">开票单位</label>
+                                <div class="layui-input-block bl" id="TxtCustomer_div" style="width: 280px">
+                                    <select id="TxtCustomer" lay-filter="kpdw" name="TxtCustomer">
+                                        <option value lay-search>请选择开票单位</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">信 用 额</label>
+                                <div class="layui-input-block bl" style="width: 180px">
+                                    <span id="TxtCusCredit" style="font-size: 14px; font-weight: bold;margin-left:15px;"></span>
+                                    <span style="display:none" id="cdiscountname"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <label class="layui-form-label">送货方式</label>
+                                <div class="layui-input-inline bl" id="shfs_div">
+                                    <input name="shfs" id="ps" value="配送" title="配送" type="radio" class="radio" lay-filter="shfs" csccode="01">
+                                    <input name="shfs" id="zt" value="自提" title="自提" type="radio" class="radio" lay-filter="shfs" csccode="00">
+                                    <!-- <input name="shfs" id="zt" value="自提" title="自提配送" type="radio" class="radio" lay-filter="shfs" csccode="00">
+                                    -->
+                                    <div class="layui-hide">
+                                        <input type="checkbox" lay-filter="shipping_check" lay-skin="primary" title="自提(托运)" id="shipping_check"   >
+                                        <button class="layui-btn-danger layui-btn layui-btn-mini  layui-hide " id="shipping_info" info="" type="button"    >托运信息</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">送货地址</label>
+                                <div class="layui-input-block bl" id="txtAddress_div" style="width: 280px">
+                                    <select id="txtAddress" lay-search lay-filter="txtAddress">
+                                        <option value>请先选择送货方式</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">行 政 区</label>
+                                <div class="layui-input-block bl" id="txtArea_div">
+                                    <select id="txtArea" lay-search lay-filter="txtArea">
+                                        <option value>自提必须选择行政区</option>
+                                    </select>
+                                </div>
+                            </div> <i class='layui-icon layui-hide' id="is_discount" style='color: red;'>&#xe63b;</i>
+                            <div class="layui-inline layui-hide">
+                                <label class="layui-form-label">仓 库</label>
+                                <div class="layui-input-block bl" id="txtWareHouse_div" style="width: 130px">
+                                    <select id="txtWareHouse" lay-search lay-filter="txtWareHouse" oldwhcode="CD01">
+                                        <option value="CD01">成都仓库</option>
+                                    </select>
+                                </div>
+                            </div> 
+                        </div>
+
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <label class="layui-form-label"  >提货时间</label>
+                                <div class="layui-input-inline bl" id="datDeliveryDate_div"  >
+                                    <input class="layui-input" placeholder="选择提货时间" id="datDeliveryDate" onclick="layui.laydate({ elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss' })"></div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">装车方式</label>
+                                <div class="layui-input-block" style="width: 280px">
+                                    <input type="text" id="strLoadingWays" lay-verify="title" autocomplete="off" placeholder="请输入装车方式" class="layui-input"></div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">车&nbsp;&nbsp;&nbsp;&nbsp;型</label>
+                                <div class="layui-input-block bl" id="cdefine3_div" style="width: 120px">
+                                    <select id="cdefine3" lay-search>
+                                        <option value>请选择车型</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">备 注</label>
+                                <div class="layui-input-block" style="width: 150px">
+                                    <textarea name="desc" placeholder="点击输入备注内容" id="strRemarks" class="layui-input"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="layui-form-item layui-hide" id="cCusInvCode_div">
+                        <div class="layui-inline">
+                            <input type="text" placeholder="输入客户代码" id="cCusInvCode" class="layui-input cusInvCode"  style="width:120px"></div>
+                        <div class="layui-inline">
+                            <input type="text" placeholder="基本单位数量" id="cusNum_s" class="layui-input cusInvCode cusNum"   style="width:120px"></div>
+                        <div class="layui-inline">
+                            <input type="text" placeholder="小包装单位数量" id="cusNum_m" class="layui-input cusInvCode cusNum"   style="width:120px"></div>
+                        <div class="layui-inline">
+                            <input type="text" placeholder="大包装单位数量" id="cusNum_b" class="layui-input cusInvCode cusNum"   style="width:120px"></div>
+                        <div class="layui-inline">
+                            <button class="layui-btn layui-btn-small" type="button" id="GetcCusInvCode">添加商品</button>
+                        </div>
+                           <div class="layui-inline"  style="width:120px">
+                             <select id="codeconfig_select" lay-search  >
+                                        <option value=1>添加凑整</option>
+                                        <option value=2>减少凑整</option>
+                                        <option value=3>重置为0</option>
+                                    </select>
+                        </div>
+                    </div>
+                   
+                        <span id="autosave_msg" class="layui-hide"></span>
+                     
+                    <table class="layui-table" id="buy_list">
+                        <thead>
+                            <tr>
+                                <th style="width: 7%">操作</th>
+                                <th style="width: auto">序号</th>
+                                <th style="width: 13%">名称</th>
+                                <th style="width: 10%">规格</th>
+                                <th style="width: 9%">单位组</th>
+                                <th style="width: 5%">基本数量</th>
+                                <th style="width: 5%">基本单位</th>
+                                <th style="width: 5%">小包装数量</th>
+                                <th style="width: 5%">小包装单位</th>
+                                <th style="width: 5%">大包装数量</th>
+                                <th style="width: 5%">大包装单位</th>
+                                <th style="width: 6%">基本单位汇总</th>
+                                <th style="width: 5%">可用量</th>
+                                <th style="width: 5%">库存量</th>
+                                <th style="width: 8%">包装结果</th>
+                                <th style="width: 4%">单价</th>
+                                <th style="width: 5%">金额</th>
+                                <th style="display: none">itemid</th>
+                                <th style="display: none">unit_m</th>
+                                <th style="display: none">unit_b</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                    <div class="layui-form-item">
+                        <div style="float: left">
+                            <div class="layui-inline" style="width: 100%;  ">
+                                <label class="layui-form-label">商品总重量:</label>
+                                <label class="layui-form-label" style="text-align: left; font-weight: bold;width:auto" id="pro_weight"></label>
+                            </div>
+                        </div>
+                        <div style="float: right">
+                            <div class="layui-inline" style="width: 100%;  ">
+                                <label class="layui-form-label">总金额:</label>
+                                <label class="layui-form-label" style="text-align: left; font-weight: bold" id="money"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

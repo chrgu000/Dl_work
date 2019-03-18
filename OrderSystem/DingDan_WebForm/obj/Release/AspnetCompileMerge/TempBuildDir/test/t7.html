@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+
+    <title></title>
+    <link rel="stylesheet" href="//cdn.bootcss.com/mdui/0.3.0/css/mdui.min.css">
+    <link href="../js/plugins/lCalendar/css/lCalendar.css" rel="stylesheet" />
+    <script src="//cdn.bootcss.com/mdui/0.3.0/js/mdui.min.js"></script>
+    <script src="../js/plugins/lCalendar/js/lCalendar.min.js"></script>
+</head>
+<body>
+    <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-pink" id="btn1">btn1</button>
+    <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-pink" id="btn2">btn2</button>
+    <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-pink" id="btn3">btn3</button>
+    <br>
+    <div class="mdui-textfield mdui-textfield-floating-label">
+        <label class="mdui-textfield-label">Email</label>
+        <input class="mdui-textfield-input" type="text" id="picker"/>
+    </div>
+    <input type="datetime-local" placeholder="datetime-local" />
+    <input type="week" placeholder="datetime-local" />
+    <script src="../js/plugins/layer_mobile/layer.js"></script>
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script>
+        $(function () {
+
+            var url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx85ee38394e42f0b7&redirect_uri=http://dl.duolian.com:8001/mobile/html/RoleCheck.html&response_type=code&scope=snsapi_base&state=dl&connect_redirect=1#wechat_redirect";
+
+
+            var a = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx85ee38394e42f0b7&redirect_uri=http://dl.duolian.com:8001/WeiXin/html/RoleCheck.html&response_type=code&scope=snsapi_base&state=orderinfo.html?id=9&connect_redirect=1#wechat_redirect'
+
+
+            var b = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx85ee38394e42f0b7&redirect_uri=http://dl.duolian.com:8001/WeiXin/html/RoleCheck.html&response_type=code&scope=snsapi_userinfo&state=orderinfo.html?lngopOrderId=9&connect_redirect=1#wechat_redirect'
+            var page;
+            $('#btn3').click(function () {
+                 page = layer.open({
+                    type: 1
+               , content: '<button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-green" id="btna">btna</button><button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-blue" id="btnb">btnb</button><br/>\
+                   <div class="mdui-textfield mdui-textfield-floating-label"><label class="mdui-textfield-label">Email</label><input class="mdui-textfield-input" type="text" id="picker1"/></div>'
+               , anim: 'up'
+               , style: 'position:fixed; left:0; top:0; width:100%; height:100%; border: none; -webkit-animation-duration: .5s; animation-duration: .5s;'
+               ,success:function(){
+                  var calendardatetime = new lCalendar();
+                  calendardatetime.init({
+                'trigger': '#picker1',
+                'type': 'datetime'
+            });
+               }
+                });
+            })
+
+            $(document).on('click', '#btna', function () {
+                layer.open({
+                content: 'hello layer'
+                , skin: 'msg'
+                , time: 2 //2秒后自动关闭
+                });
+
+            }).on('click', '#btnb', function () {
+                console.log(page)
+                 layer.close(page);
+            })
+            function tt() {
+                console.log('tt')
+
+                return 'aaa';
+            }
+  
+         
+             var calendardatetime = new lCalendar();
+                  calendardatetime.init({
+                'trigger': '#picker',
+                'type': 'datetime'
+            });
+ 
+            // $.ajax({
+            //                url: "/handler/weixinhandler.ashx",
+            //                type: "Post",
+            //               // contentType: "application/json; charset=utf-8",
+            //                dataType: "json",
+            //                data:{'Action':"GetUrl","url":a},
+            //                success: function (res) {
+            //                    console.log(res.res);
+
+            //                }, error: function (err) {
+            //                    console.log(err)
+            //                }
+            //            });
+
+
+          
+
+        
+
+        })
+
+    </script>
+
+</body>
+</html>

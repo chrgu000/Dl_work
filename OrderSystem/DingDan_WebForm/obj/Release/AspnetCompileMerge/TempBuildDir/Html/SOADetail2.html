@@ -1,0 +1,396 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>多联网上订单系统</title>
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="../js/plugins/layui-1.0.9/css/layui.css" media="all" />
+    <link href="../js/plugins/dataTables/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/js/plugins/table/css/bootstrap4alpha.css" />
+    <link rel="stylesheet" type="text/css" href="/js/plugins/table/css/dataTables.bootstrap4.css">
+    <link rel="stylesheet" type="text/css" href="/js/plugins/table/css/buttons.bootstrap4.css">
+    <style>
+        .layui-table th, .layui-table td {
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .btns {
+            border-bottom: 1px solid #7bd1e0;
+            height: 50px;
+            line-height: 50px;
+        }
+
+        .bl {
+            vertical-align: middle;
+            line-height: 36px;
+        }
+
+        form {
+            min-height: 500px;
+        }
+
+        .selected {
+            background-color: red;
+        }
+
+        .bl {
+            vertical-align: middle;
+            line-height: 36px;
+        }
+
+        .red {
+            background: #E3CACA;
+        }
+
+        .yellow {
+            background-color: #f3f5c1;
+        }
+
+            .right{
+            font-size: 16px;
+        }
+        #light{
+            width: 400px;
+            float: left;
+        }
+        #Blight{
+            background-color: #c8e5bc;
+            float: right;
+        }
+        #detail > thead > tr > th {
+            text-align: center;
+        }
+        .layui-form-label {
+        width:auto;
+        }
+    </style>
+</head>
+<body>
+    <div style="margin: 0px;" class="iframe">
+        <div class="layui-tab">
+
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+                    <form action="" class="layui-form">
+                        <div class="layui-form-item btns">
+                            <div class="layui-inline">
+                                <label class="layui-form-label">单位</label>
+                                <div class="layui-input-inline" style="width: 200px;">
+                                    <select class="layui-select" id="kpdw">
+                                        <option value>请选择单位</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">时间范围</label>
+                                <div class="layui-input-inline">
+                                    <input class="layui-input" placeholder="开始日期" id="start_date">
+                                </div>
+                                <div class="layui-input-inline">
+                                    <input class="layui-input" placeholder="截止日期" id="end_date">
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <input type="button" id="btn" class="layui-btn" value="查询">
+                                <!--<input type="button" id="btn1" class="layui-btn" value="测试">-->
+                                <!--<input type="button" onclick="window.location.reload()" class="layui-btn" value="刷新">-->
+                            </div>
+                        </div>
+                        <div class="layui-form-item"></div>
+
+                        <table class="layui-table" id="detail" cellpadding="0" cellspacing="0" style="width:80%"></table>
+                        <!--<div class="layui-form-item" id="show" style="font-size:16px;margin: 10px auto auto 20px;display:none">
+                            <div class="layui-inline ">
+                                共计：<span id="num"></span>条
+                            </div>
+                            <div class="layui-inline ">
+                                <label class="layui-form-label"></label>
+                                提货金额合计 :<span id="count_buy"></span>
+                            </div>
+                            <div class="layui-inline ">
+                                <label class="layui-form-label"></label>
+                                结算金额合计 :<span id="count_pay"></span>
+                            </div>
+                            <div class="layui-inline ">
+                                <label class="layui-form-label"></label>
+                                应付余额 :<span id="need_pay"></span>
+                            </div>
+                        </div>-->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../js/plugins/layui-1.0.9/layui.js"></script>
+    <!--<script src="../js/plugins/dataTables/js/jquery.dataTables.min.js"></script>-->
+    <script type="text/javascript" src="../js/Project/function.js?v=1"></script>
+
+
+    <script type="text/javascript" language="javascript" src="/js/plugins/table/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/plugins/table/js/dataTables.bootstrap4.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/plugins/table/js/dataTables.buttons.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/plugins/table/js/buttons.bootstrap4.js"> </script>
+    <script type="text/javascript" src="/js/plugins/table/js/jszip.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/plugins/table/js/buttons.html5.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/plugins/table/js/buttons.print.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/plugins/table/js/buttons.colVis.js"></script>
+
+    <script>
+     
+        layui.use(['element', 'util', 'laydate', 'form'], function () {
+            //  var $ = layui.jquery,
+            var form = layui.form(),
+                util = layui.util,
+              laydate = layui.laydate,
+              element = layui.element(); //Tab的切换功能，切换事件监听等，需要依赖element模块
+
+            var start = {
+                min: '2016-01-01 00:00:00'
+ , max: '2099-06-16 23:59:59'
+ , istoday: false
+ , choose: function (datas) {
+     end.min = datas; //开始日选好后，重置结束日的最小日期
+     end.start = datas //将结束日的初始值设定为开始日
+ }
+            };
+
+            var end = {
+                min: laydate.now()
+              , max: '2099-06-16 23:59:59'
+              , istoday: false
+              , choose: function (datas) {
+                  start.max = datas; //结束日选好后，重置开始日的最大日期
+              }
+            };
+
+            $("#start_date").click(function () {
+                start.elem = this;
+                laydate(start);
+            });
+
+            $("#end_date").click(function () {
+                end.elem = this;
+                laydate(end);
+            });
+
+            $.ajax({
+                url: "../Handler/ProductHandler.ashx",
+                type: "Post",
+                dataType: "Json",
+                data: { "Action": "Get_KPDW" },
+                success: function (data) {
+
+                    var html = "";
+                    $.each(data.dt, function (i, v) {
+                        html += '<option value=' + v.cCusCode + '>' + v.cCusName + '</option>'
+                    })
+                    $("#kpdw").append(html);
+                    form.render();
+                    draw_tb(data.dt);
+                }
+            })
+
+
+            $("#btn").click(function () {
+                if ($("#kpdw option:selected").val() == 0) {
+                    layer.msg("请先选择单位!");
+                    return false;
+                }
+                $.ajax({
+                    url: "../Handler/ProductHandler.ashx",
+                    type: "Post",
+                    dataType: "Json",
+                    data: {
+                        "Action": "DLproc_SOADetailforCustomerBySel",
+                        "start_date": $("#start_date").val(),
+                        "end_date": $("#end_date").val(),
+                        "kpdw": $("#kpdw  option:selected").val()
+                    },
+                    success: function (data) {
+                        if (data.flag == 0) {
+                            layer.alert(data.message, { icon: 2 });
+                        } else {
+                            draw_tb(data);
+                            if ($("#detail tbody .dataTables_empty").length == 0) {
+                                var $trs = $("#detail tbody tr");
+                                
+                                var count_buy = 0, count_pay = 0, need_pay = 0,num=0;
+                                $.each($trs, function (i, v) {
+                                  //  count_buy += Number($(v).find("td:eq(6)").text());
+                                //    count_pay += Number($(v).find("td:eq(8)").text());
+                                    if ($(v).find("td:eq(6)").text() == "0" && $(v).find("td:eq(8)").text() != "0") {
+                                        $(v).css("background-color", "#f3f5c1");
+                                    }
+                                    else if ($(v).find("td:eq(4)").text() == "期初余额") {
+                                        $(v).css("background-color", "#E3CACA");
+                                    }
+                                });
+                                var table = $("#detail").DataTable();
+
+                                //count_buy = count_buy.toFixed(2);
+                                //count_pay = count_pay.toFixed(2);
+                                //need_pay = $("#detail tbody tr:last-child").find("td:eq(10)").text();
+                    
+                                $.each(table.column("6").data(), function (i, v) {
+                                  //  console.log(count_buy+"|"+v)
+                                    count_buy += v;
+                                })
+                                $.each(table.column("8").data(), function (i, v) {
+                                    count_pay += v;
+                                })
+                                num = table.data().length;
+                                count_buy = count_buy.toFixed(2);
+                                count_pay = count_pay.toFixed(2);
+                                need_pay = table.row(num - 1).data().ye;
+                               console.log(count_buy);
+                               console.log(count_pay);
+                               console.log(need_pay);
+                                //$("#count_buy").text(count_buy);
+                                //$("#count_pay").text(count_pay);
+                                //$("#need_pay").text(need_pay);
+                               
+                               // $("#num").text(table.rows().data().length);
+                               // $("#show").show();
+                                 addrow(num,count_buy, count_pay, need_pay);
+                                //table.row.add({
+                                //    "单位名称": "11111",
+                                //    "iYear": "",
+                                //    "iMonth": "",
+                                //    "iDay": "",
+                                //    "cOrderNo": "",
+                                //    "cDLCode": "dfsdfa",
+                                //    "jf": "asdas",
+                                //    "cSSName": "asdfasd",
+                                //    "df": "",
+                                //    "skdBZ": "",
+                                //    "ye": "",
+                                //    "cMemo": ""
+                                //}).draw();
+                            } else {
+                                $("#show").hide();
+                            }
+                        }
+                    }
+                })
+            })
+
+
+
+        })
+
+        function draw_tb(data) {
+            var kpdw = $("#kpdw option:selected").text();
+            var table = $("#detail").DataTable({
+                buttons: ['excel'],
+                 dom : '<"left"f>r<"right"<"#light"l><"Blight"B>>tip',
+               // "dom":"lrtip",
+                scrollY: "500px",
+                info: true,
+                ordering:false,
+                autoWidth: false,
+                pagingType: "full_numbers",//分页样式的类型
+                // paging: false,
+                // pageLength: 100,
+                lengthChange: true,
+               // searching: false,
+                destroy: true,
+                data: data.dt,
+                language: {
+                    lengthMenu: '每页显示 <select style="height: 35px;width: 100px">' +
+                   // '<option value="5">5</option>' +
+                    '<option value="10">10</option>' +
+                   // '<option value="20">20</option>' +
+                  //  '<option value="30">30</option>' +
+                 //   '<option value="40">40</option>' +
+                    '<option value="50">50</option>' +
+                    '<option value="100">100</option>' +
+                    '<option value="-1">全部</option>' +
+                    '</select>条',
+                    search: '<span class="label label-success">搜索：</span>',//右上角的搜索文本，可以写html标签
+
+                    paginate: {//分页的样式内容。
+                        previous: "上一页",
+                        next: "下一页",
+                        first: "第一页",
+                        last: "最后"
+                    },
+                    zeroRecords: "没有内容",//table tbody内容为空时，tbody的内容。
+                    //下面三者构成了总体的左下角的内容。
+                    info: "总共_PAGES_ 页，显示第_START_ 到第 _END_ ，筛选之后得到 _TOTAL_ 条，初始_MAX_ 条 ",//左下角的信息显示，大写的词为关键字。
+                    infoEmpty: "0条记录",//筛选为空时左下角的显示。
+                    infoFiltered: ""//筛选之后的左下角筛选提示，
+                },
+                "columns": [
+            {
+                "title": "单位名称", "data": null, class: "center",
+                render: function (d) {
+                    return d = kpdw;
+                }
+            },
+             { "title": "年", "data": "iYear", class: "center" },
+              { "title": "月", "data": "iMonth", class: "center" },
+               { "title": "日", "data": "iDay", class: "center" },
+              { "title": "订单号", "data": "cOrderNo", class: "center" },
+              { "title": "提货清单号", "data": "cDLCode", class: "center" },
+              { "title": "提货金额", "data": "jf", class: "center" },
+              { "title": "结算方式", "data": "cSSName", class: "center" },
+              { "title": "结算金额", "data": "df", class: "center" },
+              { "title": "付款备注", "data": "skdBZ", class: "center" },
+              { "title": "应付余额", "data": "ye", class: "center" },
+              {
+                  "title": "订单备注", "data": "cMemo", class: "center", width: 300,
+                  render: function (data, type, row, meta) {
+                      if (data != null) {
+                          if (data.length > 30) {
+                              return '<span title=' + data + '>' + data.substring(0, 30) + ' ......</span>';
+                          } else {
+                              return data;
+                          }
+                      }
+                      else {
+                          return '';
+                      }
+                  }
+              },
+                ]
+            });
+
+            $(".buttons-excel").find("span").text("导出Excel");
+        }
+
+ 
+ 
+
+        function addrow(num,count_buy, count_pay, need_pay) {
+            var table = $("#detail").DataTable();
+            table.row.add( {
+                "单位名称": "",
+                "iYear": "",
+                "iMonth":"",
+                "iDay": " ",
+                "cOrderNo": "共计" + num + "条记录",
+                "cDLCode": " ",
+                "jf": "提货金额合计="+count_buy,
+                "cSSName": " ",
+                "df": "结算金额合计="+count_pay,
+                "skdBZ": "",
+                "ye": "应付余额="+need_pay,
+                "cMemo": ""
+            } 
+
+            ).draw();
+        }
+
+        $(document).on("click", "#btn1", function () {
+            alert("sdf");
+        })
+
+    </script>
+
+ 
+ 
+</body>
+</html>

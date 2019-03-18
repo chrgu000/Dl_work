@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+  <link href="../../js/plugins/mdui/css/mdui.min.css" rel="stylesheet" />
+     
+</head>
+<br>
+<body class="mdui-drawer-body-left  mdui-theme-primary-indigo mdui-theme-accent-pink mdui-loaded">
+<!-- <div class="mdui-appbar mdui-appbar-fixed  ">
+        <div class="mdui-toolbar mdui-color-blue-900">
+            <a href="historyOrderList.html"   class="mdui-btn mdui-btn-icon"> <i class="mdui-icon material-icons">arrow_back</i>
+            </a>
+            <a href="javascript:;" class="mdui-typo-title" id="title"></a>
+            <div class="mdui-toolbar-spacer"></div>
+            <a href="javascript:;" onclick='location.reload()' class="mdui-btn mdui-btn-icon">
+                <i class="mdui-icon material-icons">refresh</i>
+            </a>
+        </div>
+    </div>
+<br> -->
+    <div class="mdui-container  ">
+
+        <button class="mdui-btn mdui-color-green-600 mdui-ripple" id="start"> <i class="mdui-icon material-icons">play_arrow</i>
+            开始投票
+        </button>
+        <button class="mdui-btn mdui-color-red mdui-ripple" id="stop"> <i class="mdui-icon material-icons">stop</i>
+            停止投票
+        </button>
+        <div class="mdui-list-item mdui-ripple ">
+        <!--     <i class="mdui-list-item-icon mdui-icon material-icons mdui-color-red">assistant_photo</i> -->
+            本次投票累计
+            <div class="mdui-list-item-content">
+                成功:
+                <span class=" mdui-text-color-red" id="Scount">0</span>
+            </div>
+            <div class="mdui-list-item-content">
+                失败:
+                <span class=" mdui-text-color-red" id="Ecount">0</span>
+            </div>
+        </div>
+    </div>
+    <div class="mdui-container ">
+
+        <div class="mdui-appbar   ">
+            <div class="mdui-tab mdui-color-blue-a200" mdui-tab>
+                <!-- <a href="#tab1" class="mdui-ripple mdui-ripple-white">订单流程</a>
+            -->
+            <a href="#tab2" class="mdui-ripple mdui-ripple-white">成功信息</a>
+            <a href="#tab3" class="mdui-ripple mdui-ripple-white">错误信息</a>
+        </div>
+    </div>
+    <div class="mdui-container-fluid">
+
+        <div id="tab2">
+            <ul class="mdui-list" id="success"></ul>
+        </div>
+        <div id="tab3">
+            <ul class="mdui-list"  id="error"></ul>
+        </div>
+    </div>
+
+</div>
+    <script src="../../js/plugins/mdui/js/mdui.min.js"></script>
+<script>
+        var $$ = mdui.JQ;
+        var interval ,Scount=0,Ecount=0,delay=0;
+        $$(function () {
+            $$('#stop').hide();
+            $$(document).on('click','#start',function(){
+             interval= setInterval(start,10000);
+             $$('#start').hide();
+              $$('#stop').show();
+            })
+               $$(document).on('click','#stop',function(){
+              clearInterval(interval);
+                 $$('#stop').hide();
+              $$('#start').show();
+            })
+        })
+
+        function vote() {
+            $$.ajax({
+                method: 'POST',
+                url: '/handler/mobileHandler.ashx',
+                dataType: 'json',
+                async:false,
+                data: { 'Action': 'vote' },
+                success: function (res) {
+                    console.log(res);
+                    if (res.flag!=1) {
+                       mdui.snackbar({message: res.message});
+                        return false;
+                    }
+                    var html='';
+                    if (res.message=='投票成功') {
+                        html+=' <li class="mdui-list-item mdui-ripple"> <i class="mdui-list-item-icon mdui-icon material-icons mdui-color-cyan-700">move_to_inbox</i><div class="mdui-list-item-content">\
+                    <div class="mdui-list-item-title">'+res.message+'</div>\
+                     <div class="mdui-list-item-text">提交时间：'+res.endTime+'</div>\
+                    <div class="mdui-list-item-text">延迟毫秒：'+(delay+10000)+'</div>\
+                    </div></li><li class="mdui-divider"></li>';
+                    $$('#success').prepend(html);
+                    if ( $$('#success .mdui-list-item').length>6) {
+                        $$('#success .mdui-list-item').last().remove();
+                        $$('#success .mdui-divider').last().remove();
+                    }
+                    Scount+=1;
+                    $$('#Scount').text(Scount);
+                    }else  if (res.message=='投票失败'){
+                                html+=' <li class="mdui-list-item mdui-ripple"> <i class="mdui-list-item-icon mdui-icon material-icons mdui-color-deep-orange-a700">move_to_inbox</i><div class="mdui-list-item-content">\
+                    <div class="mdui-list-item-title">'+res.message+'</div>\
+                     <div class="mdui-list-item-text">提交时间：'+res.endTime+'</div>\
+                    </div></li><li class="mdui-divider"></li>';
+                    $$('#error').prepend(html);
+                  Ecount+=1;
+                    $$('#Ecount').text(Ecount);
+                    }
+                    mdui.snackbar({message: res.message});
+                }
+            });
+        }
+        function start(){
+               delay =  parseInt(Math.random()*3000);
+            setTimeout(vote,delay);
+          // setTimeout(test,delay);
+          //  console.log(delay);
+        }
+
+        function stop(){
+
+        }
+        function test(){
+             console.log('test');
+        }
+    </script>
+</body>
+</html>

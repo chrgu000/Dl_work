@@ -1,0 +1,44 @@
+.navbar {
+	background: #112241;
+}
+
+.navbar a {
+	color:white;
+}
+
+/*.nav > li > a:link{
+	background: #112241;
+}*/
+
+.nav > li > a:visited {
+	background: #112241;
+}
+
+.nav > li > a:hover{
+	background: #8F8FBF4D;
+}
+
+.nav > li > a:active{
+	background-color: #8F8FBF4D;
+}
+
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+    background-color: #8F8FBF4D;
+}
+
+.navbar-toggle {
+	background: white;
+}
+
+.icon-bar {
+	background: #8F8FBF4D;
+}
+
+.list-group-item.active {
+	  background-color: #112241;
+}
+
+.form-control-feedback{
+left:0 
+}

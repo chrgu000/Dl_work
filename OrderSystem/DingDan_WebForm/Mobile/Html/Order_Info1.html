@@ -1,0 +1,277 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>订单详情</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!--标准mui.css-->
+    <link rel="stylesheet" href="../css/mui.min.css">
+    <link href="../css/loading.css" rel="stylesheet" />
+
+    <!--App自定义的css-->
+    <!--<link rel="stylesheet" type="text/css" href="../css/app.css" />
+    -->
+    <style>
+        .mui-card .mui-control-content {
+            padding: 10px;
+        }
+
+        .mui-control-content {
+            height: 150px;
+        }
+        #item3_ul li{
+             width: 98%;
+             margin:0 auto;
+             border-bottom: 1px solid #eee;
+             padding-top:4px;
+                 padding-bottom:4px;
+        }
+            .nearsite-message{
+                display: inline-block;
+                clear:both;
+                margin: 10px;
+            }
+            .nearsite-message .avatar{
+                float: left;
+            }
+            .nearsite-message .avatar img{
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+            }
+            .nearsite-message .content{
+                float: left; 
+                background: #fff;
+                margin: 0 10px 10px 10px;
+                padding: 10px;
+                border-radius:7px;
+                max-width: 90%;
+                position: relative;
+                min-height: 20px;
+                font-size:15px;
+            }
+            .nearsite-message .content img{
+                width: 100%;
+            }
+            .nearsite-message .triangle{
+                height:0px; 
+                width:0px; 
+                border-width:8px; 
+                border-style:solid;
+                position: absolute;
+                top:6px; 
+                border-color:transparent #fff transparent transparent;    
+                left:-16px;
+            }
+            .vertbar{
+                width: 2px;
+                height: 120px;
+                background-color: #a5a5a5;
+                margin: -70px 25px -8px;
+            }
+
+
+      
+    </style>
+</head>
+
+<body>
+    <header class="mui-bar mui-bar-nav">
+        <h1 class="mui-title">订单详情</h1>
+    </header>
+    <div class="mui-content">
+        <div style="padding: 10px 10px;">
+            <div style="padding: 10px 10px;">
+                <div id="segmentedControl" class="mui-segmented-control">
+                    <!-- <a class="mui-control-item mui-active" href="#item1">流程查看</a> -->
+                    <a class="mui-control-item  mui-active" href="#item2">订单详情</a>
+                    <a class="mui-control-item" href="#item3">产品详情</a>
+                </div>
+            </div>
+        </div>
+<!--         <div id="item1" class="mui-control-content mui-active">
+            <div class='nearsite-message'>
+                <div class='avatar'>
+                    <img src="../images/site1.png" />
+                </div>
+                <div class='content'>
+                    <div class='triangle'></div>
+                    <p>2017-05-05 17:44:22</p>
+                    <span>已提交订单</span>
+                </div>
+            </div>
+
+            <div class="vertbar"></div>
+
+            <div class='nearsite-message'>
+                <div class='avatar'>
+                    <img src="../images/site2.png" />
+                </div>
+                <div class='content'>
+                    <div class='triangle'></div>
+                    <p></p>
+                    <span>等待审核</span>
+                </div>
+            </div>
+
+            <div class="vertbar"></div>
+
+            <div class='nearsite-message'>
+                <div class='avatar'>
+                    <img src="../images/site3.png" />
+                </div>
+                <div class='content'>
+                    <div class='triangle'></div>
+                    <p></p>
+                    <span>等待装车</span>
+                </div>
+            </div>
+        </div> -->
+
+        <div id="item2" class="mui-control-content  mui-active">
+            <div class="mui-card">
+                <!--页眉，放置标题-->
+                <!-- <div class="mui-card-header   mui-bg-primary" style="color:#FFF"></div>
+            -->
+            <div class="mui-card-content">
+                <ul class="mui-table-view" id="item2_ul"></ul>
+            </div>
+        </div>
+    </div>
+    <div id="item3" class="mui-control-content">
+        <div class="mui-card">
+            <div class="mui-card-header mui-bg-negative" style="color:#FFF">
+                订单总金额：
+                <span id="isum"></span>
+            </div>
+            <ul class="mui-table-view mui-table-view-striped mui-table-view-condensed" id="item3_ul"></ul>
+        </div>
+    </div>
+ 
+</div>
+<script src="../js/mui/mui.min.js"></script>
+<script src="../js/project/M_Fun.js"></script>
+
+<script>
+        mui.init({
+            swipeBack: true //启用右滑关闭功能
+        });
+
+    </script>
+<script>
+        var orders = {};
+        var cMAACode = "";
+        var level = 0;
+        mui.init({
+            swipeBack: true, //启用右滑关闭功能
+            tap: true, //默认为true
+            doubletap: true, //默认为false
+            longtap: true //默认为false
+        });
+
+        mui.ready(function () {
+            var orderCode = GetQueryString("orderCode")
+            if (orderCode == "" || orderCode == null) {
+                mui.alert("参数不正确！")
+                return false;
+            }
+            mui.ajax('/Handler/ProductHandler.ashx', {
+                data: {
+                    "Action": "OrderInfo",
+                    "orderCode": orderCode
+                },
+                dataType: 'json', //服务器返回json格式数据
+                type: 'post', //HTTP请求类型
+                timeout: 10000, //超时时间设置为10秒；
+                success: function (res) {
+                    if (res.flag != 1) {
+                        mui.alert(res.message);
+                        return false;
+                    }  
+                    console.log(res);
+                    if (res.order.length==0) {
+                         mui.alert('未获取数据，请重试或联系管理员！');
+                        return false;
+                    }
+                    var o=res.order[0];
+                    if (res.orderType=="1") {
+                        var html="";
+                        html+='  <li class="mui-table-view-cell">订单编号：<span id="strBillNo">'+ o["strBillNo"]+'</span></li>';
+                        html+='  <li class="mui-table-view-cell">下单时间：<span id="datCreateTime">'+ o["datCreateTime"].replace('T',' ')+'</span></li>';
+                        html+='  <li class="mui-table-view-cell">开票单位：<span id="ccusname">'+ o["ccusname"]+'</span></li>';
+                        html+='  <li class="mui-table-view-cell">下单账号：<span id="strAllAcount">'+ o["strAllAcount"]+'</span></li>';
+                        html+='  <li class="mui-table-view-cell">送货地址：<span id="cdefine11">'+ o["cdefine11"]+'</span></li>';
+                        html+='  <li class="mui-table-view-cell">物流信息：<span id="chdefine21">'+  o["chdefine21"]+'</span></li>';
+                        html+='  <li class="mui-table-view-cell">装车方式：<span id="strLoadingWays">'+ o["strLoadingWays"]+'</span></li>';
+                        html+='  <li class="mui-table-view-cell">车型信息：<span id="cdefine3">'+ o["cdefine3"]+'</span></li>';
+                        html+='  <li class="mui-table-view-cell">备注信息：<span id="strRemarks">'+ o["strRemarks"]+'</span></li>';
+                        mui('#item2_ul')[0].innerHTML=html;
+                   
+  
+                        var htmldetail='';
+                        var isum=0;
+                        mui.each(res.order,function(i,v){
+                 
+
+                            htmldetail += '<li><div class="mui-row" ><h4 class="ui-table-cell mui-col-xs-12 mui-ellipsis">' + (i + 1) + '. ' + v['cinvname'] + '</h4></div>\
+                                    <div class="mui-row" >  <div class="mui-table-cell mui-col-xs-8 mui-h5 ">规格:'+ v['cInvStd'] + '</div>\
+                                    <div class=" mui-table-cell mui-col-xs-4 mui-text-right mui-h5 ">包装:'+ v['cdefine22'] + '</div></div>\
+                                    <div class="mui-row" >  <div class="mui-table-cell mui-col-xs-4 mui-h5 ">单价:'+ v['inatunitprice'] + '</div>\
+                                    <div class=" mui-table-cell mui-col-xs-4 mui-text-right mui-h5 ">数量:'+ v['iquantity'] + '</div>\
+                                    <div class=" mui-table-cell mui-col-xs-4 mui-text-right mui-h5 ">合计:'+ v['isum'] + '</div></div> </li>';
+                        isum += v['isum'];
+                    })
+                        mui('#isum')[0].innerText=isum.toFixed(2);
+                        mui('#item3_ul')[0].innerHTML=htmldetail;
+
+                    }else if(res.orderType=="2"){
+                        var html="";
+                        html+='  <li class="mui-table-view-cell">订单编号：<span id="strBillNo">'+ o["strBillNo"]+'</span></li>';
+                        html+='  <li class="mui-table-view-cell">下单时间：<span id="datBillTime">'+ o["datBillTime"].replace('T',' ')+'</span></li>';
+                        html+='  <li class="mui-table-view-cell">开票单位：<span id="ccusname">'+ o["ccusname"]+'</span></li>';
+                        html+='  <li class="mui-table-view-cell">下单账号：<span id="strAllAcount">'+ o["strAllAcount"]+'</span></li>';
+                        html+='  <li class="mui-table-view-cell">备注信息：<span id="cMemo">'+ o["cMemo"]+'</span></li>';
+                        mui('#item2_ul')[0].innerHTML=html;
+                   
+  
+                        var htmldetail='';
+                        var isum=0;
+                        mui.each(res.order,function(i,v){
+                            htmldetail += '<li><div class="mui-row" ><h4 class="ui-table-cell mui-col-xs-12 mui-ellipsis">' + (i + 1) + '. ' + v['cInvName'] + '</h4></div>\
+                                    <div class="mui-row" >  <div class="mui-table-cell mui-col-xs-8 mui-h5 ">规格:'+v['cInvStd']+'</div>\
+                                    <div class=" mui-table-cell mui-col-xs-4 mui-text-right mui-h5 ">包装:'+v['cDefine22']+'</div></div>\
+                                    <div class="mui-row" >  <div class="mui-table-cell mui-col-xs-4 mui-h5 ">单价:'+v['inatunitprice']+'</div>\
+                                    <div class=" mui-table-cell mui-col-xs-4 mui-text-right mui-h5 ">数量:'+v['iquantity']+'</div>\
+                                    <div class=" mui-table-cell mui-col-xs-4 mui-text-right mui-h5 ">合计:'+v['isum']+'</div></div> </li>';
+                                    isum+=v['isum'];
+                    })
+                        mui('#isum')[0].innerText=isum.toFixed(2);
+                        mui('#item3_ul')[0].innerHTML=htmldetail;
+                    }
+            
+                }
+            });
+
+        })
+
+ 
+
+ 
+
+        //采用正则表达式获取地址栏参数
+        function GetQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
+        }
+
+ 
+    </script>
+</body>
+
+</html>

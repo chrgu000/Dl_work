@@ -1,0 +1,261 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <!-- <link href="../js/mintui/2.2.13/style.css" rel="stylesheet" /> -->
+    <link href="../js/vue/loading.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css">
+    <title>安全库存预警信息 </title>
+    <style type="text/css">
+    body {
+        background-color: #eee;
+    }
+
+    .mint-navbar {
+        margin-top: 40px;
+        /*border-top:1px solid #ccc;*/
+    }
+
+    .mint-tab-container {
+        margin-top: 96px;
+    }
+
+    .mt-tab-container-div {
+        margin-bottom: 15px;
+    }
+
+
+    .mint-cell {
+        height: 38px;
+        line-height: 38px;
+        vertical-align: middle;
+        min-height: 38px;
+    }
+
+    .mint-cell-wrapper {
+        font-size: 14px;
+    }
+
+    .mint-cell-value {
+        color: #000;
+    }
+
+    .name {
+        font-size: 16px;
+        color: #c62828;
+        font-weight: bold;
+    }
+
+    .nodata {
+        text-align: center;
+        font-size: 50px;
+        color: rgba(0, 0, 0, 0.3);
+        margin-top: 50px;
+    }
+    #content{
+         overflow: scroll;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="vm">
+        <mt-header title="安全库存预警信息" fixed>
+            <mt-button @click="openPicker" type="danger" slot="right" v-text="h"></mt-button>
+        </mt-header>
+        <mt-navbar v-model="selected" fixed>
+            <mt-tab-item id="1">挤塑
+                <mt-badge type="error" size="small" v-if="stocks_jisu.length>0" v-text="stocks_jisu.length"> </mt-badge>
+            </mt-tab-item>
+            <mt-tab-item id="2">注塑
+                <mt-badge type="error" size="small" v-if="stocks_zusu.length>0" v-text="stocks_zusu.length"> </mt-badge>
+            </mt-tab-item>
+            <!--   <mt-tab-item id="3">模具
+                <mt-badge type="error" size="small" v-if="stocks_muju.length>0" v-text="stocks_muju.length"> </mt-badge>
+            </mt-tab-item>
+            <mt-tab-item id="4">其他
+                <mt-badge type="error" size="small" v-if="stocks_other.length>0" v-text="stocks_other.length"> </mt-badge>
+            </mt-tab-item> -->
+        </mt-navbar>
+
+        <!-- tab-container -->
+        <mt-tab-container  v-model="selected">
+            <mt-tab-container-item id="1"  >
+                <div class="nodata" v-if="stocks_jisu.length==0"> 暂无预警信息 </div>
+                  <div id="content" :style="{height:h+'px'}">
+                <!--    <div class="mt-tab-container-div" v-for="item in jisu">
+                        <mt-cell class="name" :title="'存货名称：'+item.cInvName"></mt-cell>
+                        <mt-cell :title="'存货编码：'+item.cInvCode" :value="'包装量：'+item.cPackingType"></mt-cell>
+                        <mt-cell :title="'安全库存：'+item.iSafeNum" :value="'可用数量：'+item.iQuantity"></mt-cell>
+                        <mt-cell :title="'规格型号：'+item.cInvStd" :value="'差值：'+item.relQuantity"></mt-cell>
+                    </div> -->
+                </div>
+            </mt-tab-container-item>
+            <mt-tab-container-item id="2" >
+                <div class="nodata" v-if="stocks_zusu.length==0"> 暂无预警信息 </div>
+                <div id="content" :style="{height:h+'px'}" >
+                <mt-loadmore :bottom-method="loadBottom_zusu" :bottom-all-loaded="allLoaded" :auto-fill="false" ref="loadmore_zusu">
+                <div class="mt-tab-container-div" v-for="(item,index) in zusu">
+                        <mt-cell class="name" :title="(index+1)+'.存货名称：'+item.cInvName"></mt-cell>
+                        <mt-cell :title="'存货编码：'+item.cInvCode" :value="'包装量：'+item.cPackingType"></mt-cell>
+                        <mt-cell :title="'安全库存：'+item.iSafeNum" :value="'可用数量：'+item.iQuantity"></mt-cell>
+                        <mt-cell :title="'规格型号：'+item.cInvStd" :value="'差值：'+item.relQuantity"></mt-cell>
+                    </div>  
+                </mt-loadmore>
+                </div>
+            </mt-tab-container-item>
+            <!--     <mt-tab-container-item id="3">
+                <div class="nodata" v-if="stocks_muju.length==0"> 暂无预警信息 </div>
+                <div class="mt-tab-container-div" v-for="item in stocks_muju">
+                    <mt-cell class="name" :title="'存货名称：'+item.cInvName"></mt-cell>
+                    <mt-cell :title="'存货编码：'+item.cInvCode" :value="'包装量：'+item.cPackingType"></mt-cell>
+                    <mt-cell :title="'安全库存：'+item.iSafeNum" :value="'可用数量：'+item.iQuantity"></mt-cell>
+                    <mt-cell :title="'规格型号：'+item.cInvStd" :value="'差值：'+item.relQuantity"></mt-cell>
+                </div>
+            </mt-tab-container-item>
+            <mt-tab-container-item id="4">
+                <div class="nodata" v-if="stocks_other.length==0"> 暂无预警信息 </div>
+                <div class="mt-tab-container-div" v-for="item in stocks_other">
+                    <mt-cell class="name" :title="'存货名称：'+item.cInvName"></mt-cell>
+                    <mt-cell :title="'存货编码：'+item.cInvCode" :value="'包装量：'+item.cPackingType"></mt-cell>
+                    <mt-cell :title="'安全库存：'+item.iSafeNum" :value="'可用数量：'+item.iQuantity"></mt-cell>
+                    <mt-cell :title="'规格型号：'+item.cInvStd" :value="'差值：'+item.relQuantity"></mt-cell>
+                </div>
+            </mt-tab-container-item> -->
+        </mt-tab-container>
+        <mt-datetime-picker ref="picker" type="date" v-model="pickerValue" year-format="{value} 年" month-format="{value} 月" date-format="{value} 日" @confirm="handleChange">
+        </mt-datetime-picker>
+        <!-- <mt-popup v-model="popupVisible" position="bottom" class="mint-popup-3" :modal="true">
+          
+        </mt-popup> -->
+    </div>
+    <script src="../js/vue/vue-2.5.13.min.js"></script>
+    <script src="../js/vue/axios.js"></script>
+    <script src="../js/vue/axios_FUN.js"></script>
+    <script src="../js/mintui/2.2.13/index.js"></script>
+    <script>
+    let vm = new Vue({
+        el: "#vm",
+        data: {
+            stocks_jisu: [],
+            stocks_zusu: [],
+            stocks_muju: [],
+            stocks_other: [],
+            jisu: [],
+            zusu: [],
+            Now: '',
+            selected: "1",
+            pickerValue: "",
+            h: 0,
+            allLoaded: false,
+            isAutoFill: false
+        },
+        methods: {
+            openPicker() {
+                this.$refs.picker.open();
+            },
+            handleChange(val) {
+                var d = FormatDate(new Date(this.pickerValue), 'yyyyMMdd')
+                this.getDate(d);
+            },
+            loadBottom_zusu: function() {
+                this.$refs.loadmore_zusu.onBottomLoaded();
+                 this.loadMore_zusu();
+            },
+            loadMore_zusu() {
+                this.allLoaded = true;
+                let last = this.zusu.length - 1;
+                console.log(last);
+                
+                for (let i = 1; i <= 10; i++) {
+                    this.zusu.push(this.stocks_zusu[last + i]);
+
+                     console.log(this.stocks_zusu.length);
+                }
+                this.allLoaded = false;
+                console.log(this.zusu);
+
+            },
+            getDate(date) {
+                this.stocks_jisu = [];
+                this.stocks_zusu = [];
+                this.stocks_muju = [];
+                this.stocks_other = [];
+                axios({
+                    url: "/handler/mobilehandler.ashx",
+                    method: "post",
+                    data: {
+                        "Action": "GetSafeStock",
+                        "date": date
+                    }
+                }).then((res) => {
+                    if (res) {
+                        // console.log(res);
+                        vm.Now = res.message;
+                        res.data.forEach((o) => {
+                            switch (o.cInvDepCode) {
+                                case '0502':
+                                    vm.stocks_jisu.push(o);
+                                    break;
+                                case '0503':
+                                    vm.stocks_zusu.push(o);
+                                    break;
+                                case '0504':
+                                    vm.stocks_muju.push(o);
+                                    break;
+                                default:
+                                    vm.stocks_other.push(o);
+                                    break;
+                            }
+                        });
+
+                        for(var i =0;i<20;i++){
+                            this.zusu.push(this.stocks_zusu[i]);
+                        }
+                    }
+
+                })
+            }
+        },
+        created() {
+            this.h = document.documentElement.clientHeight - 96;
+            this.pickerValue = new Date();
+            this.getDate(GetQueryString('date'));
+
+        },
+        mounted() {
+            
+
+        }
+    })
+
+
+
+    function FormatDate(date, fmt) {
+        var o = {
+            "M+": date.getMonth() + 1, //月份
+            "d+": date.getDate(), //日
+            "h+": date.getHours(), //小时
+            "m+": date.getMinutes(), //分
+            "s+": date.getSeconds(), //秒
+            "q+": Math.floor((date.getMonth() + 3) / 3), //季度
+            "S": date.getMilliseconds() //毫秒
+        };
+        if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
+        for (var k in o)
+            if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+        return fmt;
+    }
+
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+    </script>
+</body>
+
+</html>

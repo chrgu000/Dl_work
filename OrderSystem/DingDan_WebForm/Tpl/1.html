@@ -1,0 +1,124 @@
+﻿
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="js/plugins/layui/css/layui.css" rel="stylesheet" />
+    <title>1select_product.html</title>
+</head>
+<body>
+    <script id="demo" type="text/html">
+
+
+        <ul>
+            {{#  layui.each(d.dt, function(index, item){ }}
+            <li>
+                <span>{{ item.ccusname }}</span>
+                <span>{{ item.cdefine8 }}：</span>
+                <span>{{ item.cdiscountname || '' }}</span>
+            </li>
+            {{#  }); }}
+
+            {{#  if(d.dt.length === 0){ }}
+            无数据
+            {{#  } }}
+        </ul>
+        <table class="layui-table">
+            <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>名称</th>
+                    <th>规格</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#  layui.each(d.datatable, function(index, item){ }}
+                <tr>
+                    <td>{{item.UnitGroup}}</td>
+                    <td>{{item.cInvName}}</td>
+                    <td>{{item.cInvStd}}</td>
+                </tr>
+                {{#  }); }}
+            </tbody>
+        </table>
+    </script>
+    <script id="demo2" src="2.js"></script>
+    <div id="view">
+        <input type="button" class="layui-btn" value="btn1" id="btn1">
+    </div>
+    <div id="view1" style="display: none"></div>
+
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="js/plugins/layui/layui.js"></script>
+    <script>
+
+        layui.use(['form', 'util', 'laytpl', 'laydate', 'layer'], function () {
+            var form = layui.form(),
+             util = layui.util,
+              laydate = layui.laydate,
+              laytpl = layui.laytpl,
+                layer = layui.layer;
+
+            var dd = {
+                "title": "Layui常用模块"
+              , "list": [{ "modname": "弹层", "alias": "layer", "site": "layer.layui.co1m" }, { "modname": "表2单", "alias": "form" }]
+              , "tb": [{ "name": "afd", "std": "ddff", "num": "addfasdfa" }]
+            };
+
+
+
+
+        })
+
+        $(document).ready(function () {
+            $.ajax({
+                url: "Handler/BaseHandler.ashx",
+                dataType: "Json",
+                type: "Post",
+                data: { "Action": "DLproc_OrderDetailModifyBySel", "strBillNo": "DL20170101502" },
+                success: function (data) {
+                    console.log(data);
+                    var getTpl = demo.innerHTML;
+                    $.ajax({
+                        url: "Tpl/test.html",
+                        dataType: "html",
+                        success: function (h) {
+                            //  console.log(h);
+                            $("#view1").html(h);
+                            // console.log($("#demo1").html());
+                            //var getTpl1 = $("#demo1").html();
+                            var getTpl1=demo1.innerHTML;
+                            console.log(getTpl);
+                            console.log(getTpl1);
+
+                            layui.laytpl(getTpl1).render(data, function (html) {
+                                $("#view").html(html);
+                            })
+                        }
+                    })
+                    //console.log(demo2);
+                    //   var getTpl2=demo2.innerHTML;
+                    //   console.log(getTpl2);
+                    //  console.log(getTpl);
+
+
+
+                    // layui.laytpl(getTpl).render(data, function (html) {
+                    //     $("#view").html(html);
+                    // })
+
+
+                    //       laytpl(getTpl).render(data, function (html) {
+                    // $("#view").html(html);
+                    //      })
+                }
+
+            })
+        })
+
+
+
+    </script>
+</body>
+</html>

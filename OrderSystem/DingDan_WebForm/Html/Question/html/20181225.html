@@ -1,0 +1,310 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>问卷调查</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="/js/plugins/layui/css/layui.css" rel="stylesheet" />
+    <link href="../css/question.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="header">
+        <div class="main">
+            <div class="nav">
+                <a class="nav-this" href="#"> <i class="iconfont icon-wenda"></i>
+          网上订单系统调查问卷
+        </a>
+            </div>
+        </div>
+    </div>
+    <div class="main layui-clear">
+        <div class="wrap">
+            <div class="content">
+                <form class="layui-form">
+                    <button class="layui-btn " type="button" id="submit" lay-filter="sub">提交</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="/js/plugins/layui/lay/dest/layui.all.js"></script>
+    <script>
+    var questions = [{
+            "title": "1.  您对公司品牌和形象是否满意？（品牌推广相关）?",
+            "type": "radio",
+            "required": true,
+        },
+        {
+            "title": "2.  您对公司产品的质量把控是否满意？",
+            "type": "radio",
+            "required": true,
+        },
+        {
+            "title": "3.  您对公司产品质量与同行业同类产品比较是否满意？",
+            "type": "radio",
+            "required": true,
+        },
+        {
+            "title": "4.  您对公司产品的品种齐全性是否满意？",
+            "type": "radio",
+            "required": true,
+        },
+        {
+            "title": "5.  您对公司产品的生产包装是否满意？",
+            "type": "radio",
+            "required": true,
+        },
+        {
+            "title": "6.  您对公司整体的产品供应能力是否满意？",
+            "type": "radio",
+            "required": true,
+        },
+        {
+            "title": "7.  您对公司新产品研发能力是否满意？",
+            "type": "radio",
+            "required": true,
+        },
+        {
+            "title": "8.  您对公司产品外观是否满意？",
+            "type": "radio",
+            "required": true,
+        },
+        {
+            "title": "9.  您对公司产品性价比与同行业同类产品比较是否满意？",
+            "type": "radio",
+            "required": true,
+        },
+        {
+            "title": "10.  您对公司营销价格政策是否满意？",
+            "type": "radio",
+            "required": true,
+        },
+        {
+            "title": "11.  您对公司区域经理在业务层面的支持是否满意？",
+            "type": "radio",
+            "required": true,
+        },
+        {
+            "title": "12.  您对公司区域经理给予的业务指导是否满意？",
+            "type": "radio",
+            "required": true,
+        },
+        {
+            "title": "13.  您对公司区域经理反映问题和投诉能得到及时解决是否满意？",
+            "type": "radio",
+            "required": true,
+        },
+        {
+            "title": "14.  您对公司区域经理主动拜访您并定期沟通是否满意?",
+            "type": "radio",
+            "required": true,
+        },
+        {
+            "title": "15.  您对公司区域经理服务态度好是否满意？",
+            "type": "radio",
+            "required": true,
+        },
+        {
+            "title": "16.  您对公司区域经理产品知识、沟通能力是否满意？",
+            "type": "radio",
+            "required": true,
+        },
+        {
+            "title": "17.  您对公司售后服务部人员工作态度和工作效率是否满意？",
+            "type": "radio",
+            "required": true,
+        },
+        {
+            "title": "18.  您对公司售后及投诉处理时效是否满意？",
+            "type": "radio",
+            "required": true,
+        },
+        {
+            "title": "19.  您对公司售后及投诉处理结果是否满意？",
+            "type": "radio",
+            "required": true,
+        },
+        {
+            "title": "20.  您对公司售后及投诉处理的专业性是否满意？",
+            "type": "radio",
+            "required": true,
+        },
+        {
+            "title": "21.  您对公司客户服务热线（400）服务态度、专业水平、回复及时效性是否满意？",
+            "type": "radio",
+            "required": true,
+        },
+        {
+            "title": "22.  您对公司内勤中心人员的工作态度和工作效率是否满意？",
+            "type": "radio",
+            "required": true,
+        },
+        {
+            "title": "23.  您对公司广告宣传内容是否满意？",
+            "type": "radio",
+            "required": true,
+        },
+        {
+            "title": "24.  您对公司广告宣传方式是否满意？（店招、高速路、市场、机场、杂志、墙体、车身）",
+            "type": "radio",
+            "required": true,
+        },
+        {
+            "title": "25.  您对公司产品促销活动是否满意？",
+            "type": "radio",
+            "required": true,
+        },
+        {
+            "title": "26.  您对公司信息工作人员工作态度和工作效率是否满意？",
+            "type": "radio",
+            "required": true,
+        },
+        {
+            "title": "27.  您对公司网上订单系统的使用是否满意？",
+            "type": "radio",
+            "required": true,
+        },
+        {
+            "title": "28.  您对公司在信息化支撑方面的推进是否满意？",
+            "type": "radio",
+            "required": true,
+        }, {
+            "title": "29.  您对公司财务工作人员工作态度和工作效率是否满意？",
+            "type": "radio",
+            "required": true,
+        }, {
+            "title": "30.  您对公司财务结算方面的对接是否满意？",
+            "type": "radio",
+            "required": true,
+        }, {
+            "title": "31.  您对公司财务在票据及查账方面的对接是否满意？",
+            "type": "radio",
+            "required": true,
+        }, {
+            "title": "32.  您对公司物流配送人员工作态度和工作效率是否满意？",
+            "type": "radio",
+            "required": true,
+        }, {
+            "title": "33.  您对公司物流配送的时效性方面是否满意？",
+            "type": "radio",
+            "required": true,
+        }, {
+            "title": "34.  您对公司物流在货品装卸及司机态度方面是否满意？",
+            "type": "radio",
+            "required": true,
+        }, {
+            "title": "35.  您所下订单与公司实际货品配送的一致性方面是否满意？",
+            "type": "radio",
+            "required": true,
+        }, {
+            "title": "36.  您对公司物流配送制度是否满意？",
+            "type": "radio",
+            "required": true,
+        },
+
+    ]
+
+    window.onload = function() {
+        var layer = layui.layer,
+            $ = layui.jquery,
+            form = layui.form();
+        var html = "";
+        var options = ["非常满意", "比较满意", "一般", "不满意", "非常不满意"];
+        $.each(questions, function(i, v) {
+            html += '<div id="question' + (i + 1) + '" class="question"  data-required=' + v.required + ' data-type=' + v.type + '><div class="layui-form-item title"><h1>' + v.title + '</h1 ></div><div class="options">';
+            $.each(options, function(m, n) {
+
+                html += '<input type="radio" name="question' + (i + 1) + '" value="' + m + '" title="' + n + '"> <br>';
+            })
+            html += "</div>";
+
+            html += ' <div class="layui-form-item layui-form-text">\
+    <label class="layui-form-label">详细情况</label><div class="layui-input-block">\
+      <textarea id="question' + (i + 1) + '_t" name="question' + (i + 1) + '_t" placeholder="如果您觉得不满意，请您注明原因或不足" class="layui-textarea"></textarea></div></div>';
+            html += "</div>";
+        })
+
+        html += '<div id="question37" class="question"   ><div class="layui-form-item title"><h1>37、如果您对产品、营销政策、品牌推广、市场管理、各类服务等方面还有其他建议，欢迎提出宝贵意见和建议，我们将对您的建议和意见认真分析，并逐一落实！</h1 ></div><div class="options">';
+        html += '<div class="layui-form-item layui-form-text">\
+    <label class="layui-form-label"></label><div class="layui-input-block">\
+     <textarea id="question37_t" name="question37_t" placeholder="请输入内容" class="layui-textarea"></textarea></div></div></div>';
+
+        html += ' <div style="text-align: center"><div class="laypage-main"> <button class="layui-btn" id="sub" lay-submit=""  lay-filter="sub"  style="opacity: 1; pointer-events: auto;">提交问卷</button></div></div>';
+        $(".layui-form").html(html)
+        form.render();
+
+        form.on('radio', function(data) {
+            var questions = $("form").find(".question")
+            $.each(questions, function(i, v) {
+                $(v).removeClass("unselect");
+            })
+        })
+
+
+
+        $(document).on("blur", "textarea", function() {
+            $(this).parents("div").removeClass('unselect')
+        })
+
+
+        form.on("submit(sub)", function(data) {
+            var questions = $("form").find(".question")
+            var b = true;
+
+            // for (var i = 1; i < 36; i++) {
+            //  var q = "question" + i;
+            //    data.field[q]='11';
+            // }
+
+            for (var i = 1; i < 37; i++) {
+                var q = "question" + i;
+                if (data.field[q] === undefined || data.field[q].trim() == '') {
+                    window.location.href = "#question" + i;
+                    $("#question" + i).addClass('unselect')
+                    layer.msg("第" + i + "题还未作答！")
+                    return false;
+                }
+            }
+            $.ajax({
+                type: "Post",
+                url: "/Handler/ProductHandler.ashx",
+                dataType: "Json",
+                data: { "Action": "SubmitOrderQuestion20181225", "answers": JSON.stringify(data.field) },
+                success: function(data) {
+                    if (data.flag == 1) {
+                        layer.alert('提交成功，感谢您的参与！', { icon: 6, closeBtn: 0 }, function() {
+                            layer.closeAll();
+                            $("#sub").addClass('layui-btn-disabled');
+                            $("#sub").attr("disabled", true);
+                            $("#sub").innerText = "提交成功";
+
+                        })
+                    } else if (data.flag == 0) {
+                        layer.alert(data.message, { icon: 2 })
+                    }
+                }
+            })
+
+            return false;
+        })
+
+        //JQ ajax全局事件
+        $(document).ajaxStart(function() {
+            layer.load();
+        }).ajaxComplete(function(request, status) {
+            setTimeout(t, 50)
+            //  layer.closeAll('loading');
+        }).ajaxError(function() {
+            console.log("err")
+        });
+
+
+        function t() {
+            layer.closeAll('loading')
+        }
+    }
+    </script>
+</body>
+
+</html>

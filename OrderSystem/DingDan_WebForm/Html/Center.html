@@ -1,0 +1,695 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Language" content="zh-cn" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="author" content="Fhua" />
+    <meta name="Copyright" content="BLIT" />
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, initial-scale=1.0,initial-scale=1.0,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>个人主页</title>
+    <link rel="stylesheet" href="../js/plugins/layui/css/layui.css" media="all" />
+    <link rel="stylesheet" href="../css/global.css" media="all">
+    <link rel="stylesheet" href="../js/plugins/font-awesome/css/font-awesome.min.css">
+    <link href="/css/fhuaui.css" rel="stylesheet" />
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="/js/plugins/layui/layui.js"></script>
+</head>
+
+<body>
+    <div class="main-wrap clearfix">
+        <div class="main-wrap-left">
+            <blockquote class="layui-elem-quote">
+                <p>
+                    请使用 <strong>Firefox</strong> 或者 <strong>Chrome</strong> 浏览器 。屏幕分辨率在
+                    <strong>1600X900</strong> 或以上
+                </p>
+                <p>
+                    若遇系统异常可电话联系
+                    <strong>85790901转306</strong> 或
+                    <strong>13438904933</strong>
+                </p>
+                <p>
+                    新版系统帮助手册
+                    <button class="layui-btn layui-btn-normal" onclick="javascript: window.open('help/help.html')">点我查看帮助</button>
+                </p>
+                <hr />
+            </blockquote>
+
+            <blockquote class="layui-elem-quote fhuaui-tip" style=" background-color:#eeeeee">
+<div style="padding: 30px; line-height: 22px; background-color: #eee; color: #000;  ">
+                    <h1 style="font-size:36px;text-align:center;font-family: 黑体;font-weight: bold">更 新 通 知</h1>
+                    <br />  尊敬的经销商伙伴：为提供更加优质的服务，公司对部份产品进行了优化，
+                    <br />
+                    <br /> 优化产品在<a href="/Html/Notice/InventoryList.htm" target="_blank"><strong style="color:red">【查看具体内容】</strong></a>版块中可以查询，如有特殊需求可联系4008786333转1号键咨询，我们将竭诚为您服务，感谢您的理解和配合。
+                   
+                </div>
+             
+                <!--  <div style="padding: 50px; line-height: 22px; background-color: #006699; color: #fff; font-weight: 300;">
+<p style="color:#fff;font-size:30px;text-align:center;font-weight:bold">维护通知</p><br>
+2018年06月28日 18:30 至 2018年06月29日 08:00 网上订单因系统维护升级，将不能进入网单系统，请各位提前做好准备！<br>
+</div>-->
+     <!--           <br/>
+                <div style="padding: 50px; line-height: 22px; background-color: #393D49; color: #fff; font-weight: 300;">
+                    尊敬的经销商伙伴，
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您好！
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首先，非常感谢您对“多联”品牌的支持与厚爱。
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为了不断提高产品品质以及服务质量，公司特进行此项顾客满意度调查。期盼您在百忙之中给予我们客观的评价，
+                    <br>并提出宝贵意见和建议，您的评价和建议是我们奋进的动力，我们一贯秉承“以市场客户为中心”的核心经营理念服务
+                    <br>于经销商伙伴，虚心听取并及时改进，为您提供更好的服务。
+                    <br>该问卷截止时间：2018年12月31日
+                    <br />
+                    <br>感谢您的配合与支持！
+                    <br />
+                    <br />
+                    <button class="layui-btn" onclick="javascript: window.open('question/html/20181225.html')">点我前往填写调查问卷</button>
+                </div>
+                <br />-->
+                <!--<div style="padding: 50px; line-height: 22px; background-color: #015292; color: #fff;  ">
+                    <h1 style="color:red;font-size:36px;text-align:center">重 要 更 新</h1>
+                    <br />
+                    <br /> 产品需求功能上线了，在左侧菜单栏新增了【产品需求】菜单，请仔细阅读规则及操作说明！！
+                    <br />
+                    <br /> 若系统功能不正常，请按 CTRL+F5 刷新页面后再试，或者联系信息部技术人员处理。
+                    <br />
+                    <br />
+                    <button class="layui-btn layui-btn-danger" onclick="javascript: window.open('help/help.html#buyxorder')">点我查看产品需求说明</button>
+                </div>-->
+                <br /> 
+            </blockquote>
+        </div>
+        <div class="main-wrap-right">
+            <fieldset class="layui-elem-field">
+                <legend>更新日志</legend>
+                <div class="layui-field-box">
+                         <div class="admin-log-list clearfix">
+                        <div class="admin-log-span admin-log-avatar">
+                            <a class="avatar">
+                                <i class="layui-icon" style="font-size: 30px; color: #ff6a00;">&#xe60c;</i>
+                            </a>
+                        </div>
+                        <div class="admin-log-span admin-log-title">
+                            <h2>普通订单提交检测</h2>
+                            <p>
+                                2018-09-27 更新
+                                <span>|</span>
+                                <a class="logck" href="javascript:;">新版功能</a>
+                            </p>
+                            <div class="admin-log-content">
+                                <h2>新版功能</h2>
+                                <p>1、为了避免重复下单，在提交普通订单时，系统会检测订单中的产品是否存在于<strong style="color:red">进行中的需求订单</strong>。</p>
+                                <p>
+                                    2、若存在，则会给出提示信息，并会在相应的产品名称前使用图标标识，您可以继续提交或者返回进行核实修改。
+                                </p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-log-list clearfix">
+                        <div class="admin-log-span admin-log-avatar">
+                            <a class="avatar">
+                                <i class="layui-icon" style="font-size: 30px; color: #ff6a00;">&#xe60c;</i>
+                            </a>
+                        </div>
+                        <div class="admin-log-span admin-log-title">
+                            <h2>订单重量合并计算</h2>
+                            <p>
+                                2018-05-31 更新
+                                <span>|</span>
+                                <a class="logck" href="javascript:;">新版功能</a>
+                            </p>
+                            <div class="admin-log-content">
+                                <h2>新版功能</h2>
+                                <p>1、在【订单管理】下新增页面【订单重量查询】</p>
+                                <p>
+                                    2、可合并计算多张订单重量，按区间范围值显示。
+                                </p>
+                                <p>
+                                    3、主账号可查询该账号下所有账号下的订单，子账号只能查询本子账号所下的订单。
+                                </p>
+                                <p>
+                                    4、若无法看到该页面，可按 Ctrl+F5 刷新，或联系多联信息部人员。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-log-list clearfix">
+                        <div class="admin-log-span admin-log-avatar">
+                            <a class="avatar">
+                                <i class="layui-icon" style="font-size: 30px; color: #ff6a00;">&#xe60c;</i>
+                            </a>
+                        </div>
+                        <div class="admin-log-span admin-log-title">
+                            <h2>下单及查询功能优化</h2>
+                            <p>
+                                2018-03-21 更新
+                                <span>|</span>
+                                <a class="logck" href="javascript:;">新版功能</a>
+                            </p>
+                            <div class="admin-log-content">
+                                <h2>新版功能</h2>
+                                <p>1、在下单时，如果输入数量大于库存量，该条商品记录会更改背景色进行提示。</p>
+                                <p>
+                                    2、订单查询时添加可按开票单位来查询。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-log-list clearfix">
+                        <div class="admin-log-span admin-log-avatar">
+                            <a class="avatar">
+                                <i class="layui-icon" style="font-size: 30px; color: #ff6a00;">&#xe60c;</i>
+                            </a>
+                        </div>
+                        <div class="admin-log-span admin-log-title">
+                            <h2>自定义商品编码</h2>
+                            <p>
+                                2017-12-4 更新
+                                <span>|</span>
+                                <a class="logck" href="javascript:;">新版功能</a>
+                            </p>
+                            <div class="admin-log-content">
+                                <h2>新版功能</h2>
+                                <p>您是否觉得商品种类太多，选择麻烦？您想不想试试一秒钟录入一种商品？您想不想体验纯键盘录入的超快感？ </p>
+                                <p>来试试新增功能，自定义编码录入吧！
+                                    <button class="layui-btn layui-btn-small" onclick="javascript: window.open('help/help.html#codeconfig')">自定义编码录入帮助</button>
+                                </p>
+                                <hr>
+                                <p>什么？你还想更快点，一秒钟录入十种商品？？</p>
+                                <p>来看这里，Excel模板导入功能！！
+                                    <button class="layui-btn layui-btn-small" onclick="javascript: window.open('help/help.html#readExcel')">Excel模板导入帮助</button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-log-list clearfix">
+                        <div class="admin-log-span admin-log-avatar">
+                            <a class="avatar">
+                                <i class="layui-icon" style="font-size: 30px; color: #ff6a00;">&#xe60c;</i>
+                            </a>
+                        </div>
+                        <div class="admin-log-span admin-log-title">
+                            <h2>订单打印</h2>
+                            <p>
+                                2017-11-15 更新
+                                <span>|</span>
+                                <a class="logck" href="javascript:;">新版功能</a>
+                            </p>
+                            <div class="admin-log-content">
+                                <h2>新版功能</h2>
+                                <p>1、新增普通订单和修改订单成功后可以打印出当前订单.打印格式是按照A4尺寸设计的.</p>
+                                <p>2、【历史订单】页面改为【订单查询】.</p>
+                                <p>●调整页面显示项,优化查询速度</p>
+                                <p>●在此页面中可以查询到所有状态的订单</p>
+                                <p>●去掉详情显示,改为弹窗显示,同时也可以打印.</p>
+                                <p>●子账号只能查询该账号所操作的订单,而主账号则可以查询到所有账号下的订单.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-log-list clearfix">
+                        <div class="admin-log-span admin-log-avatar">
+                            <a class="avatar">
+                                <i class="layui-icon" style="font-size: 30px; color: #ff6a00;">&#xe60c;</i>
+                            </a>
+                        </div>
+                        <div class="admin-log-span admin-log-title">
+                            <h2>短信及微信</h2>
+                            <p>
+                                2017-10-11 更新
+                                <span>|</span>
+                                <a class="logck" href="javascript:;">新版功能</a>
+                            </p>
+                            <div class="admin-log-content">
+                                <h2>新版功能</h2>
+                                <p>1、优化短信验证码通道，避免接收短信验证码时有较大的延迟</p>
+                                <p>
+                                    2、短信将只发送验证码，其余订单审核、订单驳回、装货等信息都将通过多联微信企业号推送。
+                                </p>
+                                <p>
+                                    3、订单审核、订单驳回消息可点击查看订单详细内容。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-log-list clearfix">
+                        <div class="admin-log-span admin-log-avatar">
+                            <a class="avatar">
+                                <i class="layui-icon" style="font-size: 30px; color: #ff6a00;">&#xe60c;</i>
+                            </a>
+                        </div>
+                        <div class="admin-log-span admin-log-title">
+                            <h2>优化行政区选择</h2>
+                            <p>
+                                2017-09-22 更新
+                                <span>|</span>
+                                <a class="logck" href="javascript:;">新版功能</a>
+                            </p>
+                            <div class="admin-log-content">
+                                <h2>新版功能</h2>
+                                <p>
+                                    1、在填写订单时，若送货方式为“配送”或勾选了“自提托运”，行政区会自动填写，不再需要选择； 只有当送货方式为“自提”时，才需要您手动选择行政区。
+                                </p>
+                                <p>
+                                    2、因业务调整，在“订单管理->更改收货方式”里，将只能更改送货方式为“自提”类型的订单。“配送”或勾选了“自提托运”的订单若需修改，请取回后再进行操作。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-log-list clearfix">
+                        <div class="admin-log-span admin-log-avatar">
+                            <a class="avatar">
+                                <i class="layui-icon" style="font-size: 30px; color: #ff6a00;">&#xe60c;</i>
+                            </a>
+                        </div>
+                        <div class="admin-log-span admin-log-title">
+                            <h2>新增自提托运信息</h2>
+                            <p>
+                                2017-09-14 更新
+                                <span>|</span>
+                                <a class="logck" href="javascript:;">新版功能</a>
+                            </p>
+                            <div class="admin-log-content">
+                                <h2>新版功能</h2>
+                                <p>新增自提托运信息,具体操作方法：<a class="layui-btn layui-btn-mini" style="color:#fff" onclick="javascript: window.open('help/help.html#add_ztty')"> 点我查看</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-log-list clearfix">
+                        <div class="admin-log-span admin-log-avatar">
+                            <a class="avatar">
+                                <i class="layui-icon" style="font-size: 30px; color: #ff6a00;">&#xe60c;</i>
+                            </a>
+                        </div>
+                        <div class="admin-log-span admin-log-title">
+                            <h2>完工入库微信消息</h2>
+                            <p>
+                                2017-09-01 更新
+                                <span>|</span>
+                                <a class="logck" href="javascript:;">新版功能</a>
+                            </p>
+                            <div class="admin-log-content">
+                                <h2>新版功能</h2>
+                                <p>
+                                    在下特殊订单时，有 <i class='layui-icon' style='  margin-left:5px; color: red;'>&#xe63b;</i> 标志的产品，表示订单该产品有完工入库微信消息提醒
+                                </p>
+                                <p>消息推送规则为:该产品在全部完工入库之前没有发生过提货业务.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-log-list clearfix">
+                        <div class="admin-log-span admin-log-avatar">
+                            <a class="avatar">
+                                <i class="layui-icon" style="font-size: 30px; color: #ff6a00;">&#xe60c;</i>
+                            </a>
+                        </div>
+                        <div class="admin-log-span admin-log-title">
+                            <h2 style="color:red">产品执行单价显示</h2>
+                            <p>
+                                2017-08-25 更新
+                                <span>|</span>
+                                <a class="logck" href="javascript:;">新版功能</a>
+                            </p>
+                            <div class="admin-log-content">
+                                <h2>新版功能</h2>
+                                <p>现在系统里显示的将是产品当时的执行单价，而不是报价。</p>
+                                <p>包括以下七个地方：</p>
+                                <ul>
+                                    <li>★新增普通订单</li>
+                                    <li>★新增特殊订单</li>
+                                    <li>★参照特殊订单</li>
+                                    <li>★历史订单详情</li>
+                                    <li>★待审核的订单详情</li>
+                                    <li>★特殊订单查询</li>
+                                    <li>★订单执行情况</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-log-list clearfix">
+                        <div class="admin-log-span admin-log-avatar">
+                            <a class="avatar">
+                                <i class="layui-icon" style="font-size: 30px; color: #ff6a00;">&#xe60c;</i>
+                            </a>
+                        </div>
+                        <div class="admin-log-span admin-log-title">
+                            <h2>特殊订单查询界面优化</h2>
+                            <p>
+                                2017-08-23 更新
+                                <span>|</span>
+                                <a class="logck" href="javascript:;">界面优化</a>
+                            </p>
+                            <div class="admin-log-content">
+                                <h2>界面优化</h2>
+                                <p>更改特殊订单查询的界面样式及详细显示方式，更加直观。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-log-list clearfix">
+                        <div class="admin-log-span admin-log-avatar">
+                            <a class="avatar">
+                                <i class="layui-icon" style="font-size: 30px; color: #ff6a00;">&#xe60c;</i>
+                            </a>
+                        </div>
+                        <div class="admin-log-span admin-log-title">
+                            <h2>历史订单列表增加送货地址</h2>
+                            <p>
+                                2017-08-09 更新
+                                <span>|</span>
+                                <a class="logck" href="javascript:;">新版功能</a>
+                            </p>
+                            <div class="admin-log-content">
+                                <h2>新增功能</h2>
+                                <p>历史订单列表处新增加送货地址数据，方便查看。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-log-list clearfix">
+                        <div class="admin-log-span admin-log-avatar">
+                            <a class="avatar">
+                                <i class="layui-icon" style="font-size: 30px; color: #ff6a00;">&#xe60c;</i>
+                            </a>
+                        </div>
+                        <div class="admin-log-span admin-log-title">
+                            <h2>新增现金用户可查看余额功能</h2>
+                            <p>
+                                2017-08-08 更新
+                                <span>|</span>
+                                <a class="logck" href="javascript:;">新版功能</a>
+                            </p>
+                            <div class="admin-log-content">
+                                <h2>新增功能</h2>
+                                <p>1、在新增普通订单处，选择为现金用户的开票单位，信用额处会显示现金余额。</p>
+                                <p>2、暂时只更新了在新增普通订单处显示。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-log-list clearfix">
+                        <div class="admin-log-span admin-log-avatar">
+                            <a class="avatar">
+                                <i class="layui-icon" style="font-size: 30px; color: #ff6a00;">&#xe60c;</i>
+                            </a>
+                        </div>
+                        <div class="admin-log-span admin-log-title">
+                            <h2 style="color:red">增加欠款延期通知单模块</h2>
+                            <p>
+                                2017-07-17 更新
+                                <span>|</span>
+                                <a class="logck" href="javascript:;">新增功能</a>
+                            </p>
+                            <div class="admin-log-content">
+                                <h2>新增功能</h2>
+                                <p>功能位于【报表】->【延期通知单】</p>
+                                <p>
+                                    对于有欠款未结清的的客户，公司会在网上订单系统发出欠款延期通知单，请务必在收到通知单两日内依照提示进行操作，否则系统会暂停您的网上下单业务。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-log-list clearfix">
+                        <div class="admin-log-span admin-log-avatar">
+                            <a class="avatar">
+                                <i class="layui-icon" style="font-size: 30px; color: #ff6a00;">&#xe60c;</i>
+                            </a>
+                        </div>
+                        <div class="admin-log-span admin-log-title">
+                            <h2>修复添加行政区时错误提示不明确</h2>
+                            <p>
+                                2017-07-10 更新
+                                <span>|</span>
+                                <a class="logck" href="javascript:;">修复BUG</a>
+                            </p>
+                            <div class="admin-log-content">
+                                <h2>修复BUG</h2>
+                                <p>
+                                    客户在添加行政区时，如果该行政区已存在，系统会提示“新增失败,请重试或联系管理员”，现已修改为明确提示为“已存在该行政区，请不要重复添加”。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-log-list clearfix">
+                        <div class="admin-log-span admin-log-avatar">
+                            <a class="avatar">
+                                <i class="layui-icon" style="font-size: 30px; color: #ff6a00;">&#xe60c;</i>
+                            </a>
+                        </div>
+                        <div class="admin-log-span admin-log-title">
+                            <h2>新增订单修改收货方式功能</h2>
+                            <p>
+                                2017-06-19 更新
+                                <span>|</span>
+                                <a class="logck" href="javascript:;">新版功能</a>
+                            </p>
+                            <div class="admin-log-content">
+                                <h2>新增功能</h2>
+                                <p>订单管理菜单下增加了更改收货方式。</p>
+                                <strong>说明</strong>
+                                <p>1、订单在未被收款员人员处理或未被自己取回的情况下才能在此修改收货方式</p>
+                                <p>2、虽然取回订单也能修改收货方式，但如果你不需要更改订单里的产品或数量，那么在此处更改将会更加便捷。</p>
+                                <p>
+                                    3、在提交订单时，若无法确定车辆信息，可先在备注里注明“暂不审”之类的话述，等确定提货车辆信息后再更改备注里的内容，客服人员会根据您的备注进行相应的操作。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-log-list clearfix">
+                        <div class="admin-log-span admin-log-avatar">
+                            <a class="avatar">
+                                <i class="layui-icon" style="font-size: 30px; color: #ff6a00;">&#xe60c;</i>
+                            </a>
+                        </div>
+                        <div class="admin-log-span admin-log-title">
+                            <h2>新增订单取回修改功能</h2>
+                            <p>
+                                2017-06-15 更新
+                                <span>|</span>
+                                <a class="logck" href="javascript:;">新版功能</a>
+                            </p>
+                            <div class="admin-log-content">
+                                <h2>新增功能</h2>
+                                <p>订单管理-->待审核订单 里增加了订单取回功能。</p>
+                                <strong>说明</strong>
+                                <p>1、取回成功后，在被驳回订单列表里可看到该订单</p>
+                                <p>
+                                    2、每张订单只能取回
+                                    <strong style="color:red">三次</strong> ，超过次数将无法再取回修改
+                                </p>
+                                <p>
+                                    3、取回的订单如果在
+                                    <strong style="color:red">30分钟内</strong> 不重新提交，系统将自动关闭该订单
+                                </p>
+                                <p>4、被系统关闭的订单可在 历史订单-->已作废里查看</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-log-list clearfix">
+                        <div class="admin-log-span admin-log-avatar">
+                            <a class="avatar">
+                                <i class="layui-icon" style="font-size: 30px; color: #ff6a00;">&#xe60c;</i>
+                            </a>
+                        </div>
+                        <div class="admin-log-span admin-log-title">
+                            <h2>更新产品选择界面</h2>
+                            <p>
+                                2017-06-05 更新
+                                <span>|</span>
+                                <a class="logck" href="javascript:;">修复功能</a>
+                            </p>
+                            <div class="admin-log-content">
+                                <h2>更新界面</h2>
+                                <p>
+                                    1.更新产品选择界面，解决了小屏显示器和笔记本电脑选择产品时无法点击确定按钮的问题。若您发现选择界面无变化，请按
+                                    <strong>Ctrl+F5</strong> 强制刷新页面。
+                                </p>
+                                <p>2.修复了参照特殊订单时不应再判断信用的问题。</p>
+                                <p>3.修复报表执行功能里面有些合计显示不正确的问题。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-log-list clearfix">
+                        <div class="admin-log-span admin-log-avatar">
+                            <a class="avatar">
+                                <i class="layui-icon" style="font-size: 30px; color: #ff6a00;">&#xe60c;</i>
+                            </a>
+                        </div>
+                        <div class="admin-log-span admin-log-title">
+                            <h2>更新登录界面及账单界面</h2>
+                            <p>
+                                2017-05-17 更新
+                                <span>|</span>
+                                <a class="logck" href="javascript:;">新版功能</a>
+                            </p>
+                            <div class="admin-log-content">
+                                <h2>更新界面</h2>
+                                <p>1.更新登录界面，可以登录界面发送多联企业微信消息，测试是否已正确关注</p>
+                                <p>2.更新账单明细以及账单执行情况界面，用户可自行定义显示的列，地址、备注等数据较长的列默认不显示，若需要查看，请自行勾选</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-log-list clearfix">
+                        <div class="admin-log-span admin-log-avatar">
+                            <a class="avatar">
+                                <i class="layui-icon" style="font-size: 30px; color: #ff6a00;">&#xe60c;</i>
+                            </a>
+                        </div>
+                        <div class="admin-log-span admin-log-title">
+                            <h2>新增历史订单搜索</h2>
+                            <p>
+                                2017-05-10 更新
+                                <span>|</span>
+                                <a class="logck" href="javascript:;">新版功能</a>
+                            </p>
+                            <div class="admin-log-content">
+                                <h2>新版功能</h2>
+                                <p>1.在查询出历史订单后，可在搜索栏里输入关键字，过滤搜索结果</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-log-list clearfix">
+                        <div class="admin-log-span admin-log-avatar">
+                            <a class="avatar">
+                                <i class="layui-icon" style="font-size: 30px; color: #ff6a00;">&#xe60c;</i>
+                            </a>
+                        </div>
+                        <div class="admin-log-span admin-log-title">
+                            <h2>新增子账号订单查询</h2>
+                            <p>
+                                2017-05-08
+                                <span>|</span>
+                                <a class="logck" href="javascript:;">新版功能</a>
+                            </p>
+                            <div class="admin-log-content">
+                                <h2>新版功能</h2>
+                                <p>
+                                    1.在订单执行情况新增选择子账户功能，可查询各子账户下单情况，也可查出全部账户情况后，在搜索栏里输入子账户名称，如“010101-01”，过滤搜索结果
+                                </p>
+                            </div>
+                        </div>
+                        <!--<div class="admin-log-span admin-log-date">
+                            <p>2017-02-28 更新</p>
+                        </div>
+                        -->
+                    </div>
+                    <div class="admin-log-list clearfix">
+                        <div class="admin-log-span admin-log-avatar">
+                            <a class="avatar">
+                                <i class="layui-icon" style="font-size: 30px; color: #ff6a00;">&#xe60c;</i>
+                            </a>
+                        </div>
+                        <div class="admin-log-span admin-log-title">
+                            <h2>新增订单重量计算</h2>
+                            <p>
+                                2017-05-05 更新
+                                <span>|</span>
+                                <a class="logck" href="javascript:;">新版功能</a>
+                            </p>
+                            <div class="admin-log-content">
+                                <h2>新版功能</h2>
+                                <p>1.修改登录后右上角用户名显示</p>
+                                <p>2.新增订单重量计算功能（若遇数据异常，请联系我们，以便及时更正，谢谢！）</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-log-list clearfix">
+                        <div class="admin-log-span admin-log-avatar">
+                            <a class="avatar">
+                                <i class="layui-icon" style="font-size: 30px; color: #ff6a00;">&#xe60c;</i>
+                            </a>
+                        </div>
+                        <div class="admin-log-span admin-log-title">
+                            <h2>新增库存刷新按钮</h2>
+                            <p>
+                                2017-05-03 更新
+                                <span>|</span>
+                                <a class="logck" href="javascript:;">新版功能</a>
+                            </p>
+                            <div class="admin-log-content">
+                                <h2>新版功能</h2>
+                                <p>1.在普通订单界面和参照特殊订单界面上增加库存刷新按钮</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    <!-- <script src="../js/Project/center.js?v=13"></script> -->
+    <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+    <script type="text/javascript">
+    var a = Date.parse(new Date());
+
+    document.write(' <script type="text/javascript"  charset="utf-8" src="\/js/Project/center.js?v=' + Math.random() + '"><\/script>');
+    </script>
+    <script>
+    layui.use(['layer'], function() {
+        var $ = layui.jquery,
+            layer = layui.layer;
+        //新版功能
+        $($('.logck')).on("click", function() {
+            $(".layui-field-box").find(".admin-log-content").css("display", "none");
+            var $this = $(this);
+            $($this).parent().parent(".admin-log-title").find(".admin-log-content").fadeToggle();
+        });
+
+        //layer.open({
+        //    type: 1,
+        //    title: "重要通知",
+        //    area: ["400px", "300px"],
+        //    content: '<p>当前国家财税政策的变化对您和我公司均有深远影响。为更好地协助您合理有效地开展后期经营工作，我公司拟在近期开展一次财税专题培训。</p>\
+        //    <p>在此之前，为更好了解您目前的状况和疑惑，我们整理了几个问题敬请你认真填写。有了您的回复，我们才能准确的安排培训内容，真正解除您的困惑。</p>\
+        //    <p>调查结束日期为：<strong style="color:red">2017-07-16 23:59:59</strong>,请各位经销商伙伴抓紧时间提交问卷。</p>',
+        //    btn: ["点我打开问卷界面", "关闭"],
+        //    btn1: function () {
+        //        window.open("question.html")
+        //    }
+
+        //})
+
+
+        //          layer.open({
+        //              type: 1
+        //, title: "重要通知"
+        //, closeBtn: false
+        //, area: ['500px','380px']
+        //, shade: 0.8
+        //, id: 'LAY_layuipro' //设定一个id，防止重复弹出
+        //, btn: ['点我打开问卷', '关闭']
+        //, moveType: 1 //拖拽模式，0或者1
+        //, content: '<div style="padding: 50px; line-height: 22px; background-color: #393D49; color: #fff; font-weight: 300;">尊敬的经销商伙伴，您好！<br><br>当前国家财税政策的变化对您和我公司均有深远影响。为更好地协助您合理有效地开展后期经营工作，我公司拟在近期开展一次财税专题培训。\
+        //   <br> <br>在此之前，为更好了解您目前的状况和疑惑，我们整理了几个问题敬请你认真填写。有了您的回复，我们才能准确的安排培训内容，真正解除您的困惑。 <br><br>若你已提交过问卷，请点击关闭 </div>'
+
+        //, success: function (layero) {
+        //    var btn = layero.find('.layui-layer-btn');
+        //    btn.css('text-align', 'center');
+        //    btn.find('.layui-layer-btn0').attr({
+        //        href: 'question.html'
+        //      , target: '_blank'
+        //    });
+        //}
+        //          });
+    })
+
+
+
+    //      $("#href_old").click(function () {
+    //          $.ajax({
+    //              url: "../Handler/LoginHandler.ashx",
+    //              dataType: "Json",
+    //              type: "Post",
+    //              data: { "Action": "Get_Token" },
+    //              success: function (res) {
+    //                //  console.log(res.message)
+    //              window.top.location.href = "http://dl.duolian.com:1235/login.aspx?token=" + res.message;
+    //                  // window.top.location.href = "http://192.168.2.248:8111/login_v2.aspx?token=" + res.message;
+    //                  //  console.log(res.message)
+    //              },
+    //              error: function (err) {
+    //                  console.log(err);
+    //              }
+    //          })
+    //      })
+    </script>
+</body>
+
+</html>

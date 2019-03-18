@@ -1,0 +1,80 @@
+﻿<div style="margin: 0px;" class="iframe">
+    <div class="layui-tab">
+
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form" action="" id="buy_form">
+                    <div class="layui-form-item btns">
+                        <input type="button" class="layui-btn   layui-btn-small " id="select_product" value="选择商品" />
+                        <input type="button" class="layui-btn   layui-btn-normal layui-btn-small" id="submit_buy_list" value="提交特殊订单" />
+                        <input type="button" class="layui-btn   layui-btn-danger layui-btn-small" id="del_none" value="一键清除零库存" />
+                    </div>
+                    <div id="jbxx">
+
+                        <div class="layui-form-item">
+                            <div class="layui-inline" style="width: 20%">
+                                <label class="layui-form-label">订单日期</label>
+                                <div class="layui-input-inline bl" style="width: 130px">
+                                    <span id="datCreateTime"></span>
+                                </div>
+                            </div>
+                            <div class="layui-inline" style="width: 51%">
+                                <label class="layui-form-label">开票单位</label>
+                                <div class="layui-input-block bl" id="TxtCustomer_div">
+                                    <select id="TxtCustomer" lay-filter="kpdw" name="kpdw">
+                                        <!-- <option value="0">请选择开票单位</option> -->
+                                    </select>
+                                </div>
+                                <span style="display:none" id="cdiscountname"></span>
+                            </div>
+                            <div class="layui-inline" style="width: 20%">
+                                <label class="layui-form-label">备 注</label>
+                                <div class="layui-input-block">
+                                    <textarea name="desc" placeholder="点击输入备注内容" id="strRemarks" class="layui-input"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                   <table class="layui-table" id="buy_list">
+                            <thead>
+                                <tr>
+                                    <th style="width: 7%">操作</th>
+                                    <th style="width: auto">序号</th>
+                                    <th style="width: 13%">名称</th>
+                                    <th style="width: 10%">规格</th>
+                                    <th style="width: 9%">单位组</th>
+                                    <th style="width: 5%">基本数量</th>
+                                    <th style="width: 5%">基本单位</th>
+                                    <th style="width: 5%">小包装数量</th>
+                                    <th style="width: 5%">小包装单位</th>
+                                    <th style="width: 5%">大包装数量</th>
+                                    <th style="width: 5%">大包装单位</th>
+                                    <th style="width: 6%">基本单位汇总</th>
+                                    <th style="width: 5%">起订量</th>
+                                    <th style="width: 5%">可用库存量</th>
+                                    <th style="width: 8%">包装结果</th>
+                                    <th style="width: 4%">单价</th>
+                                    <th style="width: 5%">金额</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+           <div class="layui-form-item">
+                            <div style="float: left">
+                            </div>
+                            <div style="float:right;margin-right:30px;">
+                                <div class="layui-inline" style="width: 100%">
+                                    <label class="layui-form-label">总金额:</label>
+                                    <label class="layui-form-label" style="text-align:left;font-weight:bold" id="money"></label>
+                                </div>
+                            </div>
+
+
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

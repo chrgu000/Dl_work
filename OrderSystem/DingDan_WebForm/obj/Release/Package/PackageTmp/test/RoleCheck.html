@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+</head>
+<body>
+    <p> 权限检测中.....</p>
+    <script src="../../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/Project/M_Fun.js"></script>
+    <!-- <script src="../js/mui/mui.min.js"></script>-->
+    <script>
+        //    document.write(GetQueryString("code"));
+        //$.ajax({
+        //    type: "Post",
+        //    traditional: true,
+        //    url: "/../Handler/AdminHandler.ashx",
+        //    dataType: "Json",
+        //    data: { "Action": "Manager_Login", "code": GetQueryString("code") },
+        //    success: function (data) {
+        //        for (var o in data) {
+        //            document.write(o + ":" + data[o]);
+        //            document.write("<br />")
+        //        }
+        //        document.write(GetQueryString("code"))
+        //        if (data.flag == 1) {
+        //            window.location.href = "arrearlist.html";
+        //        } else {
+        //            window.location.href = "norole.html";
+        //        }
+        //    }, error: function (err, xhr, e) {
+        //        alert("err")
+        //    }
+        //});
+        $(function () {
+       
+            if (GetQueryString("code")!=null) {
+                $.ajax({
+                    type: "Post",
+                    traditional: true,
+                    url: "/Handler/MobileHandler.ashx",
+                    dataType: "Json",
+                    data: { "Action": "Wx_Login", "code": GetQueryString("code") },
+                    success: function (data) {
+                        for (var o in data) {
+                            document.write(o + ":" + data[o]);
+                            document.write("<br />")
+                        }
+                        console.log(data)
+                        document.write(GetQueryString("code"))
+                        
+                    }, error: function (err, xhr, e) {
+                        alert("err")
+                    }
+                });
+            } 
+
+        })
+     
+
+        function GetQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,245 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="../../js/plugins/layui-2.2.2/layui/css/layui.css" rel="stylesheet" />
+    <title>员工条形码打印</title>
+    <style>
+        .code {
+            width: 140px;
+            float: left;
+        }
+
+        form .layui-input-inline span {
+            /*display: none;*/
+            float: left;
+        }
+    </style>
+</head>
+<body style="background-color: #fff;">
+    <div class="layui-container" style="margin-top: 20px; ">
+        <div class="layui-row">
+            <div class="layui-col-md9">
+                <button class="layui-btn" id="addCode">增加编码</button>
+                <button class="layui-btn   layui-btn-normal" id="preview">打印预览</button>
+                <button class="layui-btn layui-btn-normal" id="print">打印</button>
+            </div>
+            <div class="layui-col-md3"></div>
+        </div>
+        <br>
+        <form action="" class="layui-form">
+            <div class="layui-row layui-col-space10">
+                <div class="layui-col-md2">
+                    <div class="layui-input-inline">
+                        <input type="text" required lay-verify="required" placeholder="输入员工编码" class="layui-input code">
+                        <span>
+                            <button type="button" class="layui-btn-xs layui-btn-danger layui-btn del">删除</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <br>
+        <br>
+   
+        <div id="print_div">
+            <style>
+                #printArea {
+                    width: 800px;
+                    height: 1000px;
+                    border: 1px dotted #ccc;
+                    margin: 0 auto;
+                }
+
+                .tab {
+                    width: 280px;
+                    height: 110px;
+                    margin: 20px auto auto 30px;
+                    float: left;
+                    border: 1px solid #ccc;
+                }
+
+
+                    .tab .tab_left {
+                        float: left;
+                        width: 60%;
+                        height: 100%;
+                    }
+
+                    .tab .tab_right {
+                        float: left;
+                        width: 40%;
+                    }
+
+                    .tab .tab_left img {
+                        width: 90%;
+                        margin: 2px auto;
+                    }
+
+                    .tab .tab_right img {
+                        width: 85%;
+                        margin: 7px 5px 0 0;
+                        padding: 0;
+                        float: right;
+                    }
+
+                .tab_left .tab_code {
+                    font-size: 14px;
+                    margin-left: 10px;
+                    font-family: '幼圆';
+                }
+
+                .tab_left .tab_name {
+                    font-size: 20px;
+                    font-weight: 500;
+                    margin-left: 80px;
+                    margin-top: 3px;
+                    font-family: '黑体';
+                }
+
+                .tab_left .tab_department {
+                    font-size: 12px;
+                    margin-left: 10px;
+                    margin-top: 10px;
+                }
+
+                .tab_left .station {
+                    margin-left: 15px;
+                }
+            </style>
+
+            <div id="printArea">
+
+                <!--          <div style="" class="tab">
+                             <div class="tab_left">
+                                 <img src="../../images/BarBack.jpg" alt="">
+                                 <div class="tab_code">No. 1050</div>
+                                 <div class="tab_name">陈佳</div>
+                                 <div class="tab_department"><span class="department">信息部</span><span class="station">工程师</span></div>
+                             </div>
+                             <div class="tab_right">
+                                 <img src="../../images/wx.jpg" alt="">
+                             </div>
+                         </div>
+
+
+                         <div style="" class="tab">
+                             <div class="tab_left">
+                                 <img src="../../images/BarBack.jpg" alt="">
+                                 <div class="tab_code">No. 1050</div>
+                                 <div class="tab_name">陈佳</div>
+                              <div class="tab_department"><span class="department">信息部</span><span class="station">工程师</span></div>
+                             </div>
+                             <div class="tab_right">
+                                 <img src="../../images/wx.jpg" alt="">
+                             </div>
+                         </div> -->
+            </div>
+        </div>
+    </div>
+     <script src="/js/jquery-1.11.0.min.js"></script>
+    <!-- <script type="text/javascript" src="http://static.runoob.com/assets/jquery/2.0.3/jquery.min.js"></script> -->
+    <!-- <script type="text/javascript" src="http://static.runoob.com/assets/qrcode/qrcode.min.js"></script> -->
+    <script src="../../js/plugins/layui-2.2.2/layui/layui.all.js"></script>
+    <script src="../../js/plugins/Print-Area/jquery.PrintArea.js"></script>
+    <script src="../../js/plugins/qrcode/qrcode.min.js"></script>
+    <script>
+        var layui = layui.layui;
+        $(function () {
+            //显示隐藏删除按钮
+            // $(document).on('hover','.layui-input-inline',function(){
+            // 	console.log($(this))
+            // 	$(this).find('span').css('display','block');
+            // },function(){
+            // 	$(this).find('span').css('display','none');
+            // });
+
+            //删除按钮操作
+            $(document).on('click', '.del', function () {
+                $(this).parents('.layui-col-md2').remove();
+            })
+
+            //增加编码
+            $('#addCode').click(function () {
+                $('.layui-col-space10').append('<div class="layui-col-md2"><div class="layui-input-inline"><input   type="text" required lay-verify="required" placeholder="输入员工编码" class="layui-input code"><span ><button type="button" class="layui-btn-xs layui-btn  layui-btn-danger del ">删除</button></span></div></div>')
+            })
+
+            //编码输入判定
+            $(document).on('blur', '.code', function () {
+                var v = $(this).val();
+                if (isNaN(v) || v.length != 4) {
+                    layer.msg('请输入四位数字编码');
+                    $(this).val('');
+                    $(this).focus();
+                }
+
+            })
+
+
+            //打印预览
+            $('#preview').click(function () {
+                var c = $('.code');
+                var codes = [];
+                $.each(c, function (i, v) {
+                    if (!isNaN($(v).val().trim()) && $(v).val().trim().length == 4) {
+                        codes.push($(v).val().trim());
+                    }
+                })
+                if (codes.length == 0) {
+                    layer.alert('还未输入正确的编码！', { icon: 2 });
+                    return false;
+                }
+                $.ajax({
+                    type: "Post",
+                    url: "/Handler/ProductHandler.ashx",
+                    dataType: "Json",
+                    data: {
+                        "Action": "GetInfoByEmployeeCode",
+                        "codes": JSON.stringify(codes)
+                    },
+                    success: function (res) {
+                        $('#printArea').html('');
+                        if (res.flag != "1") {
+                            layer.alert(res.message, { icon: 2 });
+                            return false;
+                        }
+                        if (res.tb.length == 0) {
+                            layer.alert('没有查询到员工信息，请核实！', { icon: 2 });
+                            return false;
+                        }
+                        var html = '';
+                        $.each(res.tb, function (i, v) {
+                            html += '<div style="" class="tab" employeecode="' + v.employeecode + '"><div class="tab_left"><img src="../../images/BarBack.jpg" alt="">\
+                    <div class="tab_code">No. '+ v.employeecode + '</div>\
+                    <div class="tab_name">'+ v.employeename + '</div>\
+                    <div class="tab_department"><span class="department">'+ v.strdepartmentname + '</span><span class="station">' + v.strtitlename + '</span></div>\
+                </div><div class="tab_right"></div></div>'
+                        });
+
+                        $('#print_div #printArea').html(html);
+                        makeCode();
+                    }
+                });
+            })
+
+            $(document).on('click', '#print', function () {
+                $('#print_div').printArea();
+            })
+        })
+        function makeCode() {
+            var qrcodes = $('.tab_right');
+            $.each(qrcodes, function (i, v) {
+                var val = $(v).parents('.tab').attr('employeecode');
+               
+                var qrcode = new QRCode(v, {
+                    width: 110,
+                    height: 112
+                });
+                qrcode.makeCode(val);
+                 console.log(qrcode)
+            })
+        }
+    </script>
+</body>
+</html>

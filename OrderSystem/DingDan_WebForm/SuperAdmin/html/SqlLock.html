@@ -1,0 +1,33 @@
+﻿
+               <!-- <link rel="stylesheet" href="plugins/bootstrap-timepicker/bootstrap-timepicker.min.css">               
+               -->
+               <!--Bootstrap Stylesheet [ REQUIRED ]-->               
+
+               <!DOCTYPE html>               
+               <html lang="en">
+               <head>
+                   <meta charset="UTF-8">               
+                   <title>数据库锁列表</title>
+               </head>
+               <body>
+                   <link href="../../js/plugins/layui-v2/layui/css/layui.css" rel="stylesheet" />               
+
+                   <div class="panel-body" style="margin:20px auto;width: 95%">
+                       <div class="layui-row">
+                           <button class="layui-btn " id="refresh" onclick='javascript:window.location.reload()'>刷新</button>
+                       </div>
+                       <hr>               
+                       <table id="tb" lay-filter="tb"></table>
+                   </div>
+                   <script src="../../js/plugins/layui-v2/layui/layui.all.js"></script>
+                   <script src="../js/superAdmin_Fun.js"></script>
+                   <script src="../js/project/SqlLock.js"></script>
+
+                
+
+                   <script type="text/html" id="ToolBar">
+                 <a class="layui-btn layui-btn-danger layui-btn-mini" lay-event="del">删除</a>
+                </script>
+               </body>
+
+               </html>

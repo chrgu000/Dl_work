@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <!-- <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/> -->
+        <meta name="format-detection" content="telephone=no"/>
+        <title></title>
+        <script src="../js/jquery.min.js"></script>
+        <script type="text/javascript" src="../js/sy.js"></script>
+        <style>
+            * {
+                margin: 0px;
+                padding: 0px;
+                list-style-type: none;
+            }
+
+            html, body {
+                background: #666;
+                height: 100%;
+                font-family: "microsoft yahei";
+                font-size: 12px;
+            }
+
+            .active {
+                /*color: red;*/
+                /*background-color: #479AC7;*/
+            color:  #FF3838;
+            font-weight: bold;
+            }
+
+            .Area {
+                width: 100%;
+                overflow: hidden;
+                background: #fff;
+                height: 40%;
+            }
+
+            .Area .block {
+                height: 100%;
+                box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                overflow-y: auto;
+            }
+
+            .AreaLeft {
+                width: 30%;
+                float: left;
+                padding-left: 10px;
+                border-right: 1px solid #ebebeb;
+            }
+
+            .AreaLeft ul li {
+                width: 100%;
+                border-bottom: 1px solid #ebebeb;
+                padding: 15px 0px;
+                line-height: 200%;
+            }
+
+            .AreaCenter {
+                background: #fafafa;
+                width: 70%;
+                float: left;
+                padding-left: 10px;
+                border-right: 1px solid #e7e7e7;
+            }
+
+            .AreaCenter ul li {
+                width: 100%;
+                border-bottom: 1px solid #e7e7e7;
+                padding: 15px 0px;
+                line-height: 200%;
+            }
+
+            .AreaRight {
+                background: #f0f0f0;
+                width: 40%;
+                float: left;
+                padding-left: 10px;
+                display: none;
+            }
+
+            .AreaRight ul li {
+                width: 100%;
+                border-bottom: 1px solid #e7e7e7;
+                padding: 12px 0px;
+                line-height: 200%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="Area">
+            <div class="block AreaLeft">
+                <ul>
+                    
+                </ul>
+            </div>
+            <div class="block AreaCenter">
+                <ul></ul>
+            </div>
+            <div class="block AreaRight">
+                <ul></ul>
+            </div>
+        </div>
+    </body>
+</html>
+<script>
+    var ProClass,ProClassTree;
+    GetProClass();
+
+    function GetProClass() {
+        $.ajax({
+            url: '/handler/WeiXinHandler.ashx',
+            dataType: 'json',
+            method: 'POST',
+            async: 'false',
+            data: {
+                'Action': 'GetProClass'
+            },
+            success: function(res) {
+              
+                if (res.flag != 1) {
+                    alert(res.message);
+                    return false;
+                }
+                ProClass = res.ProClass;
+                ProClassTree=getJsonTree(ProClass,null);
+                  console.log(ProClassTree)
+                  GetLevelOne(ProClassTree);
+            }
+        });
+    }
+
+$(document).on('click','.AreaLeft ul li',GetLevelTwo).on('click','.AreaCenter ul li',GetLevelThree);
+
+    function GetLevelOne(data){
+          $(".AreaCenter ul").html('');
+          var d=[],html='';
+          $.each(data,function(i,v){
+            if (v.id=='01') {
+                d=v.nodes;
+            }
+          })
+          $.each(d,function(i,v){
+            html+='<li data-id="'+v.id+'">'+v.name+'</li>';
+          });
+
+          $('.AreaLeft ul').html(html);
+    }
+
+
+    function GetLevelTwo(data){
+        var index=$(this).index();
+        $(this).addClass('active').siblings().removeClass('active');
+        var d=ProClassTree[0]['nodes'][index]['nodes'];
+        var html='';
+        $.each(d,function(i,v){
+              html+='<li data-id="'+v.id+'">'+v.name+'</li>';
+        })
+          $('.AreaCenter ul').html(html);
+    }
+
+    function GetLevelThree(){
+        var index=$(this).index();
+        $(this).addClass('active').siblings().removeClass('active');
+        var d=ProClassTree[0]['nodes'][index]['nodes'];
+        var html='';
+        $.each(d,function(i,v){
+              html+='<li data-id="'+v.id+'">'+v.name+'</li>';
+        })
+          $('.AreaRight ul').html(html);
+            $(".AreaCenter").css({
+            "width": "30%"
+        });
+        $(".AreaRight").show();
+    }
+
+
+
+       var getJsonTree=function(data,parentId){
+        var itemArr=[];
+        for(var i=0;i<data.length;i++){ 
+            var node=data[i];
+             if(node.pid==parentId ){ 
+                var newNode={id:node.id,name:node.name,nodes:getJsonTree(data,node.id)};
+                itemArr.push(newNode);              
+             }
+        }
+        return itemArr;
+    }
+
+
+
+    //address(list[0].city);
+    function address(data) {
+        $(".AreaCenter ul").html('');
+        $.each(data, function(i, v) {
+            $(".AreaCenter ul").append('<li data-id=' + i + '>' + v.name + '</li>');
+        });
+        $('.AreaCenter ul li').on('click', {
+            data: data
+        }, Areas)
+    }
+    function Prompt() {
+        var c = $(".AreaCenter .active").text() + '————' + $(this).text();
+        alert('您选择了：' + c);
+    }
+    function Areas(data) {
+        $('.AreaCenter ul li').removeClass('active')
+        $(this).addClass('active');
+        var data = data.data.data
+        $(".AreaCenter").css({
+            "width": "30%"
+        });
+        $(".AreaRight").show();
+        var id = $(this).attr('data-id');
+        $(".AreaRight ul").html('');
+        $.each(data[id].area, function(index, item) {
+            $(".AreaRight ul").append('<li data-cid=' + index + '>' + item + '</li>')
+        })
+        $(".AreaRight ul li").on('click', Prompt)
+    }
+
+    $(".AreaLeft ul li").on('click', function() {
+        $(".AreaLeft ul li").removeClass('active')
+        $(this).addClass('active');
+        if ($(this).index() == 0) {
+            address(list[0].city);
+            $(".AreaCenter").css({
+                "width": "70%"
+            });
+            $(".AreaRight").hide();
+        } else {
+            address(dt[0].city);
+            $(".AreaCenter").css({
+                "width": "70%"
+            });
+            $(".AreaRight").hide();
+        }
+    })
+</script>

@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- HTTP 1.1 -->
+  <meta http-equiv="pragma" content="no-cache">
+  <!-- HTTP 1.0 -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <title>Document</title>
+  <link href="../js/plugins/layui-v2/layui/css/layui.css" rel="stylesheet" />
+  <style></style>
+</head>
+<body>
+  <button class="layui-btn" id="btn" type="button">btn</button>
+
+  <script src="../js/plugins/layui-v2/layui/layui.all.js"></script>
+
+  <script>
+        ; !function () {
+            var form = layui.form
+            , layer = layui.layer
+            , $ = layui.jquery;
+ 
+
+ 
+            $("#btn").click(function () {
+                var code = "002902";
+              $.getScript('http://stock.jrj.com.cn/action/Stocktrade/queryStockLotRes.jspa?stockCode='+code,function(res){
+                console.log(nsiList)
+                 for(var o in nsiList.lot_map){
+                document.write(o+'----'+nsiList.lot_map[o]+'<br>')
+         }
+            });
+      
+         // $.getScript('https://tcc.taobao.com/cc/json/mobile_tel_segment.htm?tel=13438904933',function(res){
+         //    console.log(__GetZoneResult_ )
+         //    for(var o in __GetZoneResult_){
+         //        document.write(o+'----'+__GetZoneResult_[o]+'<br>')
+         //    }
+         // });
+               //    $.ajax({
+               //      url:'https://tcc.taobao.com/cc/json/mobile_tel_segment.htm?tel=13438904933',
+               //     // url:'http://ip.taobao.com/service/getIpInfo.php?ip=63.223.108.42',
+   // url:"http://api.k780.com:88/?app=weather.today&weaid=1&appkey=10003&sign=b59bc3ef6191eb9f747dd4e83c99f2a4&format=json&jsoncallback=asdf",
+               //     
+               // //   url:"http://api.map.baidu.com/telematics/v3/weather?location=%E6%88%90%E9%83%BD&output=json&ak=ohA7QHfg0BBrpiY4kyuIAAsD",
+               //      dataType:'jsonp',
+               //      success:function(res){
+               //          console.log(res)
+               //      }
+               //    });
+            })
+ 
+        }();
+</script>
+</body>
+</html>

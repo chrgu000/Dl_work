@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="1" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^F:\\DingDan_WebForm_V2\\DingDan_WebForm\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^F:\\DingDan_WebForm_V2\\DingDan_WebForm\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="db-Web.config Connection String" description="db 由应用程序在 web.config 中用来访问数据库的连接字符串。" value="data source=localhost;database=test;uid=sa;pwd=duolian;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="F:\\DingDan_WebForm_V2\\DingDan_WebForm\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='db']/@connectionString" />
+  </parameter>
+  <parameter name="connStr-Web.config Connection String" description="connStr 由应用程序在 web.config 中用来访问数据库的连接字符串。" value="data source=192.168.0.242;database=UFDATA_777_2015;uid=sa;pwd=Dl123456;Max Pool Size = 512" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="F:\\DingDan_WebForm_V2\\DingDan_WebForm\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='connStr']/@connectionString" />
+  </parameter>
+</parameters>

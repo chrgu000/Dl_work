@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>订单重量查询</title>
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="/js/plugins/layui-v2/layui/css/layui.css" media="all" />
+        <style>
+ .num {
+    /*font-weight:bolder;*/
+    font-size:14px;
+    margin-left:10px;
+    border:1px solid #eeeeee;
+ }
+    </style>
+ 
+</head>
+<body>
+
+    <div>
+        <div style="width: 95%;margin:20px auto">
+
+            <form action="" class="layui-form layui-form-pane">
+                <div class="layui-form-item">
+
+                    <div class="layui-inline">
+                        <label class="layui-form-label">输入编号</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="title"   required lay-verify="required" id="Number" placeholder="输入编号" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+<!-- 
+                    <div class="layui-inline">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">名称</label>
+                            <label id="CountWeight" style="font-weight: bold;font-size:12px" class="layui-form-label">0</label>
+                        </div>
+                    </div> -->
+                    <div class="layui-inline">
+                        <div class="layui-input-block">
+                            <button class="layui-btn layui-btn-normal" id="btn" type="button">查询</button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                  <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">名称</label>
+                        <label id="stocksname" style="width: 200px" class="layui-form-label"></label>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">后四位</label>
+                        <!-- <label id="four" style="width: 200px" class="layui-form-label num"></label> -->
+                           <div class="layui-form-mid  num" id="four"></div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">后五位</label>
+                        <div class="layui-form-mid  num" id="five"></div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">后六位</label>
+                        <div class="layui-form-mid  num" id="six"></div>
+                    </div>
+                </div>
+                   <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">后七位</label>
+                        <div class="layui-form-mid  num" id="seven"></div>
+                    </div>
+                </div>
+                   <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">后八位</label>
+                        <div class="layui-form-mid  num" id="eight"></div>
+                    </div>
+                </div>
+                   <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">后九位</label>
+                         <div class="layui-form-mid  num" id="nine"></div>
+                    </div>
+                </div>
+                        <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">后十位</label>
+                        <div class="layui-form-mid  num" id="ten"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/plugins/layui-v2/layui/layui.all.js"></script>
+
+    <script type="text/javascript">
+        ; !(function () {
+            var form = layui.form, table = layui.table, $ = layui.jquery,element=layui.element;
+            $('#btn').click(function () {
+                var code = $('#Number').val().trim();
+                if (code=='') {
+                     layer.alert('编码不能为空',{icon:2});
+                        return false;
+                }
+                $.getScript('http://stock.jrj.com.cn/action/Stocktrade/queryStockLotRes.jspa?stockCode=' + code, function (res) {
+                var nums=$(document).find('.num');
+                    if (!nsiList.buy_code1) {
+                          $.each(nums,function(i,v){
+                               $(v).text('');
+                          })
+                        $('#stocksname').text('');
+                        layer.alert('未查询到该编码',{icon:2});
+                        return false;
+                    }
+
+                      $('#stocksname').text(nsiList.stocksname);
+                    $.each(nums,function(i,v){
+                       if (nsiList.lot_map[$(v).attr("id")]) {
+                            $(v).text(nsiList.lot_map[$(v).attr("id")])
+                       }else{
+                          $(v).text('无')
+                       }
+                    })
+            
+                })
+
+            })
+
+
+
+
+
+        })();
+
+
+
+    </script>
+</body>
+</html>

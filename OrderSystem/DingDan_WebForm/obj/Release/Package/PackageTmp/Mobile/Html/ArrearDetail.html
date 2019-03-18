@@ -1,0 +1,312 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>延期通知单详情</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../css/mui.min.css">
+        <link href="../css/loading.css" rel="stylesheet" />
+
+		<!--App自定义的css-->
+		<!--<link rel="stylesheet" type="text/css" href="css/app.css" />-->
+		<style>
+			.mui-table h4,
+			.mui-table h5,
+			.mui-table .mui-h5,
+			.mui-table .mui-h6,
+			.mui-table p {
+				margin-top: 0;
+			}
+			
+			.mui-table h4 {
+				line-height: 21px;
+				font-weight: 500;
+			}
+			
+			.mui-table .oa-icon {
+				position: absolute;
+				right: 0;
+				bottom: 0;
+			}
+			
+			.mui-table .oa-icon-star-filled {
+				color: #f14e41;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href="ArrearList.html"></a>
+			<h1 class="mui-title"></h1>
+		</header>
+		<div class="mui-content">
+		</div>
+
+		<script src="../js/mui/mui.min.js"></script>
+		<script src="../js/Project/M_Fun.js?v=1"></script>
+		<script>
+			var code = GetQueryString("code");
+			var bytStatus = GetQueryString("bytstatus");
+			mui.init({
+				swipeBack: false //启用右滑关闭功能
+			});
+			mui.ready(function() {
+
+				mui.ajax('../tpl/ArrearDetail_tpl.html', {
+					data: {},
+					async: false,
+					dataType: 'html', //服务器返回json格式数据
+					type: 'get', //HTTP请求类型
+					timeout: 10000, //超时时间设置为10秒；
+					success: function(res) {
+						mui.ajax('../../Handler/AdminHandler.ashx', {
+							data: {
+								"Action": "Get_ArrearDetail",
+								"code": code
+							},
+							async: false,
+							dataType: 'json', //服务器返回json格式数据
+							type: 'post', //HTTP请求类型
+							timeout: 10000, //超时时间设置为10秒；
+							success: function(data) {
+								if(data.flag == 0) {
+									mui.alert(data.message);
+								} else {
+									mui('body')[0].innerHTML = res;
+									var ob = data.dt[0]
+									if(ob.bytStatus != bytStatus) {
+										mui.alert("该通知单状态已改变！", function() {
+											window.location.href = "ArrearList.html"
+											return false;
+										})
+									}
+									mui("#cCusName")[0].innerText = ob.cCusName + "  |  " + ob.ccusperson
+
+									//填充表体
+									var body_html = "";
+									mui.each(data.dt, function(i, v) {
+										body_html += '<tr><td>' + v.cSubCusCode + '</td><td>' + v.cSubCusName + '</td><td>' + v.iSumSubCusCode + '</td></tr>'
+									})
+									mui(".mui-table")[0].children[1].innerHTML = body_html
+
+									//填充需确认代码
+
+									//客户已确认，未逾期，状态31
+
+									if(bytStatus == 31) {
+										document.getElementById('stop_div').remove();
+										document.getElementById('confirm_div').remove();
+
+										//                                  mui("input[name='isStop']")[0].disabled = true;
+										//                                  mui("input[name='isStop']")[1].disabled = true;
+
+										//                                  if (ob.bStopShipment == 0) {
+										//                                      mui("input[name='isStop']")[1].checked = true;
+										//                                  } else if (ob.bStopShipment == 1) {
+										//                                      mui("input[name='isStop']")[0].checked = true;
+										//                                  }
+										//                                  stop_div.children[2].remove()
+										//                                  var confirm_div = document.getElementById('confirm_div')
+										//                                  confirm_div.children[2].remove();
+										//                                  //confirm_div.parentNode.removeChild(confirm_div);
+										//                                  document.getElementById("cMemo_div").innerHTML = ob.cMemo;
+									}
+									//客户已确认，逾期，状态32
+									else if(bytStatus == 32) {
+										document.getElementById('confirm_div').remove();
+									}
+									//客户未确认，状态21和22
+									else if(bytStatus == 21 || bytStatus == 22) {
+										document.getElementById('cCusConfirm_div').remove();
+										document.getElementById("manager_div").remove();
+									}
+									//双方已确认,状态41
+									else if(bytStatus == 41) {
+								 	document.getElementById("stop_div").remove();
+									 document.getElementById("manager_div").children[2].remove();
+									}
+									//双方已确认,状态42和43,51
+									else if(bytStatus == 42 || bytStatus == 43||bytStatus==51) {
+										mui("input[name='isStop']")[0].disabled = true;
+										mui("input[name='isStop']")[1].disabled = true;
+
+										if(ob.bStopShipment == 0) {
+											mui("input[name='isStop']")[0].checked = true;
+										} else if(ob.bStopShipment == 1) {
+											mui("input[name='isStop']")[1].checked = true;
+										}
+										 document.getElementById("cMemo_div").innerText ="   备注:  "+ ob.cMemo;
+										document.getElementById("manager_div").children[2].remove();
+									}
+									//填充数据
+									var needs = document.getElementsByClassName("need");
+									mui.each(needs, function(i, v) {
+										//	console.log(v.getAttribute('id')+"--"+ob[v.getAttribute('id')])
+
+										v.innerText = ob[v.getAttribute('id')]
+									})
+
+									//填充日期
+									var dates = document.getElementsByClassName('date');
+									mui.each(dates, function(i, v) {
+										v.innerText = return_date(ob[v.getAttribute('id')])
+									})
+
+									//填充日期时间
+									var datetimes = document.getElementsByClassName('datetime');
+									mui.each(datetimes, function(i, v) {
+										v.innerText = return_datetime(ob[v.getAttribute('id')])
+									})
+								}
+							}
+						});
+
+					},
+					error: function(xhr, type, errorThrown) {
+						console.log(errorThrown)
+					}
+				});
+
+			})
+
+			//提交违约金
+			//      mui(document).on('tap', '#wyj_btn', function () {
+			//          if (!mui("input[name='isWYJ']")[0].checked && !mui("input[name='isWYJ']")[1].checked) {
+			//              mui.alert("必须选择违约金意见！")
+			//              return false;
+			//          } else {
+			//              var btns = ['取消', '确认'];
+			//              mui.confirm('需要确认该通知单？', '确认通知单', btns, function (e) {
+			//                  if (e.index == 1) {
+			//                      mui.ajax('../../Handler/MobileHandler.ashx', {
+			//                          data: {
+			//                              "Action": "Update_WYJ",
+			//                              "code": code,
+			//                              "WYJValue": mui("input[name='isWYJ']")[0].checked ? 1 : 0
+			//                          },
+			//                          dataType: 'json', //服务器返回json格式数据
+			//                          type: 'post', //HTTP请求类型
+			//                          timeout: 10000, //超时时间设置为10秒；
+			//                          success: function (data) {
+			//                              if (data.flag == 0) {
+			//                                  mui.alert(data.message)
+			//                              } else if (data.flag == 1) {
+			//                                  mui.alert(data.message, function () {
+			//                                      window.location.href = "ArrearList.html"
+			//                                      return false;
+			//                                  })
+			//                              }
+			//                          },
+			//                          error: function (xhr, type, errorThrown) {
+			//                              mui.alert(errorThrown)
+			//                          }
+			//                      });
+			//                  }
+			//              })
+			//
+			//          }
+			//      })
+
+			//			//提交是否停止发货
+			//			mui(document).on('tap', '#stop_btn', function() {
+			//				if(!mui("input[name='isStop']")[0].checked && !mui("input[name='isStop']")[1].checked) {
+			//					mui.alert("必须选择是否停止发货！")
+			//					return false;
+			//				} else {
+			//					var btns = ['取消', '确认'];
+			//					mui.confirm('需要确认该通知单？', '确认通知单', btns, function(e) {
+			//						if(e.index == 1) {
+			//							mui.ajax('../../Handler/MobileHandler.ashx', {
+			//								data: {
+			//									"Action": "Update_Stop",
+			//									"code": code,
+			//									"StopValue": mui("input[name='isStop']")[0].checked ? 1 : 0,
+			//									"cMemo": mui("#cMemo")[0].value.trim()
+			//								},
+			//								dataType: 'json', //服务器返回json格式数据
+			//								type: 'post', //HTTP请求类型
+			//								timeout: 10000, //超时时间设置为10秒；
+			//								success: function(data) {
+			//									if(data.flag == 0) {
+			//										mui.alert(data.message)
+			//									} else if(data.flag == 1) {
+			//										mui.alert(data.message, function() {
+			//											window.location.href = "ArrearList.html"
+			//											return false;
+			//										})
+			//									}
+			//								},
+			//								error: function(xhr, type, errorThrown) {
+			//									mui.alert(errorThrown)
+			//								}
+			//							});
+			//						}
+			//					})
+			//
+			//				}
+			//			})
+
+			//提交确认
+
+			mui(document).on('tap', '#confirm_btn', function() {
+				if(bytStatus == 32) {
+					if(!mui("input[name='isStop']")[0].checked && !mui("input[name='isStop']")[1].checked) {
+						mui.alert("必须选择是否停止发货！")
+						return false;
+					}
+					if(mui("#cMemo")[0].value.trim() == "") {
+						mui.alert("备注不能为空！")
+						return false;
+					}
+				}
+
+				var btns = ['取消', '确认'];
+				mui.confirm('是否确认该通知单？', '确认通知单', btns, function(e) {
+					if(e.index == 1) {
+						var d = {};
+						if(bytStatus == 32) {
+							d.Action = "Arrear_confirm";
+							d.code = code;
+							d.bytStatus = bytStatus;
+							d.StopValue = mui("input[name='isStop']")[0].checked ? 0 : 1;
+							d.cMemo = mui("#cMemo")[0].value.trim();
+						} else if(bytStatus = 31) {
+							d.Action = "Arrear_confirm";
+							d.code = code;
+							d.bytStatus = bytStatus;
+						}
+						mui.ajax('../../Handler/AdminHandler.ashx', {
+							data: d,
+							dataType: 'json', //服务器返回json格式数据
+							type: 'post', //HTTP请求类型
+							timeout: 10000, //超时时间设置为10秒；
+							success: function(data) {
+								if(data.flag == 0) {
+									mui.alert(data.message)
+								} else if(data.flag == 1) {
+									mui.alert(data.message, function() {
+										window.location.href = "ArrearList.html"
+										return false;
+									})
+								}
+							},
+							error: function(xhr, type, errorThrown) {
+								mui.alert(errorThrown)
+							}
+						});
+					} else {
+
+					}
+				})
+
+			})
+		</script>
+	</body>
+
+</html>

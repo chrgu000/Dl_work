@@ -1,0 +1,180 @@
+﻿
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Language" content="zh-cn" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="author" content="Fhua" />
+    <meta name="Copyright" content="BLIT" />
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, initial-scale=1.0,initial-scale=1.0,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>菜单编辑</title>
+    <link href="Content/layui/css/layui.css" rel="stylesheet" />
+    <link href="Content/fhuaui/css/fhuaui.css" rel="stylesheet" />
+    <link href="Content/Font-Awesome/css/font-awesome.css" rel="stylesheet" />
+    <script src="Content/layui/layui.js"></script>
+
+</head>
+<body>
+    <div class="main-wrap">
+        <blockquote class="layui-elem-quote fhui-admin-main_hd">
+            <h2>编辑菜单</h2>
+        </blockquote>
+        <form action="/_Admin/NavModify" class="layui-form layui-form-pane" id="formrec" method="post" role="form">
+            <input name="mtype" type="hidden" value="Edit" />
+            <input name="mid" type="hidden" value="99" />
+            <div class="layui-form-item">
+                <label class="layui-form-label">上级导航</label>
+                <div class="layui-input-block">
+                    <select data-val="true" data-val-number="字段 Int32 必须是一个数字。" data-val-required="Int32 字段是必需的。" id="ddlRoleId" name="ddlRoleId">
+                        <option selected="selected" value="0">无父级导航</option>
+                        <option value="99">应用管理</option>
+                        <option value="80">　├ 境外消费</option>
+                        <option value="157">　　├ 实时消费</option>
+                        <option value="158">　　├ 消费查询</option>
+                        <option value="159">　　├ 用户管理</option>
+                        <option value="160">　　├ 授权管理</option>
+                        <option value="161">　　├ 设备管理</option>
+                        <option value="162">　　├ 操作日志</option>
+                        <option value="85">站点管理</option>
+                        <option value="88">　├ 图片中心</option>
+                        <option value="89">　　├ 图片列表</option>
+                        <option value="98">　　├ 类别管理</option>
+                        <option value="95">　├ 视频专区</option>
+                        <option value="96">　　├ 内容管理</option>
+                        <option value="97">　　├ 类别管理</option>
+                        <option value="86">　├ 留言板</option>
+                        <option value="90">　　├ 内容管理</option>
+                        <option value="87">　　├ 留言列表</option>
+                        <option value="4">界面管理</option>
+                        <option value="146">　├ 菜单导航</option>
+                        <option value="147">　　├ 菜单管理</option>
+                        <option value="5">配置管理</option>
+                        <option value="151">　├ 网站管理</option>
+                        <option value="156">　　├ 基本概况</option>
+                        <option value="152">　　├ 站点配置</option>
+                        <option value="163">　├ 用户管理</option>
+                        <option value="164">　　├ 组织机构</option>
+                        <option value="165">　　├ 职位管理</option>
+                        <option value="166">　　├ 权限配置</option>
+                        <option value="167">　　├ 账号管理</option>
+                        <option value="153">　├ 日志管理</option>
+                        <option value="154">　　├ 操作日志</option>
+                        <option value="155">　　├ 异常日志</option>
+                        <option value="83">　├ 数据备份</option>
+                        <option value="84">　　├ 数据库备份</option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">调用别名</label>
+                <div class="layui-input-block">
+                    <input name="txtName" autocomplete="off" value="app" placeholder="如不填，则无法配置权限，100字符内" class="layui-input" type="text">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">主标题</label>
+                <div class="layui-input-block">
+                    <input name="txtTitle" autocomplete="off" value="应用管理" placeholder="菜单中文标题，100字符内" class="layui-input" type="text">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">副标题</label>
+                <div class="layui-input-block">
+                    <input name="txtSubTitle" autocomplete="off" value="应用" placeholder="非必填，当菜单拥有两个名称时使用" class="layui-input" type="text">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">链接地址</label>
+                <div class="layui-input-block">
+                    <input name="txtLinkUrl" autocomplete="off" value="app" placeholder="当前管理目录，有子导航不用填" class="layui-input" type="text">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">图标样式</label>
+                <div class="layui-input-block">
+                    <input name="txtIconclass" autocomplete="off" value="fa fa-file-text" placeholder="图标样式名，配合字体图标使用，若为空则显示默认图标（左侧菜单）" class="layui-input" type="text">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">排序</label>
+                <div class="layui-input-block">
+                    <input name="txtSortId" lay-verify="number" autocomplete="off" value="98" placeholder="数字，越小越向前" class="layui-input" type="text">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">备注说明</label>
+                <div class="layui-input-block">
+                    <input name="txtRemark" autocomplete="off" value="" placeholder="" class="layui-input" type="text">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">是否启用</label>
+                <div class="layui-input-block">
+                    <input checked="checked" name="IsLock" lay-skin="switch" lay-filter="switchTest" title="是" type="checkbox"><div class="layui-unselect layui-form-switch layui-form-onswitch"><i></i></div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    权限资源
+                </div>
+                <div class="panel-body">
+                    <div class="rule-multi-porp">
+                        <input id="cblActionType_0" type="checkbox" name="cblActionType0" checked="" />
+                        <label for="cblActionType_0">显示 (Show)</label>
+                        <input id="cblActionType_1" type="checkbox" name="cblActionType1" checked="" />
+                        <label for="cblActionType_1">查看 (View)</label>
+                        <input id="cblActionType_2" type="checkbox" name="cblActionType2" checked="" />
+                        <label for="cblActionType_2">添加 (Add)</label>
+                        <input id="cblActionType_3" type="checkbox" name="cblActionType3" checked="" />
+                        <label for="cblActionType_3">修改 (Edit)</label>
+                        <input id="cblActionType_4" type="checkbox" name="cblActionType4" checked="" />
+                        <label for="cblActionType_4">删除 (Delete)</label>
+                        <input id="cblActionType_5" type="checkbox" name="cblActionType5" />
+                        <label for="cblActionType_5">审核 (Audit)</label>
+                        <input id="cblActionType_6" type="checkbox" name="cblActionType6" />
+                        <label for="cblActionType_6">回复 (Reply)</label>
+                        <input id="cblActionType_7" type="checkbox" name="cblActionType7" />
+                        <label for="cblActionType_7">确认 (Confirm)</label>
+                        <input id="cblActionType_8" type="checkbox" name="cblActionType8" />
+                        <label for="cblActionType_8">取消 (Cancel)</label>
+                        <input id="cblActionType_9" type="checkbox" name="cblActionType9" />
+                        <label for="cblActionType_9">作废 (Invalid)</label>
+                        <input id="cblActionType_10" type="checkbox" name="cblActionType10" />
+                        <label for="cblActionType_10">生成 (Build)</label>
+                        <input id="cblActionType_11" type="checkbox" name="cblActionType11" />
+                        <label for="cblActionType_11">安装 (Instal)</label>
+                        <input id="cblActionType_12" type="checkbox" name="cblActionType12" />
+                        <label for="cblActionType_12">卸载 (Unload)</label>
+                        <input id="cblActionType_13" type="checkbox" name="cblActionType13" />
+                        <label for="cblActionType_13">备份 (Back)</label>
+                        <input id="cblActionType_14" type="checkbox" name="cblActionType14" />
+                        <label for="cblActionType_14">还原 (Restore)</label>
+                        <input id="cblActionType_15" type="checkbox" name="cblActionType15" />
+                        <label for="cblActionType_15">替换 (Replace)</label>
+
+                    </div>
+                </div>
+            </div>
+            <!--底部工具栏-->
+            <div class="page-footer">
+                <div class="btn-list">
+                    <div class="btnlist">
+                        <a class="layui-btn layui-btn-small" lay-submit="" lay-filter="demo1" data-rturl="Nav_list" data-href="/_Admin/PNavModify"><i class="fa fa-save"></i>提交</a>
+                        <a class="layui-btn layui-btn-small do-action" data-type="doRefresh" data-href=""><i class="fa fa-refresh fa-spin"></i>刷新</a>
+                        <a class="layui-btn layui-btn-small do-action" data-type="doGoBack" data-href=""><i class="fa fa-mail-reply"></i>返回上一页</a>
+                        <a class="layui-btn layui-btn-small do-action" data-type="doGoTop" data-href=""><i class="fa fa-arrow-up"></i>返回顶部</a>
+                    </div>
+                </div>
+            </div>
+            <!--/底部工具栏-->
+        </form>
+    </div>
+    <script src="Content/myjs/global.js"></script>
+    <script src="Content/myjs/modify.js"></script>
+
+</body>
+</html>

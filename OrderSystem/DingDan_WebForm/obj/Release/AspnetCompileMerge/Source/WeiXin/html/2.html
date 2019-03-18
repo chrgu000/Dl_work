@@ -1,0 +1,307 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订单列表</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <!--<link rel="stylesheet" href="http://cdn.bootcss.com/mdui/0.3.0/css/mdui.min.css">
+    <script src="http://cdn.bootcss.com/mdui/0.3.0/js/mdui.min.js"></script>-->
+
+    <link href="../../js/plugins/mdui/css/mdui.min.css" rel="stylesheet" />
+        <link href="../css/loading.css" rel="stylesheet" />
+    
+</head>
+<body class="mdui-appbar-with-toolbar mdui-appbar-with-tab ">
+
+    <div class="mdui-appbar mdui-appbar-fixed  ">
+        <div class="mdui-toolbar mdui-color-blue-900">
+            <a href="index.html" class="mdui-btn mdui-btn-icon">
+                <i class="mdui-icon material-icons">home</i>
+            </a>
+            <a href="javascript:;" class="mdui-typo-title">订单列表</a>
+            <div class="mdui-toolbar-spacer"></div>
+            <a class="mdui-btn " href="javascript:;" mdui-dialog="{target: '#dialog-docs-theme'}">
+                <i class="mdui-icon material-icons">search</i>
+            </a>
+            <a href="javascript:location.reload();" class="mdui-btn mdui-btn-icon">
+                <i class="mdui-icon material-icons">refresh</i>
+            </a>
+     <!--            <a href="javascript:;"  class="mdui-btn mdui-btn-icon"  mdui-menu="{target: '#menu'}">
+              <i class="mdui-icon material-icons">more_vert</i>
+            </a> -->
+
+<!-- <ul class="mdui-menu" id="menu">
+  <li class="mdui-menu-item mdui-valign">
+  <h3 class="mdui-center"> 快速查询 </h3>  
+  </li>
+  <li class="mdui-menu-item">
+    <a href="javascript:;" class="mdui-ripple">今日订单</a>
+  </li>
+  <li class="mdui-menu-item" disabled>
+    <a href="javascript:;">近七日订单</a>
+  </li>
+  <li class="mdui-menu-item">
+    <a href="javascript:;" class="mdui-ripple">近一月订单</a>
+  </li>
+  <li class="mdui-menu-item">
+    <a href="javascript:;" class="mdui-ripple">近三月订单</a>
+  </li>
+</ul> -->
+        </div>
+        <div class="mdui-tab mdui-color-blue-a200" mdui-tab>
+            <a href="#Status1" class="mdui-ripple mdui-ripple-white">待审核<!-- <div class="mdui-typo-caption mdui-color-blue-a200">22</div> --></a>
+            <a href="#Status2" class="mdui-ripple mdui-ripple-white">待确认</a>
+            <a href="#Status3" class="mdui-ripple mdui-ripple-white">被驳回</a>
+            <a href="#Status4" class="mdui-ripple mdui-ripple-white">已审核</a>
+        </div>
+    </div>
+
+    <div class="mdui-container-fluid">
+        <div id="Status1">
+            <ul class="mdui-list">
+                <!--       <li class="mdui-list-item mdui-ripple">
+                        <div class="mdui-list-item-content">
+                          <div class="mdui-row">
+                            <div class="mdui-col-xs-12">Inbox</div>
+                            <div class="mdui-col-xs-12 mdui-typo-caption-opacity">2017-01-11 15:00:12</div>
+                          </div>
+                        </div>
+                        <i class="mdui-icon material-icons">chevron_right</i>
+                      </li>
+                      <div class="mdui-divider-dark"></div> -->
+
+            </ul>
+        </div>
+        <div id="Status2">
+            <ul class="mdui-list"></ul>
+        </div>
+        <div id="Status3">
+            <ul class="mdui-list"></ul>
+        </div>
+        <div id="Status4">
+            <ul class="mdui-list"></ul>
+        </div>
+        <!-- <button class="mdui-btn mdui-color-indigo-900" mdui-menu={target:'#fastSearchMenu'}>查询</button>
+        -->
+        <!--  <ul class="mdui-menu mdui-menu-cascade" id="fastSearchMenu">
+        <li class="mdui-menu-item">
+          <a href="javascript:;" class="mdui-ripple">
+            <i class="mdui-menu-item-icon mdui-icon material-icons">format_bold</i>
+            Bold
+            <span class="mdui-menu-item-helper">Ctrl+B</span>
+          </a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="javascript:;" class="mdui-ripple">
+            <i class="mdui-menu-item-icon mdui-icon material-icons">format_italic</i>
+            Italic
+          </a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="javascript:;" class="mdui-ripple">
+            <i class="mdui-menu-item-icon"></i>
+            Superscript
+            <span class="mdui-menu-item-helper">Ctrl+.</span>
+          </a>
+        </li>
+        <li class="mdui-divider"></li>
+        <li class="mdui-menu-item">
+          <a href="javascript:;" class="mdui-ripple">
+            Paragraph style
+            <span class="mdui-menu-item-more"></span>
+          </a>
+          <ul class="mdui-menu mdui-menu-cascade">
+            <li class="mdui-menu-item">
+              <a href="javascript:;" class="mdui-ripple">
+                <i class="mdui-menu-item-icon"></i>
+                Single
+              </a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="javascript:;" class="mdui-ripple">
+                <i class="mdui-menu-item-icon mdui-icon material-icons">check</i>
+                1.15
+              </a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="javascript:;" class="mdui-ripple">
+                <i class="mdui-menu-item-icon"></i>
+                Double
+              </a>
+            </li>
+          </ul>
+        </li>
+        </ul>
+        <button class="mdui-btn mdui-color-indigo-900"  id="fastSearch2">查询</button>
+        -->
+        <!-- <div class="mdui-fab-wrapper" id="fab">
+        <button class="mdui-fab mdui-ripple mdui-color-pink-accent">
+        <i class="mdui-icon material-icons">add</i>
+        <i class="mdui-icon mdui-fab-opened material-icons">mode_edit</i>
+        </button>
+        <div class="mdui-fab-dial">
+        <button class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-pink">
+          <i class="mdui-icon material-icons">backup</i>
+        </button>
+        <button class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-red">
+          <i class="mdui-icon material-icons">bookmark</i>
+        </button>
+        <button class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-orange">
+          <i class="mdui-icon material-icons">access_alarms</i>
+        </button>
+        <button class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-blue">
+          <i class="mdui-icon material-icons">touch_app</i>
+        </button>
+        </div>
+        </div>
+        -->
+    </div>
+
+    <div class="mdui-dialog" id="dialog-docs-theme" style="display: none;width:50%; top: 95.406px; height: 300px;">
+        <div class="mdui-dialog-title">快速查询</div>
+        <div class="mdui-dialog-content" style="height: 300px;">
+
+            <div class="mdui-divider-dark"></div>
+            <form class="mdui-row">
+                <div class="mdui-col mdui-text-color-red">
+                    <label class="mdui-radio">
+                        <input type="radio" name="fastSearchNum" value="1">
+                        <i class="mdui-radio-icon"></i>
+                        今日订单
+                    </label>
+                </div>
+                <div class="mdui-col mdui-text-color-indigo">
+                    <label class="mdui-radio ">
+                        <input type="radio" name="fastSearchNum" value="7">
+                        <i class="mdui-radio-icon"></i>
+                        近七日订单
+                    </label>
+                </div>
+                <div class="mdui-col mdui-text-color-light-blue">
+                    <label class="mdui-radio ">
+                        <input type="radio" name="fastSearchNum" value="30">
+                        <i class="mdui-radio-icon"></i>
+                        近一月订单
+                    </label>
+                </div>
+                <div class="mdui-col mdui-text-color-light-green">
+                    <label class="mdui-radio">
+                        <input type="radio" name="fastSearchNum" value="90" checked="">
+                        <i class="mdui-radio-icon"></i>
+                        近三月订单
+                    </label>
+                </div>
+                <!-- <div class=" mdui-col mdui-textfield">
+                  <input class="mdui-textfield-input" type="date" placeholder="User Name"/>
+                  <input class="mdui-textfield-input" type="datetime-local" placeholder="User Name"/>
+                </div> -->
+
+            </form>
+
+        </div>
+        <div class="mdui-divider"></div>
+        <div class="mdui-dialog-actions">
+            <button class="mdui-btn   mdui-ripple mdui-float-left" mdui-dialog-cancel="">取消</button>
+            <button class="mdui-btn mdui-ripple" id="fastSearchBtn" mdui-dialog-confirm="">确认</button>
+        </div>
+    </div>
+ 
+    <script src="../../js/plugins/mdui/js/mdui.min.js"></script>
+    <script src="../js/Project/WeiXin_Fun.js"></script>
+    <script>
+
+ var $$ = mdui.JQ;
+       $$(function(){
+
+            // var inst = new mdui.Fab('#fab');
+            message = new mdui.Dialog('#message');
+            GetHistoryOrderList();
+            $$(document).on('click', '#fastSearchBtn', function () {
+                GetHistoryOrderList();
+            });
+
+
+            $$(document).on('click', '.mdui-list li', function () {
+                console.log($$(this).attr('lngopOrderId'))
+                location.href = 'orderinfo.html?lngopOrderId=' + $$(this).attr('lngopOrderId')+'&orderType=1';
+            })
+
+
+
+   
+
+        })
+
+             function GetHistoryOrderList(days) {
+                $$.ajax({
+                    url: '/handler/WeiXinHandler.ashx',
+                    dataType: 'json',
+                    method: 'POST',
+                    data: { 'Action': 'GetHistoryOrderList', 'days': $$('input[name=fastSearchNum]:checked').val() },
+                    success: function (res) {
+                        console.log(res)
+                        if (res.flag != 1) {
+                            AlertErrorMsg(res);
+                            return false;
+                        }
+                        var Status1 = '', Status2 = '', Status3 = '', Status4 = '';
+                        $$.each(res.list, function (i, v) {
+                            switch (v.bytStatus) {
+                                case 1:
+                                    Status1 += '<li class="mdui-list-item mdui-ripple-red" lngopOrderId=' + v.lngopOrderId + '><div class="mdui-list-item-content"><div class="mdui-row">\
+            <div class="mdui-col-xs-12">'+ v.strbillno + '</div>\
+            <div class="mdui-col-xs-12 mdui-typo-caption-opacity">'+ v.datCreateTime.replace('T', ' ') + '</div>\
+          </div></div><i class="mdui-icon material-icons">chevron_right</i></li> <div class="mdui-divider-dark"></div>';
+                                    break;
+                                case 2:
+                                    Status2 += '<li class="mdui-list-item mdui-ripple" lngopOrderId=' + v.lngopOrderId + '><div class="mdui-list-item-content"><div class="mdui-row">\
+            <div class="mdui-col-xs-12">'+ v.strbillno + '</div>\
+            <div class="mdui-col-xs-12 mdui-typo-caption-opacity">'+ v.datCreateTime.replace('T', ' ') + '</div>\
+          </div></div><i class="mdui-icon material-icons">chevron_right</i></li> <div class="mdui-divider-dark"></div>';
+                                    break;
+                                case 3:
+                                    Status3 += '<li class="mdui-list-item mdui-ripple" lngopOrderId=' + v.lngopOrderId + '><div class="mdui-list-item-content"><div class="mdui-row">\
+            <div class="mdui-col-xs-12">'+ v.strbillno + '</div>\
+            <div class="mdui-col-xs-12 mdui-typo-caption-opacity">'+ v.datCreateTime.replace('T', ' ') + '</div>\
+          </div></div><i class="mdui-icon material-icons">chevron_right</i></li> <div class="mdui-divider-dark"></div>';
+                                    break;
+                                case 4:
+                                    Status4 += '<li class="mdui-list-item mdui-ripple" lngopOrderId=' + v.lngopOrderId + '><div class="mdui-list-item-content"><div class="mdui-row">\
+            <div class="mdui-col-xs-12">'+ v.strbillno + '</div>\
+            <div class="mdui-col-xs-12 mdui-typo-caption-opacity">'+ v.datCreateTime.replace('T', ' ') + '</div>\
+          </div></div><i class="mdui-icon material-icons">chevron_right</i></li> <div class="mdui-divider-dark"></div>';
+                                    break;
+                            }
+                        })
+                        if (Status1 == '') {
+                            Status1 = '<div class="mdui-text-center mdui-typo-title">没有数据</div>';
+                        }
+                        if (Status2 == '') {
+                            Status2 = '<div class="mdui-text-center mdui-typo-title">没有数据</div>';
+                        }
+                        if (Status3 == '') {
+                            Status3 = '<div class="mdui-text-center mdui-typo-title">没有数据</div>';
+                        }
+                        if (Status4 == '') {
+                            Status4 = '<div class="mdui-text-center mdui-typo-title">没有数据</div>';
+                        }
+                        $$('#Status1 ul').html(Status1);
+                        $$('#Status2 ul').html(Status2);
+                        $$('#Status3 ul').html(Status3);
+                        $$('#Status4 ul').html(Status4);
+                         mdui.snackbar({'message':'加载成功','timeout':2000 })
+                    }, error: function (err) {
+                        console.log(err)
+                    }
+                })
+
+            };
+
+
+
+          
+    </script>
+
+</body>
+</html>

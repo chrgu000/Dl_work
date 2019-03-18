@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	  <link href="../../test/tesjs/iview.css" rel="stylesheet" />
+    <script src="../../test/tesjs/vue.min.js"></script>
+    <script src="../../test/tesjs/iview.min.js"></script>
+</head>
+<body>
+<div id="component">
+    <child v-html="msg"></child><strong>1，首先我们定义在实例化的Vue内部定义组件child并使用
+
+    <!--解决DOM解析问题-->     2，对于标准的html而言有些标签对其子标签有一定的要求，is来解决</strong>
+    <table>
+        <tr is="child1"></tr>
+    </table>
+
+    <strong><!--构造组件-->            3，下面是构造一个外部组件并传入数据，利用Vue.component()来构建</strong>
+    <child3 msg3="gouzao"></child3>
+
+    <strong><!-- 内部切换组件-->       4，对于多个组件的切换问题，首先在引用组建时我们以<component v-bind:is="XXX"></componment>来引用，XXX处为你所需要的标签</strong>
+    <input v-model="current">
+
+    <component v-if="current=='child'" v-bind:is="current" msg="ninini"></component>
+    <component v-else v-bind:is="current"></component>
+
+    <button v-on:click="childbtn">childbtn</button>
+    <button v-on:click="child1btn">childbtn1</button>
+    <button v-on:click="child2btn">childbtn2</button>
+</div>
+<script>
+   //独立建立组件
+    Vue.component('child3',{
+        props:['msg3'],
+        template:'<p>{{msg3}}</p>'
+    });
+   //内部组件切换
+    var child={
+        props:['msg'],
+        template:"<p>{{msg}}</p>"
+    };
+    var child1={
+        template:"<p>nihao</p>"
+    };
+      //组件嵌套             <strong>5，嵌套组件的定义方式如下，当调用父组件标签是自动加入子组件标签</strong>
+    var child2={
+        template:"<p>child2<chridren></chridren></p>",
+        components:{
+            'chridren':child1
+        }
+    };
+
+
+
+    new Vue({
+        el:"#component",
+        data:{
+            msg:"宝宝来咯",
+            current:'child2',
+            XXX:''
+        },
+        components:{
+            'child':child,
+            'child1':child1,
+            'child2':child2
+        },
+        methods:{
+            childbtn:function(){
+                this.current='child'
+            },
+            child1btn:function(){
+                this.current='child1'
+            },
+            child2btn:function(){
+                this.current='child2'
+            }
+        }
+    });
+
+</script>
+</body>
+</html>

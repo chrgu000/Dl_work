@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://dl.duolian.com/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://dl.duolian.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://dl.duolian.com/">
+      <s:element name="SendFHSMS2Customer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="phoneno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="orderno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="content" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendFHSMS2CustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendFHSMS2CustomerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendTest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="phoneno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="orderno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="content" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendTestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendTestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendQY_Message_Text">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="touser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="toparty" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="totag" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="agentid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strWxMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendQY_Message_TextResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendQY_Message_TextResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="phoneno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="content" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendSMSResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="boolean" type="s:boolean" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SendFHSMS2CustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:SendFHSMS2Customer" />
+  </wsdl:message>
+  <wsdl:message name="SendFHSMS2CustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:SendFHSMS2CustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendTestSoapIn">
+    <wsdl:part name="parameters" element="tns:SendTest" />
+  </wsdl:message>
+  <wsdl:message name="SendTestSoapOut">
+    <wsdl:part name="parameters" element="tns:SendTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendQY_Message_TextSoapIn">
+    <wsdl:part name="parameters" element="tns:SendQY_Message_Text" />
+  </wsdl:message>
+  <wsdl:message name="SendQY_Message_TextSoapOut">
+    <wsdl:part name="parameters" element="tns:SendQY_Message_TextResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSMS" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendFHSMS2CustomerHttpGetIn">
+    <wsdl:part name="phoneno" type="s:string" />
+    <wsdl:part name="orderno" type="s:string" />
+    <wsdl:part name="content" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendFHSMS2CustomerHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SendTestHttpGetIn">
+    <wsdl:part name="phoneno" type="s:string" />
+    <wsdl:part name="orderno" type="s:string" />
+    <wsdl:part name="content" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendTestHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SendQY_Message_TextHttpGetIn">
+    <wsdl:part name="touser" type="s:string" />
+    <wsdl:part name="toparty" type="s:string" />
+    <wsdl:part name="totag" type="s:string" />
+    <wsdl:part name="agentid" type="s:string" />
+    <wsdl:part name="strWxMessage" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendQY_Message_TextHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSHttpGetIn">
+    <wsdl:part name="phoneno" type="s:string" />
+    <wsdl:part name="content" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="SendFHSMS2CustomerHttpPostIn">
+    <wsdl:part name="phoneno" type="s:string" />
+    <wsdl:part name="orderno" type="s:string" />
+    <wsdl:part name="content" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendFHSMS2CustomerHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SendTestHttpPostIn">
+    <wsdl:part name="phoneno" type="s:string" />
+    <wsdl:part name="orderno" type="s:string" />
+    <wsdl:part name="content" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendTestHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SendQY_Message_TextHttpPostIn">
+    <wsdl:part name="touser" type="s:string" />
+    <wsdl:part name="toparty" type="s:string" />
+    <wsdl:part name="totag" type="s:string" />
+    <wsdl:part name="agentid" type="s:string" />
+    <wsdl:part name="strWxMessage" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendQY_Message_TextHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSHttpPostIn">
+    <wsdl:part name="phoneno" type="s:string" />
+    <wsdl:part name="content" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:portType name="SendSMS2CustomerSoap">
+    <wsdl:operation name="SendFHSMS2Customer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SendFHSMS2Customer</wsdl:documentation>
+      <wsdl:input message="tns:SendFHSMS2CustomerSoapIn" />
+      <wsdl:output message="tns:SendFHSMS2CustomerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendTest">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SendTest</wsdl:documentation>
+      <wsdl:input message="tns:SendTestSoapIn" />
+      <wsdl:output message="tns:SendTestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendQY_Message_Text">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SendQY_Message_Text</wsdl:documentation>
+      <wsdl:input message="tns:SendQY_Message_TextSoapIn" />
+      <wsdl:output message="tns:SendQY_Message_TextSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SendSMS</wsdl:documentation>
+      <wsdl:input message="tns:SendSMSSoapIn" />
+      <wsdl:output message="tns:SendSMSSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SendSMS2CustomerHttpGet">
+    <wsdl:operation name="SendFHSMS2Customer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SendFHSMS2Customer</wsdl:documentation>
+      <wsdl:input message="tns:SendFHSMS2CustomerHttpGetIn" />
+      <wsdl:output message="tns:SendFHSMS2CustomerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendTest">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SendTest</wsdl:documentation>
+      <wsdl:input message="tns:SendTestHttpGetIn" />
+      <wsdl:output message="tns:SendTestHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendQY_Message_Text">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SendQY_Message_Text</wsdl:documentation>
+      <wsdl:input message="tns:SendQY_Message_TextHttpGetIn" />
+      <wsdl:output message="tns:SendQY_Message_TextHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SendSMS</wsdl:documentation>
+      <wsdl:input message="tns:SendSMSHttpGetIn" />
+      <wsdl:output message="tns:SendSMSHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SendSMS2CustomerHttpPost">
+    <wsdl:operation name="SendFHSMS2Customer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SendFHSMS2Customer</wsdl:documentation>
+      <wsdl:input message="tns:SendFHSMS2CustomerHttpPostIn" />
+      <wsdl:output message="tns:SendFHSMS2CustomerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendTest">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SendTest</wsdl:documentation>
+      <wsdl:input message="tns:SendTestHttpPostIn" />
+      <wsdl:output message="tns:SendTestHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendQY_Message_Text">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SendQY_Message_Text</wsdl:documentation>
+      <wsdl:input message="tns:SendQY_Message_TextHttpPostIn" />
+      <wsdl:output message="tns:SendQY_Message_TextHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SendSMS</wsdl:documentation>
+      <wsdl:input message="tns:SendSMSHttpPostIn" />
+      <wsdl:output message="tns:SendSMSHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SendSMS2CustomerSoap" type="tns:SendSMS2CustomerSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendFHSMS2Customer">
+      <soap:operation soapAction="http://dl.duolian.com/SendFHSMS2Customer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendTest">
+      <soap:operation soapAction="http://dl.duolian.com/SendTest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendQY_Message_Text">
+      <soap:operation soapAction="http://dl.duolian.com/SendQY_Message_Text" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <soap:operation soapAction="http://dl.duolian.com/SendSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SendSMS2CustomerSoap12" type="tns:SendSMS2CustomerSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendFHSMS2Customer">
+      <soap12:operation soapAction="http://dl.duolian.com/SendFHSMS2Customer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendTest">
+      <soap12:operation soapAction="http://dl.duolian.com/SendTest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendQY_Message_Text">
+      <soap12:operation soapAction="http://dl.duolian.com/SendQY_Message_Text" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <soap12:operation soapAction="http://dl.duolian.com/SendSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SendSMS2CustomerHttpGet" type="tns:SendSMS2CustomerHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="SendFHSMS2Customer">
+      <http:operation location="/SendFHSMS2Customer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendTest">
+      <http:operation location="/SendTest" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendQY_Message_Text">
+      <http:operation location="/SendQY_Message_Text" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <http:operation location="/SendSMS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SendSMS2CustomerHttpPost" type="tns:SendSMS2CustomerHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="SendFHSMS2Customer">
+      <http:operation location="/SendFHSMS2Customer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendTest">
+      <http:operation location="/SendTest" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendQY_Message_Text">
+      <http:operation location="/SendQY_Message_Text" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <http:operation location="/SendSMS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SendSMS2Customer">
+    <wsdl:port name="SendSMS2CustomerSoap" binding="tns:SendSMS2CustomerSoap">
+      <soap:address location="http://192.168.0.249:9001/other/SendSMS2Customer.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SendSMS2CustomerSoap12" binding="tns:SendSMS2CustomerSoap12">
+      <soap12:address location="http://192.168.0.249:9001/other/SendSMS2Customer.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SendSMS2CustomerHttpGet" binding="tns:SendSMS2CustomerHttpGet">
+      <http:address location="http://192.168.0.249:9001/other/SendSMS2Customer.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SendSMS2CustomerHttpPost" binding="tns:SendSMS2CustomerHttpPost">
+      <http:address location="http://192.168.0.249:9001/other/SendSMS2Customer.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

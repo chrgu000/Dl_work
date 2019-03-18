@@ -1,0 +1,1271 @@
+﻿<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <title>多联网上订单操作手册 V2.0</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/js/plugins/layui-1.0.9/css/layui.css" media="all" />
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/help.css" rel="stylesheet" />
+    <script src="js/zooming.js"></script>
+</head>
+
+<body style="  min-height: 2000px;padding-top: 70px; background-color:#d6d6d6">
+    <div class="container-fluid">
+        <!-- Static navbar -->
+        <nav class="navbar navbar-default navbar-fixed-top" style="position:fixed; left:0;">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- <a class="navbar-brand" href="#">Project name</a>
+                -->
+                </div>
+                <div class="container">
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="active">
+                                <a href="#" data-nav="explain">
+                                <span class="glyphicon glyphicon-cog"></span>
+                                使用说明
+                            </a>
+                            </li>
+                            <li>
+                                <a href="#" data-nav="login">
+                                <span class="glyphicon glyphicon-send"></span>
+                                系统登录
+                            </a>
+                            </li>
+                            <li>
+                                <a href="#" data-nav="index">
+                                <span class="glyphicon glyphicon-list"></span>
+                                主页界面
+                            </a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span>
+                                购物
+                                <span class="caret"></span>
+                            </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="#" data-nav="buy">新增普通订单</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-nav="buy_sample">新增样品资料订单</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-nav="buy_special">参照特殊订单</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span>
+                                订单管理
+                                <span class="caret"></span>
+                            </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="#" data-nav="CheckPendingOrder">待审核订单</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-nav="reject_order">被驳回订单</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-nav="modify_shippingmethod">更改收货方式</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-nav="OrderConfirm">待确认订单</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-nav="historyorder">历史订单</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+                                产品需求
+                                <span class="caret"></span>
+                            </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="#" data-nav="buyxorder">新增需求订单</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-nav="xorderlist">需求订单列表</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+                                特殊订单
+                                <span class="caret"></span>
+                            </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="#" data-nav="preorder">新增特殊订单</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-nav="preorderlist">特殊订单查询</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span>
+                                报表
+                                <span class="caret"></span>
+                            </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="#" data-nav="soa">我的对账单</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-nav="arrear">延期通知单</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-nav="soad">账单明细</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-nav="OrderExecute">订单执行情况</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                我的账户
+                                <span class="caret"></span>
+                            </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="#" data-nav="address">收货地址</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-nav="codeconfig">客户代码</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-nav="XOrderBehaviorList">信用列表</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <!-- 
+                    <form class="navbar-form navbar-right" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" />
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+                -->
+                    </div>
+                    <!--/.nav-collapse -->
+                </div>
+            </div>
+            <!--/.container-fluid -->
+        </nav>
+        <div class="container-fluid">
+            <!-- Main component for a primary marketing message or call to action -->
+            <div class="container">
+                <div class="jumbotron" style="background-color:#116CA1;color:#ffffff">
+                    <h1>欢迎使用多联网上订单系统 V2.0</h1>
+                    <h3>新版网上订单系统包括以下特点</h3>
+                    <ul>
+                        <li>全新的界面，全新的体验。</li>
+                        <li>性能上的大量优化，让你操作更加流畅，大大减少你的等待时间。</li>
+                        <li>更多人性化的设计，更多新增功能，尽量满足用户需求。</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-12 step" id="explain">
+                <hr />
+                <h2>使用说明</h2>
+                <p>
+                    1. 系统：WindowsXP, Windows 7, Windows 8, Windows 10。
+                    <p>
+                        <p>
+                            2. 浏览器：新版订单系统未做IE系列的兼容性测试，为了避免出现异常，强烈建议使用FireFox火狐浏览器(
+                            <a href="http://www.firefox.com.cn/" target="_blank" style="color:red">点我下载</a> )或者Chrome谷歌浏览器。
+                            <p>
+                                <p>
+                                    3. 分辨率：推荐使用1280*768以上的分辨率，为了获得最佳体验请使用1920*1080的分辨率。
+                                    <p>
+                                        <p>4. 网络：必须。</div>
+            <div class="col-md-12 step" id="login">
+                <hr />
+                <h2>系统登录</h2>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">登陆地址：http://dl.duolian.com:1234</span>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">输入正确的账号、密码和手机号码后点击获取验证码。</span>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">输入正确的验证码点击登录。</span>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">增加了微信同步接收验证码功能，具体操作步骤请查看登录界面帮助。</span>
+                        </p>
+                    </div>
+                    <div class="col-sm-8">
+                        <img src="images/login.png" title="登录界面" data-action="zoom" class="img-responsive" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 step" id="index">
+                <hr />
+                <h2>主页界面</h2>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">登录成功后主页面界面</span>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">重要消息：公司重要消息会放置在此处</span>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">更新日志：可查看新版网上订单系统增加的新功能说明和对Bug修复</span>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">企业QQ：打开可直接与公司客服或技术人员进行交流</span>
+                        </p>
+                    </div>
+                    <div class="col-sm-8">
+                        <img src="images/index.png" title="主页界面" data-action="zoom" class="img-responsive" />
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true">个人信息（暂无）</span>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true">修改密码：可修改登录密码</span>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true">锁屏</span>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true">注销：退出当前登录</span>
+                        </p>
+                    </div>
+                    <div class="col-sm-8">
+                        <img src="images/index_user.png" title="个人功能" data-action="zoom" class="img-responsive" />
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true">锁屏界面，输入登录密码后解锁</span>
+                        </p>
+                    </div>
+                    <div class="col-sm-8">
+                        <img src="images/index_lock.png" title="锁屏" data-action="zoom" class="img-responsive" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 step" id="buy">
+                <hr />
+                <h2>新增普通订单</h2>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <img src="images/buy.png" title="新增普通订单" data-action="zoom" class="img-responsive" />
+                    </div>
+                    <div class="col-sm-4">
+                        <h4>界面说明</h4>
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">点击菜单 购物-->新增普通订单 进入页面</span>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">功能按钮组统一放在顶部，方便操作</span>
+                        </p>
+                        <br>
+                        <h4 style="color:red">[新版功能]</h4>
+                        <p>
+                            <span class="glyphicon glyphicon-tag " aria-hidden="true"> <strong>一键清除零库存：</strong>
+                                                    点击按钮可删除产品列表里库存为0的产品
+                                                </span>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true"> <strong>刷新库存：</strong>
+                                                    点击按钮后可对产品列表里的库存进行更新
+                                                </span>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true">
+                                                    <strong>自动保存：</strong>
+                                                    从产品列表里选择产品后，系统会自动保存为临时订单，并且会覆盖前一次的保存记录
+                                                </span>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true">
+                                                    <strong>在老版系统提交订单时需先保存产品，新版已去除这一步，在录入相应信息后可直接提交</strong>
+                                                </span>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true">
+                                                    <strong>产品重量：</strong>
+                                                    系统会自动计算所有产品的重量，并显示重量区间范围
+                                                </span>
+                        </p>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <img src="images/stock.png" title="颜色提示" class="img-responsive center-block" id="sss" />
+                    </div>
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true">
+                                                    <strong>颜色提示：</strong>
+                                                    在产品列表里会对库存为零的产品进行红色标注，对购买数量大于库存的产品进行黄色标注
+                                                </span>
+                        </p>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <img src="images/select_product.png" title="选择产品" data-action="zoom" class="img-responsive" id="sss" />
+                    </div>
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true">
+                                                    <strong>选择产品：</strong>
+                                                    单击【选择商品】按钮，弹出产品选择界面，你可以单击产品目录前面的+号，选择子目录，也可以直接单击产品目录，系统将会列出该目录下所有子目录所包含的产品。
+                                                </span>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true">
+                                                    <strong>过滤产品：</strong>
+                                                    在产品列表有产品的情况下，你可以通过全局搜索来过滤产品，亦可以通过分类搜索，根据产品首字母拼音、产品名称、产品规格、产品单位来过滤。
+                                                </span>
+                        </p>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <img src="images/select_historyorder.png" title="选择历史订单" data-action="zoom" class="img-responsive" id="sss" />
+                    </div>
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true">
+                                                    <strong>选择历史订单：</strong>
+                                                    单击【获取历史订单】按钮，可以获取以前提交成功的历史订单，点击确定后会加载该订单的数据。
+                                                </span>
+                        </p>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <img src="images/select_temporder.png" title="选择临时订单" data-action="zoom" class="img-responsive" id="sss" />
+                    </div>
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true">
+                                                    <strong>选择临时订单：</strong>
+                                                    单击【获取临时订单】按钮，可以获取以前保存成功的临时订单及系统自动保存的临时订单，点击确定后会加载该订单的数据。
+                                                </span>
+                        </p>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <img src="images/submit_error.png" title="提交订单失败" data-action="zoom" class="img-responsive" id="sss" />
+                    </div>
+                    <div class="col-sm-4 ">
+                        <p>
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
+                            <strong>提交订单失败：</strong> 一般来说提交订单失败主要有两个原因，系统会给出相应的提示：
+                            <p>1、库存为零</p>
+                            <p>2、购买量大于库存量</p>
+                        </p>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-8 ">
+                        <img src="images/limit.png" title="限销产品" class="img-responsive " id="sss" />
+                    </div>
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true">
+                                                    <strong>限销产品：</strong>
+                                                    当你获取历史订单或临时订单，或者在选好产品后切换开票单位，系统会在后台重新获取该开票单位的产品允限销，因此你可能会看到如图的提示信息。
+                                                </span>
+                        </p>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <img src="images/submit_success.png" title="提交订单成功" data-action="zoom" class="img-responsive" id="sss" />
+                    </div>
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true">
+                                                    <strong>提交订单：</strong>
+                                                    提交成功，系统将显示生成的订单号
+                                                </span>
+                        </p>
+                    </div>
+                </div>
+                <br>
+                <div class="row" id="add_ztty">
+                    <div class="col-sm-8">
+                        <img src="images/ztty_1.jpg" title="自提（托运）" data-action="zoom" class="img-responsive" id="sss" />
+                    </div>
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true">
+                                                    <strong>新增自提托运信息</strong>
+                                                    进入[我的账户]->[收货地址],点击新增自提托运按钮，新增信息
+                                                </span>
+                        </p>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <img src="images/ztty_2.jpg" title="自提（托运）" data-action="zoom" class="img-responsive" id="sss" />
+                    </div>
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true">
+                                                    <strong>选择自提托运信息</strong>
+                                                    在新增订单时，勾选“自提（托运）”按钮，选择这之前录入的地址信息。
+                                                </span>
+                        </p>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <img src="images/ztty_3.jpg" title="自提（托运）" data-action="zoom" class="img-responsive" id="sss" />
+                    </div>
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true">
+                                                    <strong>录入托运信息</strong>
+                                                    点击“托运信息”按钮，填写需要托运的物流信息，其余下单操作不变
+                                                </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 step" id="buy_sample">
+                <hr />
+                <h2>新增样品资料订单</h2>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">需要先关联主订单</span>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">再进入样品资料选择界面进行选择</span>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">提交样品资料订单</span>
+                        </p>
+                    </div>
+                    <div class="col-sm-8">
+                        <img src="images/buy_sample.png" title="新增样品资料订单" data-action="zoom" class="img-responsive" />
+                        <br>
+                        <img src="images/select_sample.png" title="选择样品资料产品" data-action="zoom" class="img-responsive" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 step" id="buy_special">
+                <hr />
+                <h2>参照特殊订单</h2>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <img src="images/buy_special.png" title="参照特殊订单" data-action="zoom" class="img-responsive" />
+                        <br>
+                        <img src="images/select_special.png" title="选择特殊订单产品" data-action="zoom" class="img-responsive" />
+                    </div>
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">需要先选择开票单位</span>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">再进入特殊产品选择界面进行选择</span>
+                        </p>
+                        <p style="color:red">
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+                            <strong>注意：在此界面切换开票单位将会清除已选择的特殊产品</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 step" id="CheckPendingOrder">
+                <hr />
+                <h2>待审核订单</h2>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">列表里显示订单提交成功后还未被审核的订单</span>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">点击【查看】按钮可以查看该订单详情</span>
+                        </p>
+                        <br>
+                        <h4 style="color:red">【新版功能】</h4>
+                        <p>
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
+                            <strong>订单取回：可自行取回订单进行修改</strong>
+                        </p>
+                        <strong>说明</strong>
+                        <p>1、只能取回订单提交成功后还未被客服接收处理的订单，已被客服接收处理的订单不能取回</p>
+                        <p>2、取回成功后，在被驳回订单列表里可看到该订单</p>
+                        <p>
+                            3、每张订单只能取回
+                            <strong style="color:red">三次</strong> ，超过次数将无法再取回修改
+                        </p>
+                        <p>
+                            4、取回的订单如果在
+                            <strong style="color:red">30分钟内</strong> 不重新提交，系统将自动关闭该订单
+                        </p>
+                        <p>5、被系统关闭的订单可在 【历史订单】-->【已作废】里查看</p>
+                    </div>
+                    <div class="col-sm-8">
+                        <img src="images/CheckPendingOrder.png" title="待审核订单" data-action="zoom" class="img-responsive" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 step" id="reject_order">
+                <hr />
+                <h2>被驳回订单</h2>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <img src="images/reject_order.png" title="被驳回订单" data-action="zoom" class="img-responsive" />
+                    </div>
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">列表里显示因订单数据有问题而被客服驳回的订单</span>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">点击【查看】按钮可以查看该订单详情</span>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">点击【编辑】按钮可以对该订单进行编辑，修改不符合要求的数据后，重新提交</span>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">点击【作废】按钮将对该订单进行作废操作</span>
+                        </p>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <img src="images/modify_rejectorder.png" title="编辑被驳回订单" data-action="zoom" class="img-responsive" />
+                    </div>
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">订单编辑界面跟新增订单基本一样，打开页面时会自动加载该订单的数据，修改完成后点击【提交正式订单】，重新提交</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 step" id="modify_shippingmethod">
+                <hr />
+                <h2>更改收货地址</h2>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">列表里显示可以修改收货地址的订单</span>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">点击【查看】按钮可以查看该订单详情</span>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">点击【修改】按钮可以对该订单的收货地址及备注信息进行编辑</span>
+                        </p>
+                        <br>
+                        <h4 style="color:red">【新版功能】</h4>
+                        <p>
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
+                            <strong>订单收货地址修改：</strong>
+                        </p>
+                        <strong>说明</strong>
+                        <p>1、订单在未被客服人员处理或未被自己取回的情况下才能在此修改收货方式</p>
+                        <p>2、虽然取回订单也能修改收货方式，但如果你不需要更改订单里的产品或数量，那么在此处更改将会更加便捷。</p>
+                        <p>
+                            3、在提交订单时，若无法确定车辆信息，可先在备注里注明“暂不审”之类的话述，等确定提货车辆信息后再更改备注里的内容，客服人员会根据您的备注进行相应的操作。
+                        </p>
+                    </div>
+                    <div class="col-sm-8">
+                        <img src="images/Modify_ShippingMethod.png" title="更改收货地址" data-action="zoom" class="img-responsive" />
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">编辑订单地址信息</span>
+                        </p>
+                    </div>
+                    <div class="col-sm-8">
+                        <img src="images/Modify_ShippingMethod1.png" title="更改收货地址" data-action="zoom" class="img-responsive" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 step" id="OrderConfirm">
+                <hr />
+                <h2>待确认订单</h2>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <img src="images/OrderConfirm.png" title="待确认订单" data-action="zoom" class="img-responsive" />
+                    </div>
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">顾客提交订单之后,订单员在审核时修改了该订单的信息后，会返回给顾客，请顾客进行修改后的确认</span>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">列表里显示待确认的订单</span>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">点击【查看订单】按钮可以查看该订单详情</span>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">点击【确认订单】按钮可以对该订单的进行确认</span>
+                        </p>
+                        <p>
+                            <span style="color:red" class="glyphicon glyphicon-align-justify" aria-hidden="true">系统强制要求必须先查看订单后才能点击确认按钮</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 step" id="historyorder">
+                <hr />
+                <h2>历史订单</h2>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">可分别搜索已审核和已作废的订单</span>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">列表里显示历史的订单</span>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">点击【查看详情】按钮可以查看该订单详情</span>
+                        </p>
+                    </div>
+                    <div class="col-sm-8">
+                        <img src="images/history_order.png" title="历史订单" data-action="zoom" class="img-responsive" />
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true">在搜索栏里的输入内容可以对查询出列表里的订单进行行过滤</span>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true">勾选列名称可以对列进行过滤</span>
+                        </p>
+                    </div>
+                    <div class="col-sm-8">
+                        <img src="images/filter.png" title="过滤搜索结果" data-action="zoom" class="img-responsive" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 step" id="preorder">
+                <hr />
+                <h2>新增特殊订单</h2>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <img src="images/preorder.png" title="新增特殊订单" data-action="zoom" class="img-responsive" />
+                    </div>
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">先选择开票单位</span>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">再选择特殊产品</span>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">其余操作可参考新增普通订单</span>
+                        </p>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <img src="images/select_product.png" title="选择特殊订单产品" data-action="zoom" class="img-responsive" />
+                    </div>
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true">选择特殊产品</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 step" id="preorderlist">
+                <hr />
+                <h2>特殊订单查询</h2>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">可查询本账户的特殊订单及详情</span>
+                        </p>
+                    </div>
+                    <div class="col-sm-8">
+                        <img src="images/preorderlist.png" title="特殊订单查询" data-action="zoom" class="img-responsive" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 step" id="soa">
+                <hr />
+                <h2>我的对账单</h2>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <img src="images/soa.png" title="对账单" data-action="zoom" class="img-responsive" />
+                    </div>
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">客户每月收到的对账单</span>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">每月需对账单进行确认操作</span>
+                        </p>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <img src="images/soadetail.png" title="确认对账单" data-action="zoom" class="img-responsive" />
+                    </div>
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true">确认对账单</span>
+                        </p>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <img src="images/unsoa.png" title="未确认对账单" data-action="zoom" class="img-responsive" />
+                    </div>
+                    <div class="col-sm-4">
+                        <p style="color:red">
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true">
+                                                    <strong >未确认对账单，系统会暂停您网上下单业务，直至您确认为止</strong>
+                                                </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 step" id="arrear">
+                <hr />
+                <h2>延期通知单</h2>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">公司将会对未结清货款的客户发送延期结款通知单</span>
+                        </p>
+                    </div>
+                    <div class="col-sm-8">
+                        <img src="images/arrear.png" title="延期通知单" data-action="zoom" class="img-responsive" />
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">延期通知单详情</span>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">客户填写延期申请日期后确认通知单</span>
+                        </p>
+                    </div>
+                    <div class="col-sm-8">
+                        <img src="images/arreardetail.png" title="延期通知单详情" data-action="zoom" class="img-responsive" />
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p style="color:red">
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true">
+                                                    <strong >未确认延期通知单，系统会暂停您网上下单业务，直至您确认为止</strong>
+                                                </span>
+                        </p>
+                    </div>
+                    <div class="col-sm-8">
+                        <img src="images/unsoa.png" title="未确认延期通知单" data-action="zoom" class="img-responsive" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 step" id="soad">
+                <hr />
+                <h2>账单明细</h2>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <img src="images/soad.png" title="账单明细" data-action="zoom" class="img-responsive" />
+                    </div>
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">可查询本账户的账单明细</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 step" id="OrderExecute">
+                <hr />
+                <h2>订单执行情况</h2>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">可查询详细的订单情况</span>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">
+                                                    此查询关联数据较多，查询会花世纪末较长的时间，请耐心等待，或者你可以给出较精确的查询条件，如缩小查询时间段、不勾选【显示明细订单】等等，以此来减少查询所需时间
+                                                </span>
+                        </p>
+                    </div>
+                    <div class="col-sm-8">
+                        <img src="images/OrderExecute.png" title="订单执行情况" data-action="zoom" class="img-responsive" />
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true">不同的订单状态用不同的颜色标注</span>
+                        </p>
+                    </div>
+                    <div class="col-sm-8">
+                        <img src="images/OrderExecute_color.png" title="订单执行情况－颜色标注" data-action="zoom" class="img-responsive" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 step" id="address">
+                <hr />
+                <h2>收货地址</h2>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <img src="images/address.png" title="收货地址" data-action="zoom" class="img-responsive" />
+                    </div>
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">可查询、编辑、新增收货地址及行政区</span>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">点击送货方式单选按钮，可切换配送或者自提信息列表</span>
+                        </p>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <img src="images/address_zt.png" title="收货地址－新增自提地址" data-action="zoom" class="img-responsive" />
+                    </div>
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true">收货地址－新增自提地址</span>
+                        </p>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <img src="images/address_ps.png" title="收货地址－新增配送地址" data-action="zoom" class="img-responsive" />
+                    </div>
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true">收货地址－新增配送地址</span>
+                        </p>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <img src="images/address_xzq.png" title="收货地址－行政区查看" data-action="zoom" class="img-responsive" />
+                    </div>
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true">收货地址－行政区查看</span>
+                        </p>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <img src="images/address_xzq_add.png" title="收货地址－新增行政区" data-action="zoom" class="img-responsive" />
+                    </div>
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true">收货地址－新增行政区</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 step" id="codeconfig">
+                <hr />
+                <h2>客户代码</h2>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">客户代码列表</span>
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">用户自定义代码后，可以新增普通订单页面直接输入定义的代码，快速选择出产品。</span>
+                        </p>
+                        <hr>
+                        <h4>自定义代码规则：</h4>
+                        <p>原则上您可以使用任意字母、数字、符号、日文、俄文、罗马文等来定义您自己的产品编码，当然有以下几条规则需要注意：</p>
+                        <p>
+                            <span class="  glyphicon glyphicon-record" style="color:red" aria-hidden="true"></span> 自定义代码长度不能超过50个字符。
+                        </p>
+                        <p>
+                            <span class="  glyphicon glyphicon-record" style="color:red" aria-hidden="true"></span> 在使用标点符号的时候请注意全角和半角会被系统认定为完全不同的两个符号。
+                        </p>
+                        <p>
+                            <span class="  glyphicon glyphicon-record" style="color:red" aria-hidden="true"></span> 自定义代码不可重复，而且一个产品只能对应一个自定义代码。
+                        </p>
+                        <p>
+                            <span class="  glyphicon glyphicon-record" style="color:red" aria-hidden="true"></span> 自定义代码不区分字母大小写，所有大写字母都将自动转换成为小写。
+                        </p>
+                        <p>
+                            <span class="  glyphicon glyphicon-record" style="color:red" aria-hidden="true"></span> 自定义代码前后的空格符将会被自动去掉，但是代码内部的空格将会被保留。
+                        </p>
+                    </div>
+                    <div class="col-sm-8">
+                        <img src="images/codeconfig8.png" title="客户代码" data-action="zoom" class="img-responsive" />
+                        <br>
+                        <img src="images/codeconfig1.png" title="客户代码" data-action="zoom" class="img-responsive" />
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true">新增客户代码</span>
+                        </p>
+                    </div>
+                    <div class="col-sm-8">
+                        <img src="images/codeconfig2.png" title="新增客户代码" data-action="zoom" class="img-responsive" />
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true">新增客户代码跟下订单时选择产品一样,选择完产品后输入自定义编码,保存.</span>
+                        </p>
+                    </div>
+                    <div class="col-sm-8">
+                        <img src="images/codeconfig5.png" title="选择产品" data-action="zoom" class="img-responsive" />
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true">删除客户代码后请一定要点保存按钮，不然不会生效</span>
+                        </p>
+                    </div>
+                    <div class="col-sm-8">
+                        <img src="images/codeconfig3.png" title="删除客户代码" data-action="zoom" class="img-responsive" />
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p>
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true">新增普通订单时,点击“客户代码输入”可出现代码输入栏.</span>
+                        </p>
+                        <hr>
+                        <h4>如何丢掉您的鼠标</h4>
+                        <p>
+                            <strong>请仔细阅读以下的操作指南,这将会大幅提升您的产品录入速度</strong>
+                        </p>
+                        <p>
+                            <span class="  glyphicon glyphicon-flash" style="color:red" aria-hidden="true"></span> 输入客户自定义代码或数量后可直接按回车键(Enter),系统将会获取客户代码所对应的产品。
+                        </p>
+                        <p>
+                            <span class="  glyphicon glyphicon-flash" style="color:red" aria-hidden="true"></span> 光标所在的输入框会有背景色提示，按下TAB键可以将光标移到下一个输入框，按下SHIFT+TAB键光标移到前一个输入框。
+                        </p>
+                        <p>
+                            <span class="  glyphicon glyphicon-flash" style="color:red" aria-hidden="true"></span> 数量不是必须输入项，你可以添加完产品后再按照以前的方式逐个录入数量。
+                        </p>
+                        <p>
+                            <span class="  glyphicon glyphicon-flash" style="color:red" aria-hidden="true"></span> 成功获取产品并自动添加到下方列表后,系统会清除这四个输入框中的内容，光标会重新回到"客户代码"输入框中，你可以继续录入代码。
+                        </p>
+                        <p>
+                            <span class="  glyphicon glyphicon-flash" style="color:red" aria-hidden="true"></span> 获取产品发生错误时，系统会给出提示信息，并给出相应的提示，光标会回到"客户代码"输入框中，你可以继续录入代码。
+                        </p>
+                        <p>
+                            <span class="  glyphicon glyphicon-flash" style="color:red" aria-hidden="true"></span> 三个数量输入框均不能输入非数字类型的字符，若输入其他字符，输入框会自动清空。
+                        </p>
+                        <p>
+                            <span class="  glyphicon glyphicon-flash" style="color:red" aria-hidden="true"></span> 基本数量输入框可输入小数，其余两个输入框只能输入整数。
+                        </p>
+                        <hr>
+                        <h4>凑整选项框说明</h4>
+                        <p>
+                            <span class="  glyphicon glyphicon-star" style="color:red" aria-hidden="true"></span> 当获取的产品为管材时，若基本数量不为一根管材的整倍数时，系统会添加该产品到下方列表，基本数量会根据选项框的选择来重新计算。
+                        </p>
+                        举个例子：
+                        </p>
+                        <p>
+                            如果您的产品为3.8米/根的管子，您在基本数量处输入的是12，计算下来管子为三根多，不到四根
+                            <div>当选择项为“添加凑整”时，基本数量会被重新计算为15.2米，即四根</div>
+                            <div>当选择项为“减少凑整”时，基本数量会被重新计算为11.4米，即三根</div>
+                            <div>当选择项为“重置为0”时，基本数量会被重新计算为0米</div>
+                            <br>
+                            <p>
+                                <span class="  glyphicon glyphicon-flash" style="color:red" aria-hidden="true"></span> 当获取的产品为管件时，若基本数量为小数时，系统会添加该产品到下方列表，但是基本数量会设置为0。
+                            </p>
+                        </p>
+                        举个例子：
+                        </p>
+                        <p>
+                            如果您的产品为管件，您在基本数量处输入的是5.6，
+                            <div>当选择项为“添加凑整”时，基本数量会被重新计算为6</div>
+                            <div>当选择项为“减少凑整”时，基本数量会被重新计算为5</div>
+                            <div>当选择项为“重置为0”时，基本数量会被重新计算为0米</div>
+                    </div>
+                    <div class="col-sm-8">
+                        <img src="images/codeconfig6.png" title="输入客户代码" data-action="zoom" class="img-responsive" />
+                    </div>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <div class="row" id="readExcel">
+                <div class="col-sm-4">
+                    <h4>导入EXCEL</h4>
+                    <p>
+                        <span class="glyphicon glyphicon-tag" aria-hidden="true">可以通过模板Excel方式，更加快速地导入您所需要的数据</span>
+                    </p>
+                    <p>导入规则</p>
+                    <p>
+                        <span class="  glyphicon glyphicon-flash" style="color:red" aria-hidden="true"></span> “自定义编码”列必须存在，不要修改列名；
+                    </p>
+                    <p>
+                        <span class="  glyphicon glyphicon-flash" style="color:red" aria-hidden="true"></span> “自定义编码”列里的数据不能有空白，不能有重复；
+                    </p>
+                    <p>
+                        <span class="  glyphicon glyphicon-flash" style="color:red" aria-hidden="true"></span> 其余三列数量列非必须输入；
+                    </p>
+                    <p>
+                        <span class="  glyphicon glyphicon-flash" style="color:red" aria-hidden="true"></span> “基本单位数量”列数据可为小数，数据处理按照您选择的“添加凑整”、“减少凑整”、“重置为零”来处理；
+                    </p>
+                    <p>
+                        <span class="  glyphicon glyphicon-flash" style="color:red" aria-hidden="true"></span> “小包装单位数量”、“大包装单位数量”数据只能为正整数；
+                    </p>
+                </div>
+                <div class="col-sm-8">
+                    <img src="images/codeconfig7.png" title="删除客户代码" data-action="zoom" class="img-responsive" />
+                </div>
+            </div>
+            <br>
+            <div class="col-md-12 step" id="buyxorder">
+                <hr>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h2>产品需求</h2>
+                        <p>
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true"> 在下产品需求订单之前,请先仔细阅读订单规则及流程</span>
+                        </p>
+                        <br>
+                        <h4>产品需求订单规则</h4>
+                        <p>
+                            <span class="glyphicon glyphicon-flash" style="color:red" aria-hidden="true"></span> 本次产品需求订单只针对<strong style="color:#F44336">常规产品</strong>,特殊产品还是在特殊订单里提交;
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-flash" style="color:red" aria-hidden="true"></span> 产品需求订单不等于缺货信息收集,它在审核通过后会自动转换成为<strong style="color:#F44336">正式订单</strong>,能保证提到该订单所下的产品数量;
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-flash" style="color:red" aria-hidden="true"></span> 一张产品需求订单只能下<strong style="color:#F44336">一样产品</strong>,并且一车必须<strong style="color:#F44336">全部提完</strong>,不能分多次提货.
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-flash" style="color:red" aria-hidden="true"></span> 若需求订单一次未提完,则该订单将会被<strong style="color:#F44336">关闭</strong>,并且会扣减相应的<strong style="color:#F44336">信用分数</strong>,具体规则参看后面信用规则.
+                        </p>
+                        <h4>产品需求订单流程图</h4>
+                        <p>
+                            <span class="glyphicon glyphicon-leaf" style="color:red" aria-hidden="true"></span> 1、【待审核】 提交产品需求订单，只有在此状态下，下单账号才能<strong style="color:#F44336">关闭订单</strong>;
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-leaf" style="color:red" aria-hidden="true"></span> 2、【审核中】 公司相关部门对需求订单进行审核，若审核未通过，则会关闭该需求订单，并会推送微信消息，告知关闭原因，审核通过则转为正式订单，开始计算信用分数;
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-leaf" style="color:red" aria-hidden="true"></span> 3、【生产中】 审核通过的订单，生产部门则开始生产该需求订单所需的产品;
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-leaf" style="color:red" aria-hidden="true"></span> 4、【可提货】 产品已生产完成，可以到厂提货，请务必按照规定的时限到厂提货，逾期未提货的订单也将被自动关闭，并会被扣减信用分数，在该状态下客户可更改提货方式为自提的车辆和司机信息，改为真实准确的车辆和司机信息;
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-leaf" style="color:red" aria-hidden="true"></span> 5、【已完成】 需求订单已完成提货，若有未提完的部分，订单也会自动关闭;
+                        </p>
+                    </div>
+                    <div class="col-sm-7 col-sm-offset-1">
+                        <img src="images/xorderflow.png" title="产品需求订单流程图" data-action="zoom" class="img-responsive" />
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <br>
+            <div class="col-sm-4">
+                <h4>新增产品需求订单</h4>
+                <p>
+                    <span class="glyphicon glyphicon-flash" style="color:red" aria-hidden="true"></span> 该页面可查询到所有产品需求订单的详情以及状态；
+                </p>
+                <p>
+                    <span class="glyphicon glyphicon-flash" style="color:red" aria-hidden="true"></span> 送货方式“自提”或“配送”提交后不能更改，但是自提的车辆和司机信息可在提货前更改；
+                </p>
+                <p>
+                    <span class="glyphicon glyphicon-flash" style="color:red" aria-hidden="true"></span> 对于自提的订单，请计算好车辆可装载量，务必在
+                    <strong style="color:#F44336">规定的期限内，一车全部提完</strong>；
+                </p>
+            </div>
+            <div class="col-sm-7 col-sm-offset-1">
+                <img src="images/buyxorder.png" title="新增产品需求订单" data-action="zoom" class="img-responsive" />
+            </div>
+            <hr>
+            <br>
+            <div class="row" id="xorderlist">
+                <br>
+                <br>
+                <div class="col-sm-4">
+                    <h4>产品需求订单列表</h4>
+                    <p>
+                        <span class="glyphicon glyphicon-flash" style="color:red" aria-hidden="true"></span> 新增产品需求订单，操作跟普通订单一致，不过该订单不能驳回，不能取回，不能下多种产品；
+                    </p>
+                    <p>
+                        <span class="glyphicon glyphicon-flash" style="color:red" aria-hidden="true"></span> 送货方式“自提”或“配送”提交后不能更改，但是自提的车辆和司机信息可在提货前更改；
+                    </p>
+                    <p>
+                        <span class="glyphicon glyphicon-flash" style="color:red" aria-hidden="true"></span> 对于自提的订单，请计算好车辆可装载量，务必在
+                        <strong style="color:#F44336">规定的期限内，一车全部提完</strong>；
+                    </p>
+                </div>
+                <div class="col-sm-7 col-sm-offset-1">
+                    <img src="images/xorderlist.png" title="新增产品需求订单" data-action="zoom" class="img-responsive" />
+                </div>
+            </div>
+            <hr>
+            <br>
+            <div class="row" id="">
+                <div class="col-sm-4">
+                    <h4>更改自提信息</h4>
+                    <p>
+                        <span class="glyphicon glyphicon-flash" style="color:red" aria-hidden="true"></span> 对于可提货的产品需求订单，可以更改自提的车辆和司机信息；
+                    </p>
+                </div>
+                <div class="col-sm-7 col-sm-offset-1">
+                    <img src="images/xorderedit.png" title="新增产品需求订单" data-action="zoom" class="img-responsive" />
+                </div>
+            </div>
+            <br>
+            <div class="col-md-12 step" id="XOrderBehaviorList">
+                <hr>
+                <div class="row" id="">
+                    <div class="col-sm-4">
+                        <h4>信用列表</h4>
+                        <p>
+                            <span class="glyphicon glyphicon-flash" style="color:red" aria-hidden="true"></span> 为了更加有序高效的处理好客户的每一个需求，同时也需要客户在提出需求的时候 能够谨慎对待， 使我们能最大程度的协调好各方资源来满足客户的实际产品需求， 因此我们需要建立一个用于客户产品需求的信用规则， 在此基础上双方密切合作完成每一个产品需求。
+                        </p>
+                        <!--<p>一、每个客户初始信用分为100分。 </p>
+                        <p> 二、若信用分低于规定分数，则不能进行需求订单下单操作。 </p>
+                        <p> 三、需求订单正式生效(审核通过)后才开始计算信用。 </p>
+                        <p> 四、若对信用计算有疑问，请联系销售部相关人员。 </p>
+                        <p> 五、信用计算规则 </p>
+                        <p> 1、若需求订单的实际提货数量等于订单数量，则不扣分； </p>
+                        <p> 2、若需求订单的实际提货数量为0，则扣10分； </p>
+                        <p> 3、若需求订单的实际提货数量小于订单数量，则按未提货数量占比扣分； </p>
+                        <p>例如：订单数量为1000米，实际提货为365米，未提货数量为1000-365=635米 信用扣分为：(635/1000)*10=6.35 </p>-->
+                        <p>一、每个客户初始信用分为100分。</p>
+                        <p>二、若信用分低于或等于规定信用分数，则不能进行需求订单下单操作。</p>
+                        <p>三、需求订单<strong style="color:red">正式生效(审核通过)后</strong>才开始计算信用。</p>
+                        <p>四、信用计算规则，只要实际提货数量小于订单数量，则信用分数扣减10分。</p>
+                    </div>
+                    <div class="col-sm-7 col-sm-offset-1">
+                        <img src="images/XOrderBehaviorList.png" title="信用列表" data-action="zoom" class="img-responsive" />
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <br>
+        </div>
+    </div>
+    <!-- /container -->
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="/js/Scripts/bootstrap.min.js"></script>
+    <script src="/js/plugins/layui-1.0.9/lay/dest/layui.all.js"></script>
+    <!-- <script type="text/javascript" src="/js/plugins/layui-1.0.9/layui.js"></script>
+                -->
+    <script>
+    var layer = layui.layer;
+    // layer.alert("sdfafsd",{icon:6})
+    $(document).ready(function() {
+        $(".navbar-nav li").click(function() {
+            $this = $(this);
+            //  $this.siblings().removeClass("active");
+            $.each($("li"), function(i, v) {
+                $(v).removeClass("active");
+            })
+            $this.addClass("active");
+        })
+
+        //$(".img-responsive").click(function() {
+        //    var $this = $(this);
+        //    console.log($this)
+        //    layer.open({
+        //        type: 2,
+        //        shade: 0.7,
+        //        title: $this.attr('title'),
+        //        closeBtn: 1,
+        //        offset: 200,
+        //        area: [$this.width() * 1.1, $this.height() * 1.2],
+        //        skin: 'layui-layer-nobg', //没有背景色
+        //        shadeClose: true,
+        //        content: $this.attr('src')
+        //    });
+        //})
+
+        $(".navbar-nav li").mouseover(function() {
+            $(this).addClass("open");
+        })
+        $(".navbar-nav li").mouseout(function() {
+            $(this).removeClass("open");
+        })
+    })
+
+    $(".nav a").click(function() {
+        console.log($(this).data("nav"))
+        if ($(this).data("nav") != undefined) {
+            $("body").animate({ scrollTop: $("#" + $(this).data("nav")).offset().top }, 300);
+        }
+
+    })
+    </script>
+</body>
+
+</html>

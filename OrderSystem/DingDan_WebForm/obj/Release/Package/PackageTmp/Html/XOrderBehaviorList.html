@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="../js/plugins/iview/2.14.0/iview.css" rel="stylesheet" />
+    <link href="../js/plugins/vue/loading.css" rel="stylesheet" />
+    <title></title>
+    <style type="text/css">
+    .ivu-row {
+        margin-bottom: 20px;
+    }
+
+    .ivu-steps-item.ivu-steps-status-wait .ivu-steps-title {
+        color: #727272;
+        font-weight: bold;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="vm" style="width:95%;margin:20px auto">
+        <!-- <Row>
+            <div style="border:1px dashed #ccc;border-radius: 10px;height:120px;vertical-align: middle;padding-top: 10px;padding-left:20px;">
+                <h2 style="text-align: center;font-family: '宋体';color:#006699">缺货需求订单流程图</h2>
+            <Steps :current="-1">
+                <Step title="待审核" content="客户将缺货需求订单提交至系统中，只有在此状态下，下单账号才可关闭该订单"></Step>
+                <Step title="审核中" content="公司相关部门工作人员对订单进行审核"></Step>
+                <Step title="生产中" content="审核通过后生产部开始生产该订单产品"></Step>
+                <Step title="可提货" content="生产完生后系统将发送微信消息至下单账号手机上，在此状态下，下单账号可更改自提车辆信息，客户可提取该订单货物"></Step>
+                <Step title="已完成" content="该订单已执行完毕"></Step>
+            </Steps>
+             </div>
+        </Row> -->
+        <Row>
+            <div style="border:1px dashed #ccc;border-radius: 10px;height:56px;vertical-align: middle;padding-top: 10px;padding-left:20px;">
+                <!--<i-col span="6">
+                    <span>时间范围：</span>
+                    <date-picker type="daterange" @on-change="handleDateRange" split-panels placeholder="时间范围为空时查询所有" style="width:70%"></date-picker>
+                </i-col>-->
+                <!--<i-col span="2">
+                    <i-button type="primary" @click="GetUserBehavior" icon="paper-airplane">查询</i-button>
+                </i-col>-->
+                <i-col span="4">
+                    <div style="padding-left: 10px; border-radius: 10px; width:220px;background-color: #006699;color:#fff;font-size:20px;">
+                        <Icon type="lock-combination"></Icon> 信用分:<strong style="font-size: 26px;color:red;padding-left: 10px;" v-text="score"></strong></div>
+                </i-col>
+                <i-col span="2">
+                    <!-- <tool-tip placement="top" content="Display multiple lines of information">
+        <i-button type="info">Multiple lines</i-button>
+        <div slot="content">
+            <p>Display multiple lines of information</p>
+            <p><i>Can customize the style</i></p>
+        </div>
+    </tool-tip> -->
+                    <Poptip trigger="click" title="Title" content="content">
+                        <i-button type="info" icon="ios-copy-outline">信用规则说明</i-button>
+                        <div slot="title">为了更加有序高效的处理好客户的每一个需求，同时也需要客户在提出需求的时候
+                            <br/>能够谨慎对待， 使我们能最大程度的协调好各方资源来满足客户的实际产品需求，
+                            <br/>因此我们需要建立一个用于客户产品需求的信用规则， 在此基础上双方密切合作完成每一个产品需求。 </div>
+                        <div slot="content">
+                            <p>一、每个客户初始信用分为100分。</p>
+                            <p>二、若信用分低于或等于规定信用分数，则不能进行需求订单下单操作。</p>
+                            <p>三、需求订单<strong style="color:red">正式生效(审核通过)后</strong>才开始计算信用。</p>
+                            <p>四、信用计算规则，只要实际提货数量小于订单数量，则信用分数扣减10分。</p>
+                            <!--<p>四、若对信用计算有疑问，请联系销售部相关人员。</p>
+                            <p>五、信用计算规则</p>
+                            <p>1、若需求订单的实际提货数量等于订单数量，则不扣分；</p>
+                            <p>2、若需求订单的实际提货数量为0，则扣10分；</p>
+                            <p>3、若需求订单的实际提货数量小于订单数量，则按未提货数量占比扣分；</p>
+                            <p>例如：订单数量为1000米，实际提货为365米，未提货数量为1000-365=635米</p>
+                            <p> 信用扣分为：(635/1000)*10=6.35</p>
+                            <table border="1" bordercolor="#a0c6e5" style="border-collapse:collapse;text-align: center">
+                                <thead>
+                                    <tr style="background-color: #eee;">
+                                        <th width="80">订单号</th>
+                                        <th width="80">订单数量</th>
+                                        <th width="80">提货数量</th>
+                                        <th width="80">信用分数</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>01</td>
+                                        <td>1000</td>
+                                        <td>1000</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>02</td>
+                                        <td>1000</td>
+                                        <td>0</td>
+                                        <td>-10</td>
+                                    </tr>
+                                    <tr>
+                                       <td>03</td>
+                                        <td>1000</td>
+                                        <td>365</td>
+                                        <td>-6.35</td>
+                                    </tr>
+                                </tbody>
+                            </table>-->
+                        </div>
+                    </Poptip>
+                </i-col>
+            </div>
+        </Row>
+        <i-table :columns="tableColumn" :data="tableData" stripe border :height=" document.documentElement.clientHeight-130"></i-table>
+    </div>
+    <script src="../js/plugins/vue/axios.js"></script>
+    <script src="../js/plugins/vue/axios_FUN.js"></script>
+    <script src="../js/plugins/vue/vue-2.5.13.min.js"></script>
+    <script src="../js/plugins/iview/2.14.0/iview.min.js"></script>
+    <script>
+    var a = Date.parse(new Date());
+    document.write(' <script type="text/javascript"  charset="utf-8" src="..\/js\/Project\/XOrderBehaviorList.js?v=' + a + '"><\/script>');
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title> </title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <button id="btn">获取</button>
+    <button id="btn1">提交</button>
+    <button id="btn2">下载Excel</button>
+    <a href="/html/DownloadOrderDetailToExcel.aspx?strbillno=DL20171102412">下载Excel</a>
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript">
+        var dataset = {};
+        $(document).ready(function () {
+
+        });
+       
+        $("#btn").click(function () {
+            $.ajax({
+                url: "test.aspx/dd",
+                type: "Post",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (res) {
+                    console.log(JSON.parse(res.d))
+                    console.log(res.d)
+                    dataset = JSON.parse(res.d).DataSet;
+                }, error: function (err) {
+                    console.log(err)
+                }
+            })
+        })
+
+
+        $("#btn1").click(function () {
+            console.log(dataset)
+            return false;
+            $.ajax({
+                url: "test.aspx/dd",
+                type: "Post",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (res) {
+                    console.log(JSON.parse(res.d))
+                    console.log(res.d)
+                }, error: function (err) {
+                    console.log(err)
+                }
+            })
+        })
+
+
+        $("#btn2").click(function () {
+                window.location.href='/html/DownloadOrderDetailToExcel.aspx?strbillno=DL20171102483';
+        
+            // $.ajax({
+            //     url: "/handler/mobilehandler.ashx",
+            //     type: "Post",
+            //    // contentType: "application/json; charset=utf-8",
+            //     data:{"Action":"DownloadOrderToExcel","strbillno":"DL20171102417"},
+            //     dataType: "json",
+            //     success: function (res) {
+                  
+            //         console.log(res)
+            //     }, error: function (err) {
+            //         console.log(err)
+            //     }
+            // })
+        })
+
+
+
+    </script>
+
+ 
+
+
+
+</body>
+</html>

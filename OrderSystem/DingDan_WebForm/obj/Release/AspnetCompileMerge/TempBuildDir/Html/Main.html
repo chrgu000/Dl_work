@@ -1,0 +1,117 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../js/plugins/layui/css/layui.css" media="all" />
+    <link rel="stylesheet" href="../css/main.css" />
+</head>
+
+<body>
+    <!--<div class="admin-main">
+            <div class="layui-field-box">
+                <div class="layui-field-box">
+                    <p>◎ 请使用<strong>Firefox</strong>或者<strong>Chrome</strong>浏览器 。屏幕分辨率在<strong>1600X900</strong>或以上 </p>
+                </div>
+                <div class="layui-field-box">
+                    <p>◎  若遇系统异常可电话联系 <strong>85790901转306</strong> 或<strong>13438904933</strong></p>
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                 <legend>更新说明</legend>
+                <div class="layui-field-box">
+                    <div class="layui-field-box">
+                        <p>◎ 请使用<strong>Firefox</strong>或者<strong>Chrome</strong>浏览器 。屏幕分辨率在<strong>1600X900</strong>或以上 </p>
+                    </div>
+                    <div class="layui-field-box">
+                        <p>◎  若遇系统异常可电话联系 <strong>85790901转306</strong> 或<strong>13438904933</strong></p>
+                    </div>
+                </div>
+                <div class="layui-field-box">
+                    <input type="button" name="name" value="跳转老版网上订单" id="btn1"  class="layui-btn layui-btn-normal"/>
+                    <input type="button" name="name" value="解密" id="btn2" class="layui-btn layui-btn-primary" />
+                    </div>
+                    <div class="layui-field-box">
+                        <p>◎ 请使用<strong>Firefox</strong>或者<strong>Chrome</strong>浏览器进行测试,屏幕分辨率在<strong>1600X900</strong>或以上</p>
+                    </div>
+                    <div class="layui-field-box">
+                        <p>◎ 输入客户六位账号后,直接点"登录"即可.(为了模拟真实性,不建议用公司内部测试账号进行测试,如"999999")</p>
+                    </div>
+                    <div class="layui-field-box">
+                        <p>◎ 出现问题时,<strong style="font-size: 20px;color:red">请截取全屏</strong>,并标注相应的问题描述,如下图:</p>
+                        <div style="width:1600px;height: 900px"><img src="/images/test/1.jpg" alt="" style="width:100%"></div>
+                    </div>
+
+
+    </fieldset>
+        </div>-->
+    <div class="admin-main">
+        <blockquote class="layui-elem-quote">
+            <p> 请使用<strong>Firefox</strong>或者<strong>Chrome</strong>浏览器 。屏幕分辨率在<strong>1600X900</strong>或以上</p>
+            <p>若遇系统异常可电话联系 <strong>85790901转306</strong> 或<strong>13438904933</strong></p>
+                <button class="layui-btn layui-btn-normal" onclick="javascript:window.parent.location='/superadmin/index.html'">跳转</button>
+
+        </blockquote>
+        <fieldset class="layui-elem-field">
+            <legend>更新日志</legend>
+            <div class="layui-field-box">
+                <fieldset class="layui-elem-field layui-field-title">
+                    <!--<blockquote class="layui-elem-quote">
+                        <strong>2017-05-05</strong>
+                        <div class="layui-field-box">
+                            <p>1、修改登录后右上角用户名显示</p>
+                            <p>2、新增订单重量计算功能（若遇数据异常，请联系我们，以便及时更正，谢谢！）</p>
+                        </div>
+                    </blockquote>
+                    <blockquote class="layui-elem-quote">
+                        <strong>2017-05-05</strong>
+                        <div class="layui-field-box">
+                            <p>1、修改登录后右上角用户名显示</p>
+                            <p>2、新增订单重量计算功能（若遇数据异常，请联系我们，以便及时更正，谢谢！）</p>
+                        </div>
+                    </blockquote>-->
+                </fieldset>
+
+            </div>
+        </fieldset>
+    </div>
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script>
+        $("#btn1").click(function () {
+            $.ajax({
+                url: "../Handler/LoginHandler.ashx",
+                dataType: "Json",
+                type: "Post",
+                data: { "Action": "Get_Token" },
+                success: function (res) {
+                    window.top.location.href = "http://192.168.0.249:8002/login.aspx?token=" + res.message;
+                    //  window.top.location.href = "http://192.168.2.248:8111/login_v2.aspx?token=" + res.message;
+                    //  console.log(res.message)
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            })
+        })
+
+        //$("#btn2").click(function () {
+        //    $.ajax({
+        //        url: "../Handler/LoginHandler.ashx",
+        //        dataType: "Json",
+        //        type: "Post",
+        //        data: { "Action": "dis_Token", "token": "+KUAqds8N9UauuOUjGMHVn7hT4tKDtZGX9ZWTKKS9UaDlbu3QD7Vh+FZ+nLJL3NLlQCpWGKOResn1WmaNYkdKt4QoGLl/644" },
+        //        success: function (res) {
+        //            console.log(res)
+        //        },
+        //        error: function (err) {
+        //            console.log(err);
+        //        }
+        //    })
+        //})
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="../js/plugins/layui-v2/layui/css/layui.css" rel="stylesheet" />
+
+</head>
+<body>
+    <textarea class="layui-textarea" id="txt">content</textarea>
+<div id="div">
+    <audio controls="controls" autoplay="autoplay" src="http://tsn.baidu.com/text2audio?tex=hello&lan=zh&cuid=george199108251258&ctp=1&tok=24.4d62275a70cf50459cc18c3e3d34f2c8.2592000.1507285719.282335-10102586" type="audio/mp3" >
+    </audio>
+</div>
+
+    <button class="layui-btn   layui-btn-normal" id="btn" type="button">btn</button>
+     
+    <script src="../js/plugins/layui-v2/layui/layui.all.js"></script>
+    <script>
+        var $ = layui.jquery;
+        ; !(function () {
+            console.log(document.getElementById("source"))
+            $('#btn').click(function () {
+                var div = document.getElementById("div");
+                var audio = document.querySelector("audio");
+              //  audio.src = "http://tts.baidu.com/text2audio?lan=en&pid=101&ie=UTF-8&text=" + document.getElementById("txt").value + "&spd=1";
+              audio.src="http://tsn.baidu.com/text2audio?tex="+ document.getElementById("txt").value + "&lan=zh&cuid=george199108251258&ctp=1&tok=24.4d62275a70cf50459cc18c3e3d34f2c8.2592000.1507285719.282335-10102586"
+
+               // audio.removeChild(sc);
+              // div.appendChild(Newsc);
+            })
+        })();
+    </script>
+</body>
+</html>

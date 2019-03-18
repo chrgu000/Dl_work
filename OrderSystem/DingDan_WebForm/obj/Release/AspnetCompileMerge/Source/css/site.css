@@ -1,0 +1,80 @@
+.layui-nav, .layui-side-scroll {
+    background: #2C95D3;
+}
+
+.layui-nav-tree cite {
+    color: #fff;
+}
+
+
+.layui-nav-tree .layui-nav .layui-nav-item {
+    border-bottom: 1px solid #9DD9FE;
+}
+
+.layui-nav-itemed {
+    background: #015292;
+}
+
+    .layui-nav-itemed > a, .layui-nav-tree .layui-nav-title a, .layui-nav-tree .layui-nav-title a:hover {
+        background: #053B60 !important;
+    }
+
+.layui-nav-tree .layui-this a, .layui-nav-tree .layui-nav-item a:hover {
+    background: #116CA1;
+}
+
+/*.layui-nav-tree li a,.layui-nav-tree li dd dl a {
+    width:150px;
+}*/
+
+.admin-nav-card > .layui-tab-title .layui-this {
+    background: #2C95D3;
+    color: #fff;
+}
+
+.layui-layout-admin .layui-header {
+    border-bottom: 5px solid #0170BA;
+}
+
+.layui-body {
+    border-left: 0;
+}
+
+
+@media screen and (max-width: 950px) {
+    .logo-fo {
+        display: none;
+    }
+}
+
+/*.header-demo .layui-nav .layui-nav-item a{color: #999;}*/
+
+.layui-body-tt {
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #eee;
+    overflow: hidden;
+}
+
+    .layui-body-tt p {
+        margin-left: 250px;
+    }
+
+.layui-side-scroll .beg-navbar .layui-nav-item{
+     border-bottom: 1px solid #7FB6E1;
+}
+.layui-tab-content {
+min-height:600px;
+}
+#launchBtn {
+text-align:center;
+}
+
+
+.layui-nav-tree .layui-nav-child a {
+    height: 34px;
+    line-height: 34px;
+    color: #c2c2c2;
+}
+ 
+#sidebar { height: 40px; width: 200px; background: #2C95D3; text-align: center; line-height: 40px !important; font-size: 18px; user-select: none; cursor: pointer; -webkit-user-select: none; -moz-user-select: none;border-bottom:1px solid white }

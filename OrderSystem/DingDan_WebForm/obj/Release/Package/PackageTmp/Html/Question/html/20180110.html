@@ -1,0 +1,356 @@
+﻿
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>问卷调查</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link href="/js/plugins/layui/css/layui.css" rel="stylesheet" />
+  <link href="../css/question.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="header">
+    <div class="main">
+      <div class="nav">
+        <a class="nav-this" href="#"> <i class="iconfont icon-wenda"></i>
+          网上订单系统调查问卷
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="main layui-clear">
+    <div class="wrap">
+      <div class="content">
+        <form class="layui-form">
+
+          <button class="layui-btn " type="button"  id="submit" lay-filter="sub">提交</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+  <script src="/js/plugins/layui/lay/dest/layui.all.js"></script>
+  <script>
+        var questions = [
+                     {
+                         "title": "1.  您是否经常使用电脑?",
+                         "type": "radio",
+                         "required": true,
+                         "options": [
+                             {
+                                 "option": "我经常使用",
+                                 "value": "1"
+                             },
+                             {
+                                 "option": "偶尔使用",
+                                 "value": "2"
+                             },
+                             {
+                                 "option": "基本不使用",
+                                 "value": "3"
+                             }
+                         ]
+                     },
+                    {
+                        "title": "2.  您以前是否用过同类订单系统?",
+                        "type": "radio",
+                        "required": true,
+                        "options": [
+                            {
+                                "option": "使用过较多类似系统",
+                                "value": "1"
+                            },
+                                    {
+                                        "option": "使用过几个类似系统",
+                                        "value": "2"
+                                    },
+                            {
+                                "option": "没有使用过，但是使用过其他系统",
+                                "value": "3"
+                            },
+                            {
+                                "option": "没有使用过系统",
+                                "value": "4"
+                            }
+                        ]
+                    },
+                    {
+                        "title": "3.  您之前是否参加过我们的系统培训？如果有，请选择次数?",
+                        "type": "radio",
+                        "required": true,
+                        "options": [
+                            {
+                                "option": "参加过3次",
+                                "value": "1"
+                            },
+                                    {
+                                        "option": "参加过2次",
+                                        "value": "2"
+                                    },
+                            {
+                                "option": "参加过1次",
+                                "value": "3"
+                            },
+                            {
+                                "option": "没有参加过培训",
+                                "value": "4"
+                            }
+                        ]
+                    },
+
+                    {
+                        "title": "4.  目前网上订单系统的界面布局是否清晰？",
+                        "type": "radio",
+                        "required": true,
+                        "options": [
+                            {
+                                "option": "清晰，我能快速找到功能区域并进行下单、查询等功能操作",
+                                "value": "1"
+                            },
+                                    {
+                                        "option": "一般，部分功能可以快速找到，但一部分功能不知道在哪",
+                                        "value": "2"
+                                    },
+                            {
+                                "option": "不清晰，很难找到对应的功能模块",
+                                "value": "3"
+                            }
+                        ]
+                    },
+                    {
+                        "title": "5.  您是否清楚了解目前本网上订单的下单等操作流程？",
+                        "type": "radio",
+                        "required": true,
+                        "options": [
+                            {
+                                "option": "非常清楚",
+                                "value": "1"
+                            },
+                                    {
+                                        "option": "有一部分流程不是很清楚",
+                                        "value": "2"
+                                    },
+                            {
+                                "option": "不清楚",
+                                "value": "3"
+                            }
+                        ]
+                    },
+                  {
+                      "title": "6.  对于目前网上订单系统的下单功能是否满意？",
+                      "type": "radio",
+                      "required": true,
+                      "options": [
+                          {
+                              "option": "满意",
+                              "value": "1"
+                          },
+                                  {
+                                      "option": "一般",
+                                      "value": "2"
+                                  },
+                          {
+                              "option": "不满意",
+                              "value": "3"
+                          }
+                      ]
+                  },
+                  {
+                      "title": "7.  您是否看过我们提供的帮助说明？",
+                      "type": "radio",
+                      "required": true,
+                      "options": [
+                          {
+                              "option": "完整的看过",
+                              "value": "1"
+                          },
+                                  {
+                                      "option": "看过部分内容",
+                                      "value": "2"
+                                  },
+                          {
+                              "option": "没看过",
+                              "value": "3"
+                          }
+                      ]
+                  },
+                    {
+                        "title": "8.  您是否在使用本系统中遇到困难？请详细说明",
+                        "required": true,
+                        "type": "textarea"
+
+                    },
+                    {
+                        "title": "9.  请提供您的建议帮助我们改善系统，您认为在操作本系统时哪些现有功能需要进行优化，请具体说明原因和改善意见。",
+                        "required": true,
+                        "type": "textarea"
+
+                    }
+        ,
+                    {
+                        "title": "10. 您希望我们提供哪些新的系统功能？请具体说明原因。",
+                        "required": true,
+                        "type": "textarea"
+
+                    }
+        ]
+
+        window.onload = function () {
+            var layer = layui.layer, $ = layui.jquery, form = layui.form();
+            var html = "";
+            $.each(questions, function (i, v) {
+                html += '<div id="question' + (i + 1) + '" class="question"  data-required='+v.required+' data-type='+v.type+'><div class="layui-form-item title"><h1>' + v.title + '</h1 ></div><div class="options">';
+                //拼接选项
+                switch (v.type) {
+                    //如果类型为单选
+                    case "radio":
+                        $.each(v.options, function (m, n) {
+
+                            html += '<input type="radio" name="question' + (i + 1) + '" value="' + n.value + '" title="' + n.option + '"> <br>';
+                        })
+                        html += "</div></div>";
+                        break;
+                        //如果类型为多选
+                    case "checkbox":
+                        console.log(v)
+                        $.each(v.options, function (m, n) {
+
+                            html += '<input type="checkbox" name="question' + (i + 1) + '" value="' + n.value + '" title="' + n.option + '"> <br>';
+                        })
+                        html += "</div></div>";
+                        break;
+
+                        //如果类型为问答
+                    case "textarea":
+                        html += ' <textarea placeholder="请输入内容" name="question'+(i+1)+'" class="layui-textarea"></textarea>';
+                        html += "</div></div>";
+                        break;
+                }
+            })
+            html += ' <div style="text-align: center"><div class="laypage-main"> <button class="layui-btn" id="sub" lay-submit=""  lay-filter="sub"  style="opacity: 1; pointer-events: auto;">提交问卷</button></div></div>';
+             $(".layui-form").html(html)
+            form.render();
+
+            //   $("#question5").find(".options").append('<div><textarea id="question5_t" class="layui-textarea"></textarea></div>')
+            $("#question4").find(".options").append('  <div class="layui-form-item layui-form-text">\
+    <label class="layui-form-label">详细情况</label><div class="layui-input-block">\
+      <textarea id="question4_t" name="question4_t" placeholder="请输入内容" class="layui-textarea"></textarea></div></div>')
+
+            $("#question5").find(".options").append('  <div class="layui-form-item layui-form-text">\
+    <label class="layui-form-label">详细情况</label><div class="layui-input-block">\
+      <textarea id="question5_t" name="question5_t" placeholder="请输入内容" class="layui-textarea"></textarea></div></div>')
+
+                        $("#question6").find(".options").append('  <div class="layui-form-item layui-form-text">\
+    <label class="layui-form-label">具体原因</label><div class="layui-input-block">\
+      <textarea id="question6_t" name="question6_t" placeholder="请输入内容" class="layui-textarea"></textarea></div></div>')
+            //$("#question6").find(".options").append('<div><textarea id="question6_t" class="layui-textarea"></textarea></div>')
+
+                        form.on('radio', function (data) {
+
+                            if ((data.elem.getAttribute("name") == "question4" && (data.elem.value == 2 || data.elem.value == 3))) {
+                                layer.open({
+                                    area: ["500px", "200px"],
+                                    title: '请填写不清楚的地方',
+                                    content: $("#question4_t"),
+                                    type: 1,
+                                    shadeClose: true,
+                                    closeBtn: false,
+                                    btn: ["确定"]
+
+                                })
+                            }
+              if ((data.elem.getAttribute("name")=="question5"&&(data.elem.value==2||data.elem.value==3))) {
+                layer.open({
+                  area:["500px","200px"],
+                  title: '请填写不清楚的流程',
+                  content: $("#question5_t"),
+                  type:1,
+                  shadeClose : true,
+                  closeBtn:false,
+                  btn:["确定"]
+             
+                })
+              }
+
+                if ((data.elem.getAttribute("name")=="question6"&&(data.elem.value==2||data.elem.value==3))) {
+                layer.open({
+                 area:["500px","200px"],
+                  title: '请填写具体原因',
+                  content: $("#question6_t"),
+                  type:1,
+                   shadeClose : true,
+                  closeBtn:false,
+                  btn:["确定"]
+                })
+              }
+               var questions=$("form").find(".question")
+               $.each(questions,function(i,v){
+                $(v).removeClass("unselect");
+               })
+            })
+
+  
+
+            $(document).on("blur","textarea",function(){
+              $(this).parents("div").removeClass('unselect')
+            })
+
+ 
+            form.on("submit(sub)", function (data) {
+              var questions=$("form").find(".question")
+             var b=true;
+       
+               
+                for(var i=1;i<11;i++){
+                  var q="question"+i;
+                  if (data.field[q]===undefined||data.field[q].trim()=='') {
+               window.location.href = "#question"+i;
+               $("#question"+i).addClass('unselect')
+               layer.msg("第"+i+"题还未作答！")
+                    return false;
+                  }
+                }
+              $.ajax({
+        type: "Post",
+        url: "/Handler/ProductHandler.ashx",
+        dataType: "Json",
+        data: { "Action": "SubmitOrderQuestion20180110", "answers": JSON.stringify(data.field) },
+        success:function(data){
+          if (data.flag==1) {
+              layer.alert('提交成功，感谢您的参与！', { icon: 6, closeBtn: 0 }, function () {
+              layer.closeAll();
+              $("#sub").addClass('layui-btn-disabled');
+              $("#sub").attr("disabled",true);
+              $("#sub").innerText = "提交成功";
+
+            })
+          }else if (data.flag==0) {
+            layer.alert(data.message,{icon:2})
+          }
+        }
+  })
+             
+                return false;
+            })
+
+                //JQ ajax全局事件
+    $(document).ajaxStart(function () {
+        layer.load();
+    }).ajaxComplete(function (request, status) {
+        setTimeout(t, 50)
+        //  layer.closeAll('loading');
+    }).ajaxError(function () {
+        console.log("err")
+    });
+
+
+    function t() {
+        layer.closeAll('loading')
+    }
+        }
+
+ 
+
+    </script></body>
+</html>

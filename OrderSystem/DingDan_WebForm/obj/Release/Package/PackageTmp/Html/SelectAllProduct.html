@@ -1,0 +1,514 @@
+﻿
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="../js/plugins/ztree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet" />
+    <link href="../js/plugins/ztree/css/demo.css" rel="stylesheet" />
+    <link href="../js/plugins/layui/css/layui.css" rel="stylesheet" />
+    <link href="../js/plugins/mmGrid/mmGrid.css" rel="stylesheet" />
+    <title>选择产品.html</title>
+    <style>
+        #demo {
+            /*min-height: 400px;*/
+            max-height: 500px;
+            /*border: 1px solid black;*/
+            float: left;
+            margin: 20px auto auto 20px;
+        }
+
+        body {
+            font-size: 12px;
+        }
+
+        #product_list {
+            float: left;
+            margin: 0 auto auto 20px;
+        }
+
+        .layui-layer-btn {
+            text-align: center;
+        }
+
+        .layui-input-block {
+            margin-left: 0;
+        }
+
+        .layui-form-item .layui-inline {
+            margin-right: 0;
+        }
+
+        .layui-form-item .layui-input-inline {
+            margin-right: 0;
+        }
+
+        .layui-form-item {
+            margin-bottom: 0px;
+        }
+
+        .layui-form-label {
+            padding-right: 5px;
+        }
+
+        .layui-layer-content {
+            height: 430px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1">
+        <div>
+            <!--<script src="js/plugins/ztree/js/jquery-1.4.4.min.js"></script>
+            -->
+            <script src="../js/jquery-1.11.0.min.js"></script>
+            <script src="../js/plugins/ztree/js/jquery.ztree.all.min.js"></script>
+            <script src="../js/plugins/layui/layui.js"></script>
+            <script src="../js/plugins/mmGrid/mmGrid.js"></script>
+
+            <ul id="demo" class="ztree">
+                <li></li>
+            </ul>
+
+            <!--<div class="div">
+                <table id="product_list">
+                    <thead>
+                        <tr>
+                            <th style="width:10%">新品</th>
+                            <th style="width:30%">首字母拼音</th>
+                            <th style="width:40%">产品名称</th>
+                            <th style="width:15%">规格</th>
+                            <th style="width:5%">单位</th>
+                            <th style="width:5%"></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+
+                </table>
+
+            </div>
+            -->
+            <div style="float: left">
+                <div style=" margin: 10px auto 0 auto;">
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label" style="margin-left:0px">全局搜索</label>
+                            <div class="layui-input-inline" style="width:420px">
+                                <input type="text" autocomplete="off" placeholder="请输入需要搜索的内容" id="search_all" class="layui-input">
+                            </div>
+                            <div class="layui-input-inline" style="width:100px;margin-left: 20px">
+                                <input type="button" id="clear" class="layui-btn" value="清除搜索条件">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label" style="margin-left:0px">分类搜索</label>
+                            <div class="layui-input-inline" style="width:147px">
+                                <input type="text" autocomplete="off" placeholder="搜首字母拼音" id="search_py" class="layui-input sub_search">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <div class="layui-input-block" style="width:208px">
+                                <input type="text" autocomplete="off" placeholder="搜产品名称" id="search_name" class="layui-input sub_search">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <div class="layui-input-block" style="width:142px">
+                                <input type="text" autocomplete="off" placeholder="搜产品规格" id="search_type" class="layui-input sub_search">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <div class="layui-input-block" style="width:58px">
+                                <input type="text" autocomplete="off" placeholder="搜单位" id="search_unit" class="layui-input sub_search">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="product_list"></div>
+            </div>
+        </div>
+    </form>
+
+    <script>
+
+        //接收全局数组，用于存储选定的产品id
+        var codes = window.parent.tb_options.data;
+        var cols = [
+              {
+                  title: '选择',
+                  name: '',
+                  width: 30,
+                  lockWidth: true,
+                  align: 'center',
+                  renderer: function (val) {
+                      return '<input type="checkbox" class="checkbox"/>'
+                  }
+
+              },
+            {
+                title: '新品',
+                name: 'img',
+                width: 30,
+                lockWidth: true,
+                align: 'center',
+                renderer: function (val) {
+                    if (val != "") {
+                        //  return '<span style="color:red">新品</span>'
+                        return '<img src="../images/new.gif"/>'
+                    } else {
+                        return '<span></span>'
+                    }
+                }
+            },
+            {
+                title: '首字母拼音',
+                name: 'PY',
+                width: 140,
+                lockWidth: true,
+                align: 'center',
+            },
+            {
+                title: '产品名称',
+                name: 'cInvName',
+                width: 200,
+                lockWidth: true,
+                align: 'center',
+                renderer: function (val, item, rowIndex) {
+                    return '<div class="cInvName">' + val + '</div>';
+                }
+            },
+            {
+                title: '规格',
+                name: 'cInvStd',
+                width: 140,
+                lockWidth: true,
+                align: 'center',
+                renderer: function (val, item, rowIndex) {
+                    return '<div class="cInvStd">' + val + '</div>';
+                }
+            },
+            {
+                title: '单位',
+                name: 'cComUnitName',
+                width: 30,
+                lockWidth: true,
+                align: 'center',
+                renderer: function (val, item, rowIndex) {
+                    return '<div class="cComUnitName">' + val + '</div>';
+                }
+            },
+
+            {
+                title: '',
+                name: 'cInvCode',
+                width: 100,
+                lockWidth: true,
+                align: 'center',
+                hidden: true,
+                renderer: function (val, item, rowIndex) {
+                    return '<div class="cInvCode">' + val + '</div>';
+                }
+            },
+      {
+          title: '',
+          name: 'show',
+          width: 100,
+          lockWidth: true,
+          align: 'center',
+          hidden: true,
+          renderer: function (val, item, rowIndex) {
+              return '<div class="show">' + val + '</div>';
+          }
+      },
+      {
+          title: '',
+          name: 'UnitGroup',
+          width: 30,
+          lockWidth: true,
+          align: 'center',
+          hidden: true,
+          renderer: function (val, item, rowIndex) {
+              return '<div class="UnitGroup">' + val + '</div>';
+          }
+      },
+                  {
+                      title: '',
+                      name: 'cGroupCode',
+                      width: 30,
+                      lockWidth: true,
+                      align: 'center',
+                      hidden: true,
+                      renderer: function (val, item, rowIndex) {
+                          return '<div class="cGroupCode">' + val + '</div>';
+                      }
+                  }
+        ];
+
+        var setting = {
+            view: {
+                dblClickExpand: false,
+                showLine: true,
+                selectedMulti: false
+            },
+            data: {
+                simpleData: {
+                    enable: true,
+                    idKey: "id",
+                    pIdKey: "pid",
+                    rootPId: ""
+                }
+            },
+            callback: {
+
+                onClick: onClick
+            }
+        };
+
+        //JQ ajax全局事件
+        $(document).ajaxStart(function () {
+            layer.load();
+        }).ajaxComplete(function () {
+            layer.closeAll('loading');
+        });
+        //根据点击分类生成分类产品
+        function onClick(event, treeId, treeNode, clickFlag) {
+
+
+            $.ajax({
+                type: "Post",
+                url: "../Handler/ProductHandler.ashx",
+                dataType: "Json",
+                data: { "Action": "GetCodeConfigProducts", "code": treeNode.id },
+                success: function (data) {
+                    if (data.flag != 1) {
+                        parent.layer.alert(data.message, { icon: 2 });
+                        return false;
+                    }
+                    else {
+                        $("#product_list").html("<table id='tb'></table>");
+                        var mmg = $('#tb').mmGrid({
+                            items: data.Products,
+                            showBackboard: false,
+                            multiSelect: true,
+                            method: 'get',
+                            // checkCol: true,
+                            cols: cols,
+                            width: '647',
+                            height: '333'
+                        });
+
+                        //产品列表加载成功后，为已在产品清单里的产品加载样式及checkbox
+                        mmg.on("loadSuccess", function (e, data) {
+                            var $trs = $("#tb tr");
+                            var c = [];
+                            $.each(codes, function (i, v) {
+                                c.push(v.cInvCode)
+                            });
+                          
+                            $.each($trs, function (i, v) {
+                                $v = $(v);
+
+                                if ($v.find('.show').text() == '1') {
+                                    $v.addClass('selected');
+                                    $v.find('.checkbox').prop('checked', true).attr('disabled', true)
+                                }
+
+                                if ($.inArray($v.find('.cInvCode').text(), c)!=-1) {
+                                    $v.addClass('selected');
+                                    $v.find('.checkbox').prop('checked', true);
+                                }
+
+                            });
+                        });
+                    }
+
+
+                }
+
+            })
+        };
+
+
+
+
+
+        function Get_Product_Class() {
+            $.ajax({
+                type: "Post",
+                url: "../Handler/ProductHandler.ashx",
+                dataType: "Json",
+                data: { "Action": "GetCodeConfigProductClass" },
+                success: function (res) {
+                    if (res.flag != 1) {
+                        layer.alert(res.message, { icon: 2 });
+                        return false;
+                    } else {
+                         $.each(res.ProductClass, function (i, v) {
+                            if (v.pid == null) {
+                                v["open"] = true;
+                            }
+                        });
+                        $.fn.zTree.init($("#demo"), setting, res.ProductClass);
+                    }
+
+
+
+                }
+            })
+
+        }
+
+
+        layui.use(['form', 'layer'], function () {
+            var form = layui.form(),
+                layer = layui.layer;
+
+            //生成产品分类树
+            Get_Product_Class();
+
+
+
+
+
+            $("#product_list").html("<table id='tb'></table>");
+            $('#tb').mmGrid({
+                //items: items,
+                showBackboard: false,
+                multiSelect: true,
+                method: 'get',
+                cols: cols,
+                width: '597',
+                height: '333'
+            });
+
+
+
+            //td操作时，添加或移除全局数组中的产品id
+            $(document).on('click', 'tbody td', function () {
+                var $this = $(this);
+                if ($this.parents('tr').find('.show').text() == '1') {
+                    return false;
+                }
+            
+                var c = [];
+                $.each(codes, function (i, v) {
+                    c.push(v.cInvCode)
+                });
+                $tr = $this.parents("tr")
+                if ($tr.hasClass("selected")) {
+                    $tr.find(".checkbox").prop('checked', false);
+                var n=[];
+                    $.each(codes, function (i, v) {
+                        if ($tr.find('.cInvCode').text() == v.cInvCode) {
+                            codes.splice(i, 1);
+                            return false;
+                        }
+                    })
+                } else {
+                    
+
+                    $tr.find("td .checkbox").prop('checked', true);
+                    var o = {};
+                    o.cInvCode = $tr.find('.cInvCode').text();
+                    o.cInvStd = $tr.find('.cInvStd').text();
+                    o.UnitGroup = $tr.find('.UnitGroup').text();
+                    o.cComUnitName = $tr.find('.cComUnitName').text();
+                    o.cInvName = $tr.find('.cInvName').text();
+                    o.cGroupCode = $tr.find('.cGroupCode').text();
+                    codes.push(o);
+
+                }
+                $this.parents("tr").toggleClass("selected");
+            });
+
+
+
+
+        })
+
+        //产品全局搜索功能
+        function searchall() {
+            $this = $("#search_all");
+            var txt = $this.val().trim().toUpperCase();//
+            $("#product_list tr:gt(0)").hide();
+            var $d = $("#product_list tr").filter(":contains('" + txt + "')");
+            $d.show();
+        }
+
+
+
+
+        //产品全局搜索触发
+        var lastTime;
+        $("#search_all").keyup(function (event) {
+            lastTime = event.timeStamp;
+            setTimeout(function () {
+                if (lastTime - event.timeStamp == 0) {
+                    searchall();
+                }
+            }, 500);
+        });
+
+        //产品分类搜索触发
+        $(".sub_search").keyup(function (event) {
+            lastTime = event.timeStamp;
+            setTimeout(function () {
+                if (lastTime - event.timeStamp == 0) {
+                    sub_search();
+                }
+            }, 500);
+        });
+
+
+        //产品分类搜索功能
+
+        function sub_search() {
+            var py = $("#search_py").val().trim().toUpperCase();
+            var name = $("#search_name").val().trim();
+            var type = $("#search_type").val().trim();
+            var unit = $("#search_unit").val().trim();
+            var trs = $("#product_list tr:gt(0)");
+            //  var trs = $("#product_list tr:visible");
+            var condition = "1==1 ";
+            $(trs).hide();
+            if (py != "") {
+                condition += "&&$(v).find('td:eq(2)').text().indexOf(py)>-1"
+            }
+            if (name != "") {
+                condition += "&&$(v).find('td:eq(3)').text().indexOf(name)>-1"
+            }
+            if (type != "") {
+                condition += "&&$(v).find('td:eq(4)').text().indexOf(type)>-1"
+            }
+            if (unit != "") {
+                condition += "&&$(v).find('td:eq(5)').text().indexOf(unit)>-1"
+            }
+            $.each(trs, function (i, v) {
+                if (eval(condition)) {
+                    $(v).show();
+                }
+
+            })
+        }
+
+        //清除全部搜索条件
+        $("#clear").click(function () {
+            $("#product_list tr:gt(0)").show();
+            $("#search_all").val("");
+            $("#search_py").val("");
+            $("#search_name").val("");
+            $("#search_type").val("");
+            $("#search_unit").val("");
+        })
+
+        //采用正则表达式获取地址栏参数
+        function GetQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]); return null;
+        }
+
+    </script>
+</body>
+</html>

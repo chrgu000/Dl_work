@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- HTTP 1.1 -->
+  <meta http-equiv="pragma" content="no-cache">
+  <!-- HTTP 1.0 -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <title>Document</title>
+  <link href="../js/plugins/layui-v2/layui/css/layui.css" rel="stylesheet" />
+  <script src="../js/plugins/layui-v2/layui/layui.all.js"></script>
+
+  <style></style>
+</head>
+
+<body>
+  <div class="layui-upload">
+    <button type="button" class="layui-btn" id="test2">多图片上传</button>
+    <blockquote class="layui-elem-quote layui-quote-nm" style="margin-top: 10px;">
+      预览图：
+      <div class="layui-upload-list" id="demo2"></div>
+    </blockquote>
+  </div>
+  <button class="layui-btn layui-btn-normal" id="btn">btn</button>
+
+  <script>
+ var upload=layui.upload,$=layui.jquery;
+ 
+   //多图片上传
+  upload.render({
+    elem: '#test2'
+   ,url: '/handler/mobilehandler.ashx'
+    ,multiple: true
+    ,data:{'Action':'Upload'}
+    ,bindAction: '#btn'
+    ,auto: false
+    ,choose:function(obj){
+        console.log(obj)
+        obj.preview(function(index, file, result){
+          console.log(file)
+        $('#demo2').append('<img src="'+ result +'" alt="'+ file.name +'" class="layui-upload-img" style="width:100px">')
+      });
+          }
+    ,before: function(obj){
+      //预读本地文件示例，不支持ie8
+  
+    }
+    ,done: function(res){
+      //上传完毕
+      layer.msg('上传成功')
+    }
+  });
+
+ 
+
+
+ 
+ 
+    </script>
+</body>
+</html>

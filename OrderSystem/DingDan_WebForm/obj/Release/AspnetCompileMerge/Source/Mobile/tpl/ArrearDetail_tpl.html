@@ -1,0 +1,427 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<style>
+			.mui-card-header h4 {
+				color: white;
+			}
+			
+			.mui-table td {
+				border: groove;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title" id="cCusName"></h1>
+		</header>
+		
+		<div class="mui-content">
+			
+			<div class="mui-card">
+				
+				<div class="mui-card-header mui-bg-negative ">
+					<h4>各分户欠款情况</h4>
+				</div>
+				<div class="mui-card-content">
+					<div class="mui-card-content-inner">
+						<table class="mui-table">
+							<tr>
+								<th class="mui-col-xs-3">客户编码</th>
+								<th class="mui-col-xs-6">客户名称</th>
+								<th class="mui-col-xs-3">欠款金额</th>
+							</tr>
+							<tbody>
+								<tr><td>1</td><td>1</td><td>1</td></tr>
+							</tbody>
+						</table>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="mui-card">
+				<div class="mui-card-header mui-bg-negative ">
+					<h4>欠款合计</h4>
+				</div>
+				<div class="mui-card-content">
+					<div class="mui-card-content-inner">
+						<div class="mui-row">
+							<div class="mui-col-xs-6">
+								结款日：
+							</div>
+							<div class="mui-col-xs-6 date" id="dAccountDay">
+
+							</div>
+						</div>
+						<div class="mui-row">
+							<div class="mui-col-xs-6">
+								欠款周期起：
+							</div>
+							<div class="mui-col-xs-6 date" id="dArrearsCycleStart">
+							</div>
+							<div class="mui-row">
+								<div class="mui-col-xs-6">
+									欠款周期止：
+								</div>
+								<div class="date mui-col-xs-6" id="dArrearsCycleEnd">
+								</div>
+							</div>
+						</div>
+						<div class="mui-row">
+							<div class="mui-col-xs-6">
+								以前未结清货款：
+							</div>
+							<div class="mui-col-xs-6 need" id="iSumPreviousUncleared">
+
+							</div>
+						</div>
+						<div class="mui-row">
+							<div class="mui-col-xs-6">
+								本年未结清货款：
+							</div>
+							<div class="mui-col-xs-6 need" id="iSumUncleared">
+
+							</div>
+						</div>
+						<div class="mui-row">
+							<div class="mui-col-xs-6  ">
+								合计小写：
+							</div>
+							<div class="mui-col-xs-6 need" id="iSumArrears">
+
+							</div>
+						</div>
+						<div class="mui-row">
+							<div class="mui-col-xs-6">
+								合计大写：
+							</div>
+							<div class="mui-col-xs-6 need" id="iSumArrearsCapital">
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="mui-card">
+				<div class="mui-card-header mui-bg-negative ">
+					<h4>违约金合计</h4>
+				</div>
+				<div class="mui-card-content">
+					<div class="mui-card-content-inner">
+						<div class="mui-row">
+							<div class="mui-col-xs-6  ">
+								合计小写：
+							</div>
+							<div class="mui-col-xs-6 need" id="iSumDamages">
+							</div>
+						</div>
+						<div class="mui-row">
+							<div class="mui-col-xs-6">
+								合计大写：
+							</div>
+							<div class="mui-col-xs-6 need" id="iSumDamagesCapital">
+							</div>
+						</div>
+						<div class="mui-row">
+							<div class="mui-col-xs-6">
+								备注：
+							</div>
+							<div class="mui-col-xs-6 need" id="cRemark">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="mui-card">
+				<div class="mui-card-header mui-bg-negative ">
+					<h4>欠款详情</h4>
+				</div>
+				<div class="mui-card-content">
+					<div class="mui-card-content-inner">
+						<strong>以前年度未结清货款</strong>
+
+						<div class="mui-row">
+							<div class="mui-col-xs-8">
+								逾期一月未结清货款：
+							</div>
+							<div class="mui-col-xs-4 need" id="iPreviousOneMonthMoney">
+
+							</div>
+						</div>
+						<div class="mui-row">
+							<div class="mui-col-xs-8">
+								违约金：
+							</div>
+							<div class="mui-col-xs-4 need" id="iPreviousOneMonthLiquidatedDamages">
+
+							</div>
+						</div>
+						<div class="mui-row">
+							<div class="mui-col-xs-8">
+								逾期二月未结清货款：
+							</div>
+							<div class="mui-col-xs-4 need" id="iPreviousTwoMonthMoney">
+
+							</div>
+						</div>
+						<div class="mui-row">
+							<div class="mui-col-xs-8">
+								违约金：
+							</div>
+							<div class="mui-col-xs-4 need" id="iPreviousTwoMonthLiquidatedDamages">
+
+							</div>
+						</div>
+						<div class="mui-row">
+							<div class="mui-col-xs-8">
+								逾期三月未结清货款：
+							</div>
+							<div class="mui-col-xs-4 need" id="iPreviousThreeMonthMoney">
+
+							</div>
+						</div>
+						<div class="mui-row">
+							<div class="mui-col-xs-8">
+								违约金：
+							</div>
+							<div class="mui-col-xs-4 need" id="iPreviousThreeMonthLiquidatedDamages">
+
+							</div>
+						</div>
+						<div class="mui-row">
+							<div class="mui-col-xs-8">
+								本次止累计违约金：
+							</div>
+							<div class="mui-col-xs-4">
+								<strong class="need" id="iSumPreviousLiquidatedDamages"></strong>
+							</div>
+						</div>
+						<div class="mui-row">
+							<div class="mui-col-xs-4">
+								大写：
+							</div>
+							<div class="mui-col-xs-8">
+								<strong class="need" id="iSumPreviousLiquidatedDamagesCapital"></strong>
+
+							</div>
+						</div>
+						<hr />
+
+						<strong>本年度未结清货款</strong>
+						<div class="mui-row">
+							<div class="mui-col-xs-8">
+								逾期一月未结清货款：
+							</div>
+							<div class="mui-col-xs-4 need" id="iOneMonthMoney">
+
+							</div>
+						</div>
+						<div class="mui-row">
+							<div class="mui-col-xs-8">
+								违约金：
+							</div>
+							<div class="mui-col-xs-4 need" id="iOneMonthLiquidatedDamages">
+
+							</div>
+						</div>
+						<div class="mui-row">
+							<div class="mui-col-xs-8">
+								逾期二月未结清货款：
+							</div>
+							<div class="mui-col-xs-4 need" id="iTwoMonthMoney">
+
+							</div>
+						</div>
+						<div class="mui-row">
+							<div class="mui-col-xs-8">
+								违约金：
+							</div>
+							<div class="mui-col-xs-4 need" id="iTwoMonthLiquidatedDamages">
+
+							</div>
+						</div>
+						<div class="mui-row">
+							<div class="mui-col-xs-8">
+								逾期三月未结清货款：
+							</div>
+							<div class="mui-col-xs-4 need" id="iThreeMonthMoney">
+
+							</div>
+						</div>
+						<div class="mui-row">
+							<div class="mui-col-xs-8">
+								违约金：
+							</div>
+							<div class="mui-col-xs-4 need" id="iThreeMonthLiquidatedDamages">
+
+							</div>
+						</div>
+						<div class="mui-row">
+							<div class="mui-col-xs-8">
+								本次止累计违约金：
+							</div>
+							<div class="mui-col-xs-4">
+								<strong class="need" id="iSumLiquidatedDamages"></strong>
+							</div>
+						</div>
+						<div class="mui-row">
+							<div class="mui-col-xs-4">
+								大写：
+							</div>
+							<div class="mui-col-xs-8">
+								<strong class="need" id="iSumLiquidatedDamagesCapital"></strong>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="mui-card" id="cCusConfirm_div">
+				<div class="mui-card-header mui-bg-positive ">
+					<h4>客户填写</h4>
+				</div>
+				<div class="mui-card-content">
+					<div class="mui-card-content-inner">
+						<div class="mui-row">
+							<div class="mui-col-xs-4">
+								申请延期起：
+							</div>
+							<div class="mui-col-xs-8 date" id="dExtensionDateStart">
+
+							</div>
+						</div>
+						<div class="mui-row">
+							<div class="mui-col-xs-4">
+								申请延期止：
+							</div>
+							<div class="mui-col-xs-8 date" id="dExtensionDateEnd">
+
+							</div>
+						</div>
+						<div class="mui-row">
+							<div class="mui-col-xs-4">
+								确认人：
+							</div>
+								
+							<!--id="cCusConfirm"--> 
+							<div class="mui-col-xs-8 need" id="ccusperson">
+
+							</div>
+						</div>
+						<div class="mui-row">
+							<div class="mui-col-xs-4">
+
+							</div>
+							<div class="mui-col-xs-8">
+
+							</div>
+						</div>
+						<div class="mui-row">
+							<div class="mui-col-xs-4 ">
+								确认时间：
+							</div>
+							<div class="mui-col-xs-8 datetime" id="dCusConfirmDate">
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="mui-card" id="manager_div">
+				<div class="mui-card-header mui-bg-primary">
+					<h4>销售经理确认</h4>
+				</div>
+				<div class="mui-card-content">
+					<div id="stop_div">
+						<form class="mui-input-group">
+								<div class="mui-input-row mui-radio">
+								<label>不停止发货</label>
+								<input name="isStop" type="radio" value="0">
+							</div>
+							<div class="mui-input-row mui-radio">
+								<label>立即停止发货</label>
+								<input name="isStop" type="radio" value="1">
+							</div>
+							<div id="cMemo_div" class="mui-input-row">
+								<input class="mui-input-clear" type="text" placeholder="输入备注信息" id="cMemo">
+							</div>
+
+						</form>
+					</div>
+					<div id="confirm_div">
+						<div class="mui-card-content-inner">
+							<div class="mui-row">
+								<div class="mui-col-xs-4">
+									确认人：
+								</div>
+									
+								<!--id="cSaleConfirm"-->
+								<div class="mui-col-xs-8 need" id="strUserName">
+
+								</div>
+							</div>
+							<div class="mui-row">
+								<div class="mui-col-xs-4">
+									确认时间：
+								</div>
+								<div class="mui-col-xs-8 datetime" id="dSaleConfirm">
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="mui-card-footer ">
+					<div>销售经理确认</div>
+					<button class="mui-btn mui-btn-primary " id="confirm_btn" type="button">
+                    确认
+                </button>
+				</div>
+			</div>
+
+			<!--<div class="mui-card" id="confirm_div">
+            <div class="mui-card-header mui-bg-primary">
+                <h4>销售经理确认</h4>
+            </div>
+            <div class="mui-card-content">
+                <div class="mui-card-content-inner">
+                    <div class="mui-row">
+                        <div class="mui-col-xs-4">
+                            确认人：
+                        </div>
+                        <div class="mui-col-xs-8 need" id="cSaleConfirm">
+
+                        </div>
+                    </div>
+                    <div class="mui-row">
+                        <div class="mui-col-xs-4">
+                            确认时间：
+                        </div>
+                        <div class="mui-col-xs-8 datetime" id="dSaleConfirm">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mui-card-footer ">
+                <div>销售经理确认</div>
+                <button class="mui-btn mui-btn-primary " id="confirm_btn" type="button">
+                    确认
+                </button>
+            </div>
+        </div>-->
+		</div>
+	</body>
+
+</html>

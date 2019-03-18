@@ -1,0 +1,394 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>多联网上订单系统</title>
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="/js/plugins/layui-1.0.9/css/layui.css" media="all" />
+    <link href="/js/plugins/dataTables/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <style>
+        .layui-table th, .layui-table td {
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .btns {
+            border-bottom: 1px solid #7bd1e0;
+            height: 50px;
+            line-height: 50px;
+        }
+
+        .bl {
+            vertical-align: middle;
+            line-height: 36px;
+        }
+
+        form {
+            min-height: 500px;
+        }
+
+        .selected {
+            background-color: red;
+        }
+
+        .bl {
+            vertical-align: middle;
+            line-height: 36px;
+        }
+
+        .red {
+            background: #E3CACA;
+        }
+
+        .yellow {
+            background-color: #f3f5c1;
+        }
+    </style>
+</head>
+<body>
+    <div style="margin: 0px;" class="iframe">
+        <div class="layui-tab">
+
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+                    <form action="" class="layui-form">
+                        <div class="layui-form-item btns">
+                            <div class="layui-inline">
+                                <label class="layui-form-label">单位</label>
+                                <div class="layui-input-inline" style="width: 200px;">
+                                    <select class="layui-select" id="kpdw">
+                                        <option value>请选择单位</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">时间范围</label>
+                                <div class="layui-input-inline">
+                                    <input class="layui-input" placeholder="开始日期" id="start_date">
+                                </div>
+                                <div class="layui-input-inline">
+                                    <input class="layui-input" placeholder="截止日期" id="end_date">
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <input type="button" id="btn" class="layui-btn" value="查询">
+                                <input type="button" id="btn1" class="layui-btn" value="测试">
+                                <!--<input type="button" onclick="window.location.reload()" class="layui-btn" value="刷新">-->
+                            </div>
+                        </div>
+                        <div class="layui-form-item"></div>
+
+                        <table class="layui-table" id="detail" cellpadding="0" cellspacing="0" style="width:80%"></table>
+                        <div class="layui-form-item" id="show" style="font-size:16px;margin: 10px auto auto 20px;display:none">
+                            <div class="layui-inline ">
+                                共计：<span id="num"></span>条
+                            </div>
+                            <div class="layui-inline ">
+                                <label class="layui-form-label"></label>
+                                提货金额合计 :<span id="count_buy"></span>
+                            </div>
+                            <div class="layui-inline ">
+                                <label class="layui-form-label"></label>
+                                结算金额合计 :<span id="count_pay"></span>
+                            </div>
+                            <div class="layui-inline ">
+                                <label class="layui-form-label"></label>
+                                应付余额 :<span id="need_pay"></span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="/js/plugins/layui-1.0.9/layui.js"></script>
+    <script src="/js/plugins/dataTables/js/jquery.dataTables.min.js"></script>
+    <script src="js/TableTools.min.js"></script>
+    <script type="text/javascript" src="/js/Project/function.js"></script>
+
+    <script>
+
+        layui.use(['element', 'util', 'laydate', 'form'], function () {
+            //  var $ = layui.jquery,
+            var form = layui.form(),
+                util = layui.util,
+              laydate = layui.laydate,
+              element = layui.element(); //Tab的切换功能，切换事件监听等，需要依赖element模块
+
+            var start = {
+                min: '2016-01-01 00:00:00'
+ , max: '2099-06-16 23:59:59'
+ , istoday: false
+ , choose: function (datas) {
+     end.min = datas; //开始日选好后，重置结束日的最小日期
+     end.start = datas //将结束日的初始值设定为开始日
+ }
+            };
+
+            var end = {
+                min: laydate.now()
+              , max: '2099-06-16 23:59:59'
+              , istoday: false
+              , choose: function (datas) {
+                  start.max = datas; //结束日选好后，重置开始日的最大日期
+              }
+            };
+
+            $("#start_date").click(function () {
+                start.elem = this;
+                laydate(start);
+            });
+
+            $("#end_date").click(function () {
+                end.elem = this;
+                laydate(end);
+            });
+
+            $.ajax({
+                url: "/Handler/ProductHandler.ashx",
+                type: "Post",
+                dataType: "Json",
+                data: { "Action": "Get_KPDW" },
+                success: function (data) {
+
+                    var html = "";
+                    $.each(data, function (i, v) {
+                        html += '<option value=' + v.cCusCode + '>' + v.cCusName + '</option>'
+                    })
+                    $("#kpdw").append(html);
+                    form.render();
+                    draw_tb(data);
+                }
+            })
+
+
+            $("#btn").click(function () {
+                if ($("#kpdw option:selected").val() == 0) {
+                    layer.msg("请先选择单位!");
+                    return false;
+                }
+                $.ajax({
+                    url: "/Handler/ProductHandler.ashx",
+                    type: "Post",
+                    dataType: "Json",
+                    data: {
+                        "Action": "DLproc_SOADetailforCustomerBySel",
+                        "start_date": $("#start_date").val(),
+                        "end_date": $("#end_date").val(),
+                        "kpdw": $("#kpdw  option:selected").val()
+                    },
+                    success: function (data) {
+                        if (data.flag == 0) {
+                            layer.alert(data.message, { icon: 2 });
+                        } else {
+                            draw_tb(data);
+                            if ($("#detail tbody .dataTables_empty").length == 0) {
+                                var $trs = $("#detail tbody tr");
+                                var count_buy = 0, count_pay = 0, need_pay = 0;
+
+                                $.each($trs, function (i, v) {
+                                    count_buy += Number($(v).find("td:eq(6)").text());
+                                    count_pay += Number($(v).find("td:eq(8)").text());
+                                    if ($(v).find("td:eq(6)").text() == "0" && $(v).find("td:eq(8)").text() != "0") {
+                                        $(v).css("background-color", "#f3f5c1");
+                                    }
+                                    else if ($(v).find("td:eq(4)").text() == "期初余额") {
+                                        $(v).css("background-color", "#E3CACA");
+                                    }
+                                });
+                                count_buy = count_buy.toFixed(2);
+                                count_pay = count_pay.toFixed(2);
+                                $("#count_buy").text(count_buy);
+                                $("#count_pay").text(count_pay);
+                                $("#need_pay").text($("#detail tbody tr:last-child").find("td:eq(10)").text());
+                                var table = $("#detail").DataTable();
+                                $("#num").text(table.rows().data().length);
+                                $("#show").show();
+                            } else {
+                                $("#show").hide();
+                            }
+                        }
+                    }
+                })
+            })
+
+
+
+        })
+
+        function draw_tb(data) {
+            var kpdw = $("#kpdw option:selected").text();
+            var table = $("#detail").DataTable({
+                "sDom": 'T<"clear">lfrtip',
+                "oTableTools": {
+                    "aButtons": [
+                        {
+                            "sExtends": "copy",
+                            "sButtonText": "Copy to clipboard"
+                        },
+                        {
+                            "sExtends": "csv",
+                            "sButtonText": "Save to CSV"
+                        },
+                        {
+                            "sExtends": "xls",
+                            "sButtonText": "Save for Excel"
+                        }
+                    ]
+                },
+                scrollY: "500px",
+                //info: false,
+                autoWidth: false,
+                // paging: false,
+                pageLength: 100,
+                searching: false,
+                destroy: true,
+                data: data.dt,
+                "language": {
+                    "lengthMenu": "每页 100 条记录",
+                    "zeroRecords": "没有找到记录",
+                    "info": "第 _PAGE_ 页 ( 总共 _PAGES_ 页 )",
+                    "infoEmpty": "无记录",
+                    "infoFiltered": "(从 _MAX_ 条记录过滤)"
+                },
+                "columns": [
+            {
+                "title": "单位名称", "data": null, class: "center",
+                render: function (d) {
+                    return d = kpdw;
+                }
+            },
+             { "title": "年", "data": "iYear", class: "center" },
+              { "title": "月", "data": "iMonth", class: "center" },
+               { "title": "日", "data": "iDay", class: "center" },
+              { "title": "订单号", "data": "cOrderNo", class: "center" },
+              { "title": "提货清单号", "data": "cDLCode", class: "center" },
+              { "title": "提货金额", "data": "jf", class: "center" },
+              { "title": "结算方式", "data": "cSSName", class: "center" },
+              { "title": "结算金额", "data": "df", class: "center" },
+              { "title": "付款备注", "data": "skdBZ", class: "center" },
+              { "title": "应付余额", "data": "ye", class: "center" },
+              {
+                  "title": "订单备注", "data": "cMemo", class: "center", width: 250,
+                  render: function (data, type, row, meta) {
+                      if (data != null) {
+                          if (data.length > 20) {
+                              return '<span title=' + data + '>' + data.substring(0, 20) + ' ......</span>';
+                          } else {
+                              return data;
+                          }
+                      }
+                      else {
+                          return '';
+                      }
+                  }
+              },
+                ]
+            });
+        }
+
+
+
+
+        $("#btn1").click(function () {
+            method1("detail");
+        })
+
+
+    </script>
+
+    <script type="text/javascript" language="javascript">
+        var idTmr;
+        function getExplorer() {
+            var explorer = window.navigator.userAgent;
+            //ie
+            if (explorer.indexOf("MSIE") >= 0) {
+                return 'ie';
+            }
+                //firefox
+            else if (explorer.indexOf("Firefox") >= 0) {
+                return 'Firefox';
+            }
+                //Chrome
+            else if (explorer.indexOf("Chrome") >= 0) {
+                return 'Chrome';
+            }
+                //Opera
+            else if (explorer.indexOf("Opera") >= 0) {
+                return 'Opera';
+            }
+                //Safari
+            else if (explorer.indexOf("Safari") >= 0) {
+                return 'Safari';
+            }
+        }
+        function method1(tableid) {//整个表格拷贝到EXCEL中
+            if (getExplorer() == 'ie') {
+                var curTbl = document.getElementById(tableid);
+                var oXL = new ActiveXObject("Excel.Application");
+
+                //创建AX对象excel
+                var oWB = oXL.Workbooks.Add();
+                //获取workbook对象
+                var xlsheet = oWB.Worksheets(1);
+                //激活当前sheet
+                var sel = document.body.createTextRange();
+                sel.moveToElementText(curTbl);
+                //把表格中的内容移到TextRange中
+                sel.select();
+                //全选TextRange中内容
+                sel.execCommand("Copy");
+                //复制TextRange中内容
+                xlsheet.Paste();
+                //粘贴到活动的EXCEL中
+                oXL.Visible = true;
+                //设置excel可见属性
+
+                try {
+                    var fname = oXL.Application.GetSaveAsFilename("Excel.xls", "Excel Spreadsheets (*.xls), *.xls");
+                    //var fname = oXL.Application.GetSaveAsFilename("1.xls");
+                } catch (e) {
+                    print("Nested catch caught " + e);
+                } finally {
+                    oWB.SaveAs("1.xls");
+
+                    oWB.Close(savechanges = false);
+                    //xls.visible = false;
+                    oXL.Quit();
+                    oXL = null;
+                    //结束excel进程，退出完成
+                    //window.setInterval("Cleanup();",1);
+                    idTmr = window.setInterval("Cleanup();", 1);
+
+                }
+
+            }
+            else {
+                tableToExcel(tableid)
+            }
+        }
+        function Cleanup() {
+            window.clearInterval(idTmr);
+            CollectGarbage();
+        }
+        var tableToExcel = (function () {
+            // var uri = 'data:application/vnd.ms-excel;base64,',
+            var uri = 'data:application/vnd.ms-excel;base64,',
+            template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><meta http-equiv="Content-Type" Content-Disposition="attachment;filename=users.xls"  Content-type="application/vnd.ms-excel"; charset=utf-8" /> <!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>{table}</table></body></html>',
+              base64 = function (s) { return window.btoa(unescape(encodeURIComponent(s))) },
+              format = function (s, c) {
+                  return s.replace(/{(\w+)}/g,
+                  function (m, p) { return c[p]; })
+              }
+            return function (table, name) {
+                if (!table.nodeType) table = document.getElementById(table)
+                var ctx = { worksheet: name || 'Worksheet', table: table.innerHTML }
+                window.location.href = uri + base64(format(template, ctx))
+            }
+        })()
+    </script>
+
+</body>
+</html>

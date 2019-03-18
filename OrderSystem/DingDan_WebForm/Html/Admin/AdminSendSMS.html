@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="../../test/iview/iview.css" rel="stylesheet" />
+    <script src="../../test/iview/data.js"></script>
+    <script src="../../test/iview/vue.min.js"></script>
+    <script src="../../test/iview/iview.min.js"></script>
+    <script type="text/javascript" src="../../test/iview/axios.js"></script>
+    <script src="../../js/admin/Project/AdminSendSMS.js"></script>
+    <style type="text/css">
+    #vm {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    .tt {
+        border: 1px solid #ccc;
+    }
+
+    .demo-spin-icon-load {
+        animation: ani-demo-spin 1s linear infinite;
+    }
+
+    .ivu-spin-fix {
+        background-color: rgba(55, 55, 55, 0.4)
+    }
+    </style>
+</head>
+
+<body>
+    <div id="vm">
+        <Row>
+            <i-button type='primary' icon="plus" @click='showAddGroupModal=!showAddGroupModal'>新增组</i-button>
+            <i-button type='info' @click='axios'>axios</i-button>
+             <i-button type='info' @click='show'>show</i-button>
+            <!-- <i-button type='primary' icon="plus">新增组</i-button> -->
+            <!-- 	<i-col span="4" class='tt' ></i-col>
+        <i-col span="20" class='tt'>
+        	<i-select v-model="select1" style="width:200px">
+        <i-option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</i-option>
+    </i-select>
+        </i-col> -->
+        </Row>
+        <br>
+         <Row>
+           <i-table :columns="columns" :data="groups" stripe=true border height='600'>
+           </i-table>
+        </Row>
+        <Modal v-model="showAddGroupModal" title="新增组" />
+        <i-form ref="addGroupModel" :model="addGroupModel" :rules="addGroupRule" label-position="left" :label-width="60">
+            <Form-Item label="分组名" prop='groupName'>
+                <i-input v-model="addGroupModel.groupName" placeholder="请输入用户分组名"></i-input>
+            </Form-Item>
+              <Form-Item label="所属组" prop='groupParent'>
+                <i-select @on-change='val=>addGroupModel.groupParent=val.toString()'>
+                	<i-option v-for="item in addGroupModel.groups" :value="item.id" :key="item.id">
+                		{{ item.groupName }}
+                	</i-option>
+                </i-select>
+            </Form-Item>
+            <FormItem>
+                <i-button type="primary" @click="addGroup('addGroupModel')">保存</i-button>
+            </FormItem>
+        </i-form>
+        </Modal>
+    </div>
+    <script type="text/javascript">
+    </script>
+</body>
+
+</html>

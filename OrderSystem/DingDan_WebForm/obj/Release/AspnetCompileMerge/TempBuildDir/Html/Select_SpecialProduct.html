@@ -1,0 +1,181 @@
+﻿
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="../js/plugins/layui/css/layui.css" rel="stylesheet" />
+
+    <title>select_SpecialProduct.html</title>
+    <style>
+        .selected {
+            background-color: #0064b4;
+            color: #ffffff;
+        }
+
+        .selected_p {
+            background-color: #88abc8;
+            color: #ffffff;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div style="margin-top: 20px">
+        <div style="width:200px;float: left;text-align: center">
+            <table id="special_select" class="layui-table" style="margin: auto;width:95%">
+                <thead>
+                    <tr>
+                        <td>特殊订单号</td>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div style="width:800px;float: left;max-height:400px;overflow-y:scroll">
+            <table id="detail_list" class="layui-table" style="margin: auto;width:95%">
+                <thead>
+                    <tr>
+                        <td style="width:8%">
+                            <!-- <input style="width:5%" type="checkbox" name="allcheck" /> -->选择
+                        </td>
+                        <td style="width:40%">名称</td>
+                        <td style="width:30%">规格</td>
+                        <td>可用量</td>
+                        <td style="display: none">itemid</td>
+                        <td style="display: none">PreOrderId</td>
+                        <td style="display: none">cInvCode</td>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/plugins/layui/layui.js"></script>
+
+    <script>
+    var codes = window.parent.codes;
+    var isModify = window.parent.isModify;
+        //JQ ajax全局事件
+        $(document).ajaxStart(function () {
+            layer.load();
+        }).ajaxComplete(function () {
+            layer.closeAll('loading');
+        });
+
+
+        layui.use(['form', 'layer'], function () {
+            var form = layui.form(),
+                layer = layui.layer;
+
+            //页面load时加载客户的特殊订单
+            $.ajax({
+                url: "../Handler/ProductHandler.ashx",
+                type: "Post",
+                dataType: "Json",
+                data: {
+                    "Action": "DL_PreOrderTreeBySel",
+                    "kpdw":window.parent.kpdw
+                },
+                success: function (data) {
+                    var html = '';
+                    if (data.dt.length>1) {
+                        $.each(data.dt, function (i, v) {
+                            if (i>0) {
+                                  html += '<tr><td>' + v.strBillNo + '</td></tr>';
+                            }
+                      
+                      });
+                    }else{
+
+                        html="没有特殊订单"
+                    }
+                 
+
+                    $("#special_select tbody").html(html);
+                    form.render('select');
+                },
+                error: function (err) {
+                    layer.alert("出现错误，请重试或者联系管理员！", { icon: 2 });
+                }
+            });
+
+
+
+            //查询特殊订单里的产品
+            $(document).on("click", "#special_select tbody tr", function () {
+                var strBillNo = $(this).text();
+                if (!$(this).hasClass("selected")) {
+                    $(".selected").removeClass("selected");
+                    $(this).addClass('selected');
+                }
+                $.ajax({
+                    url: "../Handler/ProductHandler.ashx",
+                    type: "Post",
+                    dataType: "Json",
+                    data: {
+                        "Action": "DLproc_TreeListPreDetailsModify_CZTSBySel",
+                        "strBillNo": strBillNo,
+                        "kpdw": window.parent.kpdw,
+                        "isModify": isModify
+                       
+                    },
+                    success: function (data) {
+                        var html = "";
+                        $.each(data.dt, function (i, v) {
+                            html += '<tr><td><input type="checkbox" /></td>';
+                            html += '<td>' + v.cInvName + '</td>';
+                            html += '<td>' + v.cInvStd + '</td>';
+                            html += '<td>' + v.realqty + '</td>';
+                            html += '<td style="display:none" class=itemid>' + v.itemid + '</td>';
+                            html += '<td style="display:none" class=preOrderId>' + v.preOrderId + '</td>';
+                            html += '<td style="display:none" class=cInvCode>' + v.cInvCode + '</td>';
+                            html += '</tr>';
+                        });
+                        $("#detail_list tbody").html(html);
+                     //   console.log(codes);
+                     // console.log(codes[02020201001Y20170100067]);
+                      var t="";
+                        $.each($(".itemid"),function(i,v){
+                            if ($.inArray($(v).text(),codes)>-1) {
+                             $(v).parents("tr").addClass("selected_p");
+                             $(v).parents("tr").find("input").prop("checked",true);
+                            }
+                        })
+                    },
+                    error: function (err) {
+                        layer.alert("出现错误，请重试或者联系管理员！", { icon: 2 });
+                    }
+                })
+            })
+
+            //选择产品列表里的产品，对全局数组进行操作
+            $(document).on('click', '#detail_list tbody tr', function () {
+                $this = $(this);
+                var itemid=$this.find(".itemid").text();
+                if ($this.hasClass('selected_p')) {
+                    $this.removeClass('selected_p');
+                    $this.find('input[type=checkbox]').prop('checked',false);
+                    codes.splice($.inArray(itemid,codes),1);
+                } else {
+                    $this.addClass('selected_p');
+                    $this.find('input[type=checkbox]').prop('checked',true);
+                    codes.push(itemid)
+                }
+            })
+
+
+
+
+
+
+        })
+
+
+
+
+    </script>
+</body>
+</html>

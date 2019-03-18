@@ -1,0 +1,326 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="../../js/plugins/vue/vue-2.5.13.min.js"></script>
+    <link href="../../js/plugins/iview/2.10/iview.css" rel="stylesheet" />
+    <link href="../../js/plugins/vue/loading.css" rel="stylesheet" />
+    <style type="text/css">
+    #vm {
+        width: 95%;
+        margin: 20px auto;
+    }
+
+    .demo-spin-icon-load {
+        animation: ani-demo-spin 1s linear infinite;
+    }
+
+    .ivu-spin-fix {
+        background-color: rgba(125, 125, 125, 0.8);
+    }
+
+    .ivu-spin-fix {
+        color: #ffffff;
+        font-size: 18px;
+    }
+
+    .expand-row {
+        margin-top: 16px;
+        margin-bottom: 16px;
+        margin-left: 200px;
+    }
+
+    .expand-row table td,
+    .expand-row table th {
+        text-align: center;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="vm">
+        <h1> </h1>
+        <i-table border :columns="columns" height='600' stripe :data="OrderArr"></i-table>
+    </div>
+    <script src="../../js/plugins/vue/axios.js"></script>
+    <script src="../../js/plugins/vue/axios_FUN.js"></script>
+    <script src="../../js/plugins/iview/2.10/iview.min.js"></script>
+    <script type="text/javascript">
+    var expandRow = {
+        template: `<div>
+        <Row class="expand-row">
+            <table border=1   >
+            	<thead>
+            	<th width="200">产品名称</th>
+            	<th width="200">产品规格</th>
+            	<th width="100">基本包装数量</th>
+            	<th width="100">小包装数量</th>
+            	<th width="100">大包装数量</th>
+            	<th width="130">基本单位汇总</th>
+            	<th width="130">包装结果</th>
+            	</thead>
+            	<tbody>
+            	<tr v-for="item in row">
+            	<td>{{item.cinvname}}</td>
+            	<td>{{item.cInvStd}}</td>
+            	<td>{{item.cComUnitQTY}}</td>
+            	<td>{{item.cInvDefine2QTY}}</td>
+            	<td>{{item.cInvDefine1QTY}}</td>
+            	<td>{{item.iquantity}}</td>
+            	<td>{{item.cdefine22}}</td>
+            	</tr>
+            	</tbody>
+            </table>
+        </Row>
+        
+    </div>`,
+        props: ['row']
+    }
+    </script>
+    <script type="text/javascript">
+    axios.defaults.baseURL = '/handler/adminhandler.ashx';
+
+    var vm = new Vue({
+        el: '#vm',
+        data: {
+            columns: [{
+                    title: '序号',
+                    type: 'index',
+                    width: 70,
+                    align: 'center',
+                    fixed: 'left'
+                },
+                {
+                    title: '详情',
+                    type: 'expand',
+                    width: 70,
+                    fixed: 'left',
+                    render: (h, params) => {
+                        return h(expandRow, {
+                            props: {
+                                row: vm.OrderObj[params.row.lngopOrderId]
+                            }
+                        })
+                    }
+                },
+                {
+                    title: '操作',
+                    key: 'action',
+                    width: 70,
+                    align: 'center',
+                    fixed: 'left',
+                    render: (h, params) => {
+                        return h('div', [
+                            // h('Button', {
+                            //     props: {
+                            //         type: 'primary',
+                            //         size: 'small'
+                            //     },
+                            //     style: {
+                            //         marginRight: '5px'
+                            //     },
+                            //     on: {
+                            //         click: () => {
+                            //             vm.show(params.index)
+                            //         }
+                            //     }
+                            // }, '查看'),
+                            h('Button', {
+                                props: {
+                                    type: 'error',
+                                    size: 'small'
+                                },
+                                on: {
+                                    click: () => {
+                                        vm.remove(params.row)
+                                    }
+                                }
+                            }, '作废')
+                        ]);
+                    }
+                },
+                {
+                    title: '网单号',
+                    key: 'strBillNo',
+                    align: 'center',
+                    width: 150,
+
+                    // render: (h, params) => {
+                    //     return h('div', [
+                    //         h('Icon', {
+                    //             props: {
+                    //                 type: 'person'
+                    //             }
+                    //         }),
+                    //         h('strong', params.row.name)
+                    //     ]);
+                    // }
+                },
+                {
+                    title: '订单状态',
+                    key: 'bytStatus',
+                    align: 'center',
+                    width: 120,
+                  //  sortable: true,
+                    filters: [{
+                            label: '待审核',
+                            value: 1
+                        },
+                        {
+                            label: '待确认',
+                            value: 2
+                        },
+                        // {
+                        //     label: '被驳回',
+                        //     value: 3
+                        // }, {
+                        //     label: '已审核',
+                        //     value: 4
+                        // },
+                        // {
+                        //     label: '已作废',
+                        //     value: 99
+                        // }
+                    ],
+                    filterMultiple: false,
+                    filterMethod(value, row) {
+                        if (value === 1) {
+                            return row.bytStatus == 1;
+                        } else if (value === 2) {
+                            return row.bytStatus == 2;
+                        }
+                    },
+                    render: (h, params) => {
+                        const row = params.row;
+                        let color;
+                        let text;
+                        switch (row.bytStatus) {
+                            case 1:
+                                text = "待审核";
+                                color = "blue";
+                                break;
+                            case 2:
+                                text = "待确认";
+                                color = "black";
+                                break;
+                            case 3:
+                                text = "被驳回";
+                                color = "yellow";
+                                break;
+                            case 4:
+                                text = "已审核";
+                                color = "green";
+                                break;
+                            default:
+                                text = "已作废";
+                                color = "red";
+                                break;
+                        }
+                        //  const color = row.bytStatus === 1 ? 'blue' : row.bytStatus === 2 ? 'green' : 'red';
+                        //const text = row.bytStatus === 1 ? 'Working' : row.bytStatus === 2 ? 'Success' : 'Fail';
+
+                        return h('Tag', {
+                            props: {
+                                type: 'border',
+                                color: color
+                            }
+                        }, text);
+                    }
+                },
+                {
+                    title: '下单时间',
+                    key: 'datBillTime',
+                    align: 'center',
+                    width: 160,
+                    sortable: true
+                },
+                {
+                    title: '客户编码',
+                    key: 'strAllAcount',
+                    align: 'center',
+                    width: 120,
+                },
+                {
+                    title: '下单人',
+                    key: 'adminCreateOrderName',
+                    align: 'center',
+                    width: 100,
+                },
+                {
+                    title: '货运信息',
+                    key: 'cdefine11',
+                    align: 'center',
+                    width: 200
+                },
+                // {
+                //     title: '装车方式',
+                //     key: '  strLoadingWays',
+                //     align: 'center',
+                //     width: 150,
+                // },
+                {
+                    title: '备注',
+                    key: '  strRemarks',
+                    align: 'center',
+
+                }
+
+            ],
+
+            OrderArr: [],
+            OrderObj: {},
+            detailColumns: [{
+                title: '网单号',
+                key: 'strBillNo'
+            }]
+        },
+        methods: {
+            show(index) {
+                this.$Modal.info({
+                    title: 'User Info',
+                    content: `<i-table ${data="this.OrderArr"} ${columns="this.detailColumns"}></i-table>`
+                    // content: `Name：${this.data6[index].name}<br>Age：${this.data6[index].age}<br>Address：${this.data6[index].address}`
+                })
+            },
+            remove(row) {
+                // this.data6.splice(index, 1);
+                console.log(row); 
+            },
+            SetOrderData(data) {
+                for (var i in data) {
+                    if (!this.OrderObj[data[i].lngopOrderId]) {
+                        this.OrderObj[data[i].lngopOrderId] = [];
+                        this.OrderArr.push(data[i]);
+                    }
+                    this.OrderObj[data[i].lngopOrderId].push(data[i])
+                };
+                console.log(this.OrderObj);
+                // console.log(_this.OrderArr);
+            }
+        },
+        created() {
+            var _this = this;
+            axios({
+                method: 'post',
+                data: {
+                    "Action": "GetBuyOrderList",
+                }
+            }).then(function(res) {
+                if (res.flag != 1) {
+                    _this.$Message.error({
+                        content: res.message,
+                        duration: 0,
+                        closable: true
+                    });
+                    return false;
+                }
+                _this.SetOrderData(JSON.parse(res.data));
+            });
+        }
+    })
+    </script>
+</body>
+
+</html>

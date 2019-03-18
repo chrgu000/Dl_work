@@ -1,0 +1,377 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="../js/plugins/vue/loading.css" rel="stylesheet" />
+    <link href="../js/plugins/element/2.2.2/index.css" rel="stylesheet" />
+    <style type="text/css">
+    .el-tree {
+        color: #222;
+
+        border: 1px solid #ccc;
+    }
+
+    .el-tree--highlight-current .el-tree-node.is-current>.el-tree-node__content {
+        color: #fff;
+        background-color: #006699;
+        font-weight: bold;
+    }
+
+    .showProClass {
+        margin-top: 20px;
+    }
+
+    .selectProClass {
+        float: left;
+        width: 300px;
+        height: 500px;
+        overflow-y: scroll;
+    }
+
+    .slectProduct {
+
+        margin-left: 320px;
+    }
+
+    .slectProduct table thead th .el-checkbox {
+        display: none;
+    }
+
+    .show-enter-active {
+        transition: all .6s ease;
+    }
+
+    .show-leave-active {
+        transition: all .6s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+    }
+
+    .show-enter,
+    .show-leave-to {
+        transform: translateY(-200px);
+        opacity: 0;
+    }
+    .yellow{
+    	background-color:yellow;
+    }
+    .red{
+    	background-color: red;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="vm">
+        <el-button type="primary" @click="handleShowProClass" v-text="hideProText"></el-button>
+        <transition name="show">
+            <div v-show="showProClass" class="showProClass">
+                <div class="selectProClass">
+                    <el-tree :data="proClass" :props="defaultProps" :expand-on-click-node="false" accordion @node-click="handleNodeClick" highlight-current="true" :default-expand-all="false">
+                    </el-tree>
+                </div>
+                <div class="slectProduct">
+                    <el-table :data="proTableData" style="width: 100%" border height="500" @row-click="proTableRowCheck" ref="productTable" @select="proTableSelectionCheck">
+                        <el-table-column type="selection" width="55" align="center">
+                        </el-table-column>
+                        <el-table-column prop="img" label="新品" width="180" align="center">
+                        </el-table-column>
+                        <el-table-column prop="PY" label="首字母拼音" width="180" align="center">
+                        </el-table-column>
+                        <el-table-column prop="cInvName" label="产品名称" align="center">
+                        </el-table-column>
+                        <el-table-column prop="cInvStd" label="规格" width="180" align="center">
+                        </el-table-column>
+                        <el-table-column prop="cComUnitName" label="单位" width="180" align="center">
+                        </el-table-column>
+                    </el-table>
+                    <div style="margin-top: 10px;margin-left: 30px">
+                        <span>已选商品：{{selectProducts.length}}件</span>
+                        <el-button size="small" type="primary" style="margin-left: 30px" @click="getBuyTableData">添加商品</el-button>
+                    </div>
+                </div>
+            </div>
+        </transition>
+        <transition name="show">
+            <div style="margin-top: 20px;" v-show="!showProClass">
+                <div class="infoDiv"></div>
+                <div class="buyDiv">
+                    <el-table :data="buyTableData" style="width: 100%" border @row-click="buyTableRowCheck" ref="buyTable" @select="buyTableSelectionCheck" @cell-dblclick="tableDbEdit" @cell-click="buyTableCellCheck" :row-class-name="checkRowNum">
+                        <el-table-column type="index" label="序号" width="50" align="center">
+                        </el-table-column>
+                        <el-table-column prop="cInvName" label="产品名称" width="180" align="center">
+                        </el-table-column>
+                        <el-table-column prop="cInvStd" label="规格" width="180" align="center">
+                        </el-table-column>
+                        <el-table-column prop="unitGroup" label="单位组" width="180" align="center">
+                        </el-table-column>
+                        <el-table-column prop="cComUnitQTY" class-name="input-num" label="基本数量" width="180" align="center">
+                        </el-table-column>
+                        <el-table-column prop="cComUnitName" label="基本单位" width="180" align="center">
+                        </el-table-column>
+                        <el-table-column prop="cInvDefine2QTY" class-name="input-num" label="小包装数量" width="180" align="center">
+                        </el-table-column>
+                        <el-table-column prop="cInvDefine2" label="小包装单位" width="180" align="center">
+                        </el-table-column>
+                        <el-table-column prop="cInvDefine1QTY" class-name="input-num" label="大包装数量" width="180" align="center">
+                        </el-table-column>
+                        <el-table-column prop="cInvDefine1" label="大包装单位" width="180" align="center">
+                        </el-table-column>
+                        <el-table-column prop="cInvDefineQTY" label="基本单位汇总" width="180" align="center">
+                        </el-table-column>
+                        <el-table-column prop="fAvailQtty" label="库存量	" width="180" align="center">
+                        </el-table-column>
+                        <el-table-column prop="pack" label="包装结果" width="180" align="center">
+                        </el-table-column>
+                        <el-table-column prop="ExercisePrice" label="单价" width="180" align="center">
+                        </el-table-column>
+                        <el-table-column prop="sum" label="金额" width="180" align="center">
+                        </el-table-column>
+                    </el-table>
+                </div>
+            </div>
+        </transition>
+    </div>
+    <script src="../js/datas/ProductClass.js"></script>
+    <script src="../js/plugins/vue/vue-2.5.13.min.js"></script>
+    <script src="../js/plugins/vue/axios.js"></script>
+    <script src="../js/plugins/vue/axios_FUN.js"></script>
+    <script src="../js/plugins/element/2.2.2/index.js"></script>
+    <script type="text/javascript">
+    axios.defaults.baseURL = '/handler/producthandler.ashx';
+    var vm = new Vue({
+        el: "#vm",
+        data: {
+            defaultProps: {
+                children: 'children',
+                label: 'name'
+            },
+            proClass: [],
+            showProClass: true,
+            proTableData: [],
+            selectProducts: [],
+            proObj: {},
+            buyTableData: []
+        },
+        mounted: function() {
+            this.transDate();
+        },
+        computed: {
+            hideProText: function() {
+                if (!this.showProClass) {
+                    return '显示产品选择'
+                } else {
+                    return '隐藏产品选择'
+                }
+            }
+        },
+        methods: {
+            handleShowProClass() {
+                this.showProClass = !this.showProClass;
+            },
+            handleNodeClick(d) {
+                var _this = this;
+                let id = d.id;
+                axios({
+                    // url: '/handler/producthandler.ashx',
+                    method: 'post',
+                    data: {
+                        "Action": "Get_Product_List",
+                        "cInvCCode": id,
+                        "kpdw": "999999",
+                        "iShowType": 1
+                    }
+                }).then(function(res) {
+                    // console.log(res);
+                    _this.proTableData = res.dt;
+                    _this.proObj = {};
+                    _this.proTableData.forEach((o) => {
+                        if (!_this.proObj[o.cInvCode]) {
+                            _this.proObj[o.cInvCode] = o;
+                        }
+                    });
+
+                    _this.selectProducts.forEach((o) => {
+                        if (_this.proObj[o]) {
+                            _this.$nextTick(() => {
+                                _this.$refs.productTable.toggleRowSelection(_this.proObj[o]);
+                            })
+                        }
+                    });
+
+                });
+
+            },
+            transDate: function() {
+                var result = [],
+                    temp = {},
+                    list = arr,
+                    idstr = "id",
+                    pidstr = "pid";
+                for (i = 0; i < list.length; i++) {
+                    temp[list[i][idstr]] = list[i]; //将nodes数组转成对象类型
+                }
+                for (j = 0; j < list.length; j++) {
+                    tempVp = temp[list[j][pidstr]]; //获取每一个子对象的父对象
+                    if (tempVp) { //判断父对象是否存在，如果不存在直接将对象放到第一层
+                        if (!tempVp["children"]) tempVp["children"] = []; //如果父元素的nodes对象不存在，则创建数组
+                        tempVp["children"].push(list[j]); //将本对象压入父对象的nodes数组
+                    } else {
+                        result.push(list[j]); //将不存在父对象的对象直接放入一级目录
+                    }
+                }
+                this.proClass = result;
+            },
+            proTableRowCheck(row, event, column) {
+                let index = this.selectProducts.indexOf(row.cInvCode);
+                if (index != -1) {
+                    this.selectProducts.splice(index, 1);
+                } else {
+                    this.selectProducts.push(row.cInvCode);
+                }
+                this.$refs.productTable.toggleRowSelection(row);
+
+            },
+            proTableSelectionCheck(selection, row) {
+                let index = this.selectProducts.indexOf(row.cInvCode);
+                if (index != -1) {
+                    this.selectProducts.splice(index, 1);
+                } else {
+                    this.selectProducts.push(row.cInvCode);
+                }
+
+            },
+            getBuyTableData() {
+                let add_arr = [],
+                    new_arr = [],
+                    pro_arr = [];
+                if (this.buyTableData.length != 0) {
+                    new_arr = this.buyTableData.filter((o) => {
+                        pro_arr.push(o.cInvCode);
+                        if (this.selectProducts.indexOf(o.cInvCode) != -1) {
+                            return true;
+                        }
+                        return false
+
+                    })
+                    this.buyTableData = new_arr;
+                }
+
+                add_arr = this.selectProducts.filter((o) => {
+                    if (pro_arr.indexOf(o) == -1) {
+                        return true;
+                    }
+                    return false;
+                })
+                axios({
+                    method: 'post',
+                    data: {
+                        "Action": "DLproc_QuasiOrderDetailBySel_new",
+                        "codes": add_arr,
+                        "kpdw": "999999",
+                        "isModify": 0,
+                        "strBillNo": "",
+                        "areaid": 0
+                    }
+                }).then(function(res) {
+                    console.log(res);
+                    if (!res) {
+                        return false;
+                    }
+                    pro_arr = res.dt;
+                    pro_arr = vm.setAttributes(pro_arr);
+                    pro_arr.forEach((o) => {
+                        vm.buyTableData.push(o);
+                    })
+
+                    vm.showProClass = false;
+                });
+            },
+            buyTableRowCheck(row, column, cell, event) {
+                console.log('buyTableRowCheck');
+            },
+            buyTableCellCheck(row, column, cell, event) {
+
+                if (this.$refs.buyTable.$el.getElementsByTagName("input").length > 0) {
+
+                    return false;
+                }
+                if (!event.target.parentElement.classList.contains("input-num")) {
+                    return false;
+                }
+                console.log(row);
+                console.log(column);
+                console.log(cell);
+                console.log(event);
+                var oldValue = event.target.parentElement.innerText;
+                event.target.innerHTML = "";
+                let cellInput = document.createElement("input");
+                cellInput.value = "";
+                cellInput.setAttribute("type", "text");
+                cellInput.style.width = "80%";
+                cellInput.style.height = "22px";
+                cellInput.style.boderRadius = "18px";
+                cellInput.setAttribute("step", "5.3");
+                cell.appendChild(cellInput);
+                cellInput.value = parseFloat(oldValue);
+                cellInput.focus();
+                document.onkeydown = function(event) {
+                    var e = event || window.event || arguments.callee.caller.arguments[0];
+                    console.log(e);
+                    if (e && e.keyCode == 27) { // 按 Esc 
+                        console.log('111');
+                    }
+                    if (e && e.keyCode == 113) { // 按 F2 
+                        console.log('222');
+                    }
+                    if (e && e.keyCode == 13) { // enter 键
+                         console.log('333');
+                    }
+                };
+                cellInput.onblur = function() {
+                    
+                    if (cellInput.value == 11) {
+                        vm.$message.error('错了哦，这是一条错误消息');
+                        cellInput.focus();
+                        return false;
+                    }
+                    cell.removeChild(cellInput);
+                    event.target.innerHTML = cellInput.value;
+                }
+            },
+            buyTableSelectionCheck() {
+
+            },
+            setAttributes(arr) {
+                arr.forEach((o) => {
+                    this.$set(o, "cComUnitQTY", 1111);
+                    this.$set(o, "cInvDefine2QTY", 2222);
+                    this.$set(o, "cInvDefine1QTY", 3333);
+                    o.ExercisePrice = o.ExercisePrice.toFixed(6);
+                    this.$set(o, "pack", "");
+                    this.$set(o, "sum", "");
+                });
+                return arr;
+            },
+            tableDbEdit(row, column, cell, event) {
+                console.log(row);
+                console.log(column);
+                console.log(cell);
+                console.log(event);
+
+            },
+            //检测表单购买数量，大于库存则添加yellow的class,库存为0则添加red的class
+            checkRowNum({row,index}){
+            	console.log(row);
+            	if (row.cComUnitQTY>row.fAvailQtty) {
+            		return "yellow";
+            	}else{
+            		return "red"
+            	}
+            }
+        }
+    })
+    </script>
+</body>
+
+</html>

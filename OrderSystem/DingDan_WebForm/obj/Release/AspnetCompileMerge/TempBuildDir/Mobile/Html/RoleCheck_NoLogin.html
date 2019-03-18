@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="../js/vue/loading.css" rel="stylesheet" />
+    <title></title>
+</head>
+
+<body>
+    <div id="vm">
+        <p v-text="msg"></p>
+    </div>
+    <script src="../js/vue/vue-2.5.13.min.js"></script>
+    <script src="../js/vue/axios.js"></script>
+    <script src="../js/vue/axios_FUN.js"></script>
+    <script>
+    new Vue({
+        el: "#vm",
+        data: {
+            code: this.GetQueryString("code"),
+            msg:" 权限检测中....."
+        },
+        methods: {
+            GetQueryString(name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null) return unescape(r[2]);
+                return null;
+            }
+        },
+        created() {
+            if (this.code == null) {
+                alert("参数错误！");
+                this.msg="参数错误！";
+                return false;
+            }
+            axios({
+                url: "/handler/mobilehandler.ashx",
+                method: "post",
+                data: {
+                    "Action": "Wx_Login_NoLogin",
+                    "code": this.code
+                }
+            }).then((res) => {
+                console.log(res);
+                if (res.flag != 1) {
+                    alert("你没有权限！");
+                   this.msg="你没有权限！";
+                    return;
+                }
+                let state = this.GetQueryString('state');
+                let arr = [],
+                    url = "";
+                if (state.indexOf('U8SafeStock') != -1) {
+                    arr = state.split("|");
+                    url = arr[0] + "?date=" + arr[1];
+                    window.location.href = url;
+
+                } else if (state.indexOf('PUAppWarnBySel') != -1) {
+                    window.location.href = state;
+                }
+                else if (state.indexOf('PUAppDetail') != -1) {
+                    window.location.href = state;
+                }
+            })
+        }
+    })
+
+    // $(function(){
+    //     if (GetQueryString("code")!=null) {
+    //         $.ajax({
+    //             type: "Post",
+    //             traditional: true,
+    //             url: "/Handler/MobileHandler.ashx",
+    //             dataType: "Json",
+    //             data: { "Action": "Wx_Login_New", "code": GetQueryString("code") },
+    //             success: function (data) {
+    //                 console.log(data)
+    //                 for (var o in data) {
+    //                     document.write(o + ":" + data[o]);
+    //                     document.write("<br />")
+    //                 }
+    //                 document.write(GetQueryString("code"))
+    //                 if (data.flag == 1) {
+    //                     // window.location.href = "arrearlist.html";
+    //                     window.location.href = "index.html";
+    //                 } else {
+    //                     //  document.write(data.flag)
+    //                     //   document.write(data.message)
+    //               //    window.location.href = "norole.html";
+    //                 }
+    //             }, error: function (err, xhr, e) {
+    //                 alert("err")
+    //             }
+    //         });
+    //     } else {
+    //         window.location.href = "norole.html";
+    //     }
+
+    // })
+
+
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+    </script>
+</body>
+
+</html>

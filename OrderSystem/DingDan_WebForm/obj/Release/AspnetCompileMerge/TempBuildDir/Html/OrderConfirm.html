@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>待确认订单</title>
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="../js/plugins/layui-1.0.9/css/layui.css" media="all" />
+    <link href="../css/Project/buy.css" rel="stylesheet" />
+</head>
+<body>
+    <div style="margin: 0px;" class="iframe" id="vm" >
+        <div class="layui-tab">
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+                    <form class="layui-form" action=""   id="buy_form">
+                        <div class="layui-form-item btns">
+                            <input type="button" class="layui-btn layui-btn-normal  layui-btn-small " onclick="window.location.reload()" value="刷新" />
+                        </div>
+                        <div style="overflow-y:scroll;max-height: 250px;min-height: 250px ">
+                            <table class="layui-table" id="Reject_Order">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 10%">操作</th>
+                                        <th style="width: 10%">网单号</th>
+                                        <th style="width: 10%">单据日期</th>
+                                        <th style="width: 10%">客户名称</th>
+                                        <th style="width: 15%">开票单位名称</th>
+                                       <!--  <th style="width: 25%">地址信息</th>
+                                        <th style="width: auto">备注</th> -->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                        <tr v-if="seen_orders"><td colspan="9">没有数据</td></tr> 
+                                        <tr v-for="order in orders">
+                                        <td><input type="button" class="layui-btn layui-btn-mini show" value="查看订单" @click="show">
+                                        <input type="button" class="layui-btn layui-btn-mini layui-btn-disabled layui-btn-danger confirm" @click="confirm" value="确认订单"></td>
+                                        <td class="strBillNo">{{order.strBillNo}}</td>
+                                        <td>{{order.datCreateTime}}</td>
+                                        <td>{{order.strUserName}}</td>
+                                        <td>{{order.ccusname}}</td>
+                                       <!--   <td title='order.cDefine11'> 
+                                        {{(order.cDefine11!=null && order.cDefine11.length>30 )?order.cDefine11.substring(0,20)+"......":order.cDefine11}}</td>
+                                        <td title='order.strRemarks'> 
+                                        {{(order.strRemarks!=null && order.strRemarks.length>30 )?order.strRemarks.substring(0,20)+"......":order.cMemo}}</td> -->
+                                       
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <br>
+                        <div class="layui-form-item">
+                            <div class="layui-inline" style="width: 25%">
+                                <label class="layui-form-label">开票单位 :</label>
+                                <div class="layui-input-inline bl" style="width: 130px">
+                                    <span>{{cCusName}}</span>
+                                </div>
+                            </div>
+                          <div class="layui-inline" style="width: 25%">
+                                <label class="layui-form-label">订单日期 :</label>
+                                <div class="layui-input-inline bl" style="width: 130px">
+                                    <span>{{CreateDate}}</span>
+                                </div>
+                            </div>
+                            <div class="layui-inline" style="width: 45%">
+                                <label class="layui-form-label">备注 :</label>
+                                <div class="layui-input-inline bl" style="width: 130px">
+                                    <span :title="cMemo">{{cMemo_sub}}</span>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="layui-form-item">
+                             <div class="layui-inline" style="width: 25%">
+                                <label class="layui-form-label">送货方式 :</label>
+                                <div class="layui-input-inline bl" style="width: 130px">
+                                    <span>{{cSCCode}}</span>
+                                </div>
+                            </div>
+                           <div class="layui-inline" style="width: 70%">
+                                <label class="layui-form-label">送货地址 :</label>
+                                <div class="layui-input-inline bl" style="width:80%">
+                                    <span>{{address}}</span>
+                                </div>
+                            </div>
+                        </div>
+                      
+                        <div style="overflow-y:scroll;max-height: 300px;">
+                            <table class="layui-table" id="detail">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 10%">序号</th>
+                                        <th style="width: 20%">名称</th>
+                                        <th style="width: 10%">规格</th>
+                                        <th style="width: 10%">数量</th>
+                                        <th style="width: 10%">包装结果</th>
+                                        <!-- <th style="width: 10%">单价</th>
+                                        <th style="width: 10%">金额</th> -->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                 <tr v-if="seen_products()"><td colspan="7">没有数据</td></tr> 
+                                    <tr v-for="(pro,index) in products">
+                                        <td>{{index+1}}</td>
+                                        <td>{{pro.cInvName}}</td>
+                                        <td>{{pro.cInvStd}}</td>
+                                        <td>{{pro.iQuantity}}</td>
+                                        <td>{{pro.cDefine22}}</td>
+                                        <!-- <td>{{pro.iquotedprice}}</td>
+                                        <td>{{(pro.iquantity*pro.iquotedprice).toFixed(2)}}</td> -->
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="layui-form-item">
+                            <div style="float: left">
+                                <label class="layui-form-label">总条数:</label>
+                                <label class="layui-form-label" style="text-align: left;font-weight: bold" id="count">{{count()}}</label>
+                            </div>
+                            <div style="float: right">
+                                <div class="layui-inline" style="width: 100%">
+                                    <label class="layui-form-label">总金额:</label>
+                                    <label class="layui-form-label" style="text-align: left;font-weight: bold" id="money">{{money()}}</label>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <script src="../js/jquery-1.11.0.min.js"></script> -->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../js/plugins/layui-1.0.9/layui.js"></script>
+    <script type="text/javascript" src="../js/plugins/vue-2.2.1/vue.js"></script>
+    <script type="text/javascript" src="../js/Project/OrderConfirm.js"></script>
+</body>
+</html>

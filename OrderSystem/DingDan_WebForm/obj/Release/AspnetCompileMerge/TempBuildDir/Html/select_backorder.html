@@ -1,0 +1,243 @@
+﻿
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="../js/plugins/ztree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet" />
+    <link href="../js/plugins/ztree/css/demo.css" rel="stylesheet" />
+    <link href="../js/plugins/layui/css/layui.css" rel="stylesheet" />
+    <link href="../js/plugins/mmGrid/mmGrid.css" rel="stylesheet" />
+    <title>选择临时订单.html</title>
+    <style>
+        .select {
+            background-color: #015292;
+            color: #ffffff;
+        }
+
+        tr:hover {
+            background-color: #015292;
+        }
+
+        #div {
+            margin: 10px auto auto 10px;
+            font-size: 12px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="div">
+      <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">搜索临时订单</label>
+                            <div class="layui-input-inline" style="width:320px">
+                                <input type="text" autocomplete="off" placeholder="请输入需要搜索订单名称" id="search_all" class="layui-input">
+                            </div>
+
+                        </div>
+
+                    </div>
+        <table id="backorder"></table>
+    </div>
+
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/plugins/ztree/js/jquery.ztree.all.min.js"></script>
+    <script src="../js/plugins/layui/layui.js"></script>
+    <script src="../js/plugins/mmGrid/mmGrid.js"></script>
+
+<script>
+//接收全局数组，用于存储选定的产品id
+ 
+var cols = [
+    {
+        title: '操作',
+        name: '',
+        width: 50,
+        lockWidth: true,
+        align: 'center',
+        renderer: function () {
+            //return '<a href="" onclick="del_backorder();">删除</a>'
+            return '<button class="layui-btn layui-btn-small layui-btn-primary" onclick="del_backorder(this);"><i class="layui-icon"></i></button>'
+        }
+            },
+    {
+        title: '名称',
+        name: 'strBillName',
+        width: 250,
+        lockWidth: true,
+        align: 'center'
+            },
+    {
+        title: '时间',
+        name: 'datBillTime',
+        width: 150,
+        lockWidth: true,
+        align: 'center'
+            },
+    {
+        title: 'ID',
+        name: 'lngopOrderBackId',
+        width: 150,
+        lockWidth: true,
+        align: 'center',
+        hidden: true
+            }];
+ 
+var setting = {
+    view: {
+        dblClickExpand: false,
+        showLine: true,
+        selectedMulti: false
+    },
+    data: {
+        simpleData: {
+            enable: true,
+            idKey: "id",
+            pIdKey: "pid",
+            rootPId: ""
+        }
+    },
+    callback: {
+ 
+        //  onClick: onClick
+    }
+};
+ 
+//JQ ajax全局事件
+$(document).ajaxStart(function () {
+    layer.load();
+}).ajaxComplete(function () {
+    layer.closeAll('loading');
+});
+//根据点击分类生成分类产品
+// function onClick(event, treeId, treeNode, clickFlag) {
+//     // alert(treeNode.id);
+//     $.ajax({
+//         type: "Post",
+//         url: "/Handler/BaseHandler.ashx",
+//         // dataType: "Json",
+//         data: { "Action": "Get_Product_List", "cInvCCode": treeNode.id },
+//         success: function (data) {
+//             data = eval('(' + data + ')');
+//             $("#product_list").html("<table id='tb'></table>");
+//             var mmg = $('#backorder').mmGrid({
+//                 //url: 'json.json',
+//                 items: data,
+//                 showBackboard: false,
+//                 multiSelect: true,
+//                 method: 'get',
+//                 // checkCol: true,
+//                 cols: cols,
+//                 width: '535',
+//                 height: '400'
+//             });
+ 
+//             //产品列表加载成功后，为已在产品清单里的产品加载样式及checkbox
+//             mmg.on("loadSuccess", function (e, data) {
+//                 var tds = $("#tb tr").find("td:eq(6)");
+//                   $.each(tds, function (i, v) {
+//                     if ($.inArray($(this).text(), codes) != -1) {
+//                         $(this).parents("tr").addClass("selected");
+//                         $(this).parents("tr").find("input").prop("checked", true);
+//                     }
+//                 });
+//             });
+ 
+//         }
+ 
+//     })
+// };
+ 
+ 
+ 
+ 
+function del_backorder(obj) {
+    layer.confirm('确定要删除此条临时订单?', {
+        icon: 3,
+        title: '提示'
+    }, function (index) {
+        $.ajax({
+            type: "Post",
+            data: {
+                "Action": "DL_DelOrderBackDetailByDel",
+                "lngopOrderBackId": $(obj).parents("tr").find("td:eq(3)").text()
+            },
+            url: "../Handler/ProductHandler.ashx",
+            success: function (data) {
+                data = eval('(' + data + ')');
+                if (data.flag == 1) {
+                    layer.msg(data.message, {
+                        icon: 2
+                    });
+                } else if (data.flag == 0) {
+                    layer.msg(data.message, {
+                        icon: 1
+                    });
+                    $(obj).parents("tr").remove();
+                }
+            }
+        })
+    });
+}
+ 
+ 
+layui.use(['form', 'layer'], function () {
+    var form = layui.form(),
+        layer = layui.layer;
+ 
+    //页面load时加载客户的临时订单
+    $.ajax({
+        url: "../Handler/ProductHandler.ashx",
+        type: "Post",
+        data: {
+            "Action": "DL_GetOrderBackBySel"
+        },
+        success: function (data) {
+            data = JSON.parse(data);
+         //   console.log(data);
+            var mmg = $('#backorder').mmGrid({
+                //url: 'json.json',
+                items: data,
+                showBackboard: false,
+                multiSelect: true,
+                method: 'get',
+                // checkCol: true,
+                cols: cols,
+                width: '500',
+                height: '300'
+            });
+        }
+    });
+ 
+ 
+    //选择临时订单
+    $(document).on("click", "td", function () {
+        var trs = $("#backorder tr");
+        trs.removeClass("select");
+        $(this).parents("tr").removeClass("even").addClass("select");
+    })
+ 
+ 
+ 
+ 
+ 
+})
+ 
+//搜索触发
+$("#search_all").keyup(function (event) {
+    $this = $("#search_all");
+    var txt = $this.val().trim().toUpperCase(); //
+    var trs = $("#backorder tr");
+    trs.hide();
+    $.each(trs, function (i, v) {
+        if ($(v).find("td:eq(1)").text().toUpperCase().indexOf(txt) > -1) {
+            $(v).show();
+        }
+    })
+});
+ 
+ 
+</script>
+</body>
+</html>

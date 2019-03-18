@@ -1,0 +1,54 @@
+<?xml version="1.0" standalone="yes"?>
+<rolecontrol xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <users>
+    <user loginname="0935" userid="167" groupid="99">陈佳</user>
+    <user loginname="1226" userid="122" groupid="99">王俊杰</user>
+    <user loginname="0833" userid="122" groupid="99">余长城</user>
+    <user loginname="9999" userid="122" groupid="99">管理员</user>
+    <user loginname="0142" groupid="1001">邓学平</user>
+    <user loginname="0056" groupid="1001">桂群</user>
+    <user loginname="0016" groupid="1002">陈忠</user>
+    <user loginname="0951" groupid="2201">王健臣</user>
+  </users>
+  <groups>
+    <group groupid="99" descraption="超级管理员" />
+    <group groupid="1001" descraption="延期通知单收款员权限" methodids="8801|1001|1002|1003|1004|1005|1006|1007|1008|1009" />
+    <group groupid="1002" descraption="延期通知单经理权限" methodids="8801|1001|1002|1004|1010|1011" />
+    <group groupid="2001" descraption="预约管理所有权限" methodids="8801|2001|2002|2003|2004" />
+    <group groupid="2002" descraption="预约管理查看权限" methodids="8801|2001|2003|2004" />
+    <group groupid="2201" descraption="库存查询" methodids="8801|2201|2202|2203" />
+  </groups>
+  <methods>
+    <method methodid="8801" descraption="判断是否有权限打开后台" methodname="Check_Level">Check_Level</method>
+    <method methodid="8802" descraption="微信登录" methodname="Manager_Login">Manager_Login</method>
+    <method methodid="8803" descraption="获取时间控制列表" methodname="GetTimeControlList">GetTimeControlList</method>
+    <method methodid="8804" descraption="删除一条时间控制记录" methodname="DelTimeControlList">DelTimeControlList</method>
+    <method methodid="8805" descraption="新增一条时间控制" methodname="AddTimeControl">AddTimeControl</method>
+    <method methodid="8806" descraption="数据库锁列表" methodname="GetSqlLockList">GetSqlLockList</method>
+    <method methodid="8807" descraption="杀数据库进程" methodname="KillLock">KillLock</method>
+    <method methodid="8808" descraption="订单重量查询" methodname="GetOrderWeight">GetOrderWeight</method>
+    <method methodid="1001" descraption="获取所有用户列表" methodname="Get_AllcCuscode">Get_AllcCuscode</method>
+    <method methodid="1002" descraption="获取延期通知单列表" methodname="Get_ArrearList">Get_ArrearList</method>
+    <method methodid="1003" descraption="新增延期通知单" methodname="DLproc_NewArrearByIns">DLproc_NewArrearByIns</method>
+    <method methodid="1004" descraption="根据延期通知单号查询详情" methodname="Get_ArrearDetail">Get_ArrearDetail</method>
+    <method methodid="1005" descraption="延期通知单取回" methodname="BackArrear">BackArrear</method>
+    <method methodid="1006" descraption="延期通知单作废" methodname="CancelArrear">CancelArrear</method>
+    <method methodid="1007" descraption="收款员重新开通网上下单功能" methodname="RenewArrear">RenewArrear</method>
+    <method methodid="1008" descraption="修改延期通知单" methodname="DLproc_NewArrearByUpd">DLproc_NewArrearByUpd</method>
+    <method methodid="1009" descraption="复核延期通知单" methodname="ConfirmArrear">ConfirmArrear</method>
+    <method methodid="1010" descraption="销售经理更新停止发货意见" methodname="Update_Stop">Update_Stop</method>
+    <method methodid="1011" descraption="销售经理确认通知单" methodname="Arrear_confirm">Arrear_confirm</method>
+    <method methodid="2001" descraption="获取预约配置表" methodname="Get_MAASetiing">Get_MAASetiing</method>
+    <method methodid="2002" descraption="保存预约配置" methodname="Save_MAASetting">Save_MAASetting</method>
+    <method methodid="2003" descraption="获取可审核生成U8发货单的预约号列表" methodname="Get_ToU8AuditList">Get_ToU8AuditList</method>
+    <method methodid="2004" descraption="获取待审核的特殊预约申请列表" methodname="Get_SpecialAuditList">Get_SpecialAuditList</method>
+    <method methodid="2005" descraption="审核特殊预约申请" methodname="AuditSpecialMAA">AuditSpecialMAA</method>
+    <method methodid="2006" descraption="获取特殊预约的审批意见" methodname="AuditSpecialMAAInfo">AuditSpecialMAAInfo</method>
+    <method methodid="2101" descraption="门卫登录" methodname="guardLogin">guardLogin</method>
+    <method methodid="2102" descraption="车辆进厂时门卫进行确认并写入进厂时间和放行人" methodname="MAACarInUpd">MAACarInUpd</method>
+    <method methodid="2103" descraption="车辆出厂时门卫进行确认并写入出厂时间和放行人" methodname="MAACarOutUpd">MAACarOutUpd</method>
+    <method methodid="2201" descraption="获取产品分类" methodname="GetProductClass">GetProductClass</method>
+    <method methodid="2202" descraption="根据分类获取商品列表" methodname="GetProductList">GetProductList</method>
+    <method methodid="2203" descraption="获取产品现存量" methodname="GetStock">GetStock</method>
+  </methods>
+</rolecontrol>

@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>订单详情</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+	<!--<link rel="stylesheet" href="http://cdn.bootcss.com/mdui/0.3.0/css/mdui.min.css">
+	<script src="http://cdn.bootcss.com/mdui/0.3.0/js/mdui.min.js"></script>
+	-->
+	<link href="../../js/plugins/mdui/css/mdui.min.css" rel="stylesheet" />
+	<link href="../css/loading.css" rel="stylesheet" />
+<style>
+	.mdui-list-item-content{
+		font-size:12px;
+	}
+	.mdui-drawer{
+		width:600px;
+	}
+</style>
+</head>
+<body class="mdui-appbar-with-toolbar mdui-appbar-with-tab mdui-theme-primary-blue mdui-theme-accent-pink">
+	<div class="mdui-appbar mdui-appbar-fixed  ">
+		<div class="mdui-toolbar mdui-color-blue-900">
+			<a href="historyOrderList.html"   class="mdui-btn mdui-btn-icon"> <i class="mdui-icon material-icons">arrow_back</i>
+			</a>
+			<a href="javascript:;" class="mdui-typo-title" id="title"></a>
+			<div class="mdui-toolbar-spacer"></div>
+			<a href="javascript:;" onclick='location.reload()' class="mdui-btn mdui-btn-icon"> <i class="mdui-icon material-icons">refresh</i>
+			</a>
+		</div>
+		<div class="mdui-tab mdui-color-blue-a200" mdui-tab>
+			<a href="#tab1" class="mdui-ripple mdui-ripple-white">输入编码</a>
+			<a href="#tab2" class="mdui-ripple mdui-ripple-white">选择编码</a>
+			<a href="#tab3" id="dl_pro_a"  class="mdui-ripple mdui-ripple-white">多联产品</a>
+			<a href="#tab4" class="mdui-ripple mdui-ripple-white">联多产品</a>
+		</div>
+	</div>
+	<br>
+	<div class="mdui-container-fluid">
+
+		<div id="tab1">
+		<h2 class="mdui-text-color-theme-accent">localStorage</h2>
+<button class="mdui-btn mdui-color-blue mdui-ripple" id='btn1'>添加</button>
+<button class="mdui-btn mdui-color-blue mdui-ripple" id='btn2'>显示</button>
+<button class="mdui-btn mdui-color-blue mdui-ripple" id='btn3'>清空</button>
+
+ <br>
+ <h2 class="mdui-text-color-theme-accent">sessionStorage</h2>
+<button class="mdui-btn mdui-color-blue mdui-ripple" id='btn4'>添加</button>
+<button class="mdui-btn mdui-color-blue mdui-ripple" id='btn5'>显示</button>
+<button class="mdui-btn mdui-color-blue mdui-ripple" id='btn6'>清空</button>
+
+
+ <div id="local"></div>
+		</div>
+		<div id="tab2">
+			<ul class="mdui-list"></ul>
+		</div>
+		<div id="tab3">
+			<div class="mdui-drawer" id="dl_pro">
+				<ul class="mdui-list" id="dl_pro_ul" mdui-collapse="{accordion: true}">
+
+					<li class="mdui-collapse-item  ">
+						<div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+							<i class="mdui-list-item-icon mdui-icon material-icons">people</i>
+							<div class="mdui-list-item-content">Audience</div>
+							<i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+						</div>
+						<ul class="mdui-collapse-item-body mdui-list mdui-list-dense">
+							<li class="mdui-list-item mdui-ripple">Overview</li>
+							<li class="mdui-list-item mdui-ripple">Language</li>
+							<li class="mdui-list-item mdui-ripple">Location</li>
+							<li class="mdui-list-item mdui-ripple">New vs Returning</li>
+						</ul>
+					</li>
+
+					<li class="mdui-collapse-item">
+						<div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+							<i class="mdui-list-item-icon mdui-icon material-icons">device_hub</i>
+							<div class="mdui-list-item-content">Acquisition</div>
+							<i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+						</div>
+						<ul class="mdui-collapse-item-body mdui-list mdui-list-dense">
+							<li class="mdui-list-item mdui-ripple">Overview</li>
+							<li class="mdui-list-item mdui-ripple">All Traffic</li>
+							<li class="mdui-list-item mdui-ripple">Direct Traffic</li>
+							<li class="mdui-list-item mdui-ripple">Search Overview</li>
+						</ul>
+					</li>
+
+					<li class="mdui-collapse-item">
+						<div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+							<i class="mdui-list-item-icon mdui-icon material-icons">touch_app</i>
+							<div class="mdui-list-item-content">Behavior</div>
+							<i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+						</div>
+						<ul class="mdui-collapse-item-body mdui-list mdui-list-dense">
+							<li class="mdui-list-item mdui-ripple">Overview</li>
+							<li class="mdui-list-item mdui-ripple">All Pages</li>
+							<li class="mdui-list-item mdui-ripple">Landing Pages</li>
+							<li class="mdui-list-item mdui-ripple">Exit Pages</li>
+						</ul>
+					</li>
+
+				</ul>
+			</div>
+			<ul class="mdui-list"></ul>
+		</div>
+		<div id="tab4">
+			<ul class="mdui-list"></ul>
+		</div>
+	</div>
+
+	<script src="../../js/plugins/mdui/js/mdui.min.js"></script>
+	<script src="../js/Project/WeiXin_Fun.js"></script>
+
+	<script>
+
+ var $$ = mdui.JQ;
+ var ProClass={};
+       $$(function(){
+      
+      	GetProClass( );
+var dl_pro = new mdui.Drawer('#dl_pro');
+$$(document).on('click','#dl_pro_a',function(){
+	dl_pro.open();
+
+});
+
+$$(document).on('click','.dl_pro_lv1',function(){
+	var pClassID= $$(this).attr('pClassID');
+	var h='<ul class="mdui-collapse-item-body mdui-list mdui-list-dense">';
+	$$.each(ProClass,function(i,v){
+		if (v.pid==pClassID) {
+			h+=' <li class="mdui-list-item mdui-ripple">'+v.name+'</li>';
+		}
+	})
+	h+='</ul>';
+	$$(this).html(h)
+//	$$(h).appendTo($$(this));
+})
+
+
+$$(document).on('click','#btn1',function(){
+	localStorage[new Date()]='1';
+})
+
+$$(document).on('click','#btn2',function(){
+	var t='';
+	$$.each(localStorage,function(i,v){
+		//document.write(localStorage.key(i)+'<br>');
+		t+=localStorage.key(i)+'<br>';
+	})
+	$$('#local').html(t);
+})
+
+
+$$(document).on('click','#btn3',function(){
+		localStorage.clear();
+		$$('#local').html('');
+})
+
+$$(document).on('click','#btn4',function(){
+	sessionStorage[Math.random()]='1';
+})
+
+$$(document).on('click','#btn5',function(){
+	var t='';
+	$$.each(sessionStorage,function(i,v){
+		//document.write(localStorage.key(i)+'<br>');
+		t+=sessionStorage.key(i)+'<br>';
+	})
+	$$('#local').html(t);
+})
+
+
+$$(document).on('click','#btn6',function(){
+		sessionStorage.clear();
+		$$('#local').html('');
+})
+
+ 
+
+        })
+
+      
+
+
+            function GetProClass() {
+                $$.ajax({
+                    url: '/handler/WeiXinHandler.ashx',
+                    dataType: 'json',
+                    method: 'POST',
+                    async:'false',
+                    data: { 'Action': 'GetProClass'},
+                    success: function (res) {
+                        console.log(res)
+                        if (res.flag!=1) {
+                        	mdui.snackbar({'message':res.message});
+                            return false;
+                        }
+                 	var dl_pro_lv1=[];
+                 	var h='';
+                 	ProClass=res.ProClass;
+							$$.each(res.ProClass,function(i,v){
+									if (v.pid=='01') {
+										dl_pro_lv1.push(v);
+										h+='   <li class="mdui-collapse-item dl_pro_lv1" pClassID="'+v.id+'">\
+    <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">\
+      <div class="mdui-list-item-content">'+v.name+'</div>\
+      <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i></div>\
+    <ul class="mdui-collapse-item-body mdui-list mdui-list-dense">\
+      <li class="mdui-list-item mdui-ripple">Overview</li>\
+      <li class="mdui-list-item mdui-ripple">All Traffic</li>\
+      <li class="mdui-list-item mdui-ripple">Direct Traffic</li>\
+      <li class="mdui-list-item mdui-ripple">Search Overview</li></ul></li>';
+									}
+							})
+							 var a=getJsonTree(res.ProClass,null);
+							 console.log(a)
+ 
+							$$('#dl_pro ul').html(h);
+						//	var inst = new mdui.Collapse('#dl_pro ul');
+                           mdui.snackbar({'message':'加载成功','timeout':2000})
+                    }
+                });
+            };
+
+
+   var getJsonTree=function(data,parentId){
+        var itemArr=[];
+        for(var i=0;i<data.length;i++){ 
+            var node=data[i];
+             if(node.pid==parentId ){ 
+                var newNode={id:node.id,title:node.name,nodes:getJsonTree(data,node.id)};
+                itemArr.push(newNode);              
+             }
+        }
+        return itemArr;
+    }
+        
+    </script>
+
+</body>
+</html>

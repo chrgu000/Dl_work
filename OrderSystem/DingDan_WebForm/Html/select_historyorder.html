@@ -1,0 +1,166 @@
+﻿
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="../js/plugins/layui/css/layui.css" rel="stylesheet" />
+    <link href="../js/plugins/mmGrid/mmGrid.css" rel="stylesheet" />
+    <title>选择历史订单.html</title>
+    <style>
+        .select {
+            background-color: #015292;
+            color: #ffffff;
+        }
+
+        #historyorder tbody tr:hover {
+            background-color: #015292;
+        }
+
+        #div {
+            margin: 10px auto auto 10px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">搜索历史订单</label>
+                <div class="layui-input-inline" style="width:320px">
+                    <input type="text" autocomplete="off" placeholder="请输入需要搜索订单号" id="search_all" class="layui-input">
+                </div>
+
+            </div>
+
+        </div>
+        <table id="historyorder"></table>
+    </div>
+
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/plugins/layui/layui.js"></script>
+    <script src="../js/plugins/mmGrid/mmGrid.js"></script>
+
+    <script>
+
+
+        var cols = [
+            {
+                title: '网单号',
+                name: 'strBillNo',
+                width: 150,
+                lockWidth: true,
+                align: 'center'
+            },
+                        {
+                            title: '订单号',
+                            name: 'cSOCode',
+                            width: 150,
+                            lockWidth: true,
+                            align: 'center'
+                        },
+            {
+                title: '下单时间',
+                name: 'datBillTime',
+                width: 150,
+                lockWidth: true,
+                align: 'center'
+            },
+            {
+                title: 'ID',
+                name: 'lngoporderid',
+                width: 150,
+                lockWidth: true,
+                align: 'center',
+                hidden: true
+            }
+
+        ];
+
+
+
+        //JQ ajax全局事件
+        $(document).ajaxStart(function () {
+            layer.load();
+        }).ajaxComplete(function () {
+            layer.closeAll('loading');
+        });
+
+
+
+
+
+        layui.use(['form', 'layer'], function () {
+            var form = layui.form(),
+                layer = layui.layer;
+
+            //页面load时加载客户的历史订单
+            $.ajax({
+                url: "../Handler/ProductHandler.ashx",
+                type: "Post",
+                dataType: "Json",
+                data: {
+                    "Action": "DL_GeneralPreviousOrderBySel"
+                },
+                success: function (data) {
+                    if (data.flag == "5") {
+                        layer.open({
+                            title: '信息'
+                            , content: data.message
+                            , closeBtn: false
+                            , fixed: false
+                            , resize: false
+                            , icon: 2
+                            , btn: ["关闭"]
+                            , yes: function (index, layero) {
+                                layer.close(index);
+                            }
+                        });
+                        return false;
+                    }
+                    var mmg = $('#historyorder').mmGrid({
+                        //url: 'json.json',
+                        items: data,
+                        showBackboard: false,
+                        multiSelect: true,
+                        method: 'get',
+                        // checkCol: true,
+                        cols: cols,
+                        width: '500',
+                        height: '300'
+                    });
+                }
+            });
+
+
+            //选择历史订单
+            $(document).on("click", "td", function () {
+                var trs = $("#historyorder tr");
+                trs.removeClass("select");
+                $(this).parents("tr").removeClass("even").addClass("select");
+            })
+
+
+
+
+
+        })
+
+        //搜索触发
+        $("#search_all").keyup(function (event) {
+            $this = $("#search_all");
+            var txt = $this.val().trim().toUpperCase(); //
+            var trs = $("#historyorder tr");
+            trs.hide();
+            $.each(trs, function (i, v) {
+                if ($(v).find("td:eq(0)").text().toUpperCase().indexOf(txt) > -1) {
+                    $(v).show();
+                }
+            })
+        });
+
+
+    </script>
+</body>
+</html>

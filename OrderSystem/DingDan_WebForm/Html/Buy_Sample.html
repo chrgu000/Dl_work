@@ -1,0 +1,552 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <title>多联网上订单系统</title>
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="../js/plugins/layui-1.0.9/css/layui.css" media="all" />
+    <style>
+        .red {
+            background: #E3CACA;
+            /*color: #fff;*/
+        }
+
+        .yellow {
+            background-color: #f3f5c1;
+        }
+
+        .in input {
+            height: 38px;
+            line-height: 38px;
+            border: 1px solid #e6e6e6;
+            background-color: #fff;
+            border-radius: 2px;
+            width: 40px;
+        }
+
+        .layui-table th, .layui-table td {
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .layui-table th {
+            padding: 2px 10px;
+        }
+
+        .layui-form-item {
+            margin-bottom: 10px;
+        }
+
+        .layui-table tr:hover {
+            background-color: #a9c8da;
+        }
+
+        .iframe .layui-tab {
+            margin: 0px;
+        }
+
+        .btns {
+            border-bottom: 1px solid #7bd1e0;
+            height: 50px;
+            line-height: 50px;
+        }
+
+        body {
+            background-color: #f8f8f8;
+        }
+
+        #buy_form {
+            min-height: 500px;
+        }
+
+        .layui-form-select .layui-anim-upbit {
+            max-height: 200px;
+        }
+
+        .bl {
+            vertical-align: middle;
+            line-height: 36px;
+        }
+    </style>
+</head>
+<body>
+    <div style="margin: 0px;" class="iframe">
+        <div class="layui-tab">
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+                    <form class="layui-form layui-form-pane" action="" id="buy_form">
+                        <div class="layui-form-item btns">
+                            <input type="button" class="layui-btn   layui-btn-small " id="select_product1" value="选择商品" />
+                            <input type="button" class="layui-btn   layui-btn-small " id="select_mainOrder" value="关联主订单" />
+                            <input type="button" class="layui-btn   layui-btn-normal layui-btn-small" id="submit_buy_list" value="提交样品订单" />
+                            <input type="button" class="layui-btn   layui-btn-danger layui-btn-small" id="del_none" value="一键清除零库存" />
+                        </div>
+                        <div id="jbxx">
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">主订单号</label>
+                                    <div class="layui-input-block bl" style="width: 190px">
+                                        <span id="strBillNo" style="font-size: 20px; font-weight: bold;margin-left:15px"></span>
+                                    </div>
+                                </div>
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">制 单 人</label>
+                                    <div class="layui-input-block bl" style="width: 280px">
+                                        <span id="strUserName" style="margin-left:15px;"></span>
+                                    </div>
+                                </div>
+                                <div class="layui-inline"  >
+                                    <label class="layui-form-label">信 用 额</label>
+                                    <div class="layui-input-block bl" style="width: 180px;">
+                                        <span id="TxtCusCredit" style="font-size: 20px; font-weight: bold;margin-left:15px;"></span>
+                                        <span style="display:none" id="cdiscountname"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <div class="layui-inline" >
+                                    <label class="layui-form-label">订单日期</label>
+                                    <div class="layui-input-block bl" style="width: 190px">
+                                        <span id="datCreateTime" style="margin-left:15px;"></span>
+                                    </div>
+                                </div>
+                                <div class="layui-inline"  >
+                                    <label class="layui-form-label">开票单位</label>
+                                    <div class="layui-input-block bl" style="width: 280px">
+                                        <span id="TxtCustomer" style="font-size: 20px; font-weight: bold;margin-left:15px;"></span>
+                                    </div>
+                                </div>
+                                <div class="layui-inline"  >
+                                    <label class="layui-form-label">销售类型</label>
+                                    <div class="layui-input-inline bl" style="width: 180px;">
+                                        <span id="cSTCode" style="margin-left:15px;"></span>
+                                        <span style="display:none;" id="cdiscountname"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <div class="layui-inline"  >
+                                    <label class="layui-form-label">送货方式</label>
+                                    <div class="layui-input-block bl" style="width: 190px">
+                                        <span id="shfs" style="margin-left:15px;"></span>
+                                    </div>
+                                </div>
+                                <div class="layui-inline"  >
+                                    <label class="layui-form-label">送货地址</label>
+                                    <div class="layui-input-block bl" style="width: 280px">
+                                        <span id="txtAddress" style="margin-left:15px;"></span>
+                                    </div>
+                                </div>
+                                <div class="layui-inline"  >
+                                    <label class="layui-form-label">行 政 区</label>
+                                    <div class="layui-input-block　bl" style="width: 180px;">
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <div class="layui-inline"  >
+                                    <label class="layui-form-label">提货时间</label>
+                                    <div class="layui-input-block bl" style="width: 190px">
+                                        <span placeholder="选择提货时间" id="datDeliveryDate" style="margin-left:15px;"></span>
+                                    </div>
+                                </div>
+                                <div class="layui-inline" >
+                                    <label class="layui-form-label">装车方式</label>
+                                    <div class="layui-input-block" style="width: 280px">
+                                        <input type="text" id="strLoadingWays" lay-verify="title" autocomplete="off" placeholder="请输入装车方式" class="layui-input" >
+                                    </div>
+                                </div>
+                                <div class="layui-inline"  >
+                                    <label class="layui-form-label">车型</label>
+                                    <div class="layui-input-block bl" style="width: 120px;">
+                                        <span id="cdefine3" style="margin-left:15px;"></span>
+                                    </div>
+                                </div>
+                                <div class="layui-inline"  >
+                                    <label class="layui-form-label">备 注</label>
+                                    <div class="layui-input-block" style="width: 150px;">
+                                        <textarea name="desc" placeholder="点击输入备注内容" id="strRemarks" class="layui-input"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="layui-table" id="buy_list">
+                            <thead>
+                                <tr>
+                                    <th style="width: 10%">操作</th>
+                                    <th style="width: auto">序号</th>
+                                    <th style="width: 13%">名称</th>
+                                    <th style="width: 10%">规格</th>
+                                    <th style="width: 9%">单位组</th>
+                                    <th style="width: 5%">基本数量</th>
+                                    <th style="width: 5%">基本单位</th>
+                                    <th style="width: 5%">小包装数量</th>
+                                    <th style="width: 5%">小包装单位</th>
+                                    <th style="width: 5%">大包装数量</th>
+                                    <th style="width: 5%">大包装单位</th>
+                                    <th style="width: 6%">基本单位汇总</th>
+                                    <th style="width: 5%">可用库存量</th>
+                                    <th style="width: 7%">包装结果</th>
+                                    <th style="width: 4%">单价</th>
+                                    <th style="width: 5%">金额</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+
+                        </table>
+                        <div class="layui-form-item">
+                            <div style="float: left">
+                            </div>
+                            <div style="float:right;margin-right:30px;">
+                                <div class="layui-inline" style="width: 100%">
+                                    <label class="layui-form-label">总金额:</label>
+                                    <label class="layui-form-label" style="text-align:left;font-weight:bold" id="money"></label>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../js/plugins/layui-1.0.9/layui.js"></script>
+    <!-- <script type="text/javascript" src="../js/Project/function.js?v=2"></script> -->
+   <script>
+        document.write(' <script type="text/javascript"  charset="utf-8" src="\/js\/Project\/function.js?v='+Date.parse(new Date())+'"><\/script>')
+   </script>
+    <script>
+        var codes = [];  //全局变量，本页面添加和删除产品均会在此变量里反映
+        var product_codes = [];
+        var cSTCode = '01'; //全局变量，销售类型，用于传入选择商品页面
+        var iShowType = 1;
+
+        //JQ ajax全局事件
+        //$(document).ajaxStart(function () {
+        //    layer.load();
+        //}).ajaxComplete(function (request, status) {
+        //    layer.closeAll('loading');
+        //});
+
+        layui.use(['element', 'util', 'laydate', 'form'], function () {
+            var form = layui.form(),
+                util = layui.util,
+                laydate = layui.laydate,
+                element = layui.element();
+
+
+            $("#select_mainOrder").click(function () {
+                layer.open({
+                    type: 2
+                     , area: ["550px", "520px"]
+                     , title: "选择需要关联的主订单"
+                     , content: "select_historyorder.html"
+                     , success: function (layero, index) {
+                     }
+                     , btn: ['确定']
+                     , btn1: function (index, layero) {
+                         var historyorder = layer.getChildFrame('#historyorder', index);
+                         var strBillNo = $(historyorder).find(".select td:eq(0)").text();
+                         if (strBillNo == "") {
+                             layer.msg("你还未选择主订单！");
+                         } else {
+                             $.ajax({
+                                 url: "../Handler/ProductHandler.ashx",
+                                 data: { "Action": "Get_SampleOrder_Title", "strBillNo": strBillNo },
+                                 type: "Post",
+                                 dataType: "Json",
+                                 success: function (data) {
+
+                                     var CusCredit_dt = data.CusCredit_dt[0];
+                                     data = data.dt[0];
+                                     if (CusCredit_dt.iCusCreLine < -99999998) {
+                                         $("#TxtCusCredit").text("现金用户");
+                                     } else {
+                                         $("#TxtCusCredit").text(CusCredit_dt.iCusCreLine);
+                                     }
+                                     $("#cdiscountname").text(CusCredit_dt.cdiscountname);
+                                     $("#strBillNo").text(strBillNo);     //主订单号
+                                     $("#strUserName").text(data.ccusname); //制单人
+                                     $("#strRemarks").val(data.strRemarks);//备注
+                                     if (data.cSCCode == 00) {
+                                         $("#shfs").text("自提"); //送货方式
+                                         $("#shfs").attr("cSCCode", "00");  //送货方式编码
+                                     }
+                                     if (data.cSCCode == 01) {
+                                         $("#shfs").text("配送"); //送货方式
+                                         $("#shfs").attr("cSCCode", "01");  //送货方式编码
+                                     }
+                                     $("#shfs").text(data.TxtcSCCode); //送货方式
+                                     $("#txtAddress").text(data.cdefine11); //送货地址
+                                     $("#txtAddress").attr("lngopUseraddressId", data.lngopUseraddressId);  //送货地址代号
+                                    // var datBillTime = (data.datBillTime).slice(6, 19);
+                                     // var time = new Date(Number(datBillTime));
+                                     $("#datCreateTime").text(return_date(data.datBillTime)); //下单日期
+                                     $("#datDeliveryDate").text(return_datetime(data.datDeliveryDate));
+                                     $("#TxtCustomer").text(data.ccusname);//开票单位
+                                     $("#TxtCustomer").attr("ccuscode", data.ccuscode);
+                                     $("#TxtCustomer").attr("cpersoncode", data.cpersoncode); //业务员
+                                     $("#strLoadingWays").val(data.strLoadingWays); //装车方式
+                                     $("#cdefine3").text(data.cdefine3);  //车型
+                                     if (data.lngBillType == 0) {
+                                         $("#cSTCode").text("普通订单");
+                                         $("#cSTCode").attr("cSTCode", data.cSTCode);
+                                     }
+                                     if (data.lngBillType == 1) {
+                                         $("#cSTCode").text("酬宾订单");
+                                         $("#cSTCode").attr("cSTCode", data.cSTCode);
+                                     }
+                                     if (data.lngBillType == 2) {
+                                         $("#cSTCode").text("特殊订单");
+                                         $("#cSTCode").attr("cSTCode", data.cSTCode);
+                                     }
+                                     form.render();
+                                     layer.closeAll();
+                                     // if (data.messages[0].length != 0) {
+                                     //     var s = "有" + data.messages[0].length + "件商品未找到： <br/>", count = 1;
+                                     //     $.each(data.messages[0], function (i, v) {
+                                     //         s = s + count + "、" + v + "<br/>";
+                                     //         count++;
+                                     //     })
+                                     //     s = s + "剩余商品信息提取完成！"
+                                     //     layer.alert(s);
+                                     // }
+                                     // $("#money").text( ("buy_list"));
+                                     var listInfo = get_listInfo("buy_list");
+                                     $("#money").text(listInfo.money);
+                                     $("#pro_weight").text(listInfo.weight)
+                                     set_table_num("buy_list");
+                                     set_table_color("buy_list");
+
+
+                                 },
+                                 error: function (e) {
+                                     alert("error-----" + e);
+                                 }
+                             })
+                         }
+                     }
+
+                })
+            });
+
+
+            //一键清除零库存
+            $(document).on("click", "#del_none", function () {
+                layer.confirm("你确定要删除无库存的商品？", function () {
+                    del_none("buy_list", "code");
+
+                })
+            });
+
+
+
+            //右下功能图标
+            util.fixbar({
+                bar1: 'ဇ',
+                bar2: '',
+                click: function (type) {
+                    if (type === 'bar1') {
+                        if ($("#jbxx").css("display") == "none") {
+                            layer.msg("显示基本信息");
+                            $("#jbxx").show();
+                        } else {
+                            $("#jbxx").hide();
+                            layer.msg("隐藏基本信息");
+                        }
+                    }
+
+                    if (type === 'bar2') {
+                        layer.msg('意见反馈')
+                    }
+
+                    if (type === 'top') {
+                        layer.msg('返回顶部')
+                    }
+                }
+            });
+
+
+
+
+            //弹出产品分类选择页面
+            $("#select_product1").click(function () {
+
+                var kpdw = $("#TxtCustomer").attr("ccuscode");
+                if (kpdw == null || kpdw == "" || kpdw == "undefined") {
+                    layer.alert("请先关联主订单!", { icon: 2 });
+                    return false;
+                }
+                product_codes = get_codes("buy_list");
+                codes = get_codes("buy_list");
+                layer.open({
+                    type: 2
+                      ,offset:"10px"
+                      , area: ["1020px", "490px"]
+                      , title: "选择产品"
+                      , content: "select_product.html?cSTCode=" + cSTCode + "&kpdw=" + kpdw + "&iShowType=" + iShowType
+                      , success: function (layero, index) {
+                      }
+                      , btn: ['确定']
+                      , btn1: function (index, layero) {
+                          // var product_codes = get_codes("buy_list"); //获取购物清单里所有的产品ID
+                          // codes= product_codes;
+                          var add_codes = [];
+                          var tds = $("#buy_list tr").find("td:eq(1)");                      //不在清单里的产品才重新添加
+                          //遍历清单数组，如果数组中的元素不在全局变量codes中，则删除此行
+                          $.each(product_codes, function (i, v) {
+                              if ($.inArray(v, codes) == -1) {
+                                  $.each(tds, function (m, n) {
+                                      if ($(n).attr("code") == v) {
+                                          $(n).parents("tr").remove();
+
+                                      }
+                                  })
+                              }
+                          })
+
+                          //遍历全局数组，如果数组中的元素不在清单数组product_codes中，则需要添加此产品
+                          $.each(codes, function (i, v) {
+                              if ($.inArray(v, product_codes) == -1) {
+                                  add_codes.push(v);
+                              }
+                          })
+                          if (add_codes.length > 0) {
+                              $.ajax({
+                                  traditional: true,
+                                  type: "Post",
+                                  url: "/../Handler/ProductHandler.ashx",
+                                  dataType: "Json",
+                                  data: { "Action": "DLproc_QuasiOrderDetailBySel_new", "codes": add_codes, "kpdw": kpdw ,"areaid":"0" },
+                                  success: function (data) {
+                                      console.table(data.dt)
+                                      $("#buy_list tbody").append(get_html1(data.dt));
+                                      $("#buy_list tbody").find(".realqty").hide();
+                                      layer.msg("添加商品成功！");
+                                      layer.close(index);
+                                      set_table_num("buy_list");
+                                      var trs = $("#buy_list tr");
+                                  }
+                              })
+                          } else {
+                              set_table_num("buy_list");
+                              layer.closeAll();
+                          }
+                      }
+
+                })
+
+            });
+        });
+
+
+
+
+        //提交正式订单
+        $("#submit_buy_list").click(function () {
+            var strBillNo = $("#strBillNo").text().trim();
+            if (strBillNo == "" || strBillNo == null) {
+                layer.alert("你还未关联主订单", { icon: 2 });
+                return false;
+            }
+            if ($("#buy_list tbody").find("tr").length == 0) {
+                layer.msg("你还未选择商品", { icon: 2 });
+                return false;
+            }
+            if ($("#buy_list tbody").find("input").length > 0) {
+                layer.msg("购物清单里还有不正确的输入，请检查后重新输入", { icon: 2 });
+                return false;
+            }
+            var flag = true;
+            $.each($("#buy_list tbody tr").find(".num"), function (i, v) {
+                if ($(v).text() == 0 || $(v).text() == "") {
+                    $(v).parent().addClass("red");
+                    flag = false;
+                }
+            })
+            if (!flag) {
+                layer.msg("购物清单里有未输入数量商品！", { icon: 2 });
+                return false;
+            };
+            $.ajax({
+
+                type: "Post",
+                url: "../Handler/ProductHandler.ashx",
+                dataType: "Json",
+                data: {
+                    "Action": "Insert_SampleOrder",
+                    "strBillNo": $("#strBillNo").text(),
+                    "strRemarks": $("#strRemarks").val(),
+                    "kpdw": $("#TxtCustomer").attr("ccuscode"),
+                    "strLoadingWays": $("#strLoadingWays").val(),
+                    "buy_list": JSON.stringify(get_listData("buy_list")),
+                    "areaid":"0"
+                },
+                success: function (data) {
+                    if (data.flag != 1) {
+                        layer.alert(data.message);
+                    }
+                    else if (data.flag == 1) {
+                        layer.alert("订单提交成功！订单编号为:<br>" + data.message, { icon: 6 }, function () {
+                            window.location.href = "Buy_Sample.html";
+                        });
+                    }
+                },
+                err: function (err) {
+                    layer.alert(err);
+                }
+            })
+
+        })
+
+
+   
+        //传入后台产品数据，拼接为html返回给页面上显示
+        function get_html1(data) {
+            var html = "";
+            $.each(data, function (i, v) {
+                var unit_b = parseFloat(v.cinvdefine13).toString();
+                var unit_m = parseFloat(v.cinvdefine14).toString();
+                html += "<tr>";
+                html += "<td class='ui-widget-content'><a href='javascript:void(0)'  class='del_this '>删除</a><a href='javascript:void(0)'  class='up_this'>上移</a><a href='javascript:void(0)'  class='down_this'>下移</a></td>";
+                html += "<td class='SN' code=" + v.cInvCode + ">" + (i + 1) + "</td>";
+                html += "<td class='cInvName' cinvdefine13=" + unit_b + " cinvdefine14=" + unit_m + " cunitid=" + v.cComUnitCode + "  kl=" + v.Rate + " iTaxRate=" + v.iTaxRate + ">" + v.cInvName + "</td>";
+                html += "<td>" + v.cInvStd + "</td>";
+                html += "<td class='unitGroup'>" + unit_b + v.cComUnitName + "=" + unit_b.div(unit_m) + v.cInvDefine2 + "=1" + v.cInvDefine1 + "</td>";
+                html += "<td class='in num_s'></td>";
+                html += "<td class='cComUnitName'>" + v.cComUnitName + "</td>";
+                html += "<td class='in num_m'></td>";
+                html += "<td class='cInvDefine2'>" + v.cInvDefine2 + "</td>";
+                html += "<td class='in num_b'></td>";
+                html += "<td class='cInvDefine1'>" + v.cInvDefine1 + "</td>";
+                html += "<td class='num'></td>";
+                html += "<td class='realqty'>" + v.iquantity + "</td>";
+                html += "<td class='fAvailQtty'>" + v.fAvailQtty + "</td>";
+                html += "<td class='pack'>" + (typeof (v.cDefine22) == 'undefined' ? "" : v.cDefine22) + "</td>";
+                //html += "<td class='price'>" + v.Quote + "</td>";
+                html += "<td class='price'>" + (v.ExercisePrice).toFixed(6) + "</td>";
+                html += "<td class='sum'></td>";
+                html += "<td class='ex_price' style='display:none'>" + (v.ExercisePrice).toFixed(6) + "</td><td style='display:none' class='ex_sum'></td>";
+                html += '<td class="code" style="display:none">' + v.cInvCode + '</td>';
+                html += '<td style="display:none" class="unit_m">' + unit_m + '</td>';
+                html += '<td style="display:none" class="unit_b">' + unit_b + '</td>';
+                html += '<td style="display:none" class="weight">' + v.iInvWeight + '</td>';
+                html += "</tr>";
+            })
+            return html;
+        };
+
+
+    </script>
+</body>
+</html>

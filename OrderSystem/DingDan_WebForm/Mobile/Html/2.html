@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <!-- <link href="../js/mintui/2.2.13/style.css" rel="stylesheet" /> -->
+    <link href="../js/vue/loading.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css">
+    <title>安全库存预警信息</title>
+    <style type="text/css">
+    body {
+        background-color: #eee;
+    }
+
+    .mint-navbar {
+        margin-top: 40px;
+        /*border-top:1px solid #ccc;*/
+    }
+
+    .mint-tab-container {
+        margin-top: 96px;
+    }
+
+    .mt-tab-container-div {
+        margin-bottom: 15px;
+    }
+
+.mt-tab-container-item{
+    overflow:scroll;
+}
+    .mint-cell {
+        height: 38px;
+        line-height: 38px;
+        vertical-align: middle;
+        min-height: 38px;
+    }
+
+    .mint-cell-wrapper {
+        font-size: 14px;
+    }
+
+    .mint-cell-value {
+        color: #000;
+    }
+
+    .name {
+        font-size: 16px;
+        color: #c62828;
+        font-weight: bold;
+    }
+
+    .nodata {
+        text-align: center;
+        font-size: 50px;
+        color: rgba(0, 0, 0, 0.3);
+        margin-top: 50px;
+    }
+      #content{
+            overflow: scroll;
+        margin-top: 46px;
+
+        }
+        .item{
+
+        }
+        .item .name{
+            height: 80px;
+            background-color: green;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="vm">
+        <mt-header title="安全库存预警信息" fixed>
+        </mt-header>
+     
+        <!-- tab-container -->
+       <div id="content" :style="{height:h+'px'}">
+    <mt-loadmore :bottom-method="loadBottom" :bottom-all-loaded="allLoaded" :auto-fill="isAutoFill" ref="loadmore">
+           <div class="item" v-for="data in list">
+                <div class="name">{{data}}</div>
+           </div>
+    </mt-loadmore>
+</div>
+        
+    
+    </div>
+    <script src="../js/vue/vue-2.5.13.min.js"></script>
+    <script src="../js/vue/axios.js"></script>
+    <script src="../js/vue/axios_FUN.js"></script>
+    <script src="../js/mintui/2.2.13/index.js"></script>
+    <script>
+    let vm = new Vue({
+        el: "#vm",
+        data: {
+            list:[],
+            allLoaded:false,
+            isAutoFill:true,
+            p:0,
+            h:0
+        },
+        methods:{
+            loadBottom: function(){
+               this.$refs.loadmore.onBottomLoaded();
+                this.getList();
+            },
+            getList(){
+                console.log('var');
+                var i = 0,list0 = [];
+                for(i ; i < 10;i ++){
+                    
+                    this.list.push(this.p+i);
+                }
+                this.p+=10;
+                 
+            }
+        },
+        mounted: function(){
+            this.getList();
+            this.h=document.documentElement.clientHeight;
+        }
+    })
+
+
+
+     
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,742 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Get_access_token">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_access_tokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_access_tokenResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_access_token_byAPPID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AgentId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_access_token_byAPPIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_access_token_byAPPIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_UserIdByAuthCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_UserIdByAuthCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_UserIdByAuthCodeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_UserIdByAuthCode_ByAPPID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="agentId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_UserIdByAuthCode_ByAPPIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_UserIdByAuthCode_ByAPPIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMsg_Text">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="touser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="toparty" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="totag" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="agentid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strWxMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMsg_TextResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendMsg_TextResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMsg_TextCard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="touser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="toparty" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="totag" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="agentid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="url" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMsg_TextCardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendMsg_TextCardResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMsg_TextCard_EncryUrl">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="touser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="toparty" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="totag" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="agentid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="orderId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="orderType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMsg_TextCard_EncryUrlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendMsg_TextCard_EncryUrlResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_jsapi_ticket">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_jsapi_ticketResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_jsapi_ticketResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="Get_access_tokenSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_access_token" />
+  </wsdl:message>
+  <wsdl:message name="Get_access_tokenSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_access_tokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_access_token_byAPPIDSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_access_token_byAPPID" />
+  </wsdl:message>
+  <wsdl:message name="Get_access_token_byAPPIDSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_access_token_byAPPIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_UserIdByAuthCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_UserIdByAuthCode" />
+  </wsdl:message>
+  <wsdl:message name="Get_UserIdByAuthCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_UserIdByAuthCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_UserIdByAuthCode_ByAPPIDSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_UserIdByAuthCode_ByAPPID" />
+  </wsdl:message>
+  <wsdl:message name="Get_UserIdByAuthCode_ByAPPIDSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_UserIdByAuthCode_ByAPPIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMsg_TextSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMsg_Text" />
+  </wsdl:message>
+  <wsdl:message name="SendMsg_TextSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMsg_TextResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMsg_TextCardSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMsg_TextCard" />
+  </wsdl:message>
+  <wsdl:message name="SendMsg_TextCardSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMsg_TextCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMsg_TextCard_EncryUrlSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMsg_TextCard_EncryUrl" />
+  </wsdl:message>
+  <wsdl:message name="SendMsg_TextCard_EncryUrlSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMsg_TextCard_EncryUrlResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_jsapi_ticketSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_jsapi_ticket" />
+  </wsdl:message>
+  <wsdl:message name="Get_jsapi_ticketSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_jsapi_ticketResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_access_tokenHttpGetIn" />
+  <wsdl:message name="Get_access_tokenHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="Get_access_token_byAPPIDHttpGetIn">
+    <wsdl:part name="AgentId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Get_access_token_byAPPIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="Get_UserIdByAuthCodeHttpGetIn">
+    <wsdl:part name="code" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Get_UserIdByAuthCodeHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="Get_UserIdByAuthCode_ByAPPIDHttpGetIn">
+    <wsdl:part name="code" type="s:string" />
+    <wsdl:part name="agentId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Get_UserIdByAuthCode_ByAPPIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SendMsg_TextHttpGetIn">
+    <wsdl:part name="touser" type="s:string" />
+    <wsdl:part name="toparty" type="s:string" />
+    <wsdl:part name="totag" type="s:string" />
+    <wsdl:part name="agentid" type="s:string" />
+    <wsdl:part name="strWxMessage" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendMsg_TextHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SendMsg_TextCardHttpGetIn">
+    <wsdl:part name="touser" type="s:string" />
+    <wsdl:part name="toparty" type="s:string" />
+    <wsdl:part name="totag" type="s:string" />
+    <wsdl:part name="agentid" type="s:string" />
+    <wsdl:part name="title" type="s:string" />
+    <wsdl:part name="description" type="s:string" />
+    <wsdl:part name="url" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendMsg_TextCardHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SendMsg_TextCard_EncryUrlHttpGetIn">
+    <wsdl:part name="touser" type="s:string" />
+    <wsdl:part name="toparty" type="s:string" />
+    <wsdl:part name="totag" type="s:string" />
+    <wsdl:part name="agentid" type="s:string" />
+    <wsdl:part name="title" type="s:string" />
+    <wsdl:part name="description" type="s:string" />
+    <wsdl:part name="orderId" type="s:string" />
+    <wsdl:part name="orderType" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendMsg_TextCard_EncryUrlHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="Get_jsapi_ticketHttpGetIn" />
+  <wsdl:message name="Get_jsapi_ticketHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="Get_access_tokenHttpPostIn" />
+  <wsdl:message name="Get_access_tokenHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="Get_access_token_byAPPIDHttpPostIn">
+    <wsdl:part name="AgentId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Get_access_token_byAPPIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="Get_UserIdByAuthCodeHttpPostIn">
+    <wsdl:part name="code" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Get_UserIdByAuthCodeHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="Get_UserIdByAuthCode_ByAPPIDHttpPostIn">
+    <wsdl:part name="code" type="s:string" />
+    <wsdl:part name="agentId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Get_UserIdByAuthCode_ByAPPIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SendMsg_TextHttpPostIn">
+    <wsdl:part name="touser" type="s:string" />
+    <wsdl:part name="toparty" type="s:string" />
+    <wsdl:part name="totag" type="s:string" />
+    <wsdl:part name="agentid" type="s:string" />
+    <wsdl:part name="strWxMessage" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendMsg_TextHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SendMsg_TextCardHttpPostIn">
+    <wsdl:part name="touser" type="s:string" />
+    <wsdl:part name="toparty" type="s:string" />
+    <wsdl:part name="totag" type="s:string" />
+    <wsdl:part name="agentid" type="s:string" />
+    <wsdl:part name="title" type="s:string" />
+    <wsdl:part name="description" type="s:string" />
+    <wsdl:part name="url" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendMsg_TextCardHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SendMsg_TextCard_EncryUrlHttpPostIn">
+    <wsdl:part name="touser" type="s:string" />
+    <wsdl:part name="toparty" type="s:string" />
+    <wsdl:part name="totag" type="s:string" />
+    <wsdl:part name="agentid" type="s:string" />
+    <wsdl:part name="title" type="s:string" />
+    <wsdl:part name="description" type="s:string" />
+    <wsdl:part name="orderId" type="s:string" />
+    <wsdl:part name="orderType" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendMsg_TextCard_EncryUrlHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="Get_jsapi_ticketHttpPostIn" />
+  <wsdl:message name="Get_jsapi_ticketHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="WeiXinSoap">
+    <wsdl:operation name="Get_access_token">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取企业号access_token并写入Application</wsdl:documentation>
+      <wsdl:input message="tns:Get_access_tokenSoapIn" />
+      <wsdl:output message="tns:Get_access_tokenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_access_token_byAPPID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据企业应用ID来获取access_token并写入Application</wsdl:documentation>
+      <wsdl:input message="tns:Get_access_token_byAPPIDSoapIn" />
+      <wsdl:output message="tns:Get_access_token_byAPPIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_UserIdByAuthCode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据code获取微信登录用户的userID</wsdl:documentation>
+      <wsdl:input message="tns:Get_UserIdByAuthCodeSoapIn" />
+      <wsdl:output message="tns:Get_UserIdByAuthCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_UserIdByAuthCode_ByAPPID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据code和企业应用ID获取微信登录用户的userID</wsdl:documentation>
+      <wsdl:input message="tns:Get_UserIdByAuthCode_ByAPPIDSoapIn" />
+      <wsdl:output message="tns:Get_UserIdByAuthCode_ByAPPIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMsg_Text">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">发送企业号消息：文本类型</wsdl:documentation>
+      <wsdl:input message="tns:SendMsg_TextSoapIn" />
+      <wsdl:output message="tns:SendMsg_TextSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMsg_TextCard">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">发送企业号消息：文本卡片类型</wsdl:documentation>
+      <wsdl:input message="tns:SendMsg_TextCardSoapIn" />
+      <wsdl:output message="tns:SendMsg_TextCardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMsg_TextCard_EncryUrl">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">发送企业号消息：文本卡片类型</wsdl:documentation>
+      <wsdl:input message="tns:SendMsg_TextCard_EncryUrlSoapIn" />
+      <wsdl:output message="tns:SendMsg_TextCard_EncryUrlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_jsapi_ticket">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取jsapi_ticket</wsdl:documentation>
+      <wsdl:input message="tns:Get_jsapi_ticketSoapIn" />
+      <wsdl:output message="tns:Get_jsapi_ticketSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WeiXinHttpGet">
+    <wsdl:operation name="Get_access_token">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取企业号access_token并写入Application</wsdl:documentation>
+      <wsdl:input message="tns:Get_access_tokenHttpGetIn" />
+      <wsdl:output message="tns:Get_access_tokenHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_access_token_byAPPID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据企业应用ID来获取access_token并写入Application</wsdl:documentation>
+      <wsdl:input message="tns:Get_access_token_byAPPIDHttpGetIn" />
+      <wsdl:output message="tns:Get_access_token_byAPPIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_UserIdByAuthCode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据code获取微信登录用户的userID</wsdl:documentation>
+      <wsdl:input message="tns:Get_UserIdByAuthCodeHttpGetIn" />
+      <wsdl:output message="tns:Get_UserIdByAuthCodeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_UserIdByAuthCode_ByAPPID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据code和企业应用ID获取微信登录用户的userID</wsdl:documentation>
+      <wsdl:input message="tns:Get_UserIdByAuthCode_ByAPPIDHttpGetIn" />
+      <wsdl:output message="tns:Get_UserIdByAuthCode_ByAPPIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMsg_Text">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">发送企业号消息：文本类型</wsdl:documentation>
+      <wsdl:input message="tns:SendMsg_TextHttpGetIn" />
+      <wsdl:output message="tns:SendMsg_TextHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMsg_TextCard">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">发送企业号消息：文本卡片类型</wsdl:documentation>
+      <wsdl:input message="tns:SendMsg_TextCardHttpGetIn" />
+      <wsdl:output message="tns:SendMsg_TextCardHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMsg_TextCard_EncryUrl">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">发送企业号消息：文本卡片类型</wsdl:documentation>
+      <wsdl:input message="tns:SendMsg_TextCard_EncryUrlHttpGetIn" />
+      <wsdl:output message="tns:SendMsg_TextCard_EncryUrlHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_jsapi_ticket">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取jsapi_ticket</wsdl:documentation>
+      <wsdl:input message="tns:Get_jsapi_ticketHttpGetIn" />
+      <wsdl:output message="tns:Get_jsapi_ticketHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WeiXinHttpPost">
+    <wsdl:operation name="Get_access_token">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取企业号access_token并写入Application</wsdl:documentation>
+      <wsdl:input message="tns:Get_access_tokenHttpPostIn" />
+      <wsdl:output message="tns:Get_access_tokenHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_access_token_byAPPID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据企业应用ID来获取access_token并写入Application</wsdl:documentation>
+      <wsdl:input message="tns:Get_access_token_byAPPIDHttpPostIn" />
+      <wsdl:output message="tns:Get_access_token_byAPPIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_UserIdByAuthCode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据code获取微信登录用户的userID</wsdl:documentation>
+      <wsdl:input message="tns:Get_UserIdByAuthCodeHttpPostIn" />
+      <wsdl:output message="tns:Get_UserIdByAuthCodeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_UserIdByAuthCode_ByAPPID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据code和企业应用ID获取微信登录用户的userID</wsdl:documentation>
+      <wsdl:input message="tns:Get_UserIdByAuthCode_ByAPPIDHttpPostIn" />
+      <wsdl:output message="tns:Get_UserIdByAuthCode_ByAPPIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMsg_Text">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">发送企业号消息：文本类型</wsdl:documentation>
+      <wsdl:input message="tns:SendMsg_TextHttpPostIn" />
+      <wsdl:output message="tns:SendMsg_TextHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMsg_TextCard">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">发送企业号消息：文本卡片类型</wsdl:documentation>
+      <wsdl:input message="tns:SendMsg_TextCardHttpPostIn" />
+      <wsdl:output message="tns:SendMsg_TextCardHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMsg_TextCard_EncryUrl">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">发送企业号消息：文本卡片类型</wsdl:documentation>
+      <wsdl:input message="tns:SendMsg_TextCard_EncryUrlHttpPostIn" />
+      <wsdl:output message="tns:SendMsg_TextCard_EncryUrlHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_jsapi_ticket">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取jsapi_ticket</wsdl:documentation>
+      <wsdl:input message="tns:Get_jsapi_ticketHttpPostIn" />
+      <wsdl:output message="tns:Get_jsapi_ticketHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WeiXinSoap" type="tns:WeiXinSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Get_access_token">
+      <soap:operation soapAction="http://tempuri.org/Get_access_token" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_access_token_byAPPID">
+      <soap:operation soapAction="http://tempuri.org/Get_access_token_byAPPID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_UserIdByAuthCode">
+      <soap:operation soapAction="http://tempuri.org/Get_UserIdByAuthCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_UserIdByAuthCode_ByAPPID">
+      <soap:operation soapAction="http://tempuri.org/Get_UserIdByAuthCode_ByAPPID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMsg_Text">
+      <soap:operation soapAction="http://tempuri.org/SendMsg_Text" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMsg_TextCard">
+      <soap:operation soapAction="http://tempuri.org/SendMsg_TextCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMsg_TextCard_EncryUrl">
+      <soap:operation soapAction="http://tempuri.org/SendMsg_TextCard_EncryUrl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_jsapi_ticket">
+      <soap:operation soapAction="http://tempuri.org/Get_jsapi_ticket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WeiXinSoap12" type="tns:WeiXinSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Get_access_token">
+      <soap12:operation soapAction="http://tempuri.org/Get_access_token" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_access_token_byAPPID">
+      <soap12:operation soapAction="http://tempuri.org/Get_access_token_byAPPID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_UserIdByAuthCode">
+      <soap12:operation soapAction="http://tempuri.org/Get_UserIdByAuthCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_UserIdByAuthCode_ByAPPID">
+      <soap12:operation soapAction="http://tempuri.org/Get_UserIdByAuthCode_ByAPPID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMsg_Text">
+      <soap12:operation soapAction="http://tempuri.org/SendMsg_Text" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMsg_TextCard">
+      <soap12:operation soapAction="http://tempuri.org/SendMsg_TextCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMsg_TextCard_EncryUrl">
+      <soap12:operation soapAction="http://tempuri.org/SendMsg_TextCard_EncryUrl" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_jsapi_ticket">
+      <soap12:operation soapAction="http://tempuri.org/Get_jsapi_ticket" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WeiXinHttpGet" type="tns:WeiXinHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="Get_access_token">
+      <http:operation location="/Get_access_token" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_access_token_byAPPID">
+      <http:operation location="/Get_access_token_byAPPID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_UserIdByAuthCode">
+      <http:operation location="/Get_UserIdByAuthCode" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_UserIdByAuthCode_ByAPPID">
+      <http:operation location="/Get_UserIdByAuthCode_ByAPPID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMsg_Text">
+      <http:operation location="/SendMsg_Text" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMsg_TextCard">
+      <http:operation location="/SendMsg_TextCard" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMsg_TextCard_EncryUrl">
+      <http:operation location="/SendMsg_TextCard_EncryUrl" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_jsapi_ticket">
+      <http:operation location="/Get_jsapi_ticket" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WeiXinHttpPost" type="tns:WeiXinHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="Get_access_token">
+      <http:operation location="/Get_access_token" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_access_token_byAPPID">
+      <http:operation location="/Get_access_token_byAPPID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_UserIdByAuthCode">
+      <http:operation location="/Get_UserIdByAuthCode" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_UserIdByAuthCode_ByAPPID">
+      <http:operation location="/Get_UserIdByAuthCode_ByAPPID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMsg_Text">
+      <http:operation location="/SendMsg_Text" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMsg_TextCard">
+      <http:operation location="/SendMsg_TextCard" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMsg_TextCard_EncryUrl">
+      <http:operation location="/SendMsg_TextCard_EncryUrl" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_jsapi_ticket">
+      <http:operation location="/Get_jsapi_ticket" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WeiXin">
+    <wsdl:port name="WeiXinSoap" binding="tns:WeiXinSoap">
+      <soap:address location="http://192.168.0.249:9002/dlop/wx/weixin.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WeiXinSoap12" binding="tns:WeiXinSoap12">
+      <soap12:address location="http://192.168.0.249:9002/dlop/wx/weixin.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WeiXinHttpGet" binding="tns:WeiXinHttpGet">
+      <http:address location="http://192.168.0.249:9002/dlop/wx/weixin.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WeiXinHttpPost" binding="tns:WeiXinHttpPost">
+      <http:address location="http://192.168.0.249:9002/dlop/wx/weixin.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后台权限控制</title>
+    <link href="../../js/plugins/layui-v2/layui/css/layui.css" rel="stylesheet" />
+    <style>
+body {
+    background-color: #ffffff
+}
+/*.layui-form-checkbox span{
+    font-size:14px;
+}*/
+.ck {
+    border:1px solid #D2D2D2 ;
+}
+
+.ck_right{
+    border-right: 1px solid #D2D2D2 ;
+     border-left: 1px solid #D2D2D2 ;
+}
+    </style>
+
+
+
+</head>
+<body  >
+    <div style="margin: 0px;" class="iframe">
+        <div class="layui-tab">
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+                    <div class="layui-tab">
+                        <ul class="layui-tab-title">
+                            <li class="layui-this">用户权限</li>
+                            <li>用户组权限</li>
+
+                            <li>后台方法</li>
+                        </ul>
+                        <div class="layui-tab-content">
+                            <div class="layui-tab-item layui-show">
+                                <button id="addUser" class="layui-btn layui-btn-normal">新增用户</button>
+                                <table id="tb_user" lay-filter="tb_user"></table>
+
+                            </div>
+                            <div class="layui-tab-item">
+                                <button id="addGroup" class="layui-btn layui-btn-normal">新增用户组</button>
+                                <table id="tb_group" lay-filter="tb_group"></table>
+                            </div>
+
+                            <div class="layui-tab-item">
+                                <button id="addMethod" class="layui-btn layui-btn-normal">新增方法</button>
+                                <table id="tb_method" lay-filter="tb_method"></table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script type="text/html" id="ToolBar">
+  <a class="layui-btn layui-btn-mini" lay-event="edit">更新</a>
+  <a class="layui-btn layui-btn-danger layui-btn-mini" lay-event="del">删除</a>
+</script>
+
+<script type="text/html" id="methodTpl">
+    {{#  if(Number(d.methodgroupid)>=80){ }}
+    <div style="background-color:pink">{{d.methodgroupid}}</div>
+  {{#  } else { }}
+    {{d.methodgroupid}} 
+  {{#  } }}
+</script>
+    <script src="../../js/plugins/layui-v2/layui/layui.all.js"></script>
+    <script src="../js/project/orderrolecontrol.js"></script>
+</body>
+</html>

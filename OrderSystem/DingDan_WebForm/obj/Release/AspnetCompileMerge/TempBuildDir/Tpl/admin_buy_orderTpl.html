@@ -1,0 +1,111 @@
+﻿<div style="margin: 0px;" class="iframe">
+    <div class="layui-tab">
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form layui-form-pane" action="" id="buy_form">
+                    <div class="layui-form-item btns">
+                        <input type="button" class="layui-btn  layui-btn-normal layui-btn-small " id="select_product" value="选择商品" />
+                        <!-- <input type="button" class="layui-btn layui-btn-normal  layui-btn-small " id="select_SpecialProduct" value="选择商品" /> -->
+                       <!--  <input type="button" class="layui-btn layui-btn-small " id="select_history_order" value="获取历史订单" />
+                        <input type="button" class="layui-btn layui-btn-small " id="select_temp_order" value="获取临时订单" />
+                        <input type="button" class="layui-btn   layui-btn-small" id="alert_buy_temp" value="保存临时订单" /> -->
+                        <input type="button" class="layui-btn   layui-btn-normal layui-btn-small"   id="del" value="删除勾选项" />
+                        <input type="button" class="layui-btn   layui-btn-danger layui-btn-small" id="submit_buy_list" value="提交正式订单" />
+                  <!--       <input type="button" class="layui-btn   layui-btn-warm layui-btn-small" id="del_none" value="一键清除零库存" />
+                        <input type="button" class="layui-btn   layui-btn-warm layui-btn-small" page="buy" id="refresh" value="刷新库存" /> -->
+                        <input type="button" class="layui-btn   layui-btn-normal layui-btn-small"  onclick='javascript:window.location.href="adminbuyspecialorder.html"' value="新增特殊订单" />
+                    </div>
+                    <div class="layui-row layui-col-space15">
+                        <div class="layui-col-md3">
+                            <label class="layui-form-label">备 注</label>
+                            <div class="layui-input-block"  >
+                                <textarea name="desc" placeholder="点击输入备注内容" id="strRemarks" class="layui-input"></textarea>
+                            </div>
+                        </div>
+                        <div class="layui-col-md3">
+                            <label class="layui-form-label">开票单位</label>
+                            <div class="layui-input-block " id="TxtCustomer_div"  >
+                                <select id="TxtCustomer" lay-filter="kpdw" name="TxtCustomer">
+                                    <option value lay-search>请选择开票单位</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layui-col-md3">
+                            <label class="layui-form-label">信 用 额</label>
+                            <div class="layui-input-block">
+                                <label id="TxtCusCredit"  class="layui-form-label" style="width: 180px"></label>
+                                <label style="display:none" id="cdiscountname"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="layui-row layui-col-space15" >
+                        <div class="layui-col-md3"  >
+                            <label class="layui-form-label">送货方式</label>
+                            <div class="layui-input-block " id="shfs_div" >
+                                <input name="shfs" id="ps" value="2" title="配送" type="radio" class="radio" lay-filter="shfs" csccode="01">
+                                <input name="shfs" id="zt" value="1" title="自提" type="radio" class="radio" lay-filter="shfs" csccode="00">
+                                <div class="layui-hide">
+                                    <input type="checkbox" lay-filter="shipping_check" lay-skin="primary" title="自提(托运)" id="shipping_check"   >
+                                    <button class="layui-btn-danger layui-btn layui-btn-mini  layui-hide " id="shipping_info" info="" type="button"    >托运信息</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-col-md3">
+                            <label class="layui-form-label">送货地址</label>
+                            <div class="layui-input-block " id="txtAddress_div"  >
+                                <select id="txtAddress" lay-search lay-filter="txtAddress">
+                                    <option value>请先选择送货方式</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layui-col-md3">
+                            <label class="layui-form-label">行 政 区</label>
+                            <div class="layui-input-block bl" id="txtArea_div">
+                                <select id="txtArea" lay-search lay-filter="txtArea">
+                                    <option value>自提必须选择行政区</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="layui-row layui-col-space15">
+                        <div class="layui-col-md3">
+                            <label class="layui-form-label"  >提货时间</label>
+                            <div class="layui-input-block"  >
+                                <input class="layui-input" placeholder="选择提货时间" id="datDeliveryDate" ></div>
+                        </div>
+
+                        <div class="layui-col-md3">
+                            <label class="layui-form-label">装车方式</label>
+                            <div class="layui-input-block"  >
+                                <input type="text" id="strLoadingWays" lay-verify="title" autocomplete="off" placeholder="请输入装车方式" class="layui-input"></div>
+                        </div>
+
+                        <div class="layui-col-md3   ">
+                            <label class="layui-form-label">车&nbsp;&nbsp;&nbsp;&nbsp;型</label>
+                            <div class="layui-input-block bl" id="cdefine3_div"  >
+                                <select id="cdefine3" lay-search>
+                                    <option value>请选择车型</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                   <br>
+                    <table  id="tb" lay-filter="tb"></table>
+                <div class="layui-row">
+                    <div class="layui-col-md3">
+                        <label class="layui-form-label">商品总重量:</label>
+                        <label class="layui-form-label" id="weight">0</label>
+                    </div>
+                    <div class="layui-col-md3 layui-col-md-offset6">
+                        <label class="layui-form-label">总金额:</label>
+                        <label class="layui-form-label"   id="money">0</label>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+</div>

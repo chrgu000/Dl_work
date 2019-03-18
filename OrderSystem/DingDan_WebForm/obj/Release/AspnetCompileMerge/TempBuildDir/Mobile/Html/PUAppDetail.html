@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+    <title>已入库采购申请单</title>
+    <!-- 引入样式 -->
+    <link href="../js/mintui/2.2.13/style.css" rel="stylesheet" />
+    <link href="../js/vue/loading.css" rel="stylesheet" />
+    <!--<link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css">-->
+    <style>
+    body {
+        background-color: #eee;
+    }
+
+    .wrapper {
+        overflow: scroll;
+        margin-top: 56px;
+    }
+
+    .mint-navbar {
+        margin-top: 40px;
+    }
+
+    .mint-tab-container {
+        margin-top: 100px;
+    }
+
+    .left {
+        margin-left: 8px;
+        font-size: 12px;
+    }
+
+    .right {
+        float: right;
+        margin-right: 6px;
+        font-size: 12px;
+    }
+
+    .title {
+        font-size: 14px;
+        color: #c62828;
+        font-weight: bold;
+        height: 38px;
+        line-height: 38px;
+        margin-left: 6px;
+    }
+
+    .content {
+        border-top: 1px solid #ddd;
+        height: 32px;
+        line-height: 32px;
+        font-size: 13px;
+    }
+
+    .mt-tab-container-div {
+        margin-bottom: 15px;
+        background-color: #fff;
+        border-radius: 5px;
+    }
+
+    .nodata {
+        text-align: center;
+        font-size: 40px;
+        color: rgba(0, 0, 0, 0.3);
+        margin-top: 50px;
+    }
+
+    .nomore {
+        text-align: center;
+        color: #888;
+        font-weight: bold;
+    }
+
+    ul li {
+        list-style-type: none;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="vm">
+        <mt-header title="已入库采购申请单" fixed>
+            <span slot="right"> </span>
+        </mt-header>
+        <div  >
+            <div class="mt-tab-container-div" v-for="(item,index) in datas">
+                <div class="title"><span v-text="(index+1)+'.存货名称：'+item['存货名称']"></span> </div>
+                <div class="content"><span class="left" v-text="'存货编码：'+item['存货编码']"> </span><span class="right" v-text="'规格型号：'+item['规格']"> </span></div>
+                <div class="content"><span class="left" v-text="'请购单编号：'+item['请购单号']"> </span><span class="right" v-text="'请购数量：'+item['请购数量']"> </span></div>
+                <div class="content"><span class="left" v-text="'入库单编号：'+item['采购入库单号']"> </span><span class="right" v-text="'入库数量：'+item['本次入库数量']"> </span></div>
+                <div class="content"><span class="left" v-text="'请购单日期：'+item['请购日期'].split(' ')[0]"> </span><span class="right" v-text="'入库单日期：'+item['入库单日期'].split(' ')[0]"> </span></div>
+                <div class="content"> </span><span class="right" v-text="'申请人：'+item['请购制单人']"> </span></div>
+            </div>
+        </div>
+        <!-- <div id="box" class="box">
+<div class="box-in"></div> -->
+    </div>
+    </div>
+    <script src="../js/vue/axios.js"></script>
+    <script src="../js/vue/axios_FUN.js"></script>
+    <script src="../js/vue/SrTools.js"></script>
+    <script src="../js/vue/vue-2.5.13.min.js"></script>
+    <script src="../js/mintui/2.2.13/index.js"></script>
+    <script>
+    var vm = new Vue({
+        el: "#vm",
+        data: {
+            datas: [],
+            label: "",
+            code:''
+        },
+        methods: {
+            getDate(code) {
+                this.datas = [];
+                _this = this;
+                axios({
+                    url: "/handler/mobilehandler.ashx",
+                    method: "post",
+                    data: {
+                        "Action": "DLproc_PUAppDetail",
+                        "code": _this.code
+                    }
+                }).then((res) => {
+                    if (res) {
+                        _this.datas = res.data;
+                    }
+                })
+            }
+
+        },
+        created() {
+
+            this.code=SrTools.GetQueryString('id');
+            if (this.code==null) {
+               this.$messagebox.alert('参数不正确，请重试或联系管理员！');
+                return;
+            }
+            this.getDate(this.code);
+        }
+    })
+
+    
+
+ 
+    </script>
+</body>
+
+</html>
