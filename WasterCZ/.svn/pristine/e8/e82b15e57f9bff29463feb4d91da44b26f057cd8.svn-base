@@ -1,0 +1,673 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Generator" content="EditPlus?">
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script type="text/javascript" src="Scripts/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="Scripts/assets/js/amazeui.min.js"></script>
+    <script type="text/javascript" src="Scripts/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="Scripts/layer/layer.js"></script>
+    <script type="text/javascript" src="Scripts/custom/Utils.js"></script>
+    <script type="text/javascript" src="Scripts/NumKeyboard/numkeyboard.js"></script>
+    <link rel="stylesheet" href="Content/main.css">
+    <link rel="stylesheet" href="Scripts/assets/css/amazeui.min.css">
+    <link rel="stylesheet" href="Scripts/bootstrap/css/bootstrap.min.css" media="screen">
+    <title>多联不合格品计重系统</title>
+    <style>
+        ul, li, h2, h3 {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .Unqualified-home {
+            width: 100%;
+        }
+
+        li {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .Unqualified-top {
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            background: #1C86EE;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .Unqualified-center {
+            min-width: 320px;
+            max-width: 1280px;
+            margin: auto;
+            height: 307px;
+        }
+
+        .Unqualified-center-top {
+            text-align: center;
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            background: #EEAD0E;
+        }
+
+        .Unqualified-center-table {
+            width: 60%;
+            height: 280px;
+            overflow: auto;
+            background: #E0EEE0;
+            float: left;
+        }
+
+        .tp {
+            background: #CDCD00;
+        }
+
+        .Unqualified-center-text {
+            width: 20%;
+            height: 280px;
+            float: left;
+            margin-left: 2%;
+        }
+
+        .Unqualified-center-button {
+            width: 16%;
+            height: 280px;
+            float: left;
+            margin-left: 2%;
+        }
+
+            .Unqualified-center-button button {
+                height: 100%;
+                width: 100%;
+            }
+
+        .Unqualified-bottom {
+            min-width: 320px;
+            max-width: 1280px;
+            margin: auto;
+            height: 380px;
+            background: #FAEBD7;
+            /*margin-top: 30px;*/
+        }
+
+        .Unqualified-bottom-top {
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            float: left;
+            background: #EEAD0E;
+        }
+
+        .Unqualified-bottom-kuang {
+            float: left;
+            width: 100%;
+            height: 340px;
+        }
+
+        .Unqualified-bottom-kuang-l {
+            width: 82%;
+            height: 100%;
+            float: left;
+        }
+
+        .Unqualified-bottom-kuang-l-t {
+            width: 49%;
+            height: 100%;
+            float: left;
+            border: 1px solid #999999;
+        }
+
+        .Unqualified-bottom-button {
+            width: 16%;
+            height: 100%;
+            margin-left: 2%;
+            float: left;
+        }
+
+            .Unqualified-bottom-button button {
+                width: 100%;
+                height: 100%;
+            }
+
+        .Unqualified-bottom-kuang-l-t-text {
+            width: 100%;
+            height: 35%;
+            float: left;
+            line-height: 60Px;
+            padding-left: 20px;
+        }
+
+            .Unqualified-bottom-kuang-l-t-text p {
+                margin: 0px;
+                font-size: 40px;
+            }
+
+        .Unqualified-bottom-kuang-l-t-table {
+            width: 100%;
+            height: 65%;
+            float: left;
+        }
+
+        .Unqualified-bottom-kuang-l-t-table-top {
+            width: 100%;
+            height: 35%;
+            float: left;
+            padding-top: 15px;
+        }
+
+        .Unqualified-bottom-kuang-l-t-table-text {
+            height: 100%;
+            float: left;
+            width: 25%;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        .Unqualified-bottom-kuang-l-t-table-list {
+            width: 75%;
+            height: 100%;
+            float: left;
+            border: 1px solid #CDCDC1;
+            overflow: auto;
+        }
+
+            .Unqualified-bottom-kuang-l-t-table-list li {
+                text-align: center;
+                border: 1px solid #D9D9D9;
+                height: 40px;
+                font-size: 18px;
+                padding-top: 9px;
+            }
+
+        .Unqualified-bottom-kuang-l-t-table-list-1 {
+            width: 75%;
+            /*height: 100%;*/
+            float: left;
+            border: 1px solid #CDCDC1;
+            overflow: auto;
+        }
+
+            .Unqualified-bottom-kuang-l-t-table-list-1 li {
+                text-align: center;
+                border: 1px solid #D9D9D9;
+                height: 40px;
+                font-size: 18px;
+                padding-top: 9px;
+            }
+
+        .Unqualified-bottom-kuang-l-t-table-list-2 {
+            width: 75%;
+            height: 100%;
+            float: left;
+            border: 1px solid #CDCDC1;
+            overflow: auto;
+        }
+
+            .Unqualified-bottom-kuang-l-t-table-list-2 li {
+                text-align: center;
+                border: 1px solid #D9D9D9;
+                height: 40px;
+                font-size: 18px;
+                padding-top: 9px;
+            }
+
+        textarea {
+            margin: 0;
+            /*min-height: 7.5em;*/
+            line-height: 1.5;
+            overflow: auto;
+            resize: vertical;
+            border: 2px solid #ddd;
+            border-radius: 0;
+            color: #999;
+            display: block;
+            font: 400 1em/1 "Open Sans",sans-serif;
+            margin: 0 0 .5em;
+            padding: 1em 1.25em;
+            width: 30%;
+            -webkit-transition: border-color 300ms,color 300ms;
+            transition: border-color 300ms,color 300ms;
+            -webkit-appearance: none;
+            margin: auto;
+            height: 700px;
+        }
+
+        .area-top-class {
+            margin: 0 0 1.6rem;
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="Unqualified-home">
+        <div class="Unqualified-top">
+            <h3>多联不合格品计重系统</h3>
+        </div>
+        <div class="Unqualified-center">
+            <div class="Unqualified-center-top">
+                <h4 class="area-top-class">当日生产派工信息</h4>
+            </div>
+            <div class="Unqualified-center-table">
+                <table class="am-table" id="pgshift_list">
+                    <thead>
+                        <tr>
+                            <th>排班日期</th>
+                            <th>机台号</th>
+                            <th>产品编码</th>
+                            <th>产品名称</th>
+                            <th>产品规格</th>
+                            <th>计划产量</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="Unqualified-center-text">
+                <textarea id="code1" class="am-form-field" style="width: 100%; height: 50%; resize: none" placeholder="称重人员工号" onblur="OnCode1Blur();"></textarea>
+                <textarea id="code2" class="am-form-field" style="width: 100%; height: 50%; resize: none" placeholder="检验人员工号"></textarea>
+            </div>
+            <div class="Unqualified-center-button">
+                <button type="button" id="btnCodeInput" style="width: 100%; height: 50%; resize: none" class=" am-btn am-btn-primary" onclick="btnCodeInput_Click()">手动输入</button>
+                <textarea id="mzInput" class="am-form-field" style="width: 100%; height: 50%; resize: none" placeholder="手动输入毛重(单位：公斤)" disabled="disabled" onblur="OnMzInputBlur()"></textarea>
+            </div>
+        </div>
+        <div class="Unqualified-bottom">
+            <div class="Unqualified-bottom-top">
+                <h4 class="area-top-class">不合格信息确认</h4>
+            </div>
+            <div class="Unqualified-bottom-kuang">
+                <div class="Unqualified-bottom-kuang-l">
+                    <div class="Unqualified-bottom-kuang-l-t" style="margin-right: 1%">
+                        <div class="Unqualified-bottom-kuang-l-t-text">
+                            <p>毛&nbsp;重:&nbsp;&nbsp;<i><span id="mz">@ViewBag.Maozhong</span></i>公斤</p>
+                            <p>净&nbsp;重:&nbsp;&nbsp;<i><span id="jz">0</span></i>公斤</p>
+                        </div>
+                        <div class="Unqualified-bottom-kuang-l-t-table">
+                            <div class="Unqualified-bottom-kuang-l-t-table-text">
+                                <p>皮&nbsp;&nbsp;&nbsp;重:</p>
+                            </div>
+                            <div class="Unqualified-bottom-kuang-l-t-table-list">
+                                <ul>
+                                    @foreach (var item in ViewData["tare"] as List<DlApp.Models.DL_U8_Tare>)
+                                    {
+                                        <li onclick="OnClickTare(@item.id,@item.weight)">@item.display</li> 
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Unqualified-bottom-kuang-l-t" style="margin-left: 1%">
+                        <div class="Unqualified-bottom-kuang-l-t-table-top">
+                            <div class="Unqualified-bottom-kuang-l-t-table-text">
+                                <p>粉料标识:</p>
+                            </div>
+                            <div class="Unqualified-bottom-kuang-l-t-table-list-1">
+                                <ul>
+                                    <li class="tp" onclick="OnClickWlbs(1)">干净</li>
+                                    <li onclick="OnClickWlbs(2)">脏</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="Unqualified-bottom-kuang-l-t-table">
+                            <div class="Unqualified-bottom-kuang-l-t-table-text">
+                                <p>不合格原因:</p>
+                            </div>
+                            <div class="Unqualified-bottom-kuang-l-t-table-list-2">
+                                <ul>
+                                    @foreach (var item in ViewData["reasons"] as List<DlApp.Models.Reason>)
+                                    {              
+                                        <li onclick="OnClickReason(this)"  title="@item.cReasonCode">@item.cReasonName</li> 
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Unqualified-bottom-button">
+                    <button type="button" class=" am-btn am-btn-primary" id="btnConfirm" onclick="btnConfirm_Click()">确认称重</button>
+                </div>
+            </div>
+        </div>
+
+        <!--地磅参数-->
+        <input type="hidden" id="port" value="@ViewBag.port" />
+        <input type="hidden" id="rate" value="@ViewBag.rate" />
+        <input type="hidden" id="interval" value="@ViewBag.interval" />
+        <!--派工单信息-->
+        <input type="hidden" id="pgShiftSels" value="" />
+        <input type="hidden" id="tareSel" value="" />
+        <input type="hidden" id="tareSelValue" value="" />
+        <input type="hidden" id="wlbsSel" value="1" />
+        <input type="hidden" id="reasonSel" value="" />
+        <object id="activeX" height="0" classid="clsid:87759940-9410-430b-B1F2-3483E7136617" codebase="Dll/DlHelper.cab"></object>
+        <!--软键盘是否显示中-->
+        <input type="hidden" id="kbCode1" value="0" />
+    </div>
+    <script>
+    <!--选中高亮-->
+    $(document).ready(function () {
+        $(".Unqualified-center-table tbody tr").click(function () {
+            $("tr[class='tp']").removeAttr("class");
+            $(this).addClass("tp");
+        });
+    });
+    $(document).ready(function () {
+        $(".Unqualified-bottom-kuang-l-t-table-list li").click(function () {
+            $(".Unqualified-bottom-kuang-l-t-table-list li[class='tp']").removeAttr("class");
+            $(this).addClass("tp");
+        });
+    });
+    $(document).ready(function () {
+        $(".Unqualified-bottom-kuang-l-t-table-list-1 li").click(function () {
+            $(".Unqualified-bottom-kuang-l-t-table-list-1 li[class='tp']").removeAttr("class");
+            $(this).addClass("tp");
+        });
+    });
+    $(document).ready(function () {
+        $(".Unqualified-bottom-kuang-l-t-table-list-2 li").click(function () {
+            $(".Unqualified-bottom-kuang-l-t-table-list-2 li[class='tp']").removeAttr("class");
+            $(this).addClass("tp");
+        });
+    });
+    function showMsgTip(str) {
+        layer.msg(str);
+    }
+    function showMsg(str) {
+        layer.alert(str);
+    }
+    //<!--开启地磅监听-->
+    $(document).ready(function () {
+        var obj = document.getElementById("activeX");
+        var port = $('#port').val();
+        var rate = $('#rate').val();
+        obj.doAccess(rate, port, window);
+
+        var interval = $('#interval').val();
+        setInterval("Js_SetResult_wg()", Number(interval) * 1000);//固定秒数执行一次
+    });
+    //<!--ActiveX回调-->
+    function Js_SetResult_wg() {
+        var obj = document.getElementById("activeX");
+        val = obj.getResult();
+        $('#mz').html(Number(val));
+
+        CalcJingzhong();
+    }
+    //<!--是否允许手动输入人员工号-->
+    $(document).ready(function () {
+        var me = this;
+        $.ajax({
+            url: '@Url.Action("GetAllowInputAction", "home")',
+            type: 'GET',
+            dataType: 'JSON',
+            global: false,
+            cache: false,
+            timeout: 120000,
+            data: {},
+            success: function (res) {
+                //是否允许手动输入工号
+                var key1 = res.key1;
+                openCodeInput(key1);
+
+                //是否允许手动输入毛重
+                var key13 = res.key13;
+                openMzInput(key13);
+            },
+            error: function (res) {
+                showMsg("系统异常，请稍候再试");
+            }
+        });
+    });
+    //<!--开启手动录入-->
+    function btnCodeInput_Click() {
+        layer.prompt({
+            title: '请输入解锁口令',
+            formType: 1
+        },
+       function (pass, index) {
+           var pwd = pass;
+           $.ajax({
+               url: '@Url.Action("ValidateInputPassAction", "home")',
+               type: 'GET',
+               dataType: 'JSON',
+               global: false,
+               cache: false,
+               timeout: 120000,
+               data: { pass: pwd },
+               success: function (res) {
+                   var errmsg = '口令验证失败，请重新输入';
+                   var success = res.success;
+                   if (success) {
+                       openMzInput("1");
+                       layer.closeAll();
+                   } else {
+                       showMsgTip(errmsg);
+                   }
+               },
+               error: function (res) {
+                   showMsg("系统异常，请稍候再试");
+               }
+           });
+       });
+    }
+    //<!--是否开启手动录入工号-->
+    function openCodeInput(v) {
+        if (v == '1') {
+            //<!--允许手动输入工号时，显示虚拟键盘-->
+            $("#code1").numkeyboard({
+                keyboardRadix: 600,//键盘大小基数
+                mainbackground: '#C8BFE7', //主背景色
+                menubackground: '#4A81B0', //头背景色
+                exitbackground: '#4376A0', //关闭按钮背景色
+                buttonbackground: '#ff730e', //键盘背景色
+                clickeve: true,//是否绑定元素click事件
+                openAction: onKbOpenCode1,//自定义：键盘打开后事件
+                closeAction: onKbCloseCode1,//自定义：键盘关闭后事件
+            });
+            $("#code2").numkeyboard({
+                keyboardRadix: 600,//键盘大小基数
+                mainbackground: '#C8BFE7', //主背景色
+                menubackground: '#4A81B0', //头背景色
+                exitbackground: '#4376A0', //关闭按钮背景色
+                buttonbackground: '#ff730e', //键盘背景色
+                clickeve: true//是否绑定元素click事件
+            });
+        }
+    }
+    //<!--是否开启手动录入毛重-->
+    function openMzInput(v) {
+        if (v == '1') {
+            $('#mzInput').removeAttr('disabled');
+        } else {
+            $('#mzInput').attr('disabled', true);
+        }
+    }
+    //<!--允许手动录入工号：弹出虚拟键盘-->
+    function onKbOpenCode1() {
+        $("#kbCode1").val("1");
+    }
+    function onKbCloseCode1() {
+        $("#kbCode1").val("0");
+        OnCode1Blur();
+    }
+    //<!--称重人员工号输入后焦点离开-->
+    function OnCode1Blur() {
+        var code = $("#code1").val();
+        var kbCode1 = $("#kbCode1").val();
+        if (kbCode1 == '1') return true;
+        if (code !== '') {
+            layer.load();
+            $.ajax({
+                url: '@Url.Action("GetPgShiftAction", "home")',
+                type: 'GET',
+                dataType: 'JSON',
+                global: false,
+                cache: false,
+                timeout: 120000,
+                data: { code: code },
+                success: function (res) {
+                    var rs = res.rs;
+                    var str = "";
+                    for (b in rs) {
+                        str += "<tr onclick='OnClickPgShift(this, " + rs[b].moroutingshiftid + ")' class='data_tr'>";
+                        str += "<td>" + sxDateToString(rs[b].startdate) + "</td>"
+                        str += "<td>" + sxToString(rs[b].ceqcode) + "</td>"
+                        str += "<td>" + sxToString(rs[b].cinvcode) + "</td>"
+                        str += "<td>" + sxToString(rs[b].cinvname) + "</td>"
+                        str += "<td>" + rs[b].cinvstd + "</td>"
+                        str += "<td>" + rs[b].qty + "</td>"
+                        str += "<tr>";
+                    }
+                    $('#pgshift_list tbody').empty();
+                    $('#pgshift_list tbody').append(str);
+                    $('#pgShiftSels').val("");
+                    layer.closeAll('loading');
+                    if (str == '') {
+                        showMsgTip("无派工信息");
+                    }
+                },
+                error: function (res) {
+                    layer.closeAll('loading');
+                    showMsg("系统异常，请稍候再试");
+                }
+            });
+        } else {
+            ClearData();
+        }
+    }
+    //<!--派工信息选择：行高亮显示、保存选中行记录-->
+    function OnClickPgShift(obj, pkey) {
+        var spStr = ',';
+        var selStr = $('#pgShiftSels').val();
+        var arr = selStr.split(spStr);
+        if ($(obj).hasClass('tp')) {
+            $(obj).removeClass('tp');
+            arr = removeArrayItem(arr, pkey);
+        } else {
+            $(obj).addClass('tp');
+            arr.push(pkey);
+        }
+        $('#pgShiftSels').val(arr.join(spStr));
+    }
+    //<!--毛重手动录入框焦点离开-->
+    function OnMzInputBlur() {
+        CalcJingzhong();
+    }
+    //<!--皮重选择：计算净重、保存选中行记录-->
+    function OnClickTare(id, weight) {
+        $('#tareSel').val(id);
+        $('#tareSelValue').val(weight);
+
+        CalcJingzhong();
+    }
+    //<!--粉料标识选择：保存选中行记录-->
+    function OnClickWlbs(val) {
+        $('#wlbsSel').val(val);
+    }
+    //<!--不合格原因选择：保存选中行记录-->
+    function OnClickReason(obj) {
+        $('#reasonSel').val(obj.title);
+    }
+    //<!--计算净重-->
+    function CalcJingzhong() {
+        var jz = 0;
+        var mz = Number($('#mz').html());
+        if (mz == 0) {
+            mz = Number($('#mzInput').val());
+        }
+        var tare = Number($('#tareSelValue').val());
+        jz = mz - tare;
+        if (jz <= 0) {
+            jz = 0;
+        }
+        else {
+            jz = jz.toFixed(6);
+        }
+        $('#jz').html(Number(jz));
+    }
+    //<!--画面数据清空-->
+    function ClearData() {
+        $('#code1').val("");
+        $('#pgshift_list tbody').empty();
+        $('#pgShiftSels').val("");
+        //$('#code1').focus();
+    }
+    //<!--确认称重-->
+    function btnConfirm_Click() {
+        //取得派工单
+        var ps = $('#pgShiftSels').val();
+        if (ps == null || ps == "") {
+            showMsgTip("派工单未选择");
+            return false;
+        }
+        //取得检验人员工号
+        var code1 = $('#code1').val();
+        var code2 = $('#code2').val();
+        if (code2 == null || code2 == "") {
+            showMsgTip("检验人员工号未输入");
+            return false;
+        }
+        //称重结果验证
+        var jz = $('#jz').html();
+        if (jz == 'NaN' || jz == NaN || Number(jz) < 0) {
+            showMsgTip("称重结果不正确");
+            return false;
+        }
+        if (Number(jz) == 0) {
+            showMsgTip("净重为0，请先称重");
+            return false;
+        }
+        //取得粉料标识
+        var wlbs = $('#wlbsSel').val();
+        if (wlbs == null || wlbs == "") {
+            showMsgTip("粉料标识未选择");
+            return false;
+        }
+        //取得不合格原因
+        var reason = $('#reasonSel').val();
+        if (reason == null || reason == "") {
+            showMsgTip("不合格原因未选择");
+            return false;
+        }
+        layer.load();
+        $.ajax({
+            url: '@Url.Action("WeighedAction", "UF")',
+            type: 'GET',
+            dataType: 'JSON',
+            global: false,
+            cache: false,
+            timeout: 120000,
+            data: { ps: ps, code1: code1, code2: code2, jz: jz, reason: reason, wuliaoBs: wlbs },
+            success: function (res) {
+                layer.closeAll('loading');
+                var success = res.success;
+                var msg = res.msg;
+                if (success) {
+                    showMsg("称重成功" + "<BR>" + msg);
+                    //称重成功后画面清空
+                    ClearData();
+                    $('#code1').focus();
+                } else {
+                    showMsg("称重失败" + "<BR>" + msg);
+                }
+            },
+            error: function (res) {
+                layer.closeAll('loading');
+                showMsg("系统异常，请稍候再试");
+            }
+        });
+    }
+    </script>
+</body>
+</html>

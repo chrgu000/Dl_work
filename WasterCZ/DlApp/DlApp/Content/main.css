@@ -1,0 +1,471 @@
+body{
+	background:#EEEEEE;
+	margin:0;
+	padding:0;
+	font-family:"微软雅黑", Arial, Helvetica, sans-serif;
+	}
+	
+	input{padding:0px}
+a{
+	color:#006600;
+	text-decoration:none;
+	}
+a:hover{color:#990000;}
+.top{
+	margin:5px auto;
+	color:#990000;
+	text-align:center;
+	}
+.info select{ 
+ height:35px;
+ background:#FFFFFF;
+ width:30%;
+ font-size:12px;
+ 
+ }
+.info{ 
+
+ 
+ }
+.info #show{ 
+color:#3399FF;
+ }
+.bottom{
+	text-align:right;
+	font-size:12px;
+	color:#CCCCCC; 
+	width:1000px;
+}
+.Electrician-frame{
+	
+	width:90%;
+	
+	margin:auto;
+	background:;
+}
+
+@media screen and (min-width: 0px) and (max-width: 1280px) {
+    .Electrician-Avatar{
+	width:100%;
+	min-height:100px;
+	
+	float:left;
+  }
+  .Electrician-form{
+	  float:left;
+	  width:100%;
+	  height:70px;
+	  padding:20px 0px 20px 0px;
+	  
+	  
+  }
+  
+  .Electrician-Submit{
+	  float:left;
+	  width:100%;
+	  height:140px;
+	 
+	  padding:20px 0px 40px 0px
+  }
+  .Electrician-Submit-text{
+	  height:40%;
+	  width:100%;
+	  padding-left:20px
+  }
+  .Electrician-Submit-button{
+	  height:60%;
+	  width:100%;
+	  
+  }
+  #accept{
+	  height:100%
+	  
+  }
+  .Electrician-form-text{
+	  height:100%;
+	  width:20%;
+	  line-height:30px;
+	  float:left;
+	  text-align:center;
+	 
+  }
+  .Electrician-form-text p{
+	margin:0px;
+	padding:0px;  
+	  
+  }
+  .Electrician-form-input{
+	  width:80%;
+	  height:100%;
+	  float:left;
+	   padding:0px 5% 0px 0px ;
+	  
+  }
+ .Electrician-form-input input{
+	 height:100%;
+	 width:100%;
+	 
+ }
+ .Electrician-form-input-input{
+	 width:65%;
+	 height:100%;
+	 float:left;
+	 line-height:20px
+	 
+ }
+ .Electrician-form-input-a{
+	 width:35%;
+	 height:100%;
+	 float:left;
+	 text-align:center;
+	 font-size:13px;
+	 line-height:30px
+ }
+ .Electrician-form-input-a a{
+	 font-size:13px;
+	 color:#EEAD0E
+ }
+ .Electrician-form-input-a2{
+	 width:50%;
+	 height:100%;
+	 float:left;
+	 text-align:center;
+	 
+	 line-height:30px
+ }
+ .Electrician-form-input-a2 a{
+	 font-size:13px;
+	 color:#C9C9C9;
+	 
+ }
+ .Electrician-form-input-u{
+	 width:50%;
+	 float:left;
+	 height:100%;
+	 
+	 
+ }
+ ..Electrician-form-input-u input{
+	  height:100%;
+	 width:100%;
+	 
+ }
+ .Electrician-form-input-input-t{
+	 width:65%;
+	 height:100%;
+	 float:left;
+	 line-height:35px
+	 
+ }
+ .Electrician-feetr-text{
+	 width:65%;
+	 height:50px;
+	 margin:auto;
+	 line-height:50px;
+	 font-size:12px;
+	 color:#CCCCCC;
+	 margin-bottom:30px
+	
+ }
+  .Electrician-feetr-text a{
+	   font-size:13px;
+	 color:#CCCCCC;
+	  
+  }
+ .Electrician-feetr-text-left{
+	 width:50%;
+	 height:20px;
+	 float:left;
+	 text-align:right;
+	 padding-right:5px;
+	 border-right:0.5px solid #CCCCCC;
+	line-height:20px;
+ }
+ .Electrician-feetr-text-right{
+	 width:50%;
+	 height:20px;
+	 padding-left:5px;
+	 border-left:1px  solid #CCCCCC;
+	 float:left;
+	 line-height:20px;
+ }
+ .Electrician-form-g{
+	 width:25%;
+	 height:100%;
+	 line-height:35px;
+	  float:left;
+	  text-align:center;
+ }
+ .Electrician-form-t{
+	 width:75%;
+	 height:100%;
+	  float:left;
+	   padding:0px 5% 0px 0px ;
+	  
+	 
+ }
+ .Electrician-form-r{
+	 width:35%;
+	 height:100%;
+	 float:left;
+ }
+ .Electrician-form-r input{
+	 height:100%;
+	 width:100%
+	 
+ }
+ .Electrician-form-rt{
+	 width:30%;
+	 height:100%;
+	 float:left;
+	 text-align:center;
+	 line-height:35px
+ }
+ .home-logo{
+	 
+	 width:100%;
+	 float:left;
+	 padding:0px 0px 20px 0px
+ }
+ .home-footer{
+	
+	 width:100%;
+	 float:left;
+	 padding:30px 0px 20px 0px;
+ }
+ .home-footer-logo{
+	 width:100%;
+	 height:50%;
+	 float:left;
+	 
+ }
+ .home-footer-text{
+	 width:100%;
+	 height:50%;
+	 float:left;
+	 margin-top:10px;
+ }
+ .home-footer-logo-lg{
+	 width:35%;
+	 margin:auto;
+	 height:100%;
+ }
+ .home-footer-text-left{
+	 width:50%;
+	 height:100%;
+	 float:left;
+	text-align:right;
+	padding:0px 6px 0px 0px;
+}
+.home-footer-text-left a{
+	font-size:13px;
+	color:#D3D3D3
+	
+}
+.home-footer-text-right{
+	 width:50%;
+	 height:100%;
+	 float:left;
+	padding:0px 0px 0px 6px;
+	border-left
+}
+.home-footer-text-right a{
+	font-size:13px;
+	color:#D3D3D3
+	
+}
+.complete-logo{
+	width:80px;
+	height:80px;
+	margin-left:40%;
+	}
+	.complete-o{
+		height:110px;
+		width:60%;
+		margin:auto;
+		margin-top:50%;
+		text-align:center;
+		line-height:20px;
+		font-size:15px;
+		color:#CD8500
+	}
+	.complete-o p{margin:0px}
+	
+	
+	
+}
+/*admin*/
+.admin-top{
+		width:100%;
+		height:80px;
+		background-color:#0066cb;	
+	}
+.admin-top-logo{
+	width:180px;
+	height:100%;
+	margin-left:100px;
+	float:left
+}
+.admin-top-text{
+	width:180px;
+	height:100%;
+	text-align:center;
+	line-height:70px;
+	float:right;
+	margin-right:100px;
+	
+}
+.admin-top-text p{
+	font-size:16px;
+	color:#FFFFFF;
+}
+.admin-center{
+	
+	height:600px;
+	width:100%;
+	background:url(../images/后台Banner.jpg);
+	background-repeat:no-repeat;
+	background-size:cover;
+  
+}
+.admin-center-Submit{
+	width:300px;
+    float:right;
+	margin-right:120px;
+	margin-top:50px;
+	border:2px solid #D3D3D3;
+	border-radius:5px;
+	background:#ffffff
+}
+.admin-center-text{
+    height:70px;
+    width:100%;	
+	padding:20px 0px 20px 35px ;
+	line-height:30px
+}
+.admin-center-text p{
+	width:35%;
+	height:100%
+	
+}
+.admin-center-text-i{
+	width:20%;
+	height:100%;
+	float:left;
+}
+.admin-center-text-i p{
+	width:100%;
+   height:100%
+;margin:0px
+}
+.admin-center-text-p{
+	width:65%;
+	height:100%;
+	float:left
+}
+.admin-center-text-p input{
+	width:100%;
+	height:100%
+	
+}
+.admin-center-text-j{
+	width:45%;
+	height:100%;
+	float:left;
+}
+.admin-center-text-j input{
+	width:100%;
+	height:100%;
+	
+}
+.admin-center-text-t{
+	width:40%;
+	height:100%;
+	float:left;
+	padding-left:30px;
+}
+.admin-center-submit-bl{
+	height:120px;
+    width:100%;	
+	padding:20px 35px 20px 35px ;
+	line-height:30px
+}
+.admin-center-submit-bl-text{
+	width:100%;
+	height:50%;
+	float:left;
+	
+}
+.admin-center-submit-bl-button{
+	width:100%;
+	height:50%;
+	float:left;
+	
+}
+.admin-center-submit-bl-text-left{
+	width:50%;height:100%;
+	float:left;
+	font-size:13px;
+	line-height:30px
+}
+.admin-center-submit-bl-text-right{
+	width:50%;height:100%;
+	float:left;
+}
+.admin-center-submit-bl-text-left p{
+	margin:0px
+}
+.admin-center-submit-bl-text-right p{
+	font-size:13px;
+	margin:0px;
+	text-align:right;
+}
+.admin-center-submit-bl-text-left input{
+	margin:0px
+	
+}
+.admin-footer{
+position:fixed;
+left:0px; bottom:0px;
+_position:absolute;
+	width:100%;
+	float:left;
+}
+.admin-footer-text{
+	height:50px;
+	width:200px;
+	margin:auto;
+	line-height:30px;
+	padding:20px 0px 0px 0px;
+}
+.admin-footer-text a {
+	font-size:12px;
+	color:#3B3B3B;
+	
+}
+.admin-footer-text2{
+	
+	height:40px;
+	width:270px;
+	margin:auto;
+	line-height:30px;
+	padding:10px 0px 0px 0px;
+}
+.admin-footer-text2 p{
+	font-size:13px;
+	color:#ccc;
+	margin:0px
+}
+.admin-footer-text3 p{
+	font-size:13px;
+	color:#ccc
+	
+}
+.admin-footer-text3{
+	
+	height:40px;
+	width:655px;
+	margin:auto;
+	line-height:30px;
+	padding:10px 0px 0px 0px;
+}

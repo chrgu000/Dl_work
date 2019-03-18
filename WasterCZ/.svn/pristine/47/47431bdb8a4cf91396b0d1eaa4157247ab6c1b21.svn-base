@@ -1,0 +1,137 @@
+﻿using DlApp.Common;
+using DlApp.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace DlApp.Controllers
+{
+    public class HomeController : Controller
+    {
+        private UFLogic logic = new UFLogic();
+
+        /// <summary>
+        /// 初始化
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Index()
+        {
+            Decimal maozhong = 0M; //测试重量：0.00030899M;
+            ViewBag.Maozhong = maozhong;
+            //地磅参数配置
+            ViewBag.port = logic.getOptions(Const.Option_Key9).First().value;
+            ViewBag.rate = logic.getOptions(Const.Option_Key10).First().value;
+            ViewBag.interval = logic.getOptions(Const.Option_Key11).First().value;
+
+            //派工信息为空
+            List<DL_U8_pgshift> sts = new List<DL_U8_pgshift>();
+            ViewData["pgshift"] = sts;
+
+            // 取得皮重信息
+            ViewData["tare"] = logic.getTares();
+
+            // 取得不合格品原因
+            ViewData["reasons"] = logic.getReasons();
+            return View();
+        }
+
+        /// <summary>
+        /// 判断是否允许手动输入工号
+        /// </summary>
+        /// <returns></returns>
+        public JsonResult GetAllowInputAction()
+        {
+            JsonResult jr = new JsonResult();
+            UIOptions ret = new UIOptions();
+            try
+            {
+                //是否允许手动录入工号
+                ret.key1 = "0";
+                List<DL_U8_Options> rs = logic.getOptions(Const.Option_Key1);
+                if (rs != null && rs.Count > 0)
+                {
+                    ret.key1 = rs[0].value;
+                }
+                //是否允许手动录入毛重
+                ret.key13 = "0";
+                List<DL_U8_Options> ds = logic.getOptions(Const.Option_Key13);
+                if (ds != null && ds.Count > 0)
+                {
+                    ret.key13 = ds[0].value;
+                }
+                ret.success = true;
+            }
+            catch (Exception ex)
+            {
+                ret.success = false;
+                ret.key1 = "0";
+                ret.key13 = "0";
+                Console.WriteLine(ex.ToString());
+            }
+            jr.Data = ret;
+            jr.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+            return jr;
+        }
+
+        /// <summary>
+        /// 称重人员工号输入后查询当日生产派工信息
+        /// </summary>
+        /// <param name="code">称重人编号</param>
+        /// <returns></returns>
+        public JsonResult GetPgShiftAction(String code)
+        {
+            JsonResult jr = new JsonResult();
+            UIRet<DL_U8_pgshift> ret = new UIRet<DL_U8_pgshift>();
+            try
+            {
+                List<DL_U8_pgshift> rs = logic.getVPgShift(code.Trim());
+                ret.success = true;
+                ret.rs = rs;
+            }
+            catch (Exception ex)
+            {
+                ret.success = false;
+                ret.msg = ex.ToString();
+                Console.WriteLine(ex.ToString());
+            }
+            jr.Data = ret;
+            jr.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+            return jr;
+        }
+
+        /// <summary>
+        /// 手动开启手动录入时口令验证
+        /// </summary>
+        /// <param name="pass"></param>
+        /// <returns></returns>
+        public JsonResult ValidateInputPassAction(String pass)
+        {
+            JsonResult jr = new JsonResult();
+            UIRet<String> ret = new UIRet<String>();
+            try
+            {
+                Entities db = new Entities();
+                DL_U8_Users user = db.DL_U8_Users.Where(u => u.username.Equals("admin")).FirstOrDefault();
+                if (user == null || user.password == null || !user.password.Equals(pass))
+                {
+                    ret.success = false;
+                }
+                else
+                {
+                    ret.success = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                ret.success = false;
+                ret.msg = ex.ToString();
+                Console.WriteLine(ex.ToString());
+            }
+            jr.Data = ret;
+            jr.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+            return jr;
+        }
+    }
+}

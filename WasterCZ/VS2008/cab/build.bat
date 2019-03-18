@@ -1,0 +1,1 @@
+"CABARC.EXE" -s 6144 n DlHelper.cab Setup.msi install.inf

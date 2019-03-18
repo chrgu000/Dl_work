@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3d0654c5b6b9487ea0220c9b7dd41de6" Name="Diagram1">
+        <EntityTypeShape EntityType="UFModel.DL_U8_Options" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UFModel.DL_U8_Tare" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UFModel.DL_U8_Users" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UFModel.DL_U8_pgshift" Width="1.5" PointX="3.375" PointY="3.75" />
+        <EntityTypeShape EntityType="UFModel.fc_MoRoutingBill" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UFModel.fc_MoRoutingBilldetail" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="UFModel.mom_morder" Width="1.5" PointX="16" PointY="12.25" />
+        <EntityTypeShape EntityType="UFModel.mom_orderdetail" Width="1.5" PointX="13.75" PointY="2" />
+        <EntityTypeShape EntityType="UFModel.QMCHECKPROJECT" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UFModel.QMCHECKPROJECTS" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UFModel.QMCHECKVOUCHER" Width="1.5" PointX="8" PointY="22.5" />
+        <EntityTypeShape EntityType="UFModel.QMCHECKVOUCHERS" Width="1.5" PointX="15.75" PointY="15.75" />
+        <EntityTypeShape EntityType="UFModel.QMINSPECTVOUCHER" Width="1.5" PointX="17.75" PointY="15.75" />
+        <EntityTypeShape EntityType="UFModel.QMINSPECTVOUCHERS" Width="1.5" PointX="2.75" PointY="18.75" />
+        <EntityTypeShape EntityType="UFModel.QMREJECTVOUCHER" Width="1.5" PointX="19.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UFModel.QMREJECTVOUCHERS" Width="1.5" PointX="11" PointY="21.75" />
+        <EntityTypeShape EntityType="UFModel.QMSCRAPDISPOSE" Width="1.5" PointX="8.75" PointY="18.625" />
+        <EntityTypeShape EntityType="UFModel.Reason" Width="1.5" PointX="5.75" PointY="26.625" />
+        <AssociationConnector Association="UFModel.FK_mom_morder" />
+        <AssociationConnector Association="UFModel.FK_QMCHECKVOUCHER_REASON" />
+        <AssociationConnector Association="UFModel.FK_QMREJECTVOUCHERS_QMSCRAPDISPOSE" />
+        <AssociationConnector Association="UFModel.FK_QMREJECTVOUCHERS_REASON" />
+        <EntityTypeShape EntityType="UFModel.ComputationUnit" Width="1.5" PointX="7.875" PointY="10.75" />
+        <EntityTypeShape EntityType="UFModel.Department" Width="1.5" PointX="0.75" PointY="25.375" />
+        <EntityTypeShape EntityType="UFModel.EQ_EQData" Width="1.5" PointX="24.875" PointY="0.75" />
+        <EntityTypeShape EntityType="UFModel.hr_hi_person" Width="1.5" PointX="24.875" PointY="17.75" />
+        <EntityTypeShape EntityType="UFModel.Inventory" Width="1.5" PointX="26.875" PointY="0.75" />
+        <EntityTypeShape EntityType="UFModel.Warehouse" Width="1.5" PointX="3" PointY="25.25" />
+        <AssociationConnector Association="UFModel.FK__Warehouse__cDepC__46093FC3" />
+        <AssociationConnector Association="UFModel.FK_QMCHECKVOUCHER_DEPARTMENT" />
+        <AssociationConnector Association="UFModel.FK_QMCHECKVOUCHER_DEPARTMENT1" />
+        <AssociationConnector Association="UFModel.FK_QMINSPECTVOUCHER_DEPARTMENT" />
+        <AssociationConnector Association="UFModel.FK_QMINSPECTVOUCHER_Department1" />
+        <AssociationConnector Association="UFModel.FK_QMREJECTVOUCHER_DEPARTMENT" />
+        <AssociationConnector Association="UFModel.FK_QMREJECTVOUCHERS_DEPARTMENT" />
+        <AssociationConnector Association="UFModel.FK_QMCHECKVOUCHER_WAREHOUSE" />
+        <AssociationConnector Association="UFModel.FK_QMINSPECTVOUCHERS_WAREHOUSE" />
+        <AssociationConnector Association="UFModel.FK_QMREJECTVOUCHER_WAREHOUSE" />
+        <EntityTypeShape EntityType="UFModel.mom_order" Width="1.5" PointX="11.5" PointY="35" />
+        <AssociationConnector Association="UFModel.FK_mom_orderdetail" />
+        <EntityTypeShape EntityType="UFModel.sfc_workcenter" Width="1.5" PointX="5.375" PointY="15" />
+        <AssociationConnector Association="UFModel.FK_QMCHECKVOUCHER_SFC_WorkCenter" />
+        <AssociationConnector Association="UFModel.FK_QMINSPECTVOUCHER_SFC_WorkCenter" />
+        <AssociationConnector Association="UFModel.FK_QMREJECTVOUCHER_SFC_WorkCenter" />
+        <EntityTypeShape EntityType="UFModel.VoucherHistory" Width="1.5" PointX="16.375" PointY="0.75" />
+        <EntityTypeShape EntityType="UFModel.v_fc_refermoroutingmixedlist" Width="1.5" PointX="20.375" PointY="26.75" />
+        <EntityTypeShape EntityType="UFModel.Rd_Style" Width="1.5" PointX="16.375" PointY="4.75" />
+        <EntityTypeShape EntityType="UFModel.sfc_optransform" Width="1.5" PointX="29.375" PointY="0.75" />
+        <EntityTypeShape EntityType="UFModel.rdrecord10_extradefine" Width="1.5" PointX="7.375" PointY="15.75" />
+        <EntityTypeShape EntityType="UFModel.QM_QPROINSPECTLIST" Width="1.5" PointX="29.375" PointY="14.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

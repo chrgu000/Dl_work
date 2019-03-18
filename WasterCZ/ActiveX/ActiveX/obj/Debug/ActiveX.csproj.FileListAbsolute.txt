@@ -1,0 +1,10 @@
+D:\@@WORK\@SVN\YH-NET\01.多联项目\20_source\ActiveX\ActiveX\bin\Debug\ActiveX.dll.config
+D:\@@WORK\@SVN\YH-NET\01.多联项目\20_source\ActiveX\ActiveX\bin\Debug\ActiveX.dll
+D:\@@WORK\@SVN\YH-NET\01.多联项目\20_source\ActiveX\ActiveX\bin\Debug\ActiveX.pdb
+D:\@@WORK\@SVN\YH-NET\01.多联项目\20_source\ActiveX\ActiveX\bin\Debug\ActiveX.tlb
+D:\@@WORK\@SVN\YH-NET\01.多联项目\20_source\ActiveX\ActiveX\obj\Debug\ActiveX.UserControl1.resources
+D:\@@WORK\@SVN\YH-NET\01.多联项目\20_source\ActiveX\ActiveX\obj\Debug\ActiveX.Properties.Resources.resources
+D:\@@WORK\@SVN\YH-NET\01.多联项目\20_source\ActiveX\ActiveX\obj\Debug\ActiveX.csproj.GenerateResource.Cache
+D:\@@WORK\@SVN\YH-NET\01.多联项目\20_source\ActiveX\ActiveX\obj\Debug\ActiveX.dll
+D:\@@WORK\@SVN\YH-NET\01.多联项目\20_source\ActiveX\ActiveX\obj\Debug\ActiveX.pdb
+D:\@@WORK\@SVN\YH-NET\01.多联项目\20_source\ActiveX\ActiveX\obj\Debug\ActiveX.csproj.ResolveComReference.cache

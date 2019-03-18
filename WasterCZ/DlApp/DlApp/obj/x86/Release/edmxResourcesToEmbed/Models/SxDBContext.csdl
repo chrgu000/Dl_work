@@ -1,0 +1,2523 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UFModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="DL_U8_Options">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="key" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="value" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="note" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DL_U8_Tare">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="weight" Type="Decimal" Precision="12" Scale="6" />
+    <Property Name="note" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DL_U8_Users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="role" Type="Int32" />
+    <Property Name="note" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="DL_U8_Options" EntityType="Self.DL_U8_Options" />
+    <EntitySet Name="DL_U8_Tare" EntityType="Self.DL_U8_Tare" />
+    <EntitySet Name="DL_U8_Users" EntityType="Self.DL_U8_Users" />
+    <EntitySet Name="DL_U8_pgshift" EntityType="UFModel.DL_U8_pgshift" />
+    <EntitySet Name="fc_MoRoutingBill" EntityType="UFModel.fc_MoRoutingBill" />
+    <EntitySet Name="fc_MoRoutingBilldetail" EntityType="UFModel.fc_MoRoutingBilldetail" />
+    <EntitySet Name="mom_morder" EntityType="UFModel.mom_morder" />
+    <EntitySet Name="mom_orderdetail" EntityType="UFModel.mom_orderdetail" />
+    <EntitySet Name="QMCHECKPROJECT" EntityType="UFModel.QMCHECKPROJECT" />
+    <EntitySet Name="QMCHECKPROJECTS" EntityType="UFModel.QMCHECKPROJECTS" />
+    <EntitySet Name="QMCHECKVOUCHER" EntityType="UFModel.QMCHECKVOUCHER" />
+    <EntitySet Name="QMCHECKVOUCHERS" EntityType="UFModel.QMCHECKVOUCHERS" />
+    <EntitySet Name="QMINSPECTVOUCHER" EntityType="UFModel.QMINSPECTVOUCHER" />
+    <EntitySet Name="QMINSPECTVOUCHERS" EntityType="UFModel.QMINSPECTVOUCHERS" />
+    <EntitySet Name="QMREJECTVOUCHER" EntityType="UFModel.QMREJECTVOUCHER" />
+    <EntitySet Name="QMREJECTVOUCHERS" EntityType="UFModel.QMREJECTVOUCHERS" />
+    <EntitySet Name="QMSCRAPDISPOSE" EntityType="UFModel.QMSCRAPDISPOSE" />
+    <EntitySet Name="Reason" EntityType="UFModel.Reason" />
+    <AssociationSet Name="FK_mom_morder" Association="UFModel.FK_mom_morder">
+      <End Role="mom_orderdetail" EntitySet="mom_orderdetail" />
+      <End Role="mom_morder" EntitySet="mom_morder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QMCHECKVOUCHER_REASON" Association="UFModel.FK_QMCHECKVOUCHER_REASON">
+      <End Role="Reason" EntitySet="Reason" />
+      <End Role="QMCHECKVOUCHER" EntitySet="QMCHECKVOUCHER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QMREJECTVOUCHERS_QMSCRAPDISPOSE" Association="UFModel.FK_QMREJECTVOUCHERS_QMSCRAPDISPOSE">
+      <End Role="QMSCRAPDISPOSE" EntitySet="QMSCRAPDISPOSE" />
+      <End Role="QMREJECTVOUCHERS" EntitySet="QMREJECTVOUCHERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QMREJECTVOUCHERS_REASON" Association="UFModel.FK_QMREJECTVOUCHERS_REASON">
+      <End Role="Reason" EntitySet="Reason" />
+      <End Role="QMREJECTVOUCHERS" EntitySet="QMREJECTVOUCHERS" />
+    </AssociationSet>
+    <EntitySet Name="ComputationUnit" EntityType="UFModel.ComputationUnit" />
+    <EntitySet Name="Department" EntityType="UFModel.Department" />
+    <EntitySet Name="EQ_EQData" EntityType="UFModel.EQ_EQData" />
+    <EntitySet Name="hr_hi_person" EntityType="UFModel.hr_hi_person" />
+    <EntitySet Name="Inventory" EntityType="UFModel.Inventory" />
+    <EntitySet Name="Warehouse" EntityType="UFModel.Warehouse" />
+    <AssociationSet Name="FK__Warehouse__cDepC__46093FC3" Association="UFModel.FK__Warehouse__cDepC__46093FC3">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Warehouse" EntitySet="Warehouse" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QMCHECKVOUCHER_DEPARTMENT" Association="UFModel.FK_QMCHECKVOUCHER_DEPARTMENT">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="QMCHECKVOUCHER" EntitySet="QMCHECKVOUCHER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QMCHECKVOUCHER_DEPARTMENT1" Association="UFModel.FK_QMCHECKVOUCHER_DEPARTMENT1">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="QMCHECKVOUCHER" EntitySet="QMCHECKVOUCHER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QMINSPECTVOUCHER_DEPARTMENT" Association="UFModel.FK_QMINSPECTVOUCHER_DEPARTMENT">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="QMINSPECTVOUCHER" EntitySet="QMINSPECTVOUCHER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QMINSPECTVOUCHER_Department1" Association="UFModel.FK_QMINSPECTVOUCHER_Department1">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="QMINSPECTVOUCHER" EntitySet="QMINSPECTVOUCHER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QMREJECTVOUCHER_DEPARTMENT" Association="UFModel.FK_QMREJECTVOUCHER_DEPARTMENT">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="QMREJECTVOUCHER" EntitySet="QMREJECTVOUCHER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QMREJECTVOUCHERS_DEPARTMENT" Association="UFModel.FK_QMREJECTVOUCHERS_DEPARTMENT">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="QMREJECTVOUCHERS" EntitySet="QMREJECTVOUCHERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QMCHECKVOUCHER_WAREHOUSE" Association="UFModel.FK_QMCHECKVOUCHER_WAREHOUSE">
+      <End Role="Warehouse" EntitySet="Warehouse" />
+      <End Role="QMCHECKVOUCHER" EntitySet="QMCHECKVOUCHER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QMINSPECTVOUCHERS_WAREHOUSE" Association="UFModel.FK_QMINSPECTVOUCHERS_WAREHOUSE">
+      <End Role="Warehouse" EntitySet="Warehouse" />
+      <End Role="QMINSPECTVOUCHERS" EntitySet="QMINSPECTVOUCHERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QMREJECTVOUCHER_WAREHOUSE" Association="UFModel.FK_QMREJECTVOUCHER_WAREHOUSE">
+      <End Role="Warehouse" EntitySet="Warehouse" />
+      <End Role="QMREJECTVOUCHER" EntitySet="QMREJECTVOUCHER" />
+    </AssociationSet>
+    <EntitySet Name="mom_order" EntityType="UFModel.mom_order" />
+    <AssociationSet Name="FK_mom_orderdetail" Association="UFModel.FK_mom_orderdetail">
+      <End Role="mom_order" EntitySet="mom_order" />
+      <End Role="mom_orderdetail" EntitySet="mom_orderdetail" />
+    </AssociationSet>
+    <EntitySet Name="sfc_workcenter" EntityType="UFModel.sfc_workcenter" />
+    <AssociationSet Name="FK_QMCHECKVOUCHER_SFC_WorkCenter" Association="UFModel.FK_QMCHECKVOUCHER_SFC_WorkCenter">
+      <End Role="sfc_workcenter" EntitySet="sfc_workcenter" />
+      <End Role="QMCHECKVOUCHER" EntitySet="QMCHECKVOUCHER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QMINSPECTVOUCHER_SFC_WorkCenter" Association="UFModel.FK_QMINSPECTVOUCHER_SFC_WorkCenter">
+      <End Role="sfc_workcenter" EntitySet="sfc_workcenter" />
+      <End Role="QMINSPECTVOUCHER" EntitySet="QMINSPECTVOUCHER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QMREJECTVOUCHER_SFC_WorkCenter" Association="UFModel.FK_QMREJECTVOUCHER_SFC_WorkCenter">
+      <End Role="sfc_workcenter" EntitySet="sfc_workcenter" />
+      <End Role="QMREJECTVOUCHER" EntitySet="QMREJECTVOUCHER" />
+    </AssociationSet>
+    <EntitySet Name="VoucherHistory" EntityType="UFModel.VoucherHistory" />
+    <EntitySet Name="v_fc_refermoroutingmixedlist" EntityType="UFModel.v_fc_refermoroutingmixedlist" />
+    <EntitySet Name="Rd_Style" EntityType="UFModel.Rd_Style" />
+    <EntitySet Name="sfc_optransform" EntityType="UFModel.sfc_optransform" />
+    <EntitySet Name="rdrecord10_extradefine" EntityType="UFModel.rdrecord10_extradefine" />
+    <FunctionImport Name="sp_GetID">
+      <Parameter Name="RemoteId" Mode="In" Type="String" />
+      <Parameter Name="cAcc_Id" Mode="In" Type="String" />
+      <Parameter Name="cVouchType" Mode="In" Type="String" />
+      <Parameter Name="iAmount" Mode="In" Type="Int32" />
+      <Parameter Name="bEnableNewRule" Mode="In" Type="Boolean" />
+      <Parameter Name="iFatherId" Mode="InOut" Type="Int32" />
+      <Parameter Name="iChildId" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="QM_QPROINSPECTLIST" EntityType="UFModel.QM_QPROINSPECTLIST" />
+  </EntityContainer>
+  <EntityType Name="DL_U8_pgshift">
+    <Key>
+      <PropertyRef Name="moroutingid" />
+      <PropertyRef Name="moroutingdid" />
+      <PropertyRef Name="moid" />
+      <PropertyRef Name="modid" />
+      <PropertyRef Name="mocode" />
+      <PropertyRef Name="moseq" />
+      <PropertyRef Name="editprop" />
+    </Key>
+    <Property Name="moroutingid" Type="Int32" Nullable="false" />
+    <Property Name="moroutingdid" Type="Int32" Nullable="false" />
+    <Property Name="moid" Type="Int32" Nullable="false" />
+    <Property Name="modid" Type="Int32" Nullable="false" />
+    <Property Name="mocode" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="moseq" Type="Int32" Nullable="false" />
+    <Property Name="moclass" Type="Byte" />
+    <Property Name="motypedesc" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="ordertype" Type="Byte" />
+    <Property Name="status" Type="Byte" />
+    <Property Name="cinvcode" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="cinvname" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="cinvaddcode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="cinvstd" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="moqty" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="cdepcode" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="cdepname" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="opseq" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="subflag" Type="Boolean" />
+    <Property Name="wccode" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="wcdescription" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="moroutingshiftid" Type="Int32" />
+    <Property Name="sortseq" Type="Int32" />
+    <Property Name="workshiftid" Type="Int32" />
+    <Property Name="bccode" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+    <Property Name="bcdescription" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="dutyclasscode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="dcdescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="eqid" Type="Int32" />
+    <Property Name="ceqcode" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="ceqname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="employcode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="employname" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="qty" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="completedqty" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="remark" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="startdate" Type="DateTime" Precision="3" />
+    <Property Name="duedate" Type="DateTime" Precision="3" />
+    <Property Name="starttime" Type="DateTime" Precision="3" />
+    <Property Name="duetime" Type="DateTime" Precision="3" />
+    <Property Name="reportqty" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="shiftqty" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="unshiftqty" Type="Decimal" Precision="29" Scale="6" />
+    <Property Name="perhour" Type="Decimal" Precision="38" Scale="14" />
+    <Property Name="shifthour" Type="Decimal" Precision="38" Scale="6" />
+    <Property Name="unshifthour" Type="Decimal" Precision="38" Scale="6" />
+    <Property Name="define22" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="define23" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="define24" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="define25" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="define26" Type="Double" />
+    <Property Name="define27" Type="Double" />
+    <Property Name="define28" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="define29" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="define30" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="define31" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="define32" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="define33" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="define34" Type="Int32" />
+    <Property Name="define35" Type="Int32" />
+    <Property Name="define36" Type="DateTime" Precision="3" />
+    <Property Name="define37" Type="DateTime" Precision="3" />
+    <Property Name="ufts2" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="ufts" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="editprop" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="cInvCCode" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="Id_ColumnName" Type="Guid" annotation:StoreGeneratedPattern="None" />
+  </EntityType>
+  <EntityType Name="fc_MoRoutingBill">
+    <Key>
+      <PropertyRef Name="MID" />
+    </Key>
+    <Property Name="MID" Type="Int32" Nullable="false" />
+    <Property Name="cVouchCode" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="cVouchDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreateUser" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="StartDate" Type="DateTime" Precision="3" />
+    <Property Name="DueDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifyUser" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="WcId" Type="Int32" />
+    <Property Name="MoId" Type="Int32" />
+    <Property Name="MoDId" Type="Int32" />
+    <Property Name="Remark" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Define1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Define2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Define3" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Define4" Type="DateTime" Precision="3" />
+    <Property Name="Define5" Type="Int32" />
+    <Property Name="Define6" Type="DateTime" Precision="3" />
+    <Property Name="Define7" Type="Single" />
+    <Property Name="Define8" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="Define9" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="Define10" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="Define11" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="Define12" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="Define13" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="Define14" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="Define15" Type="Int32" />
+    <Property Name="Define16" Type="Single" />
+    <Property Name="VT_ID" Type="Int32" />
+    <Property Name="IsSingle" Type="Byte" />
+    <Property Name="Ufts" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="cVouchTime" Type="DateTime" Precision="3" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="ModifyTime" Type="DateTime" Precision="3" />
+    <Property Name="TransType" Type="Byte" />
+    <Property Name="SortType" Type="Byte" />
+    <Property Name="OutQcFlag" Type="Boolean" />
+    <Property Name="cVouchType" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="fc_MoRoutingBilldetail">
+    <Key>
+      <PropertyRef Name="MDId" />
+    </Key>
+    <Property Name="MID" Type="Int32" Nullable="false" />
+    <Property Name="cVerifier" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="VerifierDate" Type="DateTime" Precision="3" />
+    <Property Name="WcId" Type="Int32" />
+    <Property Name="MoId" Type="Int32" />
+    <Property Name="MoDId" Type="Int32" />
+    <Property Name="MoRoutingDId" Type="Int32" />
+    <Property Name="MoRoutingShiftId" Type="Int32" />
+    <Property Name="OpSeq" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="OpCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="opDescription" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="ResId1" Type="Int32" />
+    <Property Name="ResId2" Type="Int32" />
+    <Property Name="ResId3" Type="Int32" />
+    <Property Name="ResId4" Type="Int32" />
+    <Property Name="ResId5" Type="Int32" />
+    <Property Name="ResWorkHr1" Type="Decimal" Precision="22" Scale="4" />
+    <Property Name="ResWorkHr2" Type="Decimal" Precision="22" Scale="4" />
+    <Property Name="ResWorkHr3" Type="Decimal" Precision="22" Scale="4" />
+    <Property Name="ResWorkHr4" Type="Decimal" Precision="22" Scale="4" />
+    <Property Name="ResWorkHr5" Type="Decimal" Precision="22" Scale="4" />
+    <Property Name="TransformId" Type="Int32" />
+    <Property Name="EmployCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="WorkShiftId" Type="Int32" />
+    <Property Name="WsCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="EQId" Type="Int32" />
+    <Property Name="DeptCode" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="WorkHrOp" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="QualifiedQty" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="RefusedQty" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="ScrapQty" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="fAvaQuantity" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="InOpUnitCode" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="InAuxOpQty" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="InChangeRate" Type="Decimal" Precision="22" Scale="6" />
+    <Property Name="PerWorkHr" Type="Decimal" Precision="22" Scale="4" />
+    <Property Name="ActualStartDate" Type="DateTime" Precision="3" />
+    <Property Name="ActualDueDate" Type="DateTime" Precision="3" />
+    <Property Name="RemarkB" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ReasonCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ScrapReasonCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="QualifiedReasonCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="RefusedReasonCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Define22" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="Define23" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="Define24" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="Define25" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="Define26" Type="Single" />
+    <Property Name="Define27" Type="Single" />
+    <Property Name="Define28" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="Define29" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="Define30" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="Define31" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="Define32" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="Define33" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="Define34" Type="Int32" />
+    <Property Name="Define35" Type="Int32" />
+    <Property Name="Define36" Type="DateTime" Precision="3" />
+    <Property Name="Define37" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int16" />
+    <Property Name="Ufts" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="ActualStartTime" Type="DateTime" Precision="3" />
+    <Property Name="ActualDueTime" Type="DateTime" Precision="3" />
+    <Property Name="VerifierTime" Type="DateTime" Precision="3" />
+    <Property Name="MoRoutingId" Type="Int32" />
+    <Property Name="OutMoRoutingDId" Type="Int32" />
+    <Property Name="OpStatus" Type="Int16" />
+    <Property Name="MachiningQty" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="DeclareQty" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="MDId" Type="Int32" Nullable="false" />
+    <Property Name="dutyclasscode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PerWorkHrD" Type="Decimal" Precision="22" Scale="4" />
+    <Property Name="qmscraptqty" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="qmqualifiedqty" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="qmrefusedqty" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="perworkaccflag" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="mom_morder">
+    <Key>
+      <PropertyRef Name="MoDId" />
+    </Key>
+    <Property Name="MoDId" Type="Int32" Nullable="false" />
+    <Property Name="StartDate" Type="DateTime" Precision="3" />
+    <Property Name="DueDate" Type="DateTime" Precision="3" />
+    <Property Name="Ufts" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="MoId" Type="Int32" />
+    <NavigationProperty Name="mom_orderdetail" Relationship="UFModel.FK_mom_morder" FromRole="mom_morder" ToRole="mom_orderdetail" />
+  </EntityType>
+  <EntityType Name="mom_orderdetail">
+    <Key>
+      <PropertyRef Name="MoDId" />
+    </Key>
+    <Property Name="MoDId" Type="Int32" Nullable="false" />
+    <Property Name="MoId" Type="Int32" Nullable="false" />
+    <Property Name="SortSeq" Type="Int32" Nullable="false" />
+    <Property Name="MoClass" Type="Byte" />
+    <Property Name="MoTypeId" Type="Int32" />
+    <Property Name="Qty" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="MrpQty" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="AuxUnitCode" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="AuxQty" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="ChangeRate" Type="Decimal" Precision="22" Scale="6" />
+    <Property Name="MoLotCode" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="WhCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="MDeptCode" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="SoType" Type="Byte" />
+    <Property Name="SoDId" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="SoCode" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="SoSeq" Type="Int32" />
+    <Property Name="DeclaredQty" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="QualifiedInQty" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="OrgStatus" Type="Byte" />
+    <Property Name="BomId" Type="Int32" />
+    <Property Name="RoutingId" Type="Int32" />
+    <Property Name="CustBomId" Type="Int32" />
+    <Property Name="DemandId" Type="Int32" />
+    <Property Name="PlanCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="PartId" Type="Int32" />
+    <Property Name="InvCode" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="Free1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Free2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Free3" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Free4" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Free5" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Free6" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Free7" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Free8" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Free9" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Free10" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="SfcFlag" Type="Boolean" />
+    <Property Name="CrpFlag" Type="Boolean" />
+    <Property Name="QcFlag" Type="Boolean" />
+    <Property Name="RelsDate" Type="DateTime" Precision="3" />
+    <Property Name="RelsUser" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CloseDate" Type="DateTime" Precision="3" />
+    <Property Name="OrgClsDate" Type="DateTime" Precision="3" />
+    <Property Name="Ufts" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="Define22" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="Define23" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="Define24" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="Define25" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="Define26" Type="Double" />
+    <Property Name="Define27" Type="Double" />
+    <Property Name="Define28" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="Define29" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="Define30" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="Define31" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="Define32" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="Define33" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="Define34" Type="Int32" />
+    <Property Name="Define35" Type="Int32" />
+    <Property Name="Define36" Type="DateTime" Precision="3" />
+    <Property Name="Define37" Type="DateTime" Precision="3" />
+    <Property Name="LeadTime" Type="Int32" />
+    <Property Name="OpScheduleType" Type="Byte" />
+    <Property Name="OrdFlag" Type="Boolean" />
+    <Property Name="WIPType" Type="Byte" />
+    <Property Name="SupplyWhCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ReasonCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="IsWFControlled" Type="Byte" />
+    <Property Name="iVerifyState" Type="Int32" />
+    <Property Name="iReturnCount" Type="Int32" />
+    <Property Name="Remark" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SourceMoCode" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="SourceMoSeq" Type="Int32" />
+    <Property Name="SourceMoId" Type="Int32" />
+    <Property Name="SourceMoDId" Type="Int32" />
+    <Property Name="SourceQCCode" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="SourceQCId" Type="Int32" />
+    <Property Name="SourceQCDId" Type="Int32" />
+    <Property Name="CostItemCode" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CostItemName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RelsTime" Type="DateTime" Precision="3" />
+    <Property Name="CloseUser" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CloseTime" Type="DateTime" Precision="3" />
+    <Property Name="OrgClsTime" Type="DateTime" Precision="3" />
+    <Property Name="AuditStatus" Type="Byte" />
+    <Property Name="PAllocateId" Type="Int32" />
+    <Property Name="DemandCode" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CollectiveFlag" Type="Byte" />
+    <Property Name="OrderType" Type="Byte" />
+    <Property Name="OrderDId" Type="Int32" />
+    <Property Name="OrderCode" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="OrderSeq" Type="Int32" />
+    <Property Name="ManualCode" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="ReformFlag" Type="Boolean" />
+    <Property Name="SourceQCVouchType" Type="Byte" />
+    <Property Name="OrgQty" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FmFlag" Type="Boolean" />
+    <Property Name="MinSN" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="MaxSN" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SourceSvcCode" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="SourceSvcId" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="SourceSvcDId" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="BomType" Type="Byte" />
+    <Property Name="RoutingType" Type="Byte" />
+    <Property Name="BusFlowId" Type="Int32" />
+    <Property Name="RunCardFlag" Type="Boolean" />
+    <Property Name="RequisitionFlag" Type="Boolean" />
+    <Property Name="AlloVTid" Type="Int32" />
+    <Property Name="RelsAlloVTid" Type="Int32" />
+    <Property Name="iPrintCount" Type="Int32" />
+    <Property Name="cbSysBarCode" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="cCurrentAuditor" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CustCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="LPlanCode" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="SourceSvcVouchType" Type="Byte" />
+    <NavigationProperty Name="mom_morder" Relationship="UFModel.FK_mom_morder" FromRole="mom_orderdetail" ToRole="mom_morder" />
+    <NavigationProperty Name="mom_order" Relationship="UFModel.FK_mom_orderdetail" FromRole="mom_orderdetail" ToRole="mom_order" />
+  </EntityType>
+  <EntityType Name="QMCHECKPROJECT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="PROJECTGUID" Type="Guid" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="IVTID" Type="Int32" />
+    <Property Name="CPROJECTCODE" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CPROJECTNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CCHKNORMALCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="DDATE" Type="DateTime" Precision="3" />
+    <Property Name="CBUILDPERSON" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="CMAKER" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CVOUCHTYPE" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="UFTS" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CDEFINE1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE3" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE4" Type="DateTime" Precision="3" />
+    <Property Name="CDEFINE5" Type="Int32" />
+    <Property Name="CDEFINE6" Type="DateTime" Precision="3" />
+    <Property Name="CDEFINE7" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="CDEFINE8" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE9" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE10" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE11" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE12" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE13" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE14" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE15" Type="Int32" />
+    <Property Name="CDEFINE16" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="DCOSTDATE" Type="DateTime" Precision="3" />
+    <Property Name="CCOSTTYPE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CCOSTMAKER" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="FCOST" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="CDEPCODE" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="CCHECKPERSONCODE" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="BSTOPUSE" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="CMODIFIER" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DMODIFYDATE" Type="DateTime" Precision="3" />
+    <Property Name="DMAKETIME" Type="DateTime" Precision="3" />
+    <Property Name="DMODIFYTIME" Type="DateTime" Precision="3" />
+    <Property Name="iPrintCount" Type="Int32" />
+    <Property Name="CCLEANVER" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CSYSBARCODE" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="QMCHECKPROJECTS">
+    <Key>
+      <PropertyRef Name="AUTOID" />
+    </Key>
+    <Property Name="ID" Type="Int32" />
+    <Property Name="AUTOID" Type="Int32" Nullable="false" />
+    <Property Name="CCHKITEMCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CCHKGUIDECODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CGUIDEUNIT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="BGUIDETYPE" Type="Int16" />
+    <Property Name="CSTANDARD" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="IUPPERLIMIT" Type="String" MaxLength="130" FixedLength="false" Unicode="true" />
+    <Property Name="ILOWERLIMIT" Type="String" MaxLength="130" FixedLength="false" Unicode="true" />
+    <Property Name="CINPORTGRADE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CCHKAPPCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CINVCODE" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CCHKPLACECODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CCHKDRAWCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CCHKTEMPCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CPERSONCODE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE22" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE23" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE24" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE25" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE26" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="CDEFINE27" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="CDEFINE28" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE29" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE30" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE31" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE32" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE33" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE34" Type="Int32" />
+    <Property Name="CDEFINE35" Type="Int32" />
+    <Property Name="CDEFINE36" Type="DateTime" Precision="3" />
+    <Property Name="CDEFINE37" Type="DateTime" Precision="3" />
+    <Property Name="CMEMO" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CCHKENVCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CINSLEVEL" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="FAQL" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CBUGGRADE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CRAMISTYPE" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="CISDEVCOSTTYPE" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="FISDEVFEE" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="CISMATYPE" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="FISMAUNITPRICE" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FISMARATE" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FISMAFEE" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="CISMANRATETYPE" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="FISMANFEE" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="BSHOWPROOF" Type="Boolean" />
+    <Property Name="CCHKGUIDTYPE" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="IDTMETHOD" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="FDTRATE" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FDTQUANTITY" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="CRULECODE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="FUPPERWARP" Type="String" MaxLength="130" FixedLength="false" Unicode="true" />
+    <Property Name="FLOWERWARP" Type="String" MaxLength="130" FixedLength="false" Unicode="true" />
+    <Property Name="bRecordDetails" Type="Boolean" />
+    <Property Name="CGROUPCODE" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="CGCOMUNITCODE" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="BBREAKCHECK" Type="Boolean" />
+    <Property Name="BMUSTBREAK" Type="Boolean" />
+    <Property Name="CROUNDED" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="BROUNDED" Type="Boolean" />
+    <Property Name="BROHS" Type="Boolean" />
+    <Property Name="BRANDORPROJECTB" Type="Boolean" />
+    <Property Name="CCHKSTANDARDPROVISION" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BATCHPROPERTYB" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BMUSTCHECK" Type="Boolean" />
+    <Property Name="IVOUCHROWNO" Type="Int32" />
+  </EntityType>
+  <EntityType Name="QMCHECKVOUCHER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="CHECKGUID" Type="Guid" />
+    <Property Name="CVOUCHTYPE" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="CCHECKCODE" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="INSPECTID" Type="Int32" />
+    <Property Name="CINSPECTCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="INSPECTAUTOID" Type="Int32" />
+    <Property Name="SOURCEAUTOID" Type="Int32" />
+    <Property Name="SOURCEID" Type="Int32" />
+    <Property Name="SOURCECODE" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="CSOURCE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CPOCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CINSPECTDEPCODE" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="DARRIVALDATE" Type="DateTime" Precision="3" />
+    <Property Name="CINSPECTPERSON" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="CITEMCLASS" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CITEMCODE" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CITEMCNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CITEMNAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DDATE" Type="DateTime" Precision="3" />
+    <Property Name="CTIME" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CDEPCODE" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="CVENCODE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CINVCODE" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CUNITID" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="ITESTSTYLE" Type="Int32" />
+    <Property Name="PROJECTID" Type="Int32" />
+    <Property Name="IDTMETHOD" Type="Int32" />
+    <Property Name="IDTSTYLE" Type="Int32" />
+    <Property Name="FDTRATE" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="CCHECKUNIT" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="FCHANGRATE" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FCHECKRATE" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FQUANTITY" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FNUM" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FDTQUANTITY" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FDTNUM" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="CBATCH" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CPROBATCH" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="DPRODATE" Type="DateTime" Precision="3" />
+    <Property Name="DVDATE" Type="DateTime" Precision="3" />
+    <Property Name="CFREE1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE3" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE4" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE5" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE6" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE7" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE8" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE9" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE10" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE3" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE4" Type="DateTime" Precision="3" />
+    <Property Name="CDEFINE5" Type="Int32" />
+    <Property Name="CDEFINE6" Type="DateTime" Precision="3" />
+    <Property Name="CDEFINE7" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="CDEFINE8" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE9" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE10" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE11" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE12" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE13" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE14" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE15" Type="Int32" />
+    <Property Name="CDEFINE16" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FREGBREAKQUANTITY" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FREGBREAKNUM" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FREGUBREAKQUANTITY" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FREGUBREAKNUM" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FDISBREAKQUANTITY" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FDISBREAKNUM" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FDISUBREAKQUANTITY" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FDISUBREAKNUM" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FREGQUANTITY" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FREGNUM" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FCONQUANTIY" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FCONNUM" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FDISQUANTITY" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FDISNUM" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="CCHECKPERSONCODE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CMAKER" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CVERIFIER" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="UFTS" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="IVTID" Type="Int32" />
+    <Property Name="BPUINFLAG" Type="Boolean" />
+    <Property Name="BPROINFLAG" Type="Boolean" />
+    <Property Name="BREJFLAG" Type="Boolean" />
+    <Property Name="CWHCODE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="BSTNEXTYEAR" Type="Boolean" />
+    <Property Name="IORDERTYPE" Type="Int32" />
+    <Property Name="ISOORDERAUTOID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IPROORDERID" Type="Int32" />
+    <Property Name="IPROORDERAUTOID" Type="Int32" />
+    <Property Name="CCUSCODE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CCONTRACTCODE" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="CPOSITION" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="FISCOST" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="IAC" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="IRE" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="CINSLEVEL" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="BEXIGENCY" Type="Boolean" />
+    <Property Name="CREASONCODE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CYIELDERCODE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DYIELDDATE" Type="DateTime" Precision="3" />
+    <Property Name="CMEMO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CPROCESSAUTOID" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="IWORKCENTER" Type="Int32" />
+    <Property Name="CCONTRACTSTRCODE" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="CBYPRODUCT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CCHECKTYPECODE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="FAQL" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CCOSTTYPE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="FCOST" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="CMASSUNIT" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="IMASSDATE" Type="Int16" />
+    <Property Name="CSOORDERCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CPROORDERCODE" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="IVERIFYSTATE" Type="Int32" />
+    <Property Name="IDISBREAKQTYDEALTYPE" Type="Int32" />
+    <Property Name="IBATCHCHKRESULT" Type="Int32" />
+    <Property Name="FsumQuantity" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FsumNum" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="ITESTRULE" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="CRULECODE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="PcsTransType" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="CVMIVENCODE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="iReturnCount" Type="Int32" Nullable="false" />
+    <Property Name="iVerifyStateNew" Type="Int32" Nullable="false" />
+    <Property Name="IsWfControlled" Type="Int32" Nullable="false" />
+    <Property Name="CMODIFIER" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="FCHECKCHANGRATE" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FCHECKQTY" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FCHECKNUM" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="IFREGBREAKQTYDEALTYPE" Type="Int32" />
+    <Property Name="DMODIFYDATE" Type="DateTime" Precision="3" />
+    <Property Name="DVERIFYDATE" Type="DateTime" Precision="3" />
+    <Property Name="DMAKETIME" Type="DateTime" Precision="3" />
+    <Property Name="DMODIFYTIME" Type="DateTime" Precision="3" />
+    <Property Name="DVERIFYTIME" Type="DateTime" Precision="3" />
+    <Property Name="CSOURCEPROORDERCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="ISOURCEPROORDERROWNO" Type="Int32" />
+    <Property Name="ISOURCEPROORDERID" Type="Int32" />
+    <Property Name="ISOURCEPROORDERAUTOID" Type="Int32" />
+    <Property Name="iExpiratDateCalcu" Type="Int16" />
+    <Property Name="cExpirationdate" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="dExpirationdate" Type="DateTime" Precision="3" />
+    <Property Name="cBatchProperty1" Type="Decimal" Precision="38" Scale="8" />
+    <Property Name="cBatchProperty2" Type="Decimal" Precision="38" Scale="8" />
+    <Property Name="cBatchProperty3" Type="Decimal" Precision="38" Scale="8" />
+    <Property Name="cBatchProperty4" Type="Decimal" Precision="38" Scale="8" />
+    <Property Name="cBatchProperty5" Type="Decimal" Precision="38" Scale="8" />
+    <Property Name="cBatchProperty6" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="cBatchProperty7" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="cBatchProperty8" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="cBatchProperty9" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="cBatchProperty10" Type="DateTime" Precision="3" />
+    <Property Name="IORDERDID" Type="Int32" />
+    <Property Name="ISOORDERTYPE" Type="Byte" />
+    <Property Name="CORDERCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IORDERSEQ" Type="Int32" />
+    <Property Name="CCHKNORMALCODE" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="BRANDORPROJECT" Type="Boolean" />
+    <Property Name="CRETURNREASONCODE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CCHKCONCLUSION" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CCHANGER" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DCHANGEDATE" Type="DateTime" Precision="3" />
+    <Property Name="DCHANGETIME" Type="DateTime" Precision="3" />
+    <Property Name="DINSPECTDATE" Type="DateTime" Precision="3" />
+    <Property Name="CINSPECTTIME" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DCOMPLETEDATE" Type="DateTime" Precision="3" />
+    <Property Name="FCOMPLETEDAYS" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="DPLANCOMPLETEDATE" Type="DateTime" Precision="3" />
+    <Property Name="FPLANCOMPLETEDAYS" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="iPrintCount" Type="Int32" />
+    <Property Name="CCLEANVER" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PFCODE" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="FSAMPQTY" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FSAMPQTYINS" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="BMERGECHECKFLAG" Type="Boolean" />
+    <Property Name="MERGECHECKRULE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="BWITHINSPECTINFO" Type="Boolean" />
+    <Property Name="BPRODUCECHECKDETAIL" Type="Boolean" />
+    <Property Name="CSYSBARCODE" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="cCurrentAuditor" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="FCVOUCHERCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FCVOUCHERSID" Type="Int32" />
+    <Property Name="PLANLOTNUMBER" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Reason" Relationship="UFModel.FK_QMCHECKVOUCHER_REASON" FromRole="QMCHECKVOUCHER" ToRole="Reason" />
+    <NavigationProperty Name="Department" Relationship="UFModel.FK_QMCHECKVOUCHER_DEPARTMENT" FromRole="QMCHECKVOUCHER" ToRole="Department" />
+    <NavigationProperty Name="Department1" Relationship="UFModel.FK_QMCHECKVOUCHER_DEPARTMENT1" FromRole="QMCHECKVOUCHER" ToRole="Department" />
+    <NavigationProperty Name="Warehouse" Relationship="UFModel.FK_QMCHECKVOUCHER_WAREHOUSE" FromRole="QMCHECKVOUCHER" ToRole="Warehouse" />
+    <NavigationProperty Name="sfc_workcenter" Relationship="UFModel.FK_QMCHECKVOUCHER_SFC_WorkCenter" FromRole="QMCHECKVOUCHER" ToRole="sfc_workcenter" />
+  </EntityType>
+  <EntityType Name="QMCHECKVOUCHERS">
+    <Key>
+      <PropertyRef Name="AUTOID" />
+    </Key>
+    <Property Name="ID" Type="Int32" />
+    <Property Name="AUTOID" Type="Int32" Nullable="false" />
+    <Property Name="BGUIDETYPE" Type="Int32" />
+    <Property Name="CCHKITEMCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CCHKGUIDECODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CINPORTGRADE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CSTANDARD" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="FUPPERLIMIT" Type="String" MaxLength="130" FixedLength="false" Unicode="true" />
+    <Property Name="FLOWERLIMIT" Type="String" MaxLength="130" FixedLength="false" Unicode="true" />
+    <Property Name="CGUIDEUNIT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="FQUIDEREGQUANTITY" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FQUIDEDISQUANTITY" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FQUIDEBREAKQUANTITY" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="DCHECKDATE" Type="DateTime" Precision="3" />
+    <Property Name="CCHECKTIME" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CPERSONCODE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CCHECKVALUE" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CCHKAPPCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE22" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE23" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE24" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE25" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE26" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="CDEFINE27" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="CDEFINE28" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE29" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE30" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE31" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE32" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE33" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE34" Type="Int32" />
+    <Property Name="CDEFINE35" Type="Int32" />
+    <Property Name="CDEFINE36" Type="DateTime" Precision="3" />
+    <Property Name="CDEFINE37" Type="DateTime" Precision="3" />
+    <Property Name="FTARGETQTY" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="CCHKPLACECODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CCHKENVCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CCHKTEMPCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="IACB" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="IREB" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="CISDEVCOSTTYPE" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="FISDEVFEE" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FISMAFEE" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="CISMATYPE" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="FISMARATE" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="CISMANRATETYPE" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="FISMANFEE" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FTARGETISCOST" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="ISSHOWPROOF" Type="Boolean" />
+    <Property Name="CINSLEVELB" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CBUGGRADE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="FAQLB" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CRAMISTYPE" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="FISMAUNITPRICE" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="CTARGETQJUG" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="FISDEVCOST" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FISMACOST" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FISMANCOST" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="CCHKDRAWCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IDTMETHODB" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="FUPPERWARP" Type="String" MaxLength="130" FixedLength="false" Unicode="true" />
+    <Property Name="FLOWERWARP" Type="String" MaxLength="130" FixedLength="false" Unicode="true" />
+    <Property Name="bRecordDetails" Type="Boolean" />
+    <Property Name="CMAXCHECKVALUE" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CMINCHECKVALUE" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CGROUPCODE" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="CGCOMUNITCODE" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="FGQUANTITY" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FGCHANGERATE" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FCHKQUANTITY" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FCHKVALIDQTY" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FCHKINVALIDQTY" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FDTRATEB" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FDTQUANTITYB" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="CRULECODEB" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="BBREAKCHECK" Type="Boolean" />
+    <Property Name="BMUSTBREAK" Type="Boolean" />
+    <Property Name="CROUNDED" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="BROUNDED" Type="Boolean" />
+    <Property Name="BROHS" Type="Boolean" />
+    <Property Name="BRANDORPROJECTB" Type="Boolean" />
+    <Property Name="CCHKSTANDARDPROVISION" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CCHKCONCLUSIONB" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BATCHPROPERTYB" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BMUSTCHECK" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="QMINSPECTVOUCHER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="INSPECTGUID" Type="Guid" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="CVOUCHTYPE" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="CINSPECTCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CREJECTCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CSOURCECODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="REJECTID" Type="Int32" />
+    <Property Name="CSOURCEID" Type="Int32" />
+    <Property Name="CPOCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="DARRIVALDATE" Type="DateTime" Precision="3" />
+    <Property Name="CDEPCODE" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="DDATE" Type="DateTime" Precision="3" />
+    <Property Name="CTIME" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CVENCODE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CSOURCE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="IVTID" Type="Int32" />
+    <Property Name="UFTS" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CMAKER" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CVERIFIER" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE3" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE4" Type="DateTime" Precision="3" />
+    <Property Name="CDEFINE5" Type="Int32" />
+    <Property Name="CDEFINE6" Type="DateTime" Precision="3" />
+    <Property Name="CDEFINE7" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="CDEFINE8" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE9" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE10" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE11" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE12" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE13" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE14" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE15" Type="Int32" />
+    <Property Name="CDEFINE16" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="CSOORDERCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="ISOORDERAUTOID" Type="Int32" />
+    <Property Name="IPROORDERID" Type="Int32" />
+    <Property Name="CPROORDERCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="IPROORDERAUTOID" Type="Int32" />
+    <Property Name="CCUSCODE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CCONTRACTCODE" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="CCONTRACTSTRCODE" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="IWORKCENTER" Type="Int32" />
+    <Property Name="CPROCESSAUTOID" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="BEXIGENCY" Type="Boolean" />
+    <Property Name="CCHECKTYPECODE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CINSPECTDEPCODE" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="IORDERTYPE" Type="Int32" />
+    <Property Name="CMODIFIER" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DMODIFYDATE" Type="DateTime" Precision="3" />
+    <Property Name="DVERIFYDATE" Type="DateTime" Precision="3" />
+    <Property Name="DMAKETIME" Type="DateTime" Precision="3" />
+    <Property Name="DMODIFYTIME" Type="DateTime" Precision="3" />
+    <Property Name="DVERIFYTIME" Type="DateTime" Precision="3" />
+    <Property Name="iPrintCount" Type="Int32" />
+    <Property Name="CCLEANVER" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CSYSBARCODE" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CCHANGER" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DCHANGEDATE" Type="DateTime" Precision="3" />
+    <Property Name="DCHANGETIME" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Department" Relationship="UFModel.FK_QMINSPECTVOUCHER_DEPARTMENT" FromRole="QMINSPECTVOUCHER" ToRole="Department" />
+    <NavigationProperty Name="Department1" Relationship="UFModel.FK_QMINSPECTVOUCHER_Department1" FromRole="QMINSPECTVOUCHER" ToRole="Department" />
+    <NavigationProperty Name="sfc_workcenter" Relationship="UFModel.FK_QMINSPECTVOUCHER_SFC_WorkCenter" FromRole="QMINSPECTVOUCHER" ToRole="sfc_workcenter" />
+  </EntityType>
+  <EntityType Name="QMINSPECTVOUCHERS">
+    <Key>
+      <PropertyRef Name="AUTOID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="AUTOID" Type="Int32" Nullable="false" />
+    <Property Name="CITEMCLASS" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CITEMCODE" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CITEMCNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CITEMNAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="REJECTAUTOID" Type="Int32" />
+    <Property Name="SOURCEAUTOID" Type="Int32" />
+    <Property Name="ITESTSTYLE" Type="Int32" />
+    <Property Name="CWHCODE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CINVCODE" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CPROBATCH" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CBATCH" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="DPRODATE" Type="DateTime" Precision="3" />
+    <Property Name="DVDATE" Type="DateTime" Precision="3" />
+    <Property Name="CUNITID" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="FCHANGRATE" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FQUANTITY" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FNUM" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="BFLAG" Type="Boolean" />
+    <Property Name="CFREE1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE3" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE4" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE5" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE6" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE7" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE8" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE9" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE10" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE22" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE23" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE24" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE25" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE26" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="CDEFINE27" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="CDEFINE28" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE29" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE30" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE31" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE32" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE33" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE34" Type="Int32" />
+    <Property Name="CDEFINE35" Type="Int32" />
+    <Property Name="CDEFINE36" Type="DateTime" Precision="3" />
+    <Property Name="CDEFINE37" Type="DateTime" Precision="3" />
+    <Property Name="CPOSITION" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CBYPRODUCT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="IMASSDATE" Type="Int16" />
+    <Property Name="CMASSUNIT" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="IORDERTYPE" Type="Int32" />
+    <Property Name="CSOORDERCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="ISOORDERAUTOID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IPROORDERID" Type="Int32" />
+    <Property Name="CPROORDERCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="IPROORDERAUTOID" Type="Int32" />
+    <Property Name="CCONTRACTCODE" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="CCONTRACTSTRCODE" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="CPOCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="BEXIGENCY" Type="Boolean" />
+    <Property Name="PcsTransType" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="CVMIVENCODE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CSOURCEPROORDERCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="ISOURCEPROORDERROWNO" Type="Int32" />
+    <Property Name="ISOURCEPROORDERID" Type="Int32" />
+    <Property Name="ISOURCEPROORDERAUTOID" Type="Int32" />
+    <Property Name="iExpiratDateCalcu" Type="Int16" />
+    <Property Name="cExpirationdate" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="dExpirationdate" Type="DateTime" Precision="3" />
+    <Property Name="cBatchProperty1" Type="Decimal" Precision="38" Scale="8" />
+    <Property Name="cBatchProperty2" Type="Decimal" Precision="38" Scale="8" />
+    <Property Name="cBatchProperty3" Type="Decimal" Precision="38" Scale="8" />
+    <Property Name="cBatchProperty4" Type="Decimal" Precision="38" Scale="8" />
+    <Property Name="cBatchProperty5" Type="Decimal" Precision="38" Scale="8" />
+    <Property Name="cBatchProperty6" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="cBatchProperty7" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="cBatchProperty8" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="cBatchProperty9" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="cBatchProperty10" Type="DateTime" Precision="3" />
+    <Property Name="IORDERDID" Type="Int32" />
+    <Property Name="ISOORDERTYPE" Type="Byte" />
+    <Property Name="CORDERCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IORDERSEQ" Type="Int32" />
+    <Property Name="CRETURNREASONCODE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="PFCODE" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="FSUMCHECKQTY" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FSUMCHECKNUM" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="BMERGECHECKFLAG" Type="Boolean" />
+    <Property Name="CCHECKCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CBSYSBARCODE" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="FCVOUCHERCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FCVOUCHERSID" Type="Int32" />
+    <Property Name="PLANLOTNUMBER" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CDEPCODE" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Warehouse" Relationship="UFModel.FK_QMINSPECTVOUCHERS_WAREHOUSE" FromRole="QMINSPECTVOUCHERS" ToRole="Warehouse" />
+  </EntityType>
+  <EntityType Name="QMREJECTVOUCHER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="REJECTGUID" Type="Guid" Nullable="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="CVOUCHTYPE" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="CREJECTCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="SOURCEAUTOID" Type="Int32" />
+    <Property Name="SOURCEID" Type="Int32" />
+    <Property Name="SOURCECODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CSOURCE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CPOCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CPROBATCH" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CHECKID" Type="Int32" />
+    <Property Name="CCHECKCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="DARRIVALDATE" Type="DateTime" Precision="3" />
+    <Property Name="DCHECKDATE" Type="DateTime" Precision="3" />
+    <Property Name="CWHCODE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CCHECKPERSON" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DDATE" Type="DateTime" Precision="3" />
+    <Property Name="CTIME" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CINVCODE" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CVENCODE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CINSPECTDEPCODE" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="CITEMCLASS" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CITEMCODE" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CITEMCNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CITEMNAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CUNITID" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="FCHANGRATE" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="CBATCH" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="DPRODATE" Type="DateTime" Precision="3" />
+    <Property Name="DVDATE" Type="DateTime" Precision="3" />
+    <Property Name="FSUMQUANTITY" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FSUMNUM" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="IVTID" Type="Int32" />
+    <Property Name="UFTS" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CMAKER" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CVERIFIER" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="IVERIFYSTATE" Type="Int32" />
+    <Property Name="CFREE1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE3" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE4" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE5" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE6" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE7" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE8" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE9" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE10" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE3" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE4" Type="DateTime" Precision="3" />
+    <Property Name="CDEFINE5" Type="Int32" />
+    <Property Name="CDEFINE6" Type="DateTime" Precision="3" />
+    <Property Name="CDEFINE7" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="CDEFINE8" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE9" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE10" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE11" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE12" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE13" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE14" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE15" Type="Int32" />
+    <Property Name="CDEFINE16" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="IORDERTYPE" Type="Int32" />
+    <Property Name="CSOORDERCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="ISOORDERAUTOID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IPROORDERID" Type="Int32" />
+    <Property Name="CPROORDERCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="IPROORDERAUTOID" Type="Int32" />
+    <Property Name="CCUSCODE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CCONTRACTCODE" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="CCONTRACTSTRCODE" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="IWORKCENTER" Type="Int32" />
+    <Property Name="CPROCESSAUTOID" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="CBYPRODUCT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="BEXIGENCY" Type="Boolean" />
+    <Property Name="CPOSITION" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="IMASSDATE" Type="Int16" />
+    <Property Name="CMASSUNIT" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="CCHECKTYPECODE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="FINVPRICE" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FBADLOSEALL" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="PcsTransType" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="CVMIVENCODE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="iReturnCount" Type="Int32" Nullable="false" />
+    <Property Name="iVerifyStateNew" Type="Int32" Nullable="false" />
+    <Property Name="IsWfControlled" Type="Int32" Nullable="false" />
+    <Property Name="CMODIFIER" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DMODIFYDATE" Type="DateTime" Precision="3" />
+    <Property Name="DVERIFYDATE" Type="DateTime" Precision="3" />
+    <Property Name="DMAKETIME" Type="DateTime" Precision="3" />
+    <Property Name="DMODIFYTIME" Type="DateTime" Precision="3" />
+    <Property Name="DVERIFYTIME" Type="DateTime" Precision="3" />
+    <Property Name="CSOURCEPROORDERCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="ISOURCEPROORDERROWNO" Type="Int32" />
+    <Property Name="ISOURCEPROORDERID" Type="Int32" />
+    <Property Name="ISOURCEPROORDERAUTOID" Type="Int32" />
+    <Property Name="iExpiratDateCalcu" Type="Int16" />
+    <Property Name="cExpirationdate" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="dExpirationdate" Type="DateTime" Precision="3" />
+    <Property Name="cBatchProperty1" Type="Decimal" Precision="38" Scale="8" />
+    <Property Name="cBatchProperty2" Type="Decimal" Precision="38" Scale="8" />
+    <Property Name="cBatchProperty3" Type="Decimal" Precision="38" Scale="8" />
+    <Property Name="cBatchProperty4" Type="Decimal" Precision="38" Scale="8" />
+    <Property Name="cBatchProperty5" Type="Decimal" Precision="38" Scale="8" />
+    <Property Name="cBatchProperty6" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="cBatchProperty7" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="cBatchProperty8" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="cBatchProperty9" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="cBatchProperty10" Type="DateTime" Precision="3" />
+    <Property Name="IORDERDID" Type="Int32" />
+    <Property Name="ISOORDERTYPE" Type="Byte" />
+    <Property Name="CORDERCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IORDERSEQ" Type="Int32" />
+    <Property Name="CRETURNREASONCODE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="iPrintCount" Type="Int32" />
+    <Property Name="CCLEANVER" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PFCODE" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="BMERGECHECKFLAG" Type="Boolean" />
+    <Property Name="MERGECHECKAUTOID" Type="Int32" />
+    <Property Name="CSYSBARCODE" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="cCurrentAuditor" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="FCVOUCHERCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FCVOUCHERSID" Type="Int32" />
+    <Property Name="PLANLOTNUMBER" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Department" Relationship="UFModel.FK_QMREJECTVOUCHER_DEPARTMENT" FromRole="QMREJECTVOUCHER" ToRole="Department" />
+    <NavigationProperty Name="Warehouse" Relationship="UFModel.FK_QMREJECTVOUCHER_WAREHOUSE" FromRole="QMREJECTVOUCHER" ToRole="Warehouse" />
+    <NavigationProperty Name="sfc_workcenter" Relationship="UFModel.FK_QMREJECTVOUCHER_SFC_WorkCenter" FromRole="QMREJECTVOUCHER" ToRole="sfc_workcenter" />
+  </EntityType>
+  <EntityType Name="QMREJECTVOUCHERS">
+    <Key>
+      <PropertyRef Name="AUTOID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="AUTOID" Type="Int32" Nullable="false" />
+    <Property Name="CREASONCODE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="FQUANTITY" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FNUM" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="CSCRAPDISCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="IDISPOSEFLOW" Type="Int32" />
+    <Property Name="CDIMINVCODE" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CDIMUNITID" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="FDIMCHANGRATE" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FDIMQUANTITY" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FDIMNUM" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="CFREE1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE3" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE4" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE5" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE6" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE7" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE8" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE9" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE10" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CDEPCODE" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE22" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE23" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE24" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE25" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE26" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="CDEFINE27" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="CDEFINE28" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE29" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE30" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE31" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE32" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE33" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE34" Type="Int32" />
+    <Property Name="CDEFINE35" Type="Int32" />
+    <Property Name="CDEFINE36" Type="DateTime" Precision="3" />
+    <Property Name="CDEFINE37" Type="DateTime" Precision="3" />
+    <Property Name="BFLAG" Type="Boolean" />
+    <Property Name="BSTNEXTYEAR" Type="Boolean" />
+    <Property Name="FMATCOST" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FBADLOSE" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="CDIMBATCH" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="DDIMVDATE" Type="DateTime" Precision="3" />
+    <Property Name="IDIMMASSDATE" Type="Int16" />
+    <Property Name="CDIMMASSUNIT" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="FSUMREWORKQTY" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FSUMREWORKNUM" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="CBVENCODE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="iDIMExpiratDateCalcu" Type="Int16" />
+    <Property Name="cDIMExpirationdate" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="dDIMExpirationdate" Type="DateTime" Precision="3" />
+    <Property Name="CPUPOCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="IPUPODID" Type="Int32" />
+    <Property Name="MOORDEROPSEQ" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CBWHCODE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CBSYSBARCODE" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="QMSCRAPDISPOSE" Relationship="UFModel.FK_QMREJECTVOUCHERS_QMSCRAPDISPOSE" FromRole="QMREJECTVOUCHERS" ToRole="QMSCRAPDISPOSE" />
+    <NavigationProperty Name="Reason" Relationship="UFModel.FK_QMREJECTVOUCHERS_REASON" FromRole="QMREJECTVOUCHERS" ToRole="Reason" />
+    <NavigationProperty Name="Department" Relationship="UFModel.FK_QMREJECTVOUCHERS_DEPARTMENT" FromRole="QMREJECTVOUCHERS" ToRole="Department" />
+  </EntityType>
+  <EntityType Name="QMSCRAPDISPOSE">
+    <Key>
+      <PropertyRef Name="CSCRAPDISCODE" />
+    </Key>
+    <Property Name="SCRAPDISGUID" Type="Guid" Nullable="false" />
+    <Property Name="CSCRAPDISCODE" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CSCRAPDISNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IDISPOSEFLOW" Type="Int32" />
+    <Property Name="CMEMO" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="UFTS" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="QMREJECTVOUCHERS" Relationship="UFModel.FK_QMREJECTVOUCHERS_QMSCRAPDISPOSE" FromRole="QMSCRAPDISPOSE" ToRole="QMREJECTVOUCHERS" />
+  </EntityType>
+  <EntityType Name="Reason">
+    <Key>
+      <PropertyRef Name="cReasonCode" />
+    </Key>
+    <Property Name="cReasonCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="cReasonName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="iReasontype" Type="Byte" Nullable="false" />
+    <Property Name="cReasonMemo" Type="String" MaxLength="240" FixedLength="false" Unicode="true" />
+    <Property Name="pubufts" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="QMCHECKVOUCHER" Relationship="UFModel.FK_QMCHECKVOUCHER_REASON" FromRole="Reason" ToRole="QMCHECKVOUCHER" />
+    <NavigationProperty Name="QMREJECTVOUCHERS" Relationship="UFModel.FK_QMREJECTVOUCHERS_REASON" FromRole="Reason" ToRole="QMREJECTVOUCHERS" />
+  </EntityType>
+  <Association Name="FK_mom_morder">
+    <End Type="UFModel.mom_orderdetail" Role="mom_orderdetail" Multiplicity="1" />
+    <End Type="UFModel.mom_morder" Role="mom_morder" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="mom_orderdetail">
+        <PropertyRef Name="MoDId" />
+      </Principal>
+      <Dependent Role="mom_morder">
+        <PropertyRef Name="MoDId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QMCHECKVOUCHER_REASON">
+    <End Type="UFModel.Reason" Role="Reason" Multiplicity="0..1" />
+    <End Type="UFModel.QMCHECKVOUCHER" Role="QMCHECKVOUCHER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Reason">
+        <PropertyRef Name="cReasonCode" />
+      </Principal>
+      <Dependent Role="QMCHECKVOUCHER">
+        <PropertyRef Name="CREASONCODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QMREJECTVOUCHERS_QMSCRAPDISPOSE">
+    <End Type="UFModel.QMSCRAPDISPOSE" Role="QMSCRAPDISPOSE" Multiplicity="0..1" />
+    <End Type="UFModel.QMREJECTVOUCHERS" Role="QMREJECTVOUCHERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QMSCRAPDISPOSE">
+        <PropertyRef Name="CSCRAPDISCODE" />
+      </Principal>
+      <Dependent Role="QMREJECTVOUCHERS">
+        <PropertyRef Name="CSCRAPDISCODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QMREJECTVOUCHERS_REASON">
+    <End Type="UFModel.Reason" Role="Reason" Multiplicity="0..1" />
+    <End Type="UFModel.QMREJECTVOUCHERS" Role="QMREJECTVOUCHERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Reason">
+        <PropertyRef Name="cReasonCode" />
+      </Principal>
+      <Dependent Role="QMREJECTVOUCHERS">
+        <PropertyRef Name="CREASONCODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ComputationUnit">
+    <Key>
+      <PropertyRef Name="cComunitCode" />
+    </Key>
+    <Property Name="cComunitCode" Type="String" Nullable="false" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="cComUnitName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="cGroupCode" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="cBarCode" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="bMainUnit" Type="Boolean" Nullable="false" />
+    <Property Name="iChangRate" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="iProportion" Type="Double" />
+    <Property Name="iNumber" Type="Int16" />
+    <Property Name="pubufts" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="cEnSingular" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="cEnPlural" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="cUnitRefInvCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="cDepCode" />
+    </Key>
+    <Property Name="cDepCode" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="bDepEnd" Type="Boolean" Nullable="false" />
+    <Property Name="cDepName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="iDepGrade" Type="Byte" Nullable="false" />
+    <Property Name="cDepPerson" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="cDepProp" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="cDepPhone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="cDepAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="cDepMemo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="iCreLine" Type="Double" />
+    <Property Name="cCreGrade" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="iCreDate" Type="Int32" />
+    <Property Name="cOfferGrade" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="iOfferRate" Type="Double" />
+    <Property Name="pubufts" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="bShop" Type="Boolean" Nullable="false" />
+    <Property Name="cDepGUID" Type="Guid" Nullable="false" />
+    <Property Name="dDepBeginDate" Type="DateTime" Precision="3" />
+    <Property Name="dDepEndDate" Type="DateTime" Precision="3" />
+    <Property Name="vAuthorizeDoc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="vAuthorizeUnit" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="cDepFax" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="cDepPostCode" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+    <Property Name="cDepEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="cDepType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="bInheritDutyBasic" Type="Int32" />
+    <Property Name="bInheritWorkCalendar" Type="Int32" />
+    <Property Name="cDutyCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cRestCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="bIM" Type="Boolean" />
+    <Property Name="cDepNameEn" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="bRetail" Type="Boolean" />
+    <Property Name="cDepFullName" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+    <Property Name="iDepOrder" Type="Int32" />
+    <Property Name="cDepLeader" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="dModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="cESpaceMembID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Warehouse" Relationship="UFModel.FK__Warehouse__cDepC__46093FC3" FromRole="Department" ToRole="Warehouse" />
+    <NavigationProperty Name="QMCHECKVOUCHER" Relationship="UFModel.FK_QMCHECKVOUCHER_DEPARTMENT" FromRole="Department" ToRole="QMCHECKVOUCHER" />
+    <NavigationProperty Name="QMCHECKVOUCHER1" Relationship="UFModel.FK_QMCHECKVOUCHER_DEPARTMENT1" FromRole="Department" ToRole="QMCHECKVOUCHER" />
+    <NavigationProperty Name="QMINSPECTVOUCHER" Relationship="UFModel.FK_QMINSPECTVOUCHER_DEPARTMENT" FromRole="Department" ToRole="QMINSPECTVOUCHER" />
+    <NavigationProperty Name="QMINSPECTVOUCHER1" Relationship="UFModel.FK_QMINSPECTVOUCHER_Department1" FromRole="Department" ToRole="QMINSPECTVOUCHER" />
+    <NavigationProperty Name="QMREJECTVOUCHER" Relationship="UFModel.FK_QMREJECTVOUCHER_DEPARTMENT" FromRole="Department" ToRole="QMREJECTVOUCHER" />
+    <NavigationProperty Name="QMREJECTVOUCHERS" Relationship="UFModel.FK_QMREJECTVOUCHERS_DEPARTMENT" FromRole="Department" ToRole="QMREJECTVOUCHERS" />
+  </EntityType>
+  <EntityType Name="EQ_EQData">
+    <Key>
+      <PropertyRef Name="AutoID" />
+    </Key>
+    <Property Name="AutoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cEQCode" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="cEQName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cABCCode" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="cEQTypeCode" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="cLBCode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="cSupEQCode" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="cStaCode" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="cPCode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="cDepCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="cSeq" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="cPicCode" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="cVenCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="dtCCDate" Type="DateTime" Precision="3" />
+    <Property Name="dtGMDate" Type="DateTime" Precision="3" />
+    <Property Name="dtAZDate" Type="DateTime" Precision="3" />
+    <Property Name="dtSYdate" Type="DateTime" Precision="3" />
+    <Property Name="intSynx" Type="Double" />
+    <Property Name="dtBxDate" Type="DateTime" Precision="3" />
+    <Property Name="dblDjgl" Type="Double" />
+    <Property Name="intDJNum" Type="Int32" />
+    <Property Name="cDJDW" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Name="dblZdsj" Type="Decimal" Precision="16" Scale="2" />
+    <Property Name="cAssetNum" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="cAssetName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="cCardNum" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="dblValue" Type="Decimal" Precision="20" Scale="2" />
+    <Property Name="dblFCValue" Type="Decimal" Precision="20" Scale="2" />
+    <Property Name="nFlat" Type="Single" />
+    <Property Name="cExchName" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="cDeprMethodCode" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="dblTrueValue" Type="Decimal" Precision="20" Scale="2" />
+    <Property Name="dblDeprSum" Type="Decimal" Precision="20" Scale="2" />
+    <Property Name="dblSumMin" Type="Decimal" Precision="20" Scale="2" />
+    <Property Name="cSite" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="dblBV" Type="Decimal" Precision="20" Scale="2" />
+    <Property Name="dblBVRate" Type="Decimal" Precision="20" Scale="2" />
+    <Property Name="iPeriod" Type="Int32" />
+    <Property Name="cWorkDep" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="cZZVen" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="cMaker" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="dtDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="cChecker" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="dtAudit" Type="DateTime" Precision="3" />
+    <Property Name="cMemo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="intAudit" Type="Int32" />
+    <Property Name="VT_ID" Type="Int32" />
+    <Property Name="cDefine1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="cDefine2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="cDefine3" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="cDefine4" Type="DateTime" Precision="3" />
+    <Property Name="cDefine5" Type="Int32" />
+    <Property Name="cDefine6" Type="DateTime" Precision="3" />
+    <Property Name="cDefine7" Type="Double" />
+    <Property Name="cDefine8" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="cDefine9" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="cDefine10" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="cDefine11" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="cDefine12" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="cDefine13" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="cDefine14" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="cDefine15" Type="Int32" />
+    <Property Name="cDefine16" Type="Double" />
+    <Property Name="ufts" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="cPicPath" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="cPicMemo" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="dblLength" Type="Double" />
+    <Property Name="dblWidth" Type="Double" />
+    <Property Name="dblHeight" Type="Double" />
+    <Property Name="dblCubage" Type="Double" />
+    <Property Name="dblWeight" Type="Double" />
+    <Property Name="cSizeUnitCode" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Name="cCubageUnitCode" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Name="cWeightUnitCode" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Name="iNumEQ" Type="Byte" Nullable="false" />
+    <Property Name="cgg" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="cxh" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="cSysBarCode" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="hr_hi_person">
+    <Key>
+      <PropertyRef Name="cPsn_Num" />
+    </Key>
+    <Property Name="cPsn_Num" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="cPsn_Name" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="cDept_num" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="iRecordID" Type="Int32" />
+    <Property Name="rPersonType" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="rSex" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="dBirthDate" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="rNativePlace" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="rNational" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="rhealthStatus" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="rMarriStatus" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="vIDNo" Type="String" MaxLength="18" FixedLength="false" Unicode="true" />
+    <Property Name="MPicture" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="rPerResidence" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="vAliaName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="dJoinworkDate" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="dEnterDate" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="dRegularDate" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="vSSNo" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="rworkAttend" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="vCardNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="rtbmRule" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="rCheckInFlag" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="dLastDate" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="hrts" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="vstatus1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="nstatus2" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="bPsnPerson" Type="Boolean" Nullable="false" />
+    <Property Name="cPsnMobilePhone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="cPsnFPhone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="cPsnOPhone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="cPsnInPhone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="cPsnEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="cPsnPostAddr" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="cPsnPostCode" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+    <Property Name="cPsnFAddr" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="cPsnQQCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="cPsnURL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CpsnOSeat" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="dEnterUnitDate" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="cPsnProperty" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="cPsnBankCode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="cPsnAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pk_hr_hi_person" Type="Guid" Nullable="false" />
+    <Property Name="bProbation" Type="Boolean" />
+    <Property Name="cDutyclass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="bTakeTM" Type="Boolean" />
+    <Property Name="MPictureqpb" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="rIDType" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="rCountry" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="dLeaveDate" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="rFigure" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="rWorkStatus" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="EmploymentForm" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="rPersonParameters" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="bDutyLock" Type="Boolean" />
+    <Property Name="bpsnshop" Type="Boolean" />
+    <Property Name="CardState" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="FirstHTBeginDate" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="LastHTEndDate" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="cPsn_NameEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sysAge" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="SysCompage" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="SysWorkAge" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="CRegion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NatrueType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cShiftType" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="cDefaultBC" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="dEnterDutyClassDate" Type="DateTime" Precision="3" />
+    <Property Name="cRestType" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="JobNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PersonDepart" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CardEffectiveBeginTime" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CardEffectiveEndTime" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="KeyPerson" Type="Boolean" />
+    <Property Name="cLeaveReson" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="rEmployState" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="cDutyLocker" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="cDutyLockerNum" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="cJobCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="cJobRankCode" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="cJobGradeCode" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="cPsnNowAddress" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="cUrgentPsnName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cUrgentPsnPhone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="bLongIDCard" Type="Boolean" />
+    <Property Name="cLeaveType" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="cDutyCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cFax" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="cTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cReportTo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cStartWorkTime" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="cEndWorkTime" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="cLoginSubIDs" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="cpersonbarcode" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="bMobileCard" Type="Boolean" />
+    <Property Name="cMobileSites" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="vOldCard" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MaxLeadNum" Type="Int32" />
+    <Property Name="MaxPAccountNum" Type="Int32" />
+    <Property Name="MaxAccountNum" Type="Int32" />
+    <Property Name="MaxOpportunityNum" Type="Int32" />
+    <Property Name="LeadRcyReg" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="PAccountRcyReg" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="OpportunityRcyReg" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="cESpaceUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cWeixinid" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="chdefine16" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="dPayEndDate" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Inventory">
+    <Key>
+      <PropertyRef Name="cInvCode" />
+    </Key>
+    <Property Name="cInvCode" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="cInvAddCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="cInvName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="cInvStd" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="cInvCCode" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="cVenCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="cReplaceItem" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="cPosition" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="bSale" Type="Boolean" Nullable="false" />
+    <Property Name="bPurchase" Type="Boolean" Nullable="false" />
+    <Property Name="bSelf" Type="Boolean" Nullable="false" />
+    <Property Name="bComsume" Type="Boolean" Nullable="false" />
+    <Property Name="bProducing" Type="Boolean" Nullable="false" />
+    <Property Name="bService" Type="Boolean" Nullable="false" />
+    <Property Name="bAccessary" Type="Boolean" Nullable="false" />
+    <Property Name="iTaxRate" Type="Double" />
+    <Property Name="iInvWeight" Type="Double" />
+    <Property Name="iVolume" Type="Double" />
+    <Property Name="iInvRCost" Type="Double" />
+    <Property Name="iInvSPrice" Type="Double" />
+    <Property Name="iInvSCost" Type="Double" />
+    <Property Name="iInvLSCost" Type="Double" />
+    <Property Name="iInvNCost" Type="Double" />
+    <Property Name="iInvAdvance" Type="Double" />
+    <Property Name="iInvBatch" Type="Double" />
+    <Property Name="iSafeNum" Type="Double" />
+    <Property Name="iTopSum" Type="Double" />
+    <Property Name="iLowSum" Type="Double" />
+    <Property Name="iOverStock" Type="Double" />
+    <Property Name="cInvABC" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="bInvQuality" Type="Boolean" Nullable="false" />
+    <Property Name="bInvBatch" Type="Boolean" Nullable="false" />
+    <Property Name="bInvEntrust" Type="Boolean" Nullable="false" />
+    <Property Name="bInvOverStock" Type="Boolean" Nullable="false" />
+    <Property Name="dSDate" Type="DateTime" Precision="3" />
+    <Property Name="dEDate" Type="DateTime" Precision="3" />
+    <Property Name="bFree1" Type="Boolean" Nullable="false" />
+    <Property Name="bFree2" Type="Boolean" Nullable="false" />
+    <Property Name="cInvDefine1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="cInvDefine2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="cInvDefine3" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="I_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="bInvType" Type="Boolean" />
+    <Property Name="iInvMPCost" Type="Double" />
+    <Property Name="cQuality" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="iInvSaleCost" Type="Double" />
+    <Property Name="iInvSCost1" Type="Double" />
+    <Property Name="iInvSCost2" Type="Double" />
+    <Property Name="iInvSCost3" Type="Double" />
+    <Property Name="bFree3" Type="Boolean" Nullable="false" />
+    <Property Name="bFree4" Type="Boolean" Nullable="false" />
+    <Property Name="bFree5" Type="Boolean" Nullable="false" />
+    <Property Name="bFree6" Type="Boolean" Nullable="false" />
+    <Property Name="bFree7" Type="Boolean" Nullable="false" />
+    <Property Name="bFree8" Type="Boolean" Nullable="false" />
+    <Property Name="bFree9" Type="Boolean" Nullable="false" />
+    <Property Name="bFree10" Type="Boolean" Nullable="false" />
+    <Property Name="cCreatePerson" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="cModifyPerson" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="dModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="fSubscribePoint" Type="Double" />
+    <Property Name="fVagQuantity" Type="Double" />
+    <Property Name="cValueType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="bFixExch" Type="Boolean" Nullable="false" />
+    <Property Name="fOutExcess" Type="Double" />
+    <Property Name="fInExcess" Type="Double" />
+    <Property Name="iMassDate" Type="Int16" />
+    <Property Name="iWarnDays" Type="Int16" />
+    <Property Name="fExpensesExch" Type="Double" />
+    <Property Name="bTrack" Type="Boolean" Nullable="false" />
+    <Property Name="bSerial" Type="Boolean" Nullable="false" />
+    <Property Name="bBarCode" Type="Boolean" Nullable="false" />
+    <Property Name="iId" Type="Int32" />
+    <Property Name="cBarCode" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="cInvDefine4" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="cInvDefine5" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="cInvDefine6" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="cInvDefine7" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="cInvDefine8" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="cInvDefine9" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="cInvDefine10" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="cInvDefine11" Type="Int32" />
+    <Property Name="cInvDefine12" Type="Int32" />
+    <Property Name="cInvDefine13" Type="Double" />
+    <Property Name="cInvDefine14" Type="Double" />
+    <Property Name="cInvDefine15" Type="DateTime" Precision="3" />
+    <Property Name="cInvDefine16" Type="DateTime" Precision="3" />
+    <Property Name="iGroupType" Type="Byte" Nullable="false" />
+    <Property Name="cGroupCode" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="cComUnitCode" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="cAssComUnitCode" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="cSAComUnitCode" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="cPUComUnitCode" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="cSTComUnitCode" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="cCAComUnitCode" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="cFrequency" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="iFrequency" Type="Int16" />
+    <Property Name="iDays" Type="Int16" />
+    <Property Name="dLastDate" Type="DateTime" Precision="3" />
+    <Property Name="iWastage" Type="Double" />
+    <Property Name="bSolitude" Type="Boolean" Nullable="false" />
+    <Property Name="cEnterprise" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="cAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="cFile" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="cLabel" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="cCheckOut" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="cLicence" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="bSpecialties" Type="Boolean" Nullable="false" />
+    <Property Name="cDefWareHouse" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="iHighPrice" Type="Double" />
+    <Property Name="iExpSaleRate" Type="Double" />
+    <Property Name="cPriceGroup" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="cOfferGrade" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="iOfferRate" Type="Double" />
+    <Property Name="cMonth" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+    <Property Name="iAdvanceDate" Type="Int16" />
+    <Property Name="cCurrencyName" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="cProduceAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="cProduceNation" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="cRegisterNo" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="cEnterNo" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="cPackingType" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="cEnglishName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="bPropertyCheck" Type="Boolean" Nullable="false" />
+    <Property Name="cPreparationType" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="cCommodity" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="iRecipeBatch" Type="Byte" Nullable="false" />
+    <Property Name="cNotPatentName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="pubufts" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="bPromotSales" Type="Boolean" Nullable="false" />
+    <Property Name="iPlanPolicy" Type="Int16" />
+    <Property Name="iROPMethod" Type="Int16" />
+    <Property Name="iBatchRule" Type="Int16" />
+    <Property Name="fBatchIncrement" Type="Double" />
+    <Property Name="iAssureProvideDays" Type="Int32" />
+    <Property Name="iTestStyle" Type="Int16" />
+    <Property Name="iDTMethod" Type="Int16" />
+    <Property Name="fDTRate" Type="Double" />
+    <Property Name="fDTNum" Type="Double" />
+    <Property Name="cDTUnit" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="iDTStyle" Type="Int16" />
+    <Property Name="iQTMethod" Type="Int32" />
+    <Property Name="PictureGUID" Type="Guid" />
+    <Property Name="bPlanInv" Type="Boolean" Nullable="false" />
+    <Property Name="bProxyForeign" Type="Boolean" Nullable="false" />
+    <Property Name="bATOModel" Type="Boolean" Nullable="false" />
+    <Property Name="bCheckItem" Type="Boolean" Nullable="false" />
+    <Property Name="bPTOModel" Type="Boolean" Nullable="false" />
+    <Property Name="bEquipment" Type="Boolean" Nullable="false" />
+    <Property Name="cProductUnit" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="fOrderUpLimit" Type="Double" />
+    <Property Name="cMassUnit" Type="Int16" />
+    <Property Name="fRetailPrice" Type="Double" />
+    <Property Name="cInvDepCode" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="iAlterAdvance" Type="Int32" />
+    <Property Name="fAlterBaseNum" Type="Double" />
+    <Property Name="cPlanMethod" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="bMPS" Type="Boolean" Nullable="false" />
+    <Property Name="bROP" Type="Boolean" Nullable="false" />
+    <Property Name="bRePlan" Type="Boolean" Nullable="false" />
+    <Property Name="cSRPolicy" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="bBillUnite" Type="Boolean" Nullable="false" />
+    <Property Name="iSupplyDay" Type="Int32" />
+    <Property Name="fSupplyMulti" Type="Double" />
+    <Property Name="fMinSupply" Type="Double" />
+    <Property Name="bCutMantissa" Type="Boolean" Nullable="false" />
+    <Property Name="cInvPersonCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="iInvTfId" Type="Int32" />
+    <Property Name="cEngineerFigNo" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="bInTotalCost" Type="Boolean" Nullable="false" />
+    <Property Name="iSupplyType" Type="Int16" Nullable="false" />
+    <Property Name="bConfigFree1" Type="Boolean" Nullable="false" />
+    <Property Name="bConfigFree2" Type="Boolean" Nullable="false" />
+    <Property Name="bConfigFree3" Type="Boolean" Nullable="false" />
+    <Property Name="bConfigFree4" Type="Boolean" Nullable="false" />
+    <Property Name="bConfigFree5" Type="Boolean" Nullable="false" />
+    <Property Name="bConfigFree6" Type="Boolean" Nullable="false" />
+    <Property Name="bConfigFree7" Type="Boolean" Nullable="false" />
+    <Property Name="bConfigFree8" Type="Boolean" Nullable="false" />
+    <Property Name="bConfigFree9" Type="Boolean" Nullable="false" />
+    <Property Name="bConfigFree10" Type="Boolean" Nullable="false" />
+    <Property Name="iDTLevel" Type="Int16" />
+    <Property Name="cDTAQL" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="bPeriodDT" Type="Boolean" Nullable="false" />
+    <Property Name="cDTPeriod" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="iBigMonth" Type="Int32" />
+    <Property Name="iBigDay" Type="Int32" />
+    <Property Name="iSmallMonth" Type="Int32" />
+    <Property Name="iSmallDay" Type="Int32" />
+    <Property Name="bOutInvDT" Type="Boolean" Nullable="false" />
+    <Property Name="bBackInvDT" Type="Boolean" Nullable="false" />
+    <Property Name="iEndDTStyle" Type="Int16" />
+    <Property Name="bDTWarnInv" Type="Boolean" />
+    <Property Name="fBackTaxRate" Type="Double" />
+    <Property Name="cCIQCode" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="cWGroupCode" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="cWUnit" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="fGrossW" Type="Double" />
+    <Property Name="cVGroupCode" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="cVUnit" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="fLength" Type="Double" />
+    <Property Name="fWidth" Type="Double" />
+    <Property Name="fHeight" Type="Double" />
+    <Property Name="iDTUCounter" Type="Int32" />
+    <Property Name="iDTDCounter" Type="Int32" />
+    <Property Name="iBatchCounter" Type="Int32" />
+    <Property Name="cShopUnit" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="cPurPersonCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="bImportMedicine" Type="Boolean" Nullable="false" />
+    <Property Name="bFirstBusiMedicine" Type="Boolean" Nullable="false" />
+    <Property Name="bForeExpland" Type="Boolean" Nullable="false" />
+    <Property Name="cInvPlanCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="fConvertRate" Type="Double" Nullable="false" />
+    <Property Name="dReplaceDate" Type="DateTime" Precision="3" />
+    <Property Name="bInvModel" Type="Boolean" Nullable="false" />
+    <Property Name="bKCCutMantissa" Type="Boolean" Nullable="false" />
+    <Property Name="bReceiptByDT" Type="Boolean" Nullable="false" />
+    <Property Name="iImpTaxRate" Type="Double" />
+    <Property Name="iExpTaxRate" Type="Double" />
+    <Property Name="bExpSale" Type="Boolean" Nullable="false" />
+    <Property Name="iDrawBatch" Type="Double" />
+    <Property Name="bCheckBSATP" Type="Boolean" Nullable="false" />
+    <Property Name="cInvProjectCode" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="iTestRule" Type="Int16" />
+    <Property Name="cRuleCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="bCheckFree1" Type="Boolean" Nullable="false" />
+    <Property Name="bCheckFree2" Type="Boolean" Nullable="false" />
+    <Property Name="bCheckFree3" Type="Boolean" Nullable="false" />
+    <Property Name="bCheckFree4" Type="Boolean" Nullable="false" />
+    <Property Name="bCheckFree5" Type="Boolean" Nullable="false" />
+    <Property Name="bCheckFree6" Type="Boolean" Nullable="false" />
+    <Property Name="bCheckFree7" Type="Boolean" Nullable="false" />
+    <Property Name="bCheckFree8" Type="Boolean" Nullable="false" />
+    <Property Name="bCheckFree9" Type="Boolean" Nullable="false" />
+    <Property Name="bCheckFree10" Type="Boolean" Nullable="false" />
+    <Property Name="bBomMain" Type="Boolean" Nullable="false" />
+    <Property Name="bBomSub" Type="Boolean" Nullable="false" />
+    <Property Name="bProductBill" Type="Boolean" Nullable="false" />
+    <Property Name="iCheckATP" Type="Int16" Nullable="false" />
+    <Property Name="iInvATPId" Type="Int32" />
+    <Property Name="iPlanTfDay" Type="Int32" />
+    <Property Name="iOverlapDay" Type="Int32" />
+    <Property Name="bPiece" Type="Boolean" Nullable="false" />
+    <Property Name="bSrvItem" Type="Boolean" Nullable="false" />
+    <Property Name="bSrvFittings" Type="Boolean" Nullable="false" />
+    <Property Name="fMaxSupply" Type="Double" />
+    <Property Name="fMinSplit" Type="Double" />
+    <Property Name="bSpecialOrder" Type="Boolean" Nullable="false" />
+    <Property Name="bTrackSaleBill" Type="Boolean" Nullable="false" />
+    <Property Name="cInvMnemCode" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="iPlanDefault" Type="Int16" />
+    <Property Name="iPFBatchQty" Type="Double" />
+    <Property Name="iAllocatePrintDgt" Type="Int32" />
+    <Property Name="bCheckBatch" Type="Boolean" Nullable="false" />
+    <Property Name="bMngOldpart" Type="Boolean" Nullable="false" />
+    <Property Name="iOldpartMngRule" Type="Int16" />
+  </EntityType>
+  <EntityType Name="Warehouse">
+    <Key>
+      <PropertyRef Name="cWhCode" />
+    </Key>
+    <Property Name="cWhCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="cWhName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="cDepCode" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="cWhAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="cWhPhone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="cWhPerson" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="cWhValueStyle" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="bWhPos" Type="Boolean" Nullable="false" />
+    <Property Name="iWhFundQuota" Type="Double" />
+    <Property Name="cMonth" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+    <Property Name="cWhMemo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="bFreeze" Type="Boolean" Nullable="false" />
+    <Property Name="cBarCode" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="bMRP" Type="Boolean" Nullable="false" />
+    <Property Name="pubufts" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="bROP" Type="Boolean" Nullable="false" />
+    <Property Name="iFrequency" Type="Int16" />
+    <Property Name="cFrequency" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="iDays" Type="Int16" />
+    <Property Name="dLastDate" Type="DateTime" Precision="3" />
+    <Property Name="iWHProperty" Type="Int16" Nullable="false" />
+    <Property Name="bShop" Type="Boolean" Nullable="false" />
+    <Property Name="bControlSerial" Type="Boolean" Nullable="false" />
+    <Property Name="bInCost" Type="Boolean" Nullable="false" />
+    <Property Name="bInAvailCalcu" Type="Boolean" Nullable="false" />
+    <Property Name="bProxyWh" Type="Boolean" Nullable="false" />
+    <Property Name="iSAConMode" Type="Int16" Nullable="false" />
+    <Property Name="iEXConMode" Type="Int16" Nullable="false" />
+    <Property Name="iSTConMode" Type="Int16" Nullable="false" />
+    <Property Name="bBondedWh" Type="Boolean" Nullable="false" />
+    <Property Name="bWhAsset" Type="Boolean" Nullable="false" />
+    <Property Name="fWhQuota" Type="Double" />
+    <Property Name="dWhEndDate" Type="DateTime" Precision="3" />
+    <Property Name="bCheckSubitemCost" Type="Boolean" />
+    <Property Name="cPickPos" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="bEB" Type="Boolean" />
+    <Property Name="dModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="cWareGroupCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="cProvince" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="cCity" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="cCounty" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Department" Relationship="UFModel.FK__Warehouse__cDepC__46093FC3" FromRole="Warehouse" ToRole="Department" />
+    <NavigationProperty Name="QMCHECKVOUCHER" Relationship="UFModel.FK_QMCHECKVOUCHER_WAREHOUSE" FromRole="Warehouse" ToRole="QMCHECKVOUCHER" />
+    <NavigationProperty Name="QMINSPECTVOUCHERS" Relationship="UFModel.FK_QMINSPECTVOUCHERS_WAREHOUSE" FromRole="Warehouse" ToRole="QMINSPECTVOUCHERS" />
+    <NavigationProperty Name="QMREJECTVOUCHER" Relationship="UFModel.FK_QMREJECTVOUCHER_WAREHOUSE" FromRole="Warehouse" ToRole="QMREJECTVOUCHER" />
+  </EntityType>
+  <Association Name="FK__Warehouse__cDepC__46093FC3">
+    <End Type="UFModel.Department" Role="Department" Multiplicity="0..1" />
+    <End Type="UFModel.Warehouse" Role="Warehouse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="cDepCode" />
+      </Principal>
+      <Dependent Role="Warehouse">
+        <PropertyRef Name="cDepCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QMCHECKVOUCHER_DEPARTMENT">
+    <End Type="UFModel.Department" Role="Department" Multiplicity="0..1" />
+    <End Type="UFModel.QMCHECKVOUCHER" Role="QMCHECKVOUCHER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="cDepCode" />
+      </Principal>
+      <Dependent Role="QMCHECKVOUCHER">
+        <PropertyRef Name="CINSPECTDEPCODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QMCHECKVOUCHER_DEPARTMENT1">
+    <End Type="UFModel.Department" Role="Department" Multiplicity="0..1" />
+    <End Type="UFModel.QMCHECKVOUCHER" Role="QMCHECKVOUCHER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="cDepCode" />
+      </Principal>
+      <Dependent Role="QMCHECKVOUCHER">
+        <PropertyRef Name="CDEPCODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QMINSPECTVOUCHER_DEPARTMENT">
+    <End Type="UFModel.Department" Role="Department" Multiplicity="0..1" />
+    <End Type="UFModel.QMINSPECTVOUCHER" Role="QMINSPECTVOUCHER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="cDepCode" />
+      </Principal>
+      <Dependent Role="QMINSPECTVOUCHER">
+        <PropertyRef Name="CDEPCODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QMINSPECTVOUCHER_Department1">
+    <End Type="UFModel.Department" Role="Department" Multiplicity="0..1" />
+    <End Type="UFModel.QMINSPECTVOUCHER" Role="QMINSPECTVOUCHER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="cDepCode" />
+      </Principal>
+      <Dependent Role="QMINSPECTVOUCHER">
+        <PropertyRef Name="CINSPECTDEPCODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QMREJECTVOUCHER_DEPARTMENT">
+    <End Type="UFModel.Department" Role="Department" Multiplicity="0..1" />
+    <End Type="UFModel.QMREJECTVOUCHER" Role="QMREJECTVOUCHER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="cDepCode" />
+      </Principal>
+      <Dependent Role="QMREJECTVOUCHER">
+        <PropertyRef Name="CINSPECTDEPCODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QMREJECTVOUCHERS_DEPARTMENT">
+    <End Type="UFModel.Department" Role="Department" Multiplicity="0..1" />
+    <End Type="UFModel.QMREJECTVOUCHERS" Role="QMREJECTVOUCHERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="cDepCode" />
+      </Principal>
+      <Dependent Role="QMREJECTVOUCHERS">
+        <PropertyRef Name="CDEPCODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QMCHECKVOUCHER_WAREHOUSE">
+    <End Type="UFModel.Warehouse" Role="Warehouse" Multiplicity="0..1" />
+    <End Type="UFModel.QMCHECKVOUCHER" Role="QMCHECKVOUCHER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Warehouse">
+        <PropertyRef Name="cWhCode" />
+      </Principal>
+      <Dependent Role="QMCHECKVOUCHER">
+        <PropertyRef Name="CWHCODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QMINSPECTVOUCHERS_WAREHOUSE">
+    <End Type="UFModel.Warehouse" Role="Warehouse" Multiplicity="0..1" />
+    <End Type="UFModel.QMINSPECTVOUCHERS" Role="QMINSPECTVOUCHERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Warehouse">
+        <PropertyRef Name="cWhCode" />
+      </Principal>
+      <Dependent Role="QMINSPECTVOUCHERS">
+        <PropertyRef Name="CWHCODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QMREJECTVOUCHER_WAREHOUSE">
+    <End Type="UFModel.Warehouse" Role="Warehouse" Multiplicity="0..1" />
+    <End Type="UFModel.QMREJECTVOUCHER" Role="QMREJECTVOUCHER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Warehouse">
+        <PropertyRef Name="cWhCode" />
+      </Principal>
+      <Dependent Role="QMREJECTVOUCHER">
+        <PropertyRef Name="CWHCODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="mom_order">
+    <Key>
+      <PropertyRef Name="MoId" />
+    </Key>
+    <Property Name="MoId" Type="Int32" Nullable="false" />
+    <Property Name="MoCode" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateUser" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifyUser" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="UpdCount" Type="Int32" />
+    <Property Name="Ufts" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="Define1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Define2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Define3" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Define4" Type="DateTime" Precision="3" />
+    <Property Name="Define5" Type="Int32" />
+    <Property Name="Define6" Type="DateTime" Precision="3" />
+    <Property Name="Define7" Type="Double" />
+    <Property Name="Define8" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="Define9" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="Define10" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="Define11" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="Define12" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="Define13" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="Define14" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="Define15" Type="Int32" />
+    <Property Name="Define16" Type="Double" />
+    <Property Name="VTid" Type="Int32" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="ModifyTime" Type="DateTime" Precision="3" />
+    <Property Name="iPrintCount" Type="Int32" />
+    <Property Name="RelsVTid" Type="Int32" />
+    <Property Name="cSysBarCode" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="mom_orderdetail" Relationship="UFModel.FK_mom_orderdetail" FromRole="mom_order" ToRole="mom_orderdetail" />
+  </EntityType>
+  <Association Name="FK_mom_orderdetail">
+    <End Type="UFModel.mom_order" Role="mom_order" Multiplicity="1" />
+    <End Type="UFModel.mom_orderdetail" Role="mom_orderdetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mom_order">
+        <PropertyRef Name="MoId" />
+      </Principal>
+      <Dependent Role="mom_orderdetail">
+        <PropertyRef Name="MoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="sfc_workcenter">
+    <Key>
+      <PropertyRef Name="WcId" />
+    </Key>
+    <Property Name="WcId" Type="Int32" Nullable="false" />
+    <Property Name="WcCode" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CalendarId" Type="Int32" />
+    <Property Name="ProductLineFlag" Type="Boolean" />
+    <Property Name="DeptCode" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateUser" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifyUser" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="UpdCount" Type="Int32" />
+    <Property Name="Ufts" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="ModifyTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="QMCHECKVOUCHER" Relationship="UFModel.FK_QMCHECKVOUCHER_SFC_WorkCenter" FromRole="sfc_workcenter" ToRole="QMCHECKVOUCHER" />
+    <NavigationProperty Name="QMINSPECTVOUCHER" Relationship="UFModel.FK_QMINSPECTVOUCHER_SFC_WorkCenter" FromRole="sfc_workcenter" ToRole="QMINSPECTVOUCHER" />
+    <NavigationProperty Name="QMREJECTVOUCHER" Relationship="UFModel.FK_QMREJECTVOUCHER_SFC_WorkCenter" FromRole="sfc_workcenter" ToRole="QMREJECTVOUCHER" />
+  </EntityType>
+  <Association Name="FK_QMCHECKVOUCHER_SFC_WorkCenter">
+    <End Type="UFModel.sfc_workcenter" Role="sfc_workcenter" Multiplicity="0..1" />
+    <End Type="UFModel.QMCHECKVOUCHER" Role="QMCHECKVOUCHER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sfc_workcenter">
+        <PropertyRef Name="WcId" />
+      </Principal>
+      <Dependent Role="QMCHECKVOUCHER">
+        <PropertyRef Name="IWORKCENTER" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QMINSPECTVOUCHER_SFC_WorkCenter">
+    <End Type="UFModel.sfc_workcenter" Role="sfc_workcenter" Multiplicity="0..1" />
+    <End Type="UFModel.QMINSPECTVOUCHER" Role="QMINSPECTVOUCHER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sfc_workcenter">
+        <PropertyRef Name="WcId" />
+      </Principal>
+      <Dependent Role="QMINSPECTVOUCHER">
+        <PropertyRef Name="IWORKCENTER" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QMREJECTVOUCHER_SFC_WorkCenter">
+    <End Type="UFModel.sfc_workcenter" Role="sfc_workcenter" Multiplicity="0..1" />
+    <End Type="UFModel.QMREJECTVOUCHER" Role="QMREJECTVOUCHER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sfc_workcenter">
+        <PropertyRef Name="WcId" />
+      </Principal>
+      <Dependent Role="QMREJECTVOUCHER">
+        <PropertyRef Name="IWORKCENTER" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="VoucherHistory">
+    <Key>
+      <PropertyRef Name="AutoId" />
+    </Key>
+    <Property Name="AutoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CardNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="iRdFlagSeed" Type="Byte" />
+    <Property Name="cContent" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cContentRule" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cSeed" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="cNumber" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="bEmpty" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="v_fc_refermoroutingmixedlist">
+    <Key>
+      <PropertyRef Name="moid" />
+      <PropertyRef Name="modid" />
+      <PropertyRef Name="mocode" />
+      <PropertyRef Name="sortseq" />
+      <PropertyRef Name="moroutingid" />
+      <PropertyRef Name="moroutingdid" />
+      <PropertyRef Name="shiftqty" />
+      <PropertyRef Name="bscrap" />
+    </Key>
+    <Property Name="moid" Type="Int32" Nullable="false" />
+    <Property Name="modid" Type="Int32" Nullable="false" />
+    <Property Name="mocode" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="sortseq" Type="Int32" Nullable="false" />
+    <Property Name="motypedesc" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="invcode" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="cinvname" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="cinvstd" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="cinvaddcode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="molotcode" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="cengineerfigno" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="qty" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="ccomunitcode" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="ccomunitname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="Byte" />
+    <Property Name="modescription" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="SoCode" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="SoSeq" Type="Int32" />
+    <Property Name="free1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="free2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="free3" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="free4" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="free5" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="free6" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="free7" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="free8" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="free9" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="free10" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="cinvdefine1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="cinvdefine2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="cinvdefine3" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="cinvdefine4" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="cinvdefine5" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="cinvdefine6" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="cinvdefine7" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="cinvdefine8" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="cinvdefine9" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="cinvdefine10" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="cinvdefine11" Type="Int32" />
+    <Property Name="cinvdefine12" Type="Int32" />
+    <Property Name="cinvdefine13" Type="Double" />
+    <Property Name="cinvdefine14" Type="Double" />
+    <Property Name="cinvdefine15" Type="DateTime" Precision="3" />
+    <Property Name="cinvdefine16" Type="DateTime" Precision="3" />
+    <Property Name="MdeptCode" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="cdepname" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="moroutingid" Type="Int32" Nullable="false" />
+    <Property Name="moroutingdid" Type="Int32" Nullable="false" />
+    <Property Name="opseq" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="opcode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="opdescription" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="subflag" Type="Boolean" />
+    <Property Name="wcid" Type="Int32" />
+    <Property Name="wccode" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="wcdescription" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="wcdepcode" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="startdate" Type="DateTime" Precision="3" />
+    <Property Name="duedate" Type="DateTime" Precision="3" />
+    <Property Name="starttime" Type="DateTime" Precision="3" />
+    <Property Name="duetime" Type="DateTime" Precision="3" />
+    <Property Name="inopunitcode" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="inopunitname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="inchangerate" Type="Decimal" Precision="22" Scale="6" />
+    <Property Name="inauxopqty" Type="Decimal" Precision="38" Scale="10" />
+    <Property Name="balmachiningqty" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="baldeclareqty" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="balqualifiedqty" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="balrefusedqty" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="balscrapqty" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="perworkhr" Type="Int32" />
+    <Property Name="FirstFlag" Type="Boolean" />
+    <Property Name="LastFlag" Type="Boolean" />
+    <Property Name="reportqty" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="moroutingshiftid" Type="Int32" />
+    <Property Name="shiftqty" Type="Decimal" Nullable="false" Precision="28" Scale="6" />
+    <Property Name="moreportqty" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="completedqty" Type="Decimal" Precision="38" Scale="6" />
+    <Property Name="uncompletedqty" Type="Decimal" Precision="38" Scale="6" />
+    <Property Name="eqid" Type="Int32" />
+    <Property Name="ceqcode" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="ceqname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="employcode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="employname" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="dutyclasscode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="dutyclassname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="workshiftid" Type="Int32" />
+    <Property Name="wscode" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+    <Property Name="bcdescription" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="unreportqty" Type="Decimal" Precision="29" Scale="6" />
+    <Property Name="cmoroutufts" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="cshiftufts" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="bscrap" Type="Int32" Nullable="false" />
+    <Property Name="shiftstartdate" Type="DateTime" Precision="3" />
+    <Property Name="shiftduedate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Rd_Style">
+    <Key>
+      <PropertyRef Name="cRdCode" />
+    </Key>
+    <Property Name="cRdCode" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="cRdName" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="iRdGrade" Type="Byte" Nullable="false" />
+    <Property Name="bRdFlag" Type="Int32" Nullable="false" />
+    <Property Name="bRdEnd" Type="Boolean" Nullable="false" />
+    <Property Name="cOppHead" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="pubufts" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="bRetail" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="sfc_optransform">
+    <Key>
+      <PropertyRef Name="TransformId" />
+    </Key>
+    <Property Name="TransformId" Type="Int32" Nullable="false" />
+    <Property Name="DocCode" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="DocDate" Type="DateTime" Precision="3" />
+    <Property Name="MoId" Type="Int32" />
+    <Property Name="MoDId" Type="Int32" />
+    <Property Name="MoRoutingId" Type="Int32" />
+    <Property Name="MoRoutingDId" Type="Int32" />
+    <Property Name="TransformType" Type="Byte" />
+    <Property Name="OpStatus" Type="Int16" />
+    <Property Name="TransOutQty" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="InMoRoutingDId" Type="Int32" />
+    <Property Name="QualifiedQty" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="ScrapQty" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="RefusedQty" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="DeclareQty" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="MachiningQty" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="DeclaredQty" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="Remark" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateUser" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifyUser" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="UpdCount" Type="Int32" />
+    <Property Name="Ufts" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="Define1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Define2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Define3" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Define4" Type="DateTime" Precision="3" />
+    <Property Name="Define5" Type="Int32" />
+    <Property Name="Define6" Type="DateTime" Precision="3" />
+    <Property Name="Define7" Type="Double" />
+    <Property Name="Define8" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="Define9" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="Define10" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="Define11" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="Define12" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="Define13" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="Define14" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="Define15" Type="Int32" />
+    <Property Name="Define16" Type="Double" />
+    <Property Name="QcFlag" Type="Boolean" />
+    <Property Name="OutQcFlag" Type="Boolean" />
+    <Property Name="VTid" Type="Int32" />
+    <Property Name="InAuxUnitCode" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="InChangeRate" Type="Decimal" Precision="22" Scale="6" />
+    <Property Name="ReasonCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="QualifiedReasonCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="RefusedReasonCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ScrapReasonCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="QcType" Type="Byte" />
+    <Property Name="CheckId" Type="Int32" />
+    <Property Name="WorkHrId" Type="Int32" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="BFedFlag" Type="Boolean" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="ModifyTime" Type="DateTime" Precision="3" />
+    <Property Name="DocTime" Type="DateTime" Precision="3" />
+    <Property Name="PFReportId" Type="Int32" />
+    <Property Name="PFReportDId" Type="Int32" />
+    <Property Name="PFDId" Type="Int32" />
+    <Property Name="iPrintCount" Type="Int32" />
+    <Property Name="RefDocType" Type="Byte" />
+    <Property Name="RefDocDId" Type="Int32" />
+    <Property Name="RefDocCode" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="ReworkFlag" Type="Boolean" />
+    <Property Name="OrgDocCOde" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="rdrecord10_extradefine">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" />
+    <Property Name="chdefine37" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="chdefine39" Type="Double" />
+    <Property Name="chdefine40" Type="Double" />
+    <Property Name="chdefine43" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="QM_QPROINSPECTLIST">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="AUTOID" />
+      <PropertyRef Name="ITESTSTYLE" />
+      <PropertyRef Name="CINVCODE" />
+      <PropertyRef Name="BFLAG" />
+      <PropertyRef Name="BEXIGENCY" />
+      <PropertyRef Name="CBYPRODUCT" />
+      <PropertyRef Name="IGROUPTYPE" />
+      <PropertyRef Name="CCONTRACTROWNO" />
+      <PropertyRef Name="DOCSTATE" />
+    </Key>
+    <Property Name="INSPECTGUID" Type="Guid" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="CVOUCHTYPE" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="CINSPECTCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CREJECTCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CSOURCECODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="REJECTID" Type="Int32" />
+    <Property Name="CSOURCEID" Type="Int32" />
+    <Property Name="DARRIVALDATE" Type="DateTime" Precision="3" />
+    <Property Name="CDEPCODE" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="CDEPNAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CINSPECTDEPCODE" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="CINSPECTDEPNAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DDATE" Type="DateTime" Precision="3" />
+    <Property Name="CTIME" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CSOURCE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="IVTID" Type="Int32" />
+    <Property Name="UFTS" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="CMAKER" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CVERIFIER" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE3" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE4" Type="DateTime" Precision="3" />
+    <Property Name="CDEFINE5" Type="Int32" />
+    <Property Name="CDEFINE6" Type="DateTime" Precision="3" />
+    <Property Name="CDEFINE7" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="CDEFINE8" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE9" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE10" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE11" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE12" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE13" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE14" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE15" Type="Int32" />
+    <Property Name="CDEFINE16" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="AUTOID" Type="Int32" Nullable="false" />
+    <Property Name="CITEMCLASS" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CITEMCODE" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CITEMCNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CITEMNAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="REJECTAUTOID" Type="Int32" />
+    <Property Name="SOURCEAUTOID" Type="Int32" />
+    <Property Name="ITESTSTYLE" Type="Int32" Nullable="false" />
+    <Property Name="CINVCODE" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CINVNAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CINVSTD" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CCOMUNITCODE" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="CCOMUNITNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CBATCH" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CPROBATCH" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="DPRODATE" Type="DateTime" Precision="3" />
+    <Property Name="DVDATE" Type="DateTime" Precision="3" />
+    <Property Name="CUNITID" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="CUNITNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="FCHANGRATE" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FQUANTITY" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FNUM" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="BFLAG" Type="Boolean" Nullable="false" />
+    <Property Name="CFREE1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE3" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE4" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE5" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE6" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE7" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE8" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE9" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CFREE10" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE22" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE23" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE24" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE25" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE26" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="CDEFINE27" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="CDEFINE28" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE29" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE30" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE31" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE32" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE33" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CDEFINE34" Type="Int32" />
+    <Property Name="CDEFINE35" Type="Int32" />
+    <Property Name="CDEFINE36" Type="DateTime" Precision="3" />
+    <Property Name="CDEFINE37" Type="DateTime" Precision="3" />
+    <Property Name="CINVDEFINE1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CINVDEFINE2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CINVDEFINE3" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CINVDEFINE4" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CINVDEFINE5" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CINVDEFINE6" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CINVDEFINE7" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CINVDEFINE8" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CINVDEFINE9" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CINVDEFINE10" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CINVDEFINE11" Type="Int32" />
+    <Property Name="CINVDEFINE12" Type="Int32" />
+    <Property Name="CINVDEFINE13" Type="Double" />
+    <Property Name="CINVDEFINE14" Type="Double" />
+    <Property Name="CINVDEFINE15" Type="DateTime" Precision="3" />
+    <Property Name="CINVDEFINE16" Type="DateTime" Precision="3" />
+    <Property Name="IID" Type="Int32" />
+    <Property Name="CCUSNAME" Type="String" MaxLength="98" FixedLength="false" Unicode="true" />
+    <Property Name="CCUSCODE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="IPROORDERID" Type="Int32" />
+    <Property Name="CPROORDERCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="IPROORDERAUTOID" Type="Int32" />
+    <Property Name="IORDERTYPE" Type="Int32" />
+    <Property Name="CSOORDERCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="ISOORDERAUTOID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CCONTRACTCODE" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="CCONTRACTSTRCODE" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="BEXIGENCY" Type="Boolean" Nullable="false" />
+    <Property Name="CCHECKTYPECODE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CCHECKTYPENAME" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CBYPRODUCT" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CMASSUNIT" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="IMASSDATE" Type="Int16" />
+    <Property Name="CWHCODE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CWHNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CINVADDCODE" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CWORKCENTER" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="IWORKCENTER" Type="Int32" />
+    <Property Name="IROWNO" Type="Int32" />
+    <Property Name="CRCLASSNAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FSUMCHECKQTY" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FSUMCHECKNUM" Type="Decimal" Precision="28" Scale="6" />
+    <Property Name="FUNCHECKQTY" Type="Decimal" Precision="29" Scale="6" />
+    <Property Name="FUNCHECKNUM" Type="Decimal" Precision="38" Scale="9" />
+    <Property Name="FBCCHECKQTY" Type="Decimal" Precision="29" Scale="6" />
+    <Property Name="FBCCHECKNUM" Type="Decimal" Precision="38" Scale="9" />
+    <Property Name="IGROUPTYPE" Type="Byte" Nullable="false" />
+    <Property Name="CCONTRACTROWNO" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="CMODIFIER" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DMAKETIME" Type="DateTime" Precision="3" />
+    <Property Name="DMODIFYDATE" Type="DateTime" Precision="3" />
+    <Property Name="DVERIFYDATE" Type="DateTime" Precision="3" />
+    <Property Name="DMODIFYTIME" Type="DateTime" Precision="3" />
+    <Property Name="DVERIFYTIME" Type="DateTime" Precision="3" />
+    <Property Name="CSOURCEPROORDERCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="ISOURCEPROORDERROWNO" Type="Int32" />
+    <Property Name="ISOURCEPROORDERID" Type="Int32" />
+    <Property Name="ISOURCEPROORDERAUTOID" Type="Int32" />
+    <Property Name="IEXPIRATDATECALCU" Type="Int16" />
+    <Property Name="CEXPIRATIONDATE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DEXPIRATIONDATE" Type="DateTime" Precision="3" />
+    <Property Name="MO_STATUS" Type="Byte" />
+    <Property Name="CBATCHPROPERTY1" Type="Decimal" Precision="38" Scale="8" />
+    <Property Name="CBATCHPROPERTY2" Type="Decimal" Precision="38" Scale="8" />
+    <Property Name="CBATCHPROPERTY3" Type="Decimal" Precision="38" Scale="8" />
+    <Property Name="CBATCHPROPERTY4" Type="Decimal" Precision="38" Scale="8" />
+    <Property Name="CBATCHPROPERTY5" Type="Decimal" Precision="38" Scale="8" />
+    <Property Name="CBATCHPROPERTY6" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CBATCHPROPERTY7" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CBATCHPROPERTY8" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CBATCHPROPERTY9" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="CBATCHPROPERTY10" Type="DateTime" Precision="3" />
+    <Property Name="IPRINTCOUNT" Type="Int32" />
+    <Property Name="CSYSBARCODE" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CBSYSBARCODE" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="DOCSTATE" Type="Int32" Nullable="false" />
+    <Property Name="CCHECKCODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="PLANLOTNUMBER" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="BMERGECHECKFLAG" Type="Boolean" />
+  </EntityType>
+</Schema>

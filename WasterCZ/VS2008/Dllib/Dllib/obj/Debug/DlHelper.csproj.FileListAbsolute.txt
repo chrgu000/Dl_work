@@ -1,0 +1,7 @@
+C:\@MyNet\Dllib\Dllib\bin\Debug\DlHelper.dll.config
+C:\@MyNet\Dllib\Dllib\bin\Debug\DlHelper.dll
+C:\@MyNet\Dllib\Dllib\bin\Debug\DlHelper.pdb
+C:\@MyNet\Dllib\Dllib\bin\Debug\DlHelper.tlb
+C:\@MyNet\Dllib\Dllib\obj\Debug\ResolveAssemblyReference.cache
+C:\@MyNet\Dllib\Dllib\obj\Debug\DlHelper.dll
+C:\@MyNet\Dllib\Dllib\obj\Debug\DlHelper.pdb

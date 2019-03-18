@@ -1,0 +1,2829 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UFModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ComputationUnit">
+    <Key>
+      <PropertyRef Name="cComunitCode" />
+    </Key>
+    <Property Name="cComunitCode" Type="nvarchar" MaxLength="35" Nullable="false" />
+    <Property Name="cComUnitName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="cGroupCode" Type="nvarchar" MaxLength="35" />
+    <Property Name="cBarCode" Type="nvarchar" MaxLength="30" />
+    <Property Name="bMainUnit" Type="bit" Nullable="false" />
+    <Property Name="iChangRate" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="iProportion" Type="float" />
+    <Property Name="iNumber" Type="smallint" />
+    <Property Name="pubufts" Type="timestamp" StoreGeneratedPattern="Computed" />
+    <Property Name="cEnSingular" Type="nvarchar" MaxLength="60" />
+    <Property Name="cEnPlural" Type="nvarchar" MaxLength="60" />
+    <Property Name="cUnitRefInvCode" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="cDepCode" />
+    </Key>
+    <Property Name="cDepCode" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="bDepEnd" Type="bit" Nullable="false" />
+    <Property Name="cDepName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="iDepGrade" Type="tinyint" Nullable="false" />
+    <Property Name="cDepPerson" Type="nvarchar" MaxLength="20" />
+    <Property Name="cDepProp" Type="nvarchar" MaxLength="10" />
+    <Property Name="cDepPhone" Type="nvarchar" MaxLength="100" />
+    <Property Name="cDepAddress" Type="nvarchar" MaxLength="255" />
+    <Property Name="cDepMemo" Type="nvarchar" MaxLength="20" />
+    <Property Name="iCreLine" Type="float" />
+    <Property Name="cCreGrade" Type="nvarchar" MaxLength="20" />
+    <Property Name="iCreDate" Type="int" />
+    <Property Name="cOfferGrade" Type="nvarchar" MaxLength="20" />
+    <Property Name="iOfferRate" Type="float" />
+    <Property Name="pubufts" Type="timestamp" StoreGeneratedPattern="Computed" />
+    <Property Name="bShop" Type="bit" Nullable="false" />
+    <Property Name="cDepGUID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="dDepBeginDate" Type="datetime" />
+    <Property Name="dDepEndDate" Type="datetime" />
+    <Property Name="vAuthorizeDoc" Type="nvarchar" MaxLength="50" />
+    <Property Name="vAuthorizeUnit" Type="nvarchar" MaxLength="100" />
+    <Property Name="cDepFax" Type="nvarchar" MaxLength="20" />
+    <Property Name="cDepPostCode" Type="nvarchar" MaxLength="6" />
+    <Property Name="cDepEmail" Type="nvarchar" MaxLength="100" />
+    <Property Name="cDepType" Type="nvarchar" MaxLength="20" />
+    <Property Name="bInheritDutyBasic" Type="int" />
+    <Property Name="bInheritWorkCalendar" Type="int" />
+    <Property Name="cDutyCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="cRestCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="bIM" Type="bit" />
+    <Property Name="cDepNameEn" Type="nvarchar" MaxLength="255" />
+    <Property Name="bRetail" Type="bit" />
+    <Property Name="cDepFullName" Type="nvarchar" MaxLength="800" />
+    <Property Name="iDepOrder" Type="int" />
+    <Property Name="cDepLeader" Type="nvarchar" MaxLength="20" />
+    <Property Name="dModifyDate" Type="datetime" />
+    <Property Name="cESpaceMembID" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DL_U8_Options">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="key" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="value" Type="nvarchar" MaxLength="255" />
+    <Property Name="note" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="DL_U8_Tare">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="type" Type="nvarchar" MaxLength="255" />
+    <Property Name="weight" Type="decimal" Precision="12" Scale="6" />
+    <Property Name="note" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="DL_U8_Users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="30" />
+    <Property Name="password" Type="varchar" MaxLength="30" />
+    <Property Name="note" Type="nvarchar" MaxLength="50" />
+    <Property Name="role" Type="int" />
+  </EntityType>
+  <EntityType Name="EQ_EQData">
+    <Key>
+      <PropertyRef Name="AutoID" />
+    </Key>
+    <Property Name="AutoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cEQCode" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="cEQName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="cABCCode" Type="nvarchar" MaxLength="4" />
+    <Property Name="cEQTypeCode" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="cLBCode" Type="nvarchar" MaxLength="15" />
+    <Property Name="cSupEQCode" Type="nvarchar" MaxLength="30" />
+    <Property Name="cStaCode" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="cPCode" Type="nvarchar" MaxLength="15" />
+    <Property Name="cDepCode" Type="nvarchar" MaxLength="20" />
+    <Property Name="cSeq" Type="nvarchar" MaxLength="30" />
+    <Property Name="cPicCode" Type="nvarchar" MaxLength="60" />
+    <Property Name="cVenCode" Type="nvarchar" MaxLength="20" />
+    <Property Name="dtCCDate" Type="datetime" />
+    <Property Name="dtGMDate" Type="datetime" />
+    <Property Name="dtAZDate" Type="datetime" />
+    <Property Name="dtSYdate" Type="datetime" />
+    <Property Name="intSynx" Type="float" />
+    <Property Name="dtBxDate" Type="datetime" />
+    <Property Name="dblDjgl" Type="float" />
+    <Property Name="intDJNum" Type="int" />
+    <Property Name="cDJDW" Type="nvarchar" MaxLength="70" />
+    <Property Name="dblZdsj" Type="decimal" Precision="16" Scale="2" />
+    <Property Name="cAssetNum" Type="nvarchar" MaxLength="30" />
+    <Property Name="cAssetName" Type="nvarchar" MaxLength="255" />
+    <Property Name="cCardNum" Type="nvarchar" MaxLength="10" />
+    <Property Name="dblValue" Type="decimal" Precision="20" Scale="2" />
+    <Property Name="dblFCValue" Type="decimal" Precision="20" Scale="2" />
+    <Property Name="nFlat" Type="real" />
+    <Property Name="cExchName" Type="nvarchar" MaxLength="8" />
+    <Property Name="cDeprMethodCode" Type="nvarchar" MaxLength="30" />
+    <Property Name="dblTrueValue" Type="decimal" Precision="20" Scale="2" />
+    <Property Name="dblDeprSum" Type="decimal" Precision="20" Scale="2" />
+    <Property Name="dblSumMin" Type="decimal" Precision="20" Scale="2" />
+    <Property Name="cSite" Type="nvarchar" MaxLength="50" />
+    <Property Name="dblBV" Type="decimal" Precision="20" Scale="2" />
+    <Property Name="dblBVRate" Type="decimal" Precision="20" Scale="2" />
+    <Property Name="iPeriod" Type="int" />
+    <Property Name="cWorkDep" Type="nvarchar" MaxLength="20" />
+    <Property Name="cZZVen" Type="nvarchar" MaxLength="20" />
+    <Property Name="cMaker" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="dtDate" Type="datetime" Nullable="false" />
+    <Property Name="cChecker" Type="nvarchar" MaxLength="40" />
+    <Property Name="dtAudit" Type="datetime" />
+    <Property Name="cMemo" Type="nvarchar" MaxLength="255" />
+    <Property Name="intAudit" Type="int" />
+    <Property Name="VT_ID" Type="int" />
+    <Property Name="cDefine1" Type="nvarchar" MaxLength="20" />
+    <Property Name="cDefine2" Type="nvarchar" MaxLength="20" />
+    <Property Name="cDefine3" Type="nvarchar" MaxLength="20" />
+    <Property Name="cDefine4" Type="datetime" />
+    <Property Name="cDefine5" Type="int" />
+    <Property Name="cDefine6" Type="datetime" />
+    <Property Name="cDefine7" Type="float" />
+    <Property Name="cDefine8" Type="nvarchar" MaxLength="4" />
+    <Property Name="cDefine9" Type="nvarchar" MaxLength="8" />
+    <Property Name="cDefine10" Type="nvarchar" MaxLength="60" />
+    <Property Name="cDefine11" Type="nvarchar" MaxLength="120" />
+    <Property Name="cDefine12" Type="nvarchar" MaxLength="120" />
+    <Property Name="cDefine13" Type="nvarchar" MaxLength="120" />
+    <Property Name="cDefine14" Type="nvarchar" MaxLength="120" />
+    <Property Name="cDefine15" Type="int" />
+    <Property Name="cDefine16" Type="float" />
+    <Property Name="ufts" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="cPicPath" Type="nvarchar" MaxLength="300" />
+    <Property Name="cPicMemo" Type="nvarchar" MaxLength="300" />
+    <Property Name="dblLength" Type="float" />
+    <Property Name="dblWidth" Type="float" />
+    <Property Name="dblHeight" Type="float" />
+    <Property Name="dblCubage" Type="float" />
+    <Property Name="dblWeight" Type="float" />
+    <Property Name="cSizeUnitCode" Type="nvarchar" MaxLength="70" />
+    <Property Name="cCubageUnitCode" Type="nvarchar" MaxLength="70" />
+    <Property Name="cWeightUnitCode" Type="nvarchar" MaxLength="70" />
+    <Property Name="iNumEQ" Type="tinyint" Nullable="false" />
+    <Property Name="cgg" Type="nvarchar" MaxLength="60" />
+    <Property Name="cxh" Type="nvarchar" MaxLength="60" />
+    <Property Name="cSysBarCode" Type="nvarchar" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="fc_MoRoutingBill">
+    <Key>
+      <PropertyRef Name="MID" />
+    </Key>
+    <Property Name="MID" Type="int" Nullable="false" />
+    <Property Name="cVouchCode" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="cVouchDate" Type="datetime" Nullable="false" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="20" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="StartDate" Type="datetime" />
+    <Property Name="DueDate" Type="datetime" />
+    <Property Name="ModifyUser" Type="nvarchar" MaxLength="20" />
+    <Property Name="ModifyDate" Type="datetime" />
+    <Property Name="WcId" Type="int" />
+    <Property Name="MoId" Type="int" />
+    <Property Name="MoDId" Type="int" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+    <Property Name="Define1" Type="nvarchar" MaxLength="20" />
+    <Property Name="Define2" Type="nvarchar" MaxLength="20" />
+    <Property Name="Define3" Type="nvarchar" MaxLength="20" />
+    <Property Name="Define4" Type="datetime" />
+    <Property Name="Define5" Type="int" />
+    <Property Name="Define6" Type="datetime" />
+    <Property Name="Define7" Type="real" />
+    <Property Name="Define8" Type="nvarchar" MaxLength="4" />
+    <Property Name="Define9" Type="nvarchar" MaxLength="8" />
+    <Property Name="Define10" Type="nvarchar" MaxLength="60" />
+    <Property Name="Define11" Type="nvarchar" MaxLength="120" />
+    <Property Name="Define12" Type="nvarchar" MaxLength="120" />
+    <Property Name="Define13" Type="nvarchar" MaxLength="120" />
+    <Property Name="Define14" Type="nvarchar" MaxLength="120" />
+    <Property Name="Define15" Type="int" />
+    <Property Name="Define16" Type="real" />
+    <Property Name="VT_ID" Type="int" />
+    <Property Name="IsSingle" Type="tinyint" />
+    <Property Name="Ufts" Type="timestamp" StoreGeneratedPattern="Computed" />
+    <Property Name="cVouchTime" Type="datetime" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="ModifyTime" Type="datetime" />
+    <Property Name="TransType" Type="tinyint" />
+    <Property Name="SortType" Type="tinyint" />
+    <Property Name="OutQcFlag" Type="bit" />
+    <Property Name="cVouchType" Type="nvarchar" MaxLength="4" />
+  </EntityType>
+  <EntityType Name="fc_MoRoutingBilldetail">
+    <Key>
+      <PropertyRef Name="MDId" />
+    </Key>
+    <Property Name="MID" Type="int" Nullable="false" />
+    <Property Name="cVerifier" Type="nvarchar" MaxLength="20" />
+    <Property Name="VerifierDate" Type="datetime" />
+    <Property Name="WcId" Type="int" />
+    <Property Name="MoId" Type="int" />
+    <Property Name="MoDId" Type="int" />
+    <Property Name="MoRoutingDId" Type="int" />
+    <Property Name="MoRoutingShiftId" Type="int" />
+    <Property Name="OpSeq" Type="nvarchar" MaxLength="10" />
+    <Property Name="OpCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="opDescription" Type="nvarchar" MaxLength="60" />
+    <Property Name="ResId1" Type="int" />
+    <Property Name="ResId2" Type="int" />
+    <Property Name="ResId3" Type="int" />
+    <Property Name="ResId4" Type="int" />
+    <Property Name="ResId5" Type="int" />
+    <Property Name="ResWorkHr1" Type="decimal" Precision="22" Scale="4" />
+    <Property Name="ResWorkHr2" Type="decimal" Precision="22" Scale="4" />
+    <Property Name="ResWorkHr3" Type="decimal" Precision="22" Scale="4" />
+    <Property Name="ResWorkHr4" Type="decimal" Precision="22" Scale="4" />
+    <Property Name="ResWorkHr5" Type="decimal" Precision="22" Scale="4" />
+    <Property Name="TransformId" Type="int" />
+    <Property Name="EmployCode" Type="nvarchar" MaxLength="20" />
+    <Property Name="WorkShiftId" Type="int" />
+    <Property Name="WsCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="EQId" Type="int" />
+    <Property Name="DeptCode" Type="nvarchar" MaxLength="12" />
+    <Property Name="WorkHrOp" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="QualifiedQty" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="RefusedQty" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="ScrapQty" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="fAvaQuantity" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="InOpUnitCode" Type="nvarchar" MaxLength="35" />
+    <Property Name="InAuxOpQty" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="InChangeRate" Type="decimal" Precision="22" Scale="6" />
+    <Property Name="PerWorkHr" Type="decimal" Precision="22" Scale="4" />
+    <Property Name="ActualStartDate" Type="datetime" />
+    <Property Name="ActualDueDate" Type="datetime" />
+    <Property Name="RemarkB" Type="nvarchar" MaxLength="255" />
+    <Property Name="ReasonCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="ScrapReasonCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="QualifiedReasonCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="RefusedReasonCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="Define22" Type="nvarchar" MaxLength="60" />
+    <Property Name="Define23" Type="nvarchar" MaxLength="60" />
+    <Property Name="Define24" Type="nvarchar" MaxLength="60" />
+    <Property Name="Define25" Type="nvarchar" MaxLength="60" />
+    <Property Name="Define26" Type="real" />
+    <Property Name="Define27" Type="real" />
+    <Property Name="Define28" Type="nvarchar" MaxLength="120" />
+    <Property Name="Define29" Type="nvarchar" MaxLength="120" />
+    <Property Name="Define30" Type="nvarchar" MaxLength="120" />
+    <Property Name="Define31" Type="nvarchar" MaxLength="120" />
+    <Property Name="Define32" Type="nvarchar" MaxLength="120" />
+    <Property Name="Define33" Type="nvarchar" MaxLength="120" />
+    <Property Name="Define34" Type="int" />
+    <Property Name="Define35" Type="int" />
+    <Property Name="Define36" Type="datetime" />
+    <Property Name="Define37" Type="datetime" />
+    <Property Name="Status" Type="smallint" />
+    <Property Name="Ufts" Type="timestamp" StoreGeneratedPattern="Computed" />
+    <Property Name="ActualStartTime" Type="datetime" />
+    <Property Name="ActualDueTime" Type="datetime" />
+    <Property Name="VerifierTime" Type="datetime" />
+    <Property Name="MoRoutingId" Type="int" />
+    <Property Name="OutMoRoutingDId" Type="int" />
+    <Property Name="OpStatus" Type="smallint" />
+    <Property Name="MachiningQty" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="DeclareQty" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="MDId" Type="int" Nullable="false" />
+    <Property Name="dutyclasscode" Type="nvarchar" MaxLength="50" />
+    <Property Name="PerWorkHrD" Type="decimal" Precision="22" Scale="4" />
+    <Property Name="qmscraptqty" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="qmqualifiedqty" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="qmrefusedqty" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="perworkaccflag" Type="datetime" />
+  </EntityType>
+  <EntityType Name="hr_hi_person">
+    <Key>
+      <PropertyRef Name="cPsn_Num" />
+    </Key>
+    <Property Name="cPsn_Num" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="cPsn_Name" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="cDept_num" Type="nvarchar" MaxLength="30" />
+    <Property Name="iRecordID" Type="int" />
+    <Property Name="rPersonType" Type="nvarchar" MaxLength="30" />
+    <Property Name="rSex" Type="nvarchar" MaxLength="30" />
+    <Property Name="dBirthDate" Type="nchar" MaxLength="10" />
+    <Property Name="rNativePlace" Type="nvarchar" MaxLength="30" />
+    <Property Name="rNational" Type="nvarchar" MaxLength="30" />
+    <Property Name="rhealthStatus" Type="nvarchar" MaxLength="30" />
+    <Property Name="rMarriStatus" Type="nvarchar" MaxLength="30" />
+    <Property Name="vIDNo" Type="nvarchar" MaxLength="18" />
+    <Property Name="MPicture" Type="image" />
+    <Property Name="rPerResidence" Type="nvarchar" MaxLength="30" />
+    <Property Name="vAliaName" Type="nvarchar" MaxLength="20" />
+    <Property Name="dJoinworkDate" Type="nchar" MaxLength="10" />
+    <Property Name="dEnterDate" Type="nchar" MaxLength="10" />
+    <Property Name="dRegularDate" Type="nchar" MaxLength="10" />
+    <Property Name="vSSNo" Type="nvarchar" MaxLength="25" />
+    <Property Name="rworkAttend" Type="nvarchar" MaxLength="30" />
+    <Property Name="vCardNo" Type="nvarchar" MaxLength="20" />
+    <Property Name="rtbmRule" Type="nvarchar" MaxLength="30" />
+    <Property Name="rCheckInFlag" Type="nvarchar" MaxLength="30" />
+    <Property Name="dLastDate" Type="nchar" MaxLength="10" />
+    <Property Name="hrts" Type="timestamp" StoreGeneratedPattern="Computed" />
+    <Property Name="vstatus1" Type="nvarchar" MaxLength="50" />
+    <Property Name="nstatus2" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="bPsnPerson" Type="bit" Nullable="false" />
+    <Property Name="cPsnMobilePhone" Type="nvarchar" MaxLength="100" />
+    <Property Name="cPsnFPhone" Type="nvarchar" MaxLength="100" />
+    <Property Name="cPsnOPhone" Type="nvarchar" MaxLength="100" />
+    <Property Name="cPsnInPhone" Type="nvarchar" MaxLength="100" />
+    <Property Name="cPsnEmail" Type="nvarchar" MaxLength="100" />
+    <Property Name="cPsnPostAddr" Type="nvarchar" MaxLength="255" />
+    <Property Name="cPsnPostCode" Type="nvarchar" MaxLength="6" />
+    <Property Name="cPsnFAddr" Type="nvarchar" MaxLength="255" />
+    <Property Name="cPsnQQCode" Type="nvarchar" MaxLength="20" />
+    <Property Name="cPsnURL" Type="nvarchar" MaxLength="50" />
+    <Property Name="CpsnOSeat" Type="nvarchar" MaxLength="20" />
+    <Property Name="dEnterUnitDate" Type="nchar" MaxLength="10" />
+    <Property Name="cPsnProperty" Type="nvarchar" MaxLength="20" />
+    <Property Name="cPsnBankCode" Type="nvarchar" MaxLength="5" />
+    <Property Name="cPsnAccount" Type="nvarchar" MaxLength="50" />
+    <Property Name="pk_hr_hi_person" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="bProbation" Type="bit" />
+    <Property Name="cDutyclass" Type="nvarchar" MaxLength="50" />
+    <Property Name="bTakeTM" Type="bit" />
+    <Property Name="MPictureqpb" Type="nvarchar" MaxLength="30" />
+    <Property Name="rIDType" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="rCountry" Type="nvarchar" MaxLength="30" />
+    <Property Name="dLeaveDate" Type="nchar" MaxLength="10" />
+    <Property Name="rFigure" Type="nvarchar" MaxLength="30" />
+    <Property Name="rWorkStatus" Type="nvarchar" MaxLength="30" />
+    <Property Name="EmploymentForm" Type="nvarchar" MaxLength="40" />
+    <Property Name="rPersonParameters" Type="nvarchar" MaxLength="30" />
+    <Property Name="bDutyLock" Type="bit" />
+    <Property Name="bpsnshop" Type="bit" />
+    <Property Name="CardState" Type="nvarchar" MaxLength="40" />
+    <Property Name="FirstHTBeginDate" Type="nvarchar" MaxLength="10" />
+    <Property Name="LastHTEndDate" Type="nvarchar" MaxLength="10" />
+    <Property Name="cPsn_NameEN" Type="nvarchar" MaxLength="50" />
+    <Property Name="sysAge" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="SysCompage" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="SysWorkAge" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="CRegion" Type="nvarchar" MaxLength="50" />
+    <Property Name="NatrueType" Type="nvarchar" MaxLength="50" />
+    <Property Name="cShiftType" Type="nvarchar" MaxLength="30" />
+    <Property Name="cDefaultBC" Type="nvarchar" MaxLength="20" />
+    <Property Name="dEnterDutyClassDate" Type="datetime" />
+    <Property Name="cRestType" Type="nvarchar" MaxLength="2" />
+    <Property Name="JobNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="PersonDepart" Type="nvarchar" MaxLength="50" />
+    <Property Name="CardEffectiveBeginTime" Type="nvarchar" MaxLength="10" />
+    <Property Name="CardEffectiveEndTime" Type="nvarchar" MaxLength="10" />
+    <Property Name="KeyPerson" Type="bit" />
+    <Property Name="cLeaveReson" Type="nvarchar" MaxLength="50" />
+    <Property Name="rEmployState" Type="nvarchar" MaxLength="30" />
+    <Property Name="cDutyLocker" Type="nvarchar" MaxLength="20" />
+    <Property Name="cDutyLockerNum" Type="nvarchar" MaxLength="20" />
+    <Property Name="cJobCode" Type="nvarchar" MaxLength="20" />
+    <Property Name="cJobRankCode" Type="nvarchar" MaxLength="30" />
+    <Property Name="cJobGradeCode" Type="nvarchar" MaxLength="30" />
+    <Property Name="cPsnNowAddress" Type="nvarchar" MaxLength="1000" />
+    <Property Name="cUrgentPsnName" Type="nvarchar" MaxLength="50" />
+    <Property Name="cUrgentPsnPhone" Type="nvarchar" MaxLength="100" />
+    <Property Name="bLongIDCard" Type="bit" />
+    <Property Name="cLeaveType" Type="nvarchar" MaxLength="30" />
+    <Property Name="cDutyCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="cFax" Type="nvarchar" MaxLength="100" />
+    <Property Name="cTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="cReportTo" Type="nvarchar" MaxLength="50" />
+    <Property Name="cStartWorkTime" Type="nvarchar" MaxLength="100" />
+    <Property Name="cEndWorkTime" Type="nvarchar" MaxLength="100" />
+    <Property Name="cLoginSubIDs" Type="nvarchar" MaxLength="500" />
+    <Property Name="cpersonbarcode" Type="nvarchar" MaxLength="60" />
+    <Property Name="bMobileCard" Type="bit" />
+    <Property Name="cMobileSites" Type="nvarchar" MaxLength="1000" />
+    <Property Name="vOldCard" Type="nvarchar" MaxLength="20" />
+    <Property Name="MaxLeadNum" Type="int" />
+    <Property Name="MaxPAccountNum" Type="int" />
+    <Property Name="MaxAccountNum" Type="int" />
+    <Property Name="MaxOpportunityNum" Type="int" />
+    <Property Name="LeadRcyReg" Type="nvarchar" MaxLength="60" />
+    <Property Name="PAccountRcyReg" Type="nvarchar" MaxLength="60" />
+    <Property Name="OpportunityRcyReg" Type="nvarchar" MaxLength="60" />
+    <Property Name="cESpaceUserID" Type="nvarchar" MaxLength="50" />
+    <Property Name="cWeixinid" Type="nvarchar" MaxLength="100" />
+    <Property Name="chdefine16" Type="nvarchar" MaxLength="20" />
+    <Property Name="dPayEndDate" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Inventory">
+    <Key>
+      <PropertyRef Name="cInvCode" />
+    </Key>
+    <Property Name="cInvCode" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="cInvAddCode" Type="nvarchar" MaxLength="255" />
+    <Property Name="cInvName" Type="nvarchar" MaxLength="255" />
+    <Property Name="cInvStd" Type="nvarchar" MaxLength="255" />
+    <Property Name="cInvCCode" Type="nvarchar" MaxLength="12" />
+    <Property Name="cVenCode" Type="nvarchar" MaxLength="20" />
+    <Property Name="cReplaceItem" Type="nvarchar" MaxLength="60" />
+    <Property Name="cPosition" Type="nvarchar" MaxLength="20" />
+    <Property Name="bSale" Type="bit" Nullable="false" />
+    <Property Name="bPurchase" Type="bit" Nullable="false" />
+    <Property Name="bSelf" Type="bit" Nullable="false" />
+    <Property Name="bComsume" Type="bit" Nullable="false" />
+    <Property Name="bProducing" Type="bit" Nullable="false" />
+    <Property Name="bService" Type="bit" Nullable="false" />
+    <Property Name="bAccessary" Type="bit" Nullable="false" />
+    <Property Name="iTaxRate" Type="float" />
+    <Property Name="iInvWeight" Type="float" />
+    <Property Name="iVolume" Type="float" />
+    <Property Name="iInvRCost" Type="float" />
+    <Property Name="iInvSPrice" Type="float" />
+    <Property Name="iInvSCost" Type="float" />
+    <Property Name="iInvLSCost" Type="float" />
+    <Property Name="iInvNCost" Type="float" />
+    <Property Name="iInvAdvance" Type="float" />
+    <Property Name="iInvBatch" Type="float" />
+    <Property Name="iSafeNum" Type="float" />
+    <Property Name="iTopSum" Type="float" />
+    <Property Name="iLowSum" Type="float" />
+    <Property Name="iOverStock" Type="float" />
+    <Property Name="cInvABC" Type="nvarchar" MaxLength="1" />
+    <Property Name="bInvQuality" Type="bit" Nullable="false" />
+    <Property Name="bInvBatch" Type="bit" Nullable="false" />
+    <Property Name="bInvEntrust" Type="bit" Nullable="false" />
+    <Property Name="bInvOverStock" Type="bit" Nullable="false" />
+    <Property Name="dSDate" Type="datetime" />
+    <Property Name="dEDate" Type="datetime" />
+    <Property Name="bFree1" Type="bit" Nullable="false" />
+    <Property Name="bFree2" Type="bit" Nullable="false" />
+    <Property Name="cInvDefine1" Type="nvarchar" MaxLength="20" />
+    <Property Name="cInvDefine2" Type="nvarchar" MaxLength="20" />
+    <Property Name="cInvDefine3" Type="nvarchar" MaxLength="20" />
+    <Property Name="I_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bInvType" Type="bit" />
+    <Property Name="iInvMPCost" Type="float" />
+    <Property Name="cQuality" Type="nvarchar" MaxLength="100" />
+    <Property Name="iInvSaleCost" Type="float" />
+    <Property Name="iInvSCost1" Type="float" />
+    <Property Name="iInvSCost2" Type="float" />
+    <Property Name="iInvSCost3" Type="float" />
+    <Property Name="bFree3" Type="bit" Nullable="false" />
+    <Property Name="bFree4" Type="bit" Nullable="false" />
+    <Property Name="bFree5" Type="bit" Nullable="false" />
+    <Property Name="bFree6" Type="bit" Nullable="false" />
+    <Property Name="bFree7" Type="bit" Nullable="false" />
+    <Property Name="bFree8" Type="bit" Nullable="false" />
+    <Property Name="bFree9" Type="bit" Nullable="false" />
+    <Property Name="bFree10" Type="bit" Nullable="false" />
+    <Property Name="cCreatePerson" Type="nvarchar" MaxLength="20" />
+    <Property Name="cModifyPerson" Type="nvarchar" MaxLength="20" />
+    <Property Name="dModifyDate" Type="datetime" />
+    <Property Name="fSubscribePoint" Type="float" />
+    <Property Name="fVagQuantity" Type="float" />
+    <Property Name="cValueType" Type="nvarchar" MaxLength="20" />
+    <Property Name="bFixExch" Type="bit" Nullable="false" />
+    <Property Name="fOutExcess" Type="float" />
+    <Property Name="fInExcess" Type="float" />
+    <Property Name="iMassDate" Type="smallint" />
+    <Property Name="iWarnDays" Type="smallint" />
+    <Property Name="fExpensesExch" Type="float" />
+    <Property Name="bTrack" Type="bit" Nullable="false" />
+    <Property Name="bSerial" Type="bit" Nullable="false" />
+    <Property Name="bBarCode" Type="bit" Nullable="false" />
+    <Property Name="iId" Type="int" />
+    <Property Name="cBarCode" Type="nvarchar" MaxLength="30" />
+    <Property Name="cInvDefine4" Type="nvarchar" MaxLength="60" />
+    <Property Name="cInvDefine5" Type="nvarchar" MaxLength="60" />
+    <Property Name="cInvDefine6" Type="nvarchar" MaxLength="60" />
+    <Property Name="cInvDefine7" Type="nvarchar" MaxLength="120" />
+    <Property Name="cInvDefine8" Type="nvarchar" MaxLength="120" />
+    <Property Name="cInvDefine9" Type="nvarchar" MaxLength="120" />
+    <Property Name="cInvDefine10" Type="nvarchar" MaxLength="120" />
+    <Property Name="cInvDefine11" Type="int" />
+    <Property Name="cInvDefine12" Type="int" />
+    <Property Name="cInvDefine13" Type="float" />
+    <Property Name="cInvDefine14" Type="float" />
+    <Property Name="cInvDefine15" Type="datetime" />
+    <Property Name="cInvDefine16" Type="datetime" />
+    <Property Name="iGroupType" Type="tinyint" Nullable="false" />
+    <Property Name="cGroupCode" Type="nvarchar" MaxLength="35" />
+    <Property Name="cComUnitCode" Type="nvarchar" MaxLength="35" />
+    <Property Name="cAssComUnitCode" Type="nvarchar" MaxLength="35" />
+    <Property Name="cSAComUnitCode" Type="nvarchar" MaxLength="35" />
+    <Property Name="cPUComUnitCode" Type="nvarchar" MaxLength="35" />
+    <Property Name="cSTComUnitCode" Type="nvarchar" MaxLength="35" />
+    <Property Name="cCAComUnitCode" Type="nvarchar" MaxLength="35" />
+    <Property Name="cFrequency" Type="nvarchar" MaxLength="10" />
+    <Property Name="iFrequency" Type="smallint" />
+    <Property Name="iDays" Type="smallint" />
+    <Property Name="dLastDate" Type="datetime" />
+    <Property Name="iWastage" Type="float" />
+    <Property Name="bSolitude" Type="bit" Nullable="false" />
+    <Property Name="cEnterprise" Type="nvarchar" MaxLength="100" />
+    <Property Name="cAddress" Type="nvarchar" MaxLength="255" />
+    <Property Name="cFile" Type="nvarchar" MaxLength="40" />
+    <Property Name="cLabel" Type="nvarchar" MaxLength="30" />
+    <Property Name="cCheckOut" Type="nvarchar" MaxLength="30" />
+    <Property Name="cLicence" Type="nvarchar" MaxLength="30" />
+    <Property Name="bSpecialties" Type="bit" Nullable="false" />
+    <Property Name="cDefWareHouse" Type="nvarchar" MaxLength="10" />
+    <Property Name="iHighPrice" Type="float" />
+    <Property Name="iExpSaleRate" Type="float" />
+    <Property Name="cPriceGroup" Type="nvarchar" MaxLength="20" />
+    <Property Name="cOfferGrade" Type="nvarchar" MaxLength="20" />
+    <Property Name="iOfferRate" Type="float" />
+    <Property Name="cMonth" Type="nvarchar" MaxLength="6" />
+    <Property Name="iAdvanceDate" Type="smallint" />
+    <Property Name="cCurrencyName" Type="nvarchar" MaxLength="60" />
+    <Property Name="cProduceAddress" Type="nvarchar" MaxLength="255" />
+    <Property Name="cProduceNation" Type="nvarchar" MaxLength="60" />
+    <Property Name="cRegisterNo" Type="nvarchar" MaxLength="60" />
+    <Property Name="cEnterNo" Type="nvarchar" MaxLength="60" />
+    <Property Name="cPackingType" Type="nvarchar" MaxLength="60" />
+    <Property Name="cEnglishName" Type="nvarchar" MaxLength="100" />
+    <Property Name="bPropertyCheck" Type="bit" Nullable="false" />
+    <Property Name="cPreparationType" Type="nvarchar" MaxLength="30" />
+    <Property Name="cCommodity" Type="nvarchar" MaxLength="60" />
+    <Property Name="iRecipeBatch" Type="tinyint" Nullable="false" />
+    <Property Name="cNotPatentName" Type="nvarchar" MaxLength="30" />
+    <Property Name="pubufts" Type="timestamp" StoreGeneratedPattern="Computed" />
+    <Property Name="bPromotSales" Type="bit" Nullable="false" />
+    <Property Name="iPlanPolicy" Type="smallint" />
+    <Property Name="iROPMethod" Type="smallint" />
+    <Property Name="iBatchRule" Type="smallint" />
+    <Property Name="fBatchIncrement" Type="float" />
+    <Property Name="iAssureProvideDays" Type="int" />
+    <Property Name="iTestStyle" Type="smallint" />
+    <Property Name="iDTMethod" Type="smallint" />
+    <Property Name="fDTRate" Type="float" />
+    <Property Name="fDTNum" Type="float" />
+    <Property Name="cDTUnit" Type="nvarchar" MaxLength="35" />
+    <Property Name="iDTStyle" Type="smallint" />
+    <Property Name="iQTMethod" Type="int" />
+    <Property Name="PictureGUID" Type="uniqueidentifier" />
+    <Property Name="bPlanInv" Type="bit" Nullable="false" />
+    <Property Name="bProxyForeign" Type="bit" Nullable="false" />
+    <Property Name="bATOModel" Type="bit" Nullable="false" />
+    <Property Name="bCheckItem" Type="bit" Nullable="false" />
+    <Property Name="bPTOModel" Type="bit" Nullable="false" />
+    <Property Name="bEquipment" Type="bit" Nullable="false" />
+    <Property Name="cProductUnit" Type="nvarchar" MaxLength="35" />
+    <Property Name="fOrderUpLimit" Type="float" />
+    <Property Name="cMassUnit" Type="smallint" />
+    <Property Name="fRetailPrice" Type="float" />
+    <Property Name="cInvDepCode" Type="nvarchar" MaxLength="12" />
+    <Property Name="iAlterAdvance" Type="int" />
+    <Property Name="fAlterBaseNum" Type="float" />
+    <Property Name="cPlanMethod" Type="nvarchar" MaxLength="1" />
+    <Property Name="bMPS" Type="bit" Nullable="false" />
+    <Property Name="bROP" Type="bit" Nullable="false" />
+    <Property Name="bRePlan" Type="bit" Nullable="false" />
+    <Property Name="cSRPolicy" Type="nvarchar" MaxLength="2" />
+    <Property Name="bBillUnite" Type="bit" Nullable="false" />
+    <Property Name="iSupplyDay" Type="int" />
+    <Property Name="fSupplyMulti" Type="float" />
+    <Property Name="fMinSupply" Type="float" />
+    <Property Name="bCutMantissa" Type="bit" Nullable="false" />
+    <Property Name="cInvPersonCode" Type="nvarchar" MaxLength="20" />
+    <Property Name="iInvTfId" Type="int" />
+    <Property Name="cEngineerFigNo" Type="nvarchar" MaxLength="60" />
+    <Property Name="bInTotalCost" Type="bit" Nullable="false" />
+    <Property Name="iSupplyType" Type="smallint" Nullable="false" />
+    <Property Name="bConfigFree1" Type="bit" Nullable="false" />
+    <Property Name="bConfigFree2" Type="bit" Nullable="false" />
+    <Property Name="bConfigFree3" Type="bit" Nullable="false" />
+    <Property Name="bConfigFree4" Type="bit" Nullable="false" />
+    <Property Name="bConfigFree5" Type="bit" Nullable="false" />
+    <Property Name="bConfigFree6" Type="bit" Nullable="false" />
+    <Property Name="bConfigFree7" Type="bit" Nullable="false" />
+    <Property Name="bConfigFree8" Type="bit" Nullable="false" />
+    <Property Name="bConfigFree9" Type="bit" Nullable="false" />
+    <Property Name="bConfigFree10" Type="bit" Nullable="false" />
+    <Property Name="iDTLevel" Type="smallint" />
+    <Property Name="cDTAQL" Type="nvarchar" MaxLength="20" />
+    <Property Name="bPeriodDT" Type="bit" Nullable="false" />
+    <Property Name="cDTPeriod" Type="nvarchar" MaxLength="30" />
+    <Property Name="iBigMonth" Type="int" />
+    <Property Name="iBigDay" Type="int" />
+    <Property Name="iSmallMonth" Type="int" />
+    <Property Name="iSmallDay" Type="int" />
+    <Property Name="bOutInvDT" Type="bit" Nullable="false" />
+    <Property Name="bBackInvDT" Type="bit" Nullable="false" />
+    <Property Name="iEndDTStyle" Type="smallint" />
+    <Property Name="bDTWarnInv" Type="bit" />
+    <Property Name="fBackTaxRate" Type="float" />
+    <Property Name="cCIQCode" Type="nvarchar" MaxLength="30" />
+    <Property Name="cWGroupCode" Type="nvarchar" MaxLength="35" />
+    <Property Name="cWUnit" Type="nvarchar" MaxLength="35" />
+    <Property Name="fGrossW" Type="float" />
+    <Property Name="cVGroupCode" Type="nvarchar" MaxLength="35" />
+    <Property Name="cVUnit" Type="nvarchar" MaxLength="35" />
+    <Property Name="fLength" Type="float" />
+    <Property Name="fWidth" Type="float" />
+    <Property Name="fHeight" Type="float" />
+    <Property Name="iDTUCounter" Type="int" />
+    <Property Name="iDTDCounter" Type="int" />
+    <Property Name="iBatchCounter" Type="int" />
+    <Property Name="cShopUnit" Type="nvarchar" MaxLength="35" />
+    <Property Name="cPurPersonCode" Type="nvarchar" MaxLength="20" />
+    <Property Name="bImportMedicine" Type="bit" Nullable="false" />
+    <Property Name="bFirstBusiMedicine" Type="bit" Nullable="false" />
+    <Property Name="bForeExpland" Type="bit" Nullable="false" />
+    <Property Name="cInvPlanCode" Type="nvarchar" MaxLength="20" />
+    <Property Name="fConvertRate" Type="float" Nullable="false" />
+    <Property Name="dReplaceDate" Type="datetime" />
+    <Property Name="bInvModel" Type="bit" Nullable="false" />
+    <Property Name="bKCCutMantissa" Type="bit" Nullable="false" />
+    <Property Name="bReceiptByDT" Type="bit" Nullable="false" />
+    <Property Name="iImpTaxRate" Type="float" />
+    <Property Name="iExpTaxRate" Type="float" />
+    <Property Name="bExpSale" Type="bit" Nullable="false" />
+    <Property Name="iDrawBatch" Type="float" />
+    <Property Name="bCheckBSATP" Type="bit" Nullable="false" />
+    <Property Name="cInvProjectCode" Type="nvarchar" MaxLength="16" />
+    <Property Name="iTestRule" Type="smallint" />
+    <Property Name="cRuleCode" Type="nvarchar" MaxLength="20" />
+    <Property Name="bCheckFree1" Type="bit" Nullable="false" />
+    <Property Name="bCheckFree2" Type="bit" Nullable="false" />
+    <Property Name="bCheckFree3" Type="bit" Nullable="false" />
+    <Property Name="bCheckFree4" Type="bit" Nullable="false" />
+    <Property Name="bCheckFree5" Type="bit" Nullable="false" />
+    <Property Name="bCheckFree6" Type="bit" Nullable="false" />
+    <Property Name="bCheckFree7" Type="bit" Nullable="false" />
+    <Property Name="bCheckFree8" Type="bit" Nullable="false" />
+    <Property Name="bCheckFree9" Type="bit" Nullable="false" />
+    <Property Name="bCheckFree10" Type="bit" Nullable="false" />
+    <Property Name="bBomMain" Type="bit" Nullable="false" />
+    <Property Name="bBomSub" Type="bit" Nullable="false" />
+    <Property Name="bProductBill" Type="bit" Nullable="false" />
+    <Property Name="iCheckATP" Type="smallint" Nullable="false" />
+    <Property Name="iInvATPId" Type="int" />
+    <Property Name="iPlanTfDay" Type="int" />
+    <Property Name="iOverlapDay" Type="int" />
+    <Property Name="bPiece" Type="bit" Nullable="false" />
+    <Property Name="bSrvItem" Type="bit" Nullable="false" />
+    <Property Name="bSrvFittings" Type="bit" Nullable="false" />
+    <Property Name="fMaxSupply" Type="float" />
+    <Property Name="fMinSplit" Type="float" />
+    <Property Name="bSpecialOrder" Type="bit" Nullable="false" />
+    <Property Name="bTrackSaleBill" Type="bit" Nullable="false" />
+    <Property Name="cInvMnemCode" Type="nvarchar" MaxLength="40" />
+    <Property Name="iPlanDefault" Type="smallint" />
+    <Property Name="iPFBatchQty" Type="float" />
+    <Property Name="iAllocatePrintDgt" Type="int" />
+    <Property Name="bCheckBatch" Type="bit" Nullable="false" />
+    <Property Name="bMngOldpart" Type="bit" Nullable="false" />
+    <Property Name="iOldpartMngRule" Type="smallint" />
+  </EntityType>
+  <EntityType Name="mom_morder">
+    <Key>
+      <PropertyRef Name="MoDId" />
+    </Key>
+    <Property Name="MoDId" Type="int" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" />
+    <Property Name="DueDate" Type="datetime" />
+    <Property Name="Ufts" Type="timestamp" StoreGeneratedPattern="Computed" />
+    <Property Name="MoId" Type="int" />
+  </EntityType>
+  <EntityType Name="mom_order">
+    <Key>
+      <PropertyRef Name="MoId" />
+    </Key>
+    <Property Name="MoId" Type="int" Nullable="false" />
+    <Property Name="MoCode" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="20" />
+    <Property Name="ModifyDate" Type="datetime" />
+    <Property Name="ModifyUser" Type="nvarchar" MaxLength="20" />
+    <Property Name="UpdCount" Type="int" />
+    <Property Name="Ufts" Type="timestamp" StoreGeneratedPattern="Computed" />
+    <Property Name="Define1" Type="nvarchar" MaxLength="20" />
+    <Property Name="Define2" Type="nvarchar" MaxLength="20" />
+    <Property Name="Define3" Type="nvarchar" MaxLength="20" />
+    <Property Name="Define4" Type="datetime" />
+    <Property Name="Define5" Type="int" />
+    <Property Name="Define6" Type="datetime" />
+    <Property Name="Define7" Type="float" />
+    <Property Name="Define8" Type="nvarchar" MaxLength="4" />
+    <Property Name="Define9" Type="nvarchar" MaxLength="8" />
+    <Property Name="Define10" Type="nvarchar" MaxLength="60" />
+    <Property Name="Define11" Type="nvarchar" MaxLength="120" />
+    <Property Name="Define12" Type="nvarchar" MaxLength="120" />
+    <Property Name="Define13" Type="nvarchar" MaxLength="120" />
+    <Property Name="Define14" Type="nvarchar" MaxLength="120" />
+    <Property Name="Define15" Type="int" />
+    <Property Name="Define16" Type="float" />
+    <Property Name="VTid" Type="int" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="ModifyTime" Type="datetime" />
+    <Property Name="iPrintCount" Type="int" />
+    <Property Name="RelsVTid" Type="int" />
+    <Property Name="cSysBarCode" Type="nvarchar" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="mom_orderdetail">
+    <Key>
+      <PropertyRef Name="MoDId" />
+    </Key>
+    <Property Name="MoDId" Type="int" Nullable="false" />
+    <Property Name="MoId" Type="int" Nullable="false" />
+    <Property Name="SortSeq" Type="int" Nullable="false" />
+    <Property Name="MoClass" Type="tinyint" />
+    <Property Name="MoTypeId" Type="int" />
+    <Property Name="Qty" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="MrpQty" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="AuxUnitCode" Type="nvarchar" MaxLength="35" />
+    <Property Name="AuxQty" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="ChangeRate" Type="decimal" Precision="22" Scale="6" />
+    <Property Name="MoLotCode" Type="nvarchar" MaxLength="60" />
+    <Property Name="WhCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="MDeptCode" Type="nvarchar" MaxLength="12" />
+    <Property Name="SoType" Type="tinyint" />
+    <Property Name="SoDId" Type="nvarchar" MaxLength="30" />
+    <Property Name="SoCode" Type="nvarchar" MaxLength="30" />
+    <Property Name="SoSeq" Type="int" />
+    <Property Name="DeclaredQty" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="QualifiedInQty" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="Status" Type="tinyint" />
+    <Property Name="OrgStatus" Type="tinyint" />
+    <Property Name="BomId" Type="int" />
+    <Property Name="RoutingId" Type="int" />
+    <Property Name="CustBomId" Type="int" />
+    <Property Name="DemandId" Type="int" />
+    <Property Name="PlanCode" Type="nvarchar" MaxLength="20" />
+    <Property Name="PartId" Type="int" />
+    <Property Name="InvCode" Type="nvarchar" MaxLength="60" />
+    <Property Name="Free1" Type="nvarchar" MaxLength="20" />
+    <Property Name="Free2" Type="nvarchar" MaxLength="20" />
+    <Property Name="Free3" Type="nvarchar" MaxLength="20" />
+    <Property Name="Free4" Type="nvarchar" MaxLength="20" />
+    <Property Name="Free5" Type="nvarchar" MaxLength="20" />
+    <Property Name="Free6" Type="nvarchar" MaxLength="20" />
+    <Property Name="Free7" Type="nvarchar" MaxLength="20" />
+    <Property Name="Free8" Type="nvarchar" MaxLength="20" />
+    <Property Name="Free9" Type="nvarchar" MaxLength="20" />
+    <Property Name="Free10" Type="nvarchar" MaxLength="20" />
+    <Property Name="SfcFlag" Type="bit" />
+    <Property Name="CrpFlag" Type="bit" />
+    <Property Name="QcFlag" Type="bit" />
+    <Property Name="RelsDate" Type="datetime" />
+    <Property Name="RelsUser" Type="nvarchar" MaxLength="20" />
+    <Property Name="CloseDate" Type="datetime" />
+    <Property Name="OrgClsDate" Type="datetime" />
+    <Property Name="Ufts" Type="timestamp" StoreGeneratedPattern="Computed" />
+    <Property Name="Define22" Type="nvarchar" MaxLength="60" />
+    <Property Name="Define23" Type="nvarchar" MaxLength="60" />
+    <Property Name="Define24" Type="nvarchar" MaxLength="60" />
+    <Property Name="Define25" Type="nvarchar" MaxLength="60" />
+    <Property Name="Define26" Type="float" />
+    <Property Name="Define27" Type="float" />
+    <Property Name="Define28" Type="nvarchar" MaxLength="120" />
+    <Property Name="Define29" Type="nvarchar" MaxLength="120" />
+    <Property Name="Define30" Type="nvarchar" MaxLength="120" />
+    <Property Name="Define31" Type="nvarchar" MaxLength="120" />
+    <Property Name="Define32" Type="nvarchar" MaxLength="120" />
+    <Property Name="Define33" Type="nvarchar" MaxLength="120" />
+    <Property Name="Define34" Type="int" />
+    <Property Name="Define35" Type="int" />
+    <Property Name="Define36" Type="datetime" />
+    <Property Name="Define37" Type="datetime" />
+    <Property Name="LeadTime" Type="int" />
+    <Property Name="OpScheduleType" Type="tinyint" />
+    <Property Name="OrdFlag" Type="bit" />
+    <Property Name="WIPType" Type="tinyint" />
+    <Property Name="SupplyWhCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="ReasonCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="IsWFControlled" Type="tinyint" />
+    <Property Name="iVerifyState" Type="int" />
+    <Property Name="iReturnCount" Type="int" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+    <Property Name="SourceMoCode" Type="nvarchar" MaxLength="30" />
+    <Property Name="SourceMoSeq" Type="int" />
+    <Property Name="SourceMoId" Type="int" />
+    <Property Name="SourceMoDId" Type="int" />
+    <Property Name="SourceQCCode" Type="nvarchar" MaxLength="30" />
+    <Property Name="SourceQCId" Type="int" />
+    <Property Name="SourceQCDId" Type="int" />
+    <Property Name="CostItemCode" Type="nvarchar" MaxLength="60" />
+    <Property Name="CostItemName" Type="nvarchar" MaxLength="255" />
+    <Property Name="RelsTime" Type="datetime" />
+    <Property Name="CloseUser" Type="nvarchar" MaxLength="20" />
+    <Property Name="CloseTime" Type="datetime" />
+    <Property Name="OrgClsTime" Type="datetime" />
+    <Property Name="AuditStatus" Type="tinyint" />
+    <Property Name="PAllocateId" Type="int" />
+    <Property Name="DemandCode" Type="nvarchar" MaxLength="30" />
+    <Property Name="CollectiveFlag" Type="tinyint" />
+    <Property Name="OrderType" Type="tinyint" />
+    <Property Name="OrderDId" Type="int" />
+    <Property Name="OrderCode" Type="nvarchar" MaxLength="30" />
+    <Property Name="OrderSeq" Type="int" />
+    <Property Name="ManualCode" Type="nvarchar" MaxLength="30" />
+    <Property Name="ReformFlag" Type="bit" />
+    <Property Name="SourceQCVouchType" Type="tinyint" />
+    <Property Name="OrgQty" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FmFlag" Type="bit" />
+    <Property Name="MinSN" Type="nvarchar" MaxLength="200" />
+    <Property Name="MaxSN" Type="nvarchar" MaxLength="200" />
+    <Property Name="SourceSvcCode" Type="nvarchar" MaxLength="30" />
+    <Property Name="SourceSvcId" Type="nvarchar" MaxLength="80" />
+    <Property Name="SourceSvcDId" Type="nvarchar" MaxLength="80" />
+    <Property Name="BomType" Type="tinyint" />
+    <Property Name="RoutingType" Type="tinyint" />
+    <Property Name="BusFlowId" Type="int" />
+    <Property Name="RunCardFlag" Type="bit" />
+    <Property Name="RequisitionFlag" Type="bit" />
+    <Property Name="AlloVTid" Type="int" />
+    <Property Name="RelsAlloVTid" Type="int" />
+    <Property Name="iPrintCount" Type="int" />
+    <Property Name="cbSysBarCode" Type="nvarchar" MaxLength="80" />
+    <Property Name="cCurrentAuditor" Type="nvarchar" MaxLength="200" />
+    <Property Name="CustCode" Type="nvarchar" MaxLength="20" />
+    <Property Name="LPlanCode" Type="nvarchar" MaxLength="40" />
+    <Property Name="SourceSvcVouchType" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="QMCHECKPROJECT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="PROJECTGUID" Type="uniqueidentifier" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="IVTID" Type="int" />
+    <Property Name="CPROJECTCODE" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="CPROJECTNAME" Type="nvarchar" MaxLength="100" />
+    <Property Name="CCHKNORMALCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="DDATE" Type="datetime" />
+    <Property Name="CBUILDPERSON" Type="nvarchar" MaxLength="40" />
+    <Property Name="CMAKER" Type="nvarchar" MaxLength="20" />
+    <Property Name="CVOUCHTYPE" Type="nvarchar" MaxLength="4" />
+    <Property Name="UFTS" Type="timestamp" StoreGeneratedPattern="Computed" />
+    <Property Name="CDEFINE1" Type="nvarchar" MaxLength="20" />
+    <Property Name="CDEFINE2" Type="nvarchar" MaxLength="20" />
+    <Property Name="CDEFINE3" Type="nvarchar" MaxLength="20" />
+    <Property Name="CDEFINE4" Type="datetime" />
+    <Property Name="CDEFINE5" Type="int" />
+    <Property Name="CDEFINE6" Type="datetime" />
+    <Property Name="CDEFINE7" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="CDEFINE8" Type="nvarchar" MaxLength="4" />
+    <Property Name="CDEFINE9" Type="nvarchar" MaxLength="8" />
+    <Property Name="CDEFINE10" Type="nvarchar" MaxLength="60" />
+    <Property Name="CDEFINE11" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE12" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE13" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE14" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE15" Type="int" />
+    <Property Name="CDEFINE16" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="DCOSTDATE" Type="datetime" />
+    <Property Name="CCOSTTYPE" Type="nvarchar" MaxLength="10" />
+    <Property Name="CCOSTMAKER" Type="nvarchar" MaxLength="40" />
+    <Property Name="FCOST" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="CDEPCODE" Type="nvarchar" MaxLength="12" />
+    <Property Name="CCHECKPERSONCODE" Type="nvarchar" MaxLength="40" />
+    <Property Name="BSTOPUSE" Type="nvarchar" MaxLength="1" Nullable="false" />
+    <Property Name="CMODIFIER" Type="nvarchar" MaxLength="20" />
+    <Property Name="DMODIFYDATE" Type="datetime" />
+    <Property Name="DMAKETIME" Type="datetime" />
+    <Property Name="DMODIFYTIME" Type="datetime" />
+    <Property Name="iPrintCount" Type="int" />
+    <Property Name="CCLEANVER" Type="nvarchar" MaxLength="50" />
+    <Property Name="CSYSBARCODE" Type="nvarchar" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="QMCHECKPROJECTS">
+    <Key>
+      <PropertyRef Name="AUTOID" />
+    </Key>
+    <Property Name="ID" Type="int" />
+    <Property Name="AUTOID" Type="int" Nullable="false" />
+    <Property Name="CCHKITEMCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="CCHKGUIDECODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="CGUIDEUNIT" Type="nvarchar" MaxLength="20" />
+    <Property Name="BGUIDETYPE" Type="smallint" />
+    <Property Name="CSTANDARD" Type="nvarchar" MaxLength="500" />
+    <Property Name="IUPPERLIMIT" Type="nvarchar" MaxLength="130" />
+    <Property Name="ILOWERLIMIT" Type="nvarchar" MaxLength="130" />
+    <Property Name="CINPORTGRADE" Type="nvarchar" MaxLength="20" />
+    <Property Name="CCHKAPPCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="CINVCODE" Type="nvarchar" MaxLength="60" />
+    <Property Name="CCHKPLACECODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="CCHKDRAWCODE" Type="nvarchar" MaxLength="50" />
+    <Property Name="CCHKTEMPCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="CPERSONCODE" Type="nvarchar" MaxLength="20" />
+    <Property Name="CDEFINE22" Type="nvarchar" MaxLength="60" />
+    <Property Name="CDEFINE23" Type="nvarchar" MaxLength="60" />
+    <Property Name="CDEFINE24" Type="nvarchar" MaxLength="60" />
+    <Property Name="CDEFINE25" Type="nvarchar" MaxLength="60" />
+    <Property Name="CDEFINE26" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="CDEFINE27" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="CDEFINE28" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE29" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE30" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE31" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE32" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE33" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE34" Type="int" />
+    <Property Name="CDEFINE35" Type="int" />
+    <Property Name="CDEFINE36" Type="datetime" />
+    <Property Name="CDEFINE37" Type="datetime" />
+    <Property Name="CMEMO" Type="nvarchar" MaxLength="255" />
+    <Property Name="CCHKENVCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="CINSLEVEL" Type="nvarchar" MaxLength="20" />
+    <Property Name="FAQL" Type="nvarchar" MaxLength="20" />
+    <Property Name="CBUGGRADE" Type="nvarchar" MaxLength="10" />
+    <Property Name="CRAMISTYPE" Type="nvarchar" MaxLength="4" />
+    <Property Name="CISDEVCOSTTYPE" Type="nvarchar" MaxLength="4" />
+    <Property Name="FISDEVFEE" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="CISMATYPE" Type="nvarchar" MaxLength="4" />
+    <Property Name="FISMAUNITPRICE" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FISMARATE" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FISMAFEE" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="CISMANRATETYPE" Type="nvarchar" MaxLength="4" />
+    <Property Name="FISMANFEE" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="BSHOWPROOF" Type="bit" />
+    <Property Name="CCHKGUIDTYPE" Type="nvarchar" MaxLength="2" Nullable="false" />
+    <Property Name="IDTMETHOD" Type="nvarchar" MaxLength="120" />
+    <Property Name="FDTRATE" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FDTQUANTITY" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="CRULECODE" Type="nvarchar" MaxLength="20" />
+    <Property Name="FUPPERWARP" Type="nvarchar" MaxLength="130" />
+    <Property Name="FLOWERWARP" Type="nvarchar" MaxLength="130" />
+    <Property Name="bRecordDetails" Type="bit" />
+    <Property Name="CGROUPCODE" Type="nvarchar" MaxLength="35" />
+    <Property Name="CGCOMUNITCODE" Type="nvarchar" MaxLength="35" />
+    <Property Name="BBREAKCHECK" Type="bit" />
+    <Property Name="BMUSTBREAK" Type="bit" />
+    <Property Name="CROUNDED" Type="nvarchar" MaxLength="40" />
+    <Property Name="BROUNDED" Type="bit" />
+    <Property Name="BROHS" Type="bit" />
+    <Property Name="BRANDORPROJECTB" Type="bit" />
+    <Property Name="CCHKSTANDARDPROVISION" Type="nvarchar" MaxLength="255" />
+    <Property Name="BATCHPROPERTYB" Type="nvarchar" MaxLength="255" />
+    <Property Name="BMUSTCHECK" Type="bit" />
+    <Property Name="IVOUCHROWNO" Type="int" />
+  </EntityType>
+  <EntityType Name="QMCHECKVOUCHER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="CHECKGUID" Type="uniqueidentifier" />
+    <Property Name="CVOUCHTYPE" Type="nvarchar" MaxLength="4" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="CCHECKCODE" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="INSPECTID" Type="int" />
+    <Property Name="CINSPECTCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="INSPECTAUTOID" Type="int" />
+    <Property Name="SOURCEAUTOID" Type="int" />
+    <Property Name="SOURCEID" Type="int" />
+    <Property Name="SOURCECODE" Type="nvarchar" MaxLength="256" />
+    <Property Name="CSOURCE" Type="nvarchar" MaxLength="20" />
+    <Property Name="CPOCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="CINSPECTDEPCODE" Type="nvarchar" MaxLength="12" />
+    <Property Name="DARRIVALDATE" Type="datetime" />
+    <Property Name="CINSPECTPERSON" Type="nvarchar" MaxLength="40" />
+    <Property Name="CITEMCLASS" Type="nvarchar" MaxLength="10" />
+    <Property Name="CITEMCODE" Type="nvarchar" MaxLength="60" />
+    <Property Name="CITEMCNAME" Type="nvarchar" MaxLength="20" />
+    <Property Name="CITEMNAME" Type="nvarchar" MaxLength="255" />
+    <Property Name="DDATE" Type="datetime" />
+    <Property Name="CTIME" Type="nvarchar" MaxLength="20" />
+    <Property Name="CDEPCODE" Type="nvarchar" MaxLength="12" />
+    <Property Name="CVENCODE" Type="nvarchar" MaxLength="20" />
+    <Property Name="CINVCODE" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="CUNITID" Type="nvarchar" MaxLength="35" />
+    <Property Name="ITESTSTYLE" Type="int" />
+    <Property Name="PROJECTID" Type="int" />
+    <Property Name="IDTMETHOD" Type="int" />
+    <Property Name="IDTSTYLE" Type="int" />
+    <Property Name="FDTRATE" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="CCHECKUNIT" Type="nvarchar" MaxLength="35" />
+    <Property Name="FCHANGRATE" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FCHECKRATE" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FQUANTITY" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FNUM" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FDTQUANTITY" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FDTNUM" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="CBATCH" Type="nvarchar" MaxLength="60" />
+    <Property Name="CPROBATCH" Type="nvarchar" MaxLength="60" />
+    <Property Name="DPRODATE" Type="datetime" />
+    <Property Name="DVDATE" Type="datetime" />
+    <Property Name="CFREE1" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE2" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE3" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE4" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE5" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE6" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE7" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE8" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE9" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE10" Type="nvarchar" MaxLength="20" />
+    <Property Name="CDEFINE1" Type="nvarchar" MaxLength="20" />
+    <Property Name="CDEFINE2" Type="nvarchar" MaxLength="20" />
+    <Property Name="CDEFINE3" Type="nvarchar" MaxLength="20" />
+    <Property Name="CDEFINE4" Type="datetime" />
+    <Property Name="CDEFINE5" Type="int" />
+    <Property Name="CDEFINE6" Type="datetime" />
+    <Property Name="CDEFINE7" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="CDEFINE8" Type="nvarchar" MaxLength="4" />
+    <Property Name="CDEFINE9" Type="nvarchar" MaxLength="8" />
+    <Property Name="CDEFINE10" Type="nvarchar" MaxLength="60" />
+    <Property Name="CDEFINE11" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE12" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE13" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE14" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE15" Type="int" />
+    <Property Name="CDEFINE16" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FREGBREAKQUANTITY" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FREGBREAKNUM" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FREGUBREAKQUANTITY" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FREGUBREAKNUM" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FDISBREAKQUANTITY" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FDISBREAKNUM" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FDISUBREAKQUANTITY" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FDISUBREAKNUM" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FREGQUANTITY" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FREGNUM" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FCONQUANTIY" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FCONNUM" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FDISQUANTITY" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FDISNUM" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="CCHECKPERSONCODE" Type="nvarchar" MaxLength="20" />
+    <Property Name="CMAKER" Type="nvarchar" MaxLength="20" />
+    <Property Name="CVERIFIER" Type="nvarchar" MaxLength="20" />
+    <Property Name="UFTS" Type="timestamp" StoreGeneratedPattern="Computed" />
+    <Property Name="IVTID" Type="int" />
+    <Property Name="BPUINFLAG" Type="bit" />
+    <Property Name="BPROINFLAG" Type="bit" />
+    <Property Name="BREJFLAG" Type="bit" />
+    <Property Name="CWHCODE" Type="nvarchar" MaxLength="10" />
+    <Property Name="BSTNEXTYEAR" Type="bit" />
+    <Property Name="IORDERTYPE" Type="int" />
+    <Property Name="ISOORDERAUTOID" Type="nvarchar" MaxLength="50" />
+    <Property Name="IPROORDERID" Type="int" />
+    <Property Name="IPROORDERAUTOID" Type="int" />
+    <Property Name="CCUSCODE" Type="nvarchar" MaxLength="20" />
+    <Property Name="CCONTRACTCODE" Type="nvarchar" MaxLength="64" />
+    <Property Name="CPOSITION" Type="nvarchar" MaxLength="20" />
+    <Property Name="FISCOST" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="IAC" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="IRE" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="CINSLEVEL" Type="nvarchar" MaxLength="20" />
+    <Property Name="BEXIGENCY" Type="bit" />
+    <Property Name="CREASONCODE" Type="nvarchar" MaxLength="10" />
+    <Property Name="CYIELDERCODE" Type="nvarchar" MaxLength="20" />
+    <Property Name="DYIELDDATE" Type="datetime" />
+    <Property Name="CMEMO" Type="nvarchar" MaxLength="100" />
+    <Property Name="CPROCESSAUTOID" Type="nchar" MaxLength="4" />
+    <Property Name="IWORKCENTER" Type="int" />
+    <Property Name="CCONTRACTSTRCODE" Type="nvarchar" MaxLength="64" />
+    <Property Name="CBYPRODUCT" Type="nvarchar" MaxLength="20" />
+    <Property Name="CCHECKTYPECODE" Type="nvarchar" MaxLength="10" />
+    <Property Name="FAQL" Type="nvarchar" MaxLength="20" />
+    <Property Name="CCOSTTYPE" Type="nvarchar" MaxLength="10" />
+    <Property Name="FCOST" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="CMASSUNIT" Type="nvarchar" MaxLength="2" />
+    <Property Name="IMASSDATE" Type="smallint" />
+    <Property Name="CSOORDERCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="CPROORDERCODE" Type="nvarchar" MaxLength="256" />
+    <Property Name="IVERIFYSTATE" Type="int" />
+    <Property Name="IDISBREAKQTYDEALTYPE" Type="int" />
+    <Property Name="IBATCHCHKRESULT" Type="int" />
+    <Property Name="FsumQuantity" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FsumNum" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="ITESTRULE" Type="nvarchar" MaxLength="2" />
+    <Property Name="CRULECODE" Type="nvarchar" MaxLength="20" />
+    <Property Name="PcsTransType" Type="nvarchar" MaxLength="1" />
+    <Property Name="CVMIVENCODE" Type="nvarchar" MaxLength="20" />
+    <Property Name="iReturnCount" Type="int" Nullable="false" />
+    <Property Name="iVerifyStateNew" Type="int" Nullable="false" />
+    <Property Name="IsWfControlled" Type="int" Nullable="false" />
+    <Property Name="CMODIFIER" Type="nvarchar" MaxLength="20" />
+    <Property Name="FCHECKCHANGRATE" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FCHECKQTY" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FCHECKNUM" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="IFREGBREAKQTYDEALTYPE" Type="int" />
+    <Property Name="DMODIFYDATE" Type="datetime" />
+    <Property Name="DVERIFYDATE" Type="datetime" />
+    <Property Name="DMAKETIME" Type="datetime" />
+    <Property Name="DMODIFYTIME" Type="datetime" />
+    <Property Name="DVERIFYTIME" Type="datetime" />
+    <Property Name="CSOURCEPROORDERCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="ISOURCEPROORDERROWNO" Type="int" />
+    <Property Name="ISOURCEPROORDERID" Type="int" />
+    <Property Name="ISOURCEPROORDERAUTOID" Type="int" />
+    <Property Name="iExpiratDateCalcu" Type="smallint" />
+    <Property Name="cExpirationdate" Type="nvarchar" MaxLength="20" />
+    <Property Name="dExpirationdate" Type="datetime" />
+    <Property Name="cBatchProperty1" Type="decimal" Precision="38" Scale="8" />
+    <Property Name="cBatchProperty2" Type="decimal" Precision="38" Scale="8" />
+    <Property Name="cBatchProperty3" Type="decimal" Precision="38" Scale="8" />
+    <Property Name="cBatchProperty4" Type="decimal" Precision="38" Scale="8" />
+    <Property Name="cBatchProperty5" Type="decimal" Precision="38" Scale="8" />
+    <Property Name="cBatchProperty6" Type="nvarchar" MaxLength="120" />
+    <Property Name="cBatchProperty7" Type="nvarchar" MaxLength="120" />
+    <Property Name="cBatchProperty8" Type="nvarchar" MaxLength="120" />
+    <Property Name="cBatchProperty9" Type="nvarchar" MaxLength="120" />
+    <Property Name="cBatchProperty10" Type="datetime" />
+    <Property Name="IORDERDID" Type="int" />
+    <Property Name="ISOORDERTYPE" Type="tinyint" />
+    <Property Name="CORDERCODE" Type="nvarchar" MaxLength="50" />
+    <Property Name="IORDERSEQ" Type="int" />
+    <Property Name="CCHKNORMALCODE" Type="nvarchar" MaxLength="80" />
+    <Property Name="BRANDORPROJECT" Type="bit" />
+    <Property Name="CRETURNREASONCODE" Type="nvarchar" MaxLength="10" />
+    <Property Name="CCHKCONCLUSION" Type="nvarchar" MaxLength="255" />
+    <Property Name="CCHANGER" Type="nvarchar" MaxLength="255" />
+    <Property Name="DCHANGEDATE" Type="datetime" />
+    <Property Name="DCHANGETIME" Type="datetime" />
+    <Property Name="DINSPECTDATE" Type="datetime" />
+    <Property Name="CINSPECTTIME" Type="nvarchar" MaxLength="20" />
+    <Property Name="DCOMPLETEDATE" Type="datetime" />
+    <Property Name="FCOMPLETEDAYS" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="DPLANCOMPLETEDATE" Type="datetime" />
+    <Property Name="FPLANCOMPLETEDAYS" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="iPrintCount" Type="int" />
+    <Property Name="CCLEANVER" Type="nvarchar" MaxLength="50" />
+    <Property Name="PFCODE" Type="nvarchar" MaxLength="60" />
+    <Property Name="FSAMPQTY" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FSAMPQTYINS" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="BMERGECHECKFLAG" Type="bit" />
+    <Property Name="MERGECHECKRULE" Type="nvarchar" MaxLength="100" />
+    <Property Name="BWITHINSPECTINFO" Type="bit" />
+    <Property Name="BPRODUCECHECKDETAIL" Type="bit" />
+    <Property Name="CSYSBARCODE" Type="nvarchar" MaxLength="60" />
+    <Property Name="cCurrentAuditor" Type="nvarchar" MaxLength="200" />
+    <Property Name="FCVOUCHERCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="FCVOUCHERSID" Type="int" />
+    <Property Name="PLANLOTNUMBER" Type="nvarchar" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="QMCHECKVOUCHERS">
+    <Key>
+      <PropertyRef Name="AUTOID" />
+    </Key>
+    <Property Name="ID" Type="int" />
+    <Property Name="AUTOID" Type="int" Nullable="false" />
+    <Property Name="BGUIDETYPE" Type="int" />
+    <Property Name="CCHKITEMCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="CCHKGUIDECODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="CINPORTGRADE" Type="nvarchar" MaxLength="20" />
+    <Property Name="CSTANDARD" Type="nvarchar" MaxLength="500" />
+    <Property Name="FUPPERLIMIT" Type="nvarchar" MaxLength="130" />
+    <Property Name="FLOWERLIMIT" Type="nvarchar" MaxLength="130" />
+    <Property Name="CGUIDEUNIT" Type="nvarchar" MaxLength="20" />
+    <Property Name="FQUIDEREGQUANTITY" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FQUIDEDISQUANTITY" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FQUIDEBREAKQUANTITY" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="DCHECKDATE" Type="datetime" />
+    <Property Name="CCHECKTIME" Type="nvarchar" MaxLength="20" />
+    <Property Name="CPERSONCODE" Type="nvarchar" MaxLength="20" />
+    <Property Name="CCHECKVALUE" Type="nvarchar" MaxLength="500" />
+    <Property Name="CCHKAPPCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="CDEFINE22" Type="nvarchar" MaxLength="60" />
+    <Property Name="CDEFINE23" Type="nvarchar" MaxLength="60" />
+    <Property Name="CDEFINE24" Type="nvarchar" MaxLength="60" />
+    <Property Name="CDEFINE25" Type="nvarchar" MaxLength="60" />
+    <Property Name="CDEFINE26" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="CDEFINE27" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="CDEFINE28" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE29" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE30" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE31" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE32" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE33" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE34" Type="int" />
+    <Property Name="CDEFINE35" Type="int" />
+    <Property Name="CDEFINE36" Type="datetime" />
+    <Property Name="CDEFINE37" Type="datetime" />
+    <Property Name="FTARGETQTY" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="CCHKPLACECODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="CCHKENVCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="CCHKTEMPCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="IACB" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="IREB" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="CISDEVCOSTTYPE" Type="nvarchar" MaxLength="4" />
+    <Property Name="FISDEVFEE" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FISMAFEE" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="CISMATYPE" Type="nvarchar" MaxLength="4" />
+    <Property Name="FISMARATE" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="CISMANRATETYPE" Type="nvarchar" MaxLength="4" />
+    <Property Name="FISMANFEE" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FTARGETISCOST" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="ISSHOWPROOF" Type="bit" />
+    <Property Name="CINSLEVELB" Type="nvarchar" MaxLength="20" />
+    <Property Name="CBUGGRADE" Type="nvarchar" MaxLength="10" />
+    <Property Name="FAQLB" Type="nvarchar" MaxLength="20" />
+    <Property Name="CRAMISTYPE" Type="nvarchar" MaxLength="4" />
+    <Property Name="FISMAUNITPRICE" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="CTARGETQJUG" Type="nvarchar" MaxLength="4" />
+    <Property Name="FISDEVCOST" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FISMACOST" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FISMANCOST" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="CCHKDRAWCODE" Type="nvarchar" MaxLength="50" />
+    <Property Name="IDTMETHODB" Type="nvarchar" MaxLength="120" />
+    <Property Name="FUPPERWARP" Type="nvarchar" MaxLength="130" />
+    <Property Name="FLOWERWARP" Type="nvarchar" MaxLength="130" />
+    <Property Name="bRecordDetails" Type="bit" />
+    <Property Name="CMAXCHECKVALUE" Type="nvarchar" MaxLength="500" />
+    <Property Name="CMINCHECKVALUE" Type="nvarchar" MaxLength="500" />
+    <Property Name="CGROUPCODE" Type="nvarchar" MaxLength="35" />
+    <Property Name="CGCOMUNITCODE" Type="nvarchar" MaxLength="35" />
+    <Property Name="FGQUANTITY" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FGCHANGERATE" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FCHKQUANTITY" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FCHKVALIDQTY" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FCHKINVALIDQTY" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FDTRATEB" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FDTQUANTITYB" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="CRULECODEB" Type="nvarchar" MaxLength="20" />
+    <Property Name="BBREAKCHECK" Type="bit" />
+    <Property Name="BMUSTBREAK" Type="bit" />
+    <Property Name="CROUNDED" Type="nvarchar" MaxLength="40" />
+    <Property Name="BROUNDED" Type="bit" />
+    <Property Name="BROHS" Type="bit" />
+    <Property Name="BRANDORPROJECTB" Type="bit" />
+    <Property Name="CCHKSTANDARDPROVISION" Type="nvarchar" MaxLength="255" />
+    <Property Name="CCHKCONCLUSIONB" Type="nvarchar" MaxLength="255" />
+    <Property Name="BATCHPROPERTYB" Type="nvarchar" MaxLength="255" />
+    <Property Name="BMUSTCHECK" Type="bit" />
+  </EntityType>
+  <EntityType Name="QMINSPECTVOUCHER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="INSPECTGUID" Type="uniqueidentifier" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="CVOUCHTYPE" Type="nvarchar" MaxLength="4" />
+    <Property Name="CINSPECTCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="CREJECTCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="CSOURCECODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="REJECTID" Type="int" />
+    <Property Name="CSOURCEID" Type="int" />
+    <Property Name="CPOCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="DARRIVALDATE" Type="datetime" />
+    <Property Name="CDEPCODE" Type="nvarchar" MaxLength="12" />
+    <Property Name="DDATE" Type="datetime" />
+    <Property Name="CTIME" Type="nvarchar" MaxLength="20" />
+    <Property Name="CVENCODE" Type="nvarchar" MaxLength="20" />
+    <Property Name="CSOURCE" Type="nvarchar" MaxLength="20" />
+    <Property Name="IVTID" Type="int" />
+    <Property Name="UFTS" Type="timestamp" StoreGeneratedPattern="Computed" />
+    <Property Name="CMAKER" Type="nvarchar" MaxLength="20" />
+    <Property Name="CVERIFIER" Type="nvarchar" MaxLength="20" />
+    <Property Name="CDEFINE1" Type="nvarchar" MaxLength="20" />
+    <Property Name="CDEFINE2" Type="nvarchar" MaxLength="20" />
+    <Property Name="CDEFINE3" Type="nvarchar" MaxLength="20" />
+    <Property Name="CDEFINE4" Type="datetime" />
+    <Property Name="CDEFINE5" Type="int" />
+    <Property Name="CDEFINE6" Type="datetime" />
+    <Property Name="CDEFINE7" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="CDEFINE8" Type="nvarchar" MaxLength="4" />
+    <Property Name="CDEFINE9" Type="nvarchar" MaxLength="8" />
+    <Property Name="CDEFINE10" Type="nvarchar" MaxLength="60" />
+    <Property Name="CDEFINE11" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE12" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE13" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE14" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE15" Type="int" />
+    <Property Name="CDEFINE16" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="CSOORDERCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="ISOORDERAUTOID" Type="int" />
+    <Property Name="IPROORDERID" Type="int" />
+    <Property Name="CPROORDERCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="IPROORDERAUTOID" Type="int" />
+    <Property Name="CCUSCODE" Type="nvarchar" MaxLength="20" />
+    <Property Name="CCONTRACTCODE" Type="nvarchar" MaxLength="64" />
+    <Property Name="CCONTRACTSTRCODE" Type="nvarchar" MaxLength="64" />
+    <Property Name="IWORKCENTER" Type="int" />
+    <Property Name="CPROCESSAUTOID" Type="nchar" MaxLength="4" />
+    <Property Name="BEXIGENCY" Type="bit" />
+    <Property Name="CCHECKTYPECODE" Type="nvarchar" MaxLength="10" />
+    <Property Name="CINSPECTDEPCODE" Type="nvarchar" MaxLength="12" />
+    <Property Name="IORDERTYPE" Type="int" />
+    <Property Name="CMODIFIER" Type="nvarchar" MaxLength="20" />
+    <Property Name="DMODIFYDATE" Type="datetime" />
+    <Property Name="DVERIFYDATE" Type="datetime" />
+    <Property Name="DMAKETIME" Type="datetime" />
+    <Property Name="DMODIFYTIME" Type="datetime" />
+    <Property Name="DVERIFYTIME" Type="datetime" />
+    <Property Name="iPrintCount" Type="int" />
+    <Property Name="CCLEANVER" Type="nvarchar" MaxLength="50" />
+    <Property Name="CSYSBARCODE" Type="nvarchar" MaxLength="60" />
+    <Property Name="CCHANGER" Type="nvarchar" MaxLength="255" />
+    <Property Name="DCHANGEDATE" Type="datetime" />
+    <Property Name="DCHANGETIME" Type="datetime" />
+  </EntityType>
+  <EntityType Name="QMINSPECTVOUCHERS">
+    <Key>
+      <PropertyRef Name="AUTOID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="AUTOID" Type="int" Nullable="false" />
+    <Property Name="CITEMCLASS" Type="nvarchar" MaxLength="10" />
+    <Property Name="CITEMCODE" Type="nvarchar" MaxLength="60" />
+    <Property Name="CITEMCNAME" Type="nvarchar" MaxLength="20" />
+    <Property Name="CITEMNAME" Type="nvarchar" MaxLength="255" />
+    <Property Name="REJECTAUTOID" Type="int" />
+    <Property Name="SOURCEAUTOID" Type="int" />
+    <Property Name="ITESTSTYLE" Type="int" />
+    <Property Name="CWHCODE" Type="nvarchar" MaxLength="10" />
+    <Property Name="CINVCODE" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="CPROBATCH" Type="nvarchar" MaxLength="60" />
+    <Property Name="CBATCH" Type="nvarchar" MaxLength="60" />
+    <Property Name="DPRODATE" Type="datetime" />
+    <Property Name="DVDATE" Type="datetime" />
+    <Property Name="CUNITID" Type="nvarchar" MaxLength="35" />
+    <Property Name="FCHANGRATE" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FQUANTITY" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FNUM" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="BFLAG" Type="bit" />
+    <Property Name="CFREE1" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE2" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE3" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE4" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE5" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE6" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE7" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE8" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE9" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE10" Type="nvarchar" MaxLength="20" />
+    <Property Name="CDEFINE22" Type="nvarchar" MaxLength="60" />
+    <Property Name="CDEFINE23" Type="nvarchar" MaxLength="60" />
+    <Property Name="CDEFINE24" Type="nvarchar" MaxLength="60" />
+    <Property Name="CDEFINE25" Type="nvarchar" MaxLength="60" />
+    <Property Name="CDEFINE26" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="CDEFINE27" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="CDEFINE28" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE29" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE30" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE31" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE32" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE33" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE34" Type="int" />
+    <Property Name="CDEFINE35" Type="int" />
+    <Property Name="CDEFINE36" Type="datetime" />
+    <Property Name="CDEFINE37" Type="datetime" />
+    <Property Name="CPOSITION" Type="nvarchar" MaxLength="20" />
+    <Property Name="CBYPRODUCT" Type="nvarchar" MaxLength="20" />
+    <Property Name="IMASSDATE" Type="smallint" />
+    <Property Name="CMASSUNIT" Type="nvarchar" MaxLength="2" />
+    <Property Name="IORDERTYPE" Type="int" />
+    <Property Name="CSOORDERCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="ISOORDERAUTOID" Type="nvarchar" MaxLength="50" />
+    <Property Name="IPROORDERID" Type="int" />
+    <Property Name="CPROORDERCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="IPROORDERAUTOID" Type="int" />
+    <Property Name="CCONTRACTCODE" Type="nvarchar" MaxLength="64" />
+    <Property Name="CCONTRACTSTRCODE" Type="nvarchar" MaxLength="64" />
+    <Property Name="CPOCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="BEXIGENCY" Type="bit" />
+    <Property Name="PcsTransType" Type="nvarchar" MaxLength="1" />
+    <Property Name="CVMIVENCODE" Type="nvarchar" MaxLength="20" />
+    <Property Name="CSOURCEPROORDERCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="ISOURCEPROORDERROWNO" Type="int" />
+    <Property Name="ISOURCEPROORDERID" Type="int" />
+    <Property Name="ISOURCEPROORDERAUTOID" Type="int" />
+    <Property Name="iExpiratDateCalcu" Type="smallint" />
+    <Property Name="cExpirationdate" Type="nvarchar" MaxLength="20" />
+    <Property Name="dExpirationdate" Type="datetime" />
+    <Property Name="cBatchProperty1" Type="decimal" Precision="38" Scale="8" />
+    <Property Name="cBatchProperty2" Type="decimal" Precision="38" Scale="8" />
+    <Property Name="cBatchProperty3" Type="decimal" Precision="38" Scale="8" />
+    <Property Name="cBatchProperty4" Type="decimal" Precision="38" Scale="8" />
+    <Property Name="cBatchProperty5" Type="decimal" Precision="38" Scale="8" />
+    <Property Name="cBatchProperty6" Type="nvarchar" MaxLength="120" />
+    <Property Name="cBatchProperty7" Type="nvarchar" MaxLength="120" />
+    <Property Name="cBatchProperty8" Type="nvarchar" MaxLength="120" />
+    <Property Name="cBatchProperty9" Type="nvarchar" MaxLength="120" />
+    <Property Name="cBatchProperty10" Type="datetime" />
+    <Property Name="IORDERDID" Type="int" />
+    <Property Name="ISOORDERTYPE" Type="tinyint" />
+    <Property Name="CORDERCODE" Type="nvarchar" MaxLength="50" />
+    <Property Name="IORDERSEQ" Type="int" />
+    <Property Name="CRETURNREASONCODE" Type="nvarchar" MaxLength="10" />
+    <Property Name="PFCODE" Type="nvarchar" MaxLength="60" />
+    <Property Name="FSUMCHECKQTY" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FSUMCHECKNUM" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="BMERGECHECKFLAG" Type="bit" />
+    <Property Name="CCHECKCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="CBSYSBARCODE" Type="nvarchar" MaxLength="80" />
+    <Property Name="FCVOUCHERCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="FCVOUCHERSID" Type="int" />
+    <Property Name="PLANLOTNUMBER" Type="nvarchar" MaxLength="60" />
+    <Property Name="CDEPCODE" Type="nvarchar" MaxLength="12" />
+  </EntityType>
+  <EntityType Name="QMREJECTVOUCHER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="REJECTGUID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="CVOUCHTYPE" Type="nvarchar" MaxLength="4" />
+    <Property Name="CREJECTCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="SOURCEAUTOID" Type="int" />
+    <Property Name="SOURCEID" Type="int" />
+    <Property Name="SOURCECODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="CSOURCE" Type="nvarchar" MaxLength="20" />
+    <Property Name="CPOCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="CPROBATCH" Type="nvarchar" MaxLength="60" />
+    <Property Name="CHECKID" Type="int" />
+    <Property Name="CCHECKCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="DARRIVALDATE" Type="datetime" />
+    <Property Name="DCHECKDATE" Type="datetime" />
+    <Property Name="CWHCODE" Type="nvarchar" MaxLength="10" />
+    <Property Name="CCHECKPERSON" Type="nvarchar" MaxLength="20" />
+    <Property Name="DDATE" Type="datetime" />
+    <Property Name="CTIME" Type="nvarchar" MaxLength="10" />
+    <Property Name="CINVCODE" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="CVENCODE" Type="nvarchar" MaxLength="20" />
+    <Property Name="CINSPECTDEPCODE" Type="nvarchar" MaxLength="12" />
+    <Property Name="CITEMCLASS" Type="nvarchar" MaxLength="10" />
+    <Property Name="CITEMCODE" Type="nvarchar" MaxLength="60" />
+    <Property Name="CITEMCNAME" Type="nvarchar" MaxLength="20" />
+    <Property Name="CITEMNAME" Type="nvarchar" MaxLength="255" />
+    <Property Name="CUNITID" Type="nvarchar" MaxLength="35" />
+    <Property Name="FCHANGRATE" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="CBATCH" Type="nvarchar" MaxLength="60" />
+    <Property Name="DPRODATE" Type="datetime" />
+    <Property Name="DVDATE" Type="datetime" />
+    <Property Name="FSUMQUANTITY" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FSUMNUM" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="IVTID" Type="int" />
+    <Property Name="UFTS" Type="timestamp" StoreGeneratedPattern="Computed" />
+    <Property Name="CMAKER" Type="nvarchar" MaxLength="20" />
+    <Property Name="CVERIFIER" Type="nvarchar" MaxLength="20" />
+    <Property Name="IVERIFYSTATE" Type="int" />
+    <Property Name="CFREE1" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE2" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE3" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE4" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE5" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE6" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE7" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE8" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE9" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE10" Type="nvarchar" MaxLength="20" />
+    <Property Name="CDEFINE1" Type="nvarchar" MaxLength="20" />
+    <Property Name="CDEFINE2" Type="nvarchar" MaxLength="20" />
+    <Property Name="CDEFINE3" Type="nvarchar" MaxLength="20" />
+    <Property Name="CDEFINE4" Type="datetime" />
+    <Property Name="CDEFINE5" Type="int" />
+    <Property Name="CDEFINE6" Type="datetime" />
+    <Property Name="CDEFINE7" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="CDEFINE8" Type="nvarchar" MaxLength="4" />
+    <Property Name="CDEFINE9" Type="nvarchar" MaxLength="8" />
+    <Property Name="CDEFINE10" Type="nvarchar" MaxLength="60" />
+    <Property Name="CDEFINE11" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE12" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE13" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE14" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE15" Type="int" />
+    <Property Name="CDEFINE16" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="IORDERTYPE" Type="int" />
+    <Property Name="CSOORDERCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="ISOORDERAUTOID" Type="nvarchar" MaxLength="50" />
+    <Property Name="IPROORDERID" Type="int" />
+    <Property Name="CPROORDERCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="IPROORDERAUTOID" Type="int" />
+    <Property Name="CCUSCODE" Type="nvarchar" MaxLength="20" />
+    <Property Name="CCONTRACTCODE" Type="nvarchar" MaxLength="64" />
+    <Property Name="CCONTRACTSTRCODE" Type="nvarchar" MaxLength="64" />
+    <Property Name="IWORKCENTER" Type="int" />
+    <Property Name="CPROCESSAUTOID" Type="nchar" MaxLength="4" />
+    <Property Name="CBYPRODUCT" Type="nvarchar" MaxLength="20" />
+    <Property Name="BEXIGENCY" Type="bit" />
+    <Property Name="CPOSITION" Type="nvarchar" MaxLength="20" />
+    <Property Name="IMASSDATE" Type="smallint" />
+    <Property Name="CMASSUNIT" Type="nvarchar" MaxLength="2" />
+    <Property Name="CCHECKTYPECODE" Type="nvarchar" MaxLength="10" />
+    <Property Name="FINVPRICE" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FBADLOSEALL" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="PcsTransType" Type="nvarchar" MaxLength="1" />
+    <Property Name="CVMIVENCODE" Type="nvarchar" MaxLength="20" />
+    <Property Name="iReturnCount" Type="int" Nullable="false" />
+    <Property Name="iVerifyStateNew" Type="int" Nullable="false" />
+    <Property Name="IsWfControlled" Type="int" Nullable="false" />
+    <Property Name="CMODIFIER" Type="nvarchar" MaxLength="20" />
+    <Property Name="DMODIFYDATE" Type="datetime" />
+    <Property Name="DVERIFYDATE" Type="datetime" />
+    <Property Name="DMAKETIME" Type="datetime" />
+    <Property Name="DMODIFYTIME" Type="datetime" />
+    <Property Name="DVERIFYTIME" Type="datetime" />
+    <Property Name="CSOURCEPROORDERCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="ISOURCEPROORDERROWNO" Type="int" />
+    <Property Name="ISOURCEPROORDERID" Type="int" />
+    <Property Name="ISOURCEPROORDERAUTOID" Type="int" />
+    <Property Name="iExpiratDateCalcu" Type="smallint" />
+    <Property Name="cExpirationdate" Type="nvarchar" MaxLength="20" />
+    <Property Name="dExpirationdate" Type="datetime" />
+    <Property Name="cBatchProperty1" Type="decimal" Precision="38" Scale="8" />
+    <Property Name="cBatchProperty2" Type="decimal" Precision="38" Scale="8" />
+    <Property Name="cBatchProperty3" Type="decimal" Precision="38" Scale="8" />
+    <Property Name="cBatchProperty4" Type="decimal" Precision="38" Scale="8" />
+    <Property Name="cBatchProperty5" Type="decimal" Precision="38" Scale="8" />
+    <Property Name="cBatchProperty6" Type="nvarchar" MaxLength="120" />
+    <Property Name="cBatchProperty7" Type="nvarchar" MaxLength="120" />
+    <Property Name="cBatchProperty8" Type="nvarchar" MaxLength="120" />
+    <Property Name="cBatchProperty9" Type="nvarchar" MaxLength="120" />
+    <Property Name="cBatchProperty10" Type="datetime" />
+    <Property Name="IORDERDID" Type="int" />
+    <Property Name="ISOORDERTYPE" Type="tinyint" />
+    <Property Name="CORDERCODE" Type="nvarchar" MaxLength="50" />
+    <Property Name="IORDERSEQ" Type="int" />
+    <Property Name="CRETURNREASONCODE" Type="nvarchar" MaxLength="10" />
+    <Property Name="iPrintCount" Type="int" />
+    <Property Name="CCLEANVER" Type="nvarchar" MaxLength="50" />
+    <Property Name="PFCODE" Type="nvarchar" MaxLength="60" />
+    <Property Name="BMERGECHECKFLAG" Type="bit" />
+    <Property Name="MERGECHECKAUTOID" Type="int" />
+    <Property Name="CSYSBARCODE" Type="nvarchar" MaxLength="60" />
+    <Property Name="cCurrentAuditor" Type="nvarchar" MaxLength="200" />
+    <Property Name="FCVOUCHERCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="FCVOUCHERSID" Type="int" />
+    <Property Name="PLANLOTNUMBER" Type="nvarchar" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="QMREJECTVOUCHERS">
+    <Key>
+      <PropertyRef Name="AUTOID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="AUTOID" Type="int" Nullable="false" />
+    <Property Name="CREASONCODE" Type="nvarchar" MaxLength="10" />
+    <Property Name="FQUANTITY" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FNUM" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="CSCRAPDISCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="IDISPOSEFLOW" Type="int" />
+    <Property Name="CDIMINVCODE" Type="nvarchar" MaxLength="60" />
+    <Property Name="CDIMUNITID" Type="nvarchar" MaxLength="35" />
+    <Property Name="FDIMCHANGRATE" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FDIMQUANTITY" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FDIMNUM" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="CFREE1" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE2" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE3" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE4" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE5" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE6" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE7" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE8" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE9" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE10" Type="nvarchar" MaxLength="20" />
+    <Property Name="CDEPCODE" Type="nvarchar" MaxLength="12" />
+    <Property Name="CDEFINE22" Type="nvarchar" MaxLength="60" />
+    <Property Name="CDEFINE23" Type="nvarchar" MaxLength="60" />
+    <Property Name="CDEFINE24" Type="nvarchar" MaxLength="60" />
+    <Property Name="CDEFINE25" Type="nvarchar" MaxLength="60" />
+    <Property Name="CDEFINE26" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="CDEFINE27" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="CDEFINE28" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE29" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE30" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE31" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE32" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE33" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE34" Type="int" />
+    <Property Name="CDEFINE35" Type="int" />
+    <Property Name="CDEFINE36" Type="datetime" />
+    <Property Name="CDEFINE37" Type="datetime" />
+    <Property Name="BFLAG" Type="bit" />
+    <Property Name="BSTNEXTYEAR" Type="bit" />
+    <Property Name="FMATCOST" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FBADLOSE" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="CDIMBATCH" Type="nvarchar" MaxLength="60" />
+    <Property Name="DDIMVDATE" Type="datetime" />
+    <Property Name="IDIMMASSDATE" Type="smallint" />
+    <Property Name="CDIMMASSUNIT" Type="nvarchar" MaxLength="2" />
+    <Property Name="FSUMREWORKQTY" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FSUMREWORKNUM" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="CBVENCODE" Type="nvarchar" MaxLength="20" />
+    <Property Name="iDIMExpiratDateCalcu" Type="smallint" />
+    <Property Name="cDIMExpirationdate" Type="nvarchar" MaxLength="20" />
+    <Property Name="dDIMExpirationdate" Type="datetime" />
+    <Property Name="CPUPOCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="IPUPODID" Type="int" />
+    <Property Name="MOORDEROPSEQ" Type="nvarchar" MaxLength="10" />
+    <Property Name="CBWHCODE" Type="nvarchar" MaxLength="10" />
+    <Property Name="CBSYSBARCODE" Type="nvarchar" MaxLength="80" />
+  </EntityType>
+  <EntityType Name="QMSCRAPDISPOSE">
+    <Key>
+      <PropertyRef Name="CSCRAPDISCODE" />
+    </Key>
+    <Property Name="SCRAPDISGUID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CSCRAPDISCODE" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="CSCRAPDISNAME" Type="nvarchar" MaxLength="100" />
+    <Property Name="IDISPOSEFLOW" Type="int" />
+    <Property Name="CMEMO" Type="nvarchar" MaxLength="120" />
+    <Property Name="UFTS" Type="timestamp" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="Rd_Style">
+    <Key>
+      <PropertyRef Name="cRdCode" />
+    </Key>
+    <Property Name="cRdCode" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="cRdName" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="iRdGrade" Type="tinyint" Nullable="false" />
+    <Property Name="bRdFlag" Type="int" Nullable="false" />
+    <Property Name="bRdEnd" Type="bit" Nullable="false" />
+    <Property Name="cOppHead" Type="nvarchar" MaxLength="40" />
+    <Property Name="pubufts" Type="timestamp" StoreGeneratedPattern="Computed" />
+    <Property Name="bRetail" Type="bit" />
+  </EntityType>
+  <EntityType Name="rdrecord10_extradefine">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="chdefine37" Type="nvarchar" MaxLength="2" />
+    <Property Name="chdefine39" Type="float" />
+    <Property Name="chdefine40" Type="float" />
+    <Property Name="chdefine43" Type="nvarchar" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="Reason">
+    <Key>
+      <PropertyRef Name="cReasonCode" />
+    </Key>
+    <Property Name="cReasonCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="cReasonName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="iReasontype" Type="tinyint" Nullable="false" />
+    <Property Name="cReasonMemo" Type="nvarchar" MaxLength="240" />
+    <Property Name="pubufts" Type="timestamp" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="sfc_optransform">
+    <Key>
+      <PropertyRef Name="TransformId" />
+    </Key>
+    <Property Name="TransformId" Type="int" Nullable="false" />
+    <Property Name="DocCode" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="DocDate" Type="datetime" />
+    <Property Name="MoId" Type="int" />
+    <Property Name="MoDId" Type="int" />
+    <Property Name="MoRoutingId" Type="int" />
+    <Property Name="MoRoutingDId" Type="int" />
+    <Property Name="TransformType" Type="tinyint" />
+    <Property Name="OpStatus" Type="smallint" />
+    <Property Name="TransOutQty" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="InMoRoutingDId" Type="int" />
+    <Property Name="QualifiedQty" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="ScrapQty" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="RefusedQty" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="DeclareQty" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="MachiningQty" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="DeclaredQty" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="20" />
+    <Property Name="ModifyDate" Type="datetime" />
+    <Property Name="ModifyUser" Type="nvarchar" MaxLength="20" />
+    <Property Name="UpdCount" Type="int" />
+    <Property Name="Ufts" Type="timestamp" StoreGeneratedPattern="Computed" />
+    <Property Name="Define1" Type="nvarchar" MaxLength="20" />
+    <Property Name="Define2" Type="nvarchar" MaxLength="20" />
+    <Property Name="Define3" Type="nvarchar" MaxLength="20" />
+    <Property Name="Define4" Type="datetime" />
+    <Property Name="Define5" Type="int" />
+    <Property Name="Define6" Type="datetime" />
+    <Property Name="Define7" Type="float" />
+    <Property Name="Define8" Type="nvarchar" MaxLength="4" />
+    <Property Name="Define9" Type="nvarchar" MaxLength="8" />
+    <Property Name="Define10" Type="nvarchar" MaxLength="60" />
+    <Property Name="Define11" Type="nvarchar" MaxLength="120" />
+    <Property Name="Define12" Type="nvarchar" MaxLength="120" />
+    <Property Name="Define13" Type="nvarchar" MaxLength="120" />
+    <Property Name="Define14" Type="nvarchar" MaxLength="120" />
+    <Property Name="Define15" Type="int" />
+    <Property Name="Define16" Type="float" />
+    <Property Name="QcFlag" Type="bit" />
+    <Property Name="OutQcFlag" Type="bit" />
+    <Property Name="VTid" Type="int" />
+    <Property Name="InAuxUnitCode" Type="nvarchar" MaxLength="35" />
+    <Property Name="InChangeRate" Type="decimal" Precision="22" Scale="6" />
+    <Property Name="ReasonCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="QualifiedReasonCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="RefusedReasonCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="ScrapReasonCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="QcType" Type="tinyint" />
+    <Property Name="CheckId" Type="int" />
+    <Property Name="WorkHrId" Type="int" />
+    <Property Name="Status" Type="tinyint" />
+    <Property Name="BFedFlag" Type="bit" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="ModifyTime" Type="datetime" />
+    <Property Name="DocTime" Type="datetime" />
+    <Property Name="PFReportId" Type="int" />
+    <Property Name="PFReportDId" Type="int" />
+    <Property Name="PFDId" Type="int" />
+    <Property Name="iPrintCount" Type="int" />
+    <Property Name="RefDocType" Type="tinyint" />
+    <Property Name="RefDocDId" Type="int" />
+    <Property Name="RefDocCode" Type="nvarchar" MaxLength="30" />
+    <Property Name="ReworkFlag" Type="bit" />
+    <Property Name="OrgDocCOde" Type="nvarchar" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="sfc_workcenter">
+    <Key>
+      <PropertyRef Name="WcId" />
+    </Key>
+    <Property Name="WcId" Type="int" Nullable="false" />
+    <Property Name="WcCode" Type="nvarchar" MaxLength="8" />
+    <Property Name="Description" Type="nvarchar" MaxLength="60" />
+    <Property Name="CalendarId" Type="int" />
+    <Property Name="ProductLineFlag" Type="bit" />
+    <Property Name="DeptCode" Type="nvarchar" MaxLength="12" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="20" />
+    <Property Name="ModifyDate" Type="datetime" />
+    <Property Name="ModifyUser" Type="nvarchar" MaxLength="20" />
+    <Property Name="UpdCount" Type="int" />
+    <Property Name="Ufts" Type="timestamp" StoreGeneratedPattern="Computed" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="ModifyTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="VoucherHistory">
+    <Key>
+      <PropertyRef Name="AutoId" />
+    </Key>
+    <Property Name="AutoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CardNumber" Type="nvarchar" MaxLength="20" />
+    <Property Name="iRdFlagSeed" Type="tinyint" />
+    <Property Name="cContent" Type="nvarchar" MaxLength="50" />
+    <Property Name="cContentRule" Type="nvarchar" MaxLength="50" />
+    <Property Name="cSeed" Type="nvarchar" MaxLength="120" />
+    <Property Name="cNumber" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="bEmpty" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Warehouse">
+    <Key>
+      <PropertyRef Name="cWhCode" />
+    </Key>
+    <Property Name="cWhCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="cWhName" Type="nvarchar" MaxLength="20" />
+    <Property Name="cDepCode" Type="nvarchar" MaxLength="12" />
+    <Property Name="cWhAddress" Type="nvarchar" MaxLength="255" />
+    <Property Name="cWhPhone" Type="nvarchar" MaxLength="100" />
+    <Property Name="cWhPerson" Type="nvarchar" MaxLength="20" />
+    <Property Name="cWhValueStyle" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="bWhPos" Type="bit" Nullable="false" />
+    <Property Name="iWhFundQuota" Type="float" />
+    <Property Name="cMonth" Type="nvarchar" MaxLength="6" />
+    <Property Name="cWhMemo" Type="nvarchar" MaxLength="20" />
+    <Property Name="bFreeze" Type="bit" Nullable="false" />
+    <Property Name="cBarCode" Type="nvarchar" MaxLength="30" />
+    <Property Name="bMRP" Type="bit" Nullable="false" />
+    <Property Name="pubufts" Type="timestamp" StoreGeneratedPattern="Computed" />
+    <Property Name="bROP" Type="bit" Nullable="false" />
+    <Property Name="iFrequency" Type="smallint" />
+    <Property Name="cFrequency" Type="nvarchar" MaxLength="10" />
+    <Property Name="iDays" Type="smallint" />
+    <Property Name="dLastDate" Type="datetime" />
+    <Property Name="iWHProperty" Type="smallint" Nullable="false" />
+    <Property Name="bShop" Type="bit" Nullable="false" />
+    <Property Name="bControlSerial" Type="bit" Nullable="false" />
+    <Property Name="bInCost" Type="bit" Nullable="false" />
+    <Property Name="bInAvailCalcu" Type="bit" Nullable="false" />
+    <Property Name="bProxyWh" Type="bit" Nullable="false" />
+    <Property Name="iSAConMode" Type="smallint" Nullable="false" />
+    <Property Name="iEXConMode" Type="smallint" Nullable="false" />
+    <Property Name="iSTConMode" Type="smallint" Nullable="false" />
+    <Property Name="bBondedWh" Type="bit" Nullable="false" />
+    <Property Name="bWhAsset" Type="bit" Nullable="false" />
+    <Property Name="fWhQuota" Type="float" />
+    <Property Name="dWhEndDate" Type="datetime" />
+    <Property Name="bCheckSubitemCost" Type="bit" />
+    <Property Name="cPickPos" Type="nvarchar" MaxLength="40" />
+    <Property Name="bEB" Type="bit" />
+    <Property Name="dModifyDate" Type="datetime" />
+    <Property Name="cWareGroupCode" Type="nvarchar" MaxLength="100" />
+    <Property Name="cProvince" Type="nvarchar" MaxLength="100" />
+    <Property Name="cCity" Type="nvarchar" MaxLength="100" />
+    <Property Name="cCounty" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“UFDATA_666_2015.dbo.DL_U8_pgshift”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="DL_U8_pgshift">
+    <Key>
+      <PropertyRef Name="moroutingid" />
+      <PropertyRef Name="moroutingdid" />
+      <PropertyRef Name="moid" />
+      <PropertyRef Name="modid" />
+      <PropertyRef Name="mocode" />
+      <PropertyRef Name="moseq" />
+      <PropertyRef Name="editprop" />
+    </Key>
+    <Property Name="moroutingid" Type="int" Nullable="false" />
+    <Property Name="moroutingdid" Type="int" Nullable="false" />
+    <Property Name="moid" Type="int" Nullable="false" />
+    <Property Name="modid" Type="int" Nullable="false" />
+    <Property Name="mocode" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="moseq" Type="int" Nullable="false" />
+    <Property Name="moclass" Type="tinyint" />
+    <Property Name="motypedesc" Type="nvarchar" MaxLength="60" />
+    <Property Name="ordertype" Type="tinyint" />
+    <Property Name="status" Type="tinyint" />
+    <Property Name="cinvcode" Type="nvarchar" MaxLength="60" />
+    <Property Name="cinvname" Type="nvarchar" MaxLength="255" />
+    <Property Name="cinvaddcode" Type="nvarchar" MaxLength="255" />
+    <Property Name="cinvstd" Type="nvarchar" MaxLength="255" />
+    <Property Name="moqty" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="cdepcode" Type="nvarchar" MaxLength="12" />
+    <Property Name="cdepname" Type="nvarchar" MaxLength="255" />
+    <Property Name="opseq" Type="nchar" MaxLength="4" />
+    <Property Name="description" Type="nvarchar" MaxLength="60" />
+    <Property Name="subflag" Type="bit" />
+    <Property Name="wccode" Type="nvarchar" MaxLength="8" />
+    <Property Name="wcdescription" Type="nvarchar" MaxLength="60" />
+    <Property Name="moroutingshiftid" Type="int" />
+    <Property Name="sortseq" Type="int" />
+    <Property Name="workshiftid" Type="int" />
+    <Property Name="bccode" Type="nvarchar" MaxLength="6" />
+    <Property Name="bcdescription" Type="nvarchar" MaxLength="60" />
+    <Property Name="dutyclasscode" Type="nvarchar" MaxLength="50" />
+    <Property Name="dcdescription" Type="nvarchar" MaxLength="50" />
+    <Property Name="eqid" Type="int" />
+    <Property Name="ceqcode" Type="nvarchar" MaxLength="30" />
+    <Property Name="ceqname" Type="nvarchar" MaxLength="50" />
+    <Property Name="employcode" Type="nvarchar" MaxLength="20" />
+    <Property Name="employname" Type="nvarchar" MaxLength="40" />
+    <Property Name="qty" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="completedqty" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="remark" Type="nvarchar" MaxLength="255" />
+    <Property Name="startdate" Type="datetime" />
+    <Property Name="duedate" Type="datetime" />
+    <Property Name="starttime" Type="datetime" />
+    <Property Name="duetime" Type="datetime" />
+    <Property Name="reportqty" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="shiftqty" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="unshiftqty" Type="decimal" Precision="29" Scale="6" />
+    <Property Name="perhour" Type="decimal" Precision="38" Scale="14" />
+    <Property Name="shifthour" Type="decimal" Precision="38" Scale="6" />
+    <Property Name="unshifthour" Type="decimal" Precision="38" Scale="6" />
+    <Property Name="define22" Type="nvarchar" MaxLength="60" />
+    <Property Name="define23" Type="nvarchar" MaxLength="60" />
+    <Property Name="define24" Type="nvarchar" MaxLength="60" />
+    <Property Name="define25" Type="nvarchar" MaxLength="60" />
+    <Property Name="define26" Type="float" />
+    <Property Name="define27" Type="float" />
+    <Property Name="define28" Type="nvarchar" MaxLength="120" />
+    <Property Name="define29" Type="nvarchar" MaxLength="120" />
+    <Property Name="define30" Type="nvarchar" MaxLength="120" />
+    <Property Name="define31" Type="nvarchar" MaxLength="120" />
+    <Property Name="define32" Type="nvarchar" MaxLength="120" />
+    <Property Name="define33" Type="nvarchar" MaxLength="120" />
+    <Property Name="define34" Type="int" />
+    <Property Name="define35" Type="int" />
+    <Property Name="define36" Type="datetime" />
+    <Property Name="define37" Type="datetime" />
+    <Property Name="ufts2" Type="char" MaxLength="30" />
+    <Property Name="ufts" Type="char" MaxLength="30" />
+    <Property Name="editprop" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="cInvCCode" Type="nvarchar" MaxLength="12" />
+    <Property Name="Id_ColumnName" Type="uniqueidentifier" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“UFDATA_666_2015.dbo.QM_QPROINSPECTLIST”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="QM_QPROINSPECTLIST">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="AUTOID" />
+      <PropertyRef Name="ITESTSTYLE" />
+      <PropertyRef Name="CINVCODE" />
+      <PropertyRef Name="BFLAG" />
+      <PropertyRef Name="BEXIGENCY" />
+      <PropertyRef Name="CBYPRODUCT" />
+      <PropertyRef Name="IGROUPTYPE" />
+      <PropertyRef Name="CCONTRACTROWNO" />
+      <PropertyRef Name="DOCSTATE" />
+    </Key>
+    <Property Name="INSPECTGUID" Type="uniqueidentifier" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="CVOUCHTYPE" Type="nvarchar" MaxLength="4" />
+    <Property Name="CINSPECTCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="CREJECTCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="CSOURCECODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="REJECTID" Type="int" />
+    <Property Name="CSOURCEID" Type="int" />
+    <Property Name="DARRIVALDATE" Type="datetime" />
+    <Property Name="CDEPCODE" Type="nvarchar" MaxLength="12" />
+    <Property Name="CDEPNAME" Type="nvarchar" MaxLength="255" />
+    <Property Name="CINSPECTDEPCODE" Type="nvarchar" MaxLength="12" />
+    <Property Name="CINSPECTDEPNAME" Type="nvarchar" MaxLength="255" />
+    <Property Name="DDATE" Type="datetime" />
+    <Property Name="CTIME" Type="nvarchar" MaxLength="20" />
+    <Property Name="CSOURCE" Type="nvarchar" MaxLength="20" />
+    <Property Name="IVTID" Type="int" />
+    <Property Name="UFTS" Type="char" MaxLength="30" />
+    <Property Name="CMAKER" Type="nvarchar" MaxLength="20" />
+    <Property Name="CVERIFIER" Type="nvarchar" MaxLength="20" />
+    <Property Name="CDEFINE1" Type="nvarchar" MaxLength="20" />
+    <Property Name="CDEFINE2" Type="nvarchar" MaxLength="20" />
+    <Property Name="CDEFINE3" Type="nvarchar" MaxLength="20" />
+    <Property Name="CDEFINE4" Type="datetime" />
+    <Property Name="CDEFINE5" Type="int" />
+    <Property Name="CDEFINE6" Type="datetime" />
+    <Property Name="CDEFINE7" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="CDEFINE8" Type="nvarchar" MaxLength="4" />
+    <Property Name="CDEFINE9" Type="nvarchar" MaxLength="8" />
+    <Property Name="CDEFINE10" Type="nvarchar" MaxLength="60" />
+    <Property Name="CDEFINE11" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE12" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE13" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE14" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE15" Type="int" />
+    <Property Name="CDEFINE16" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="AUTOID" Type="int" Nullable="false" />
+    <Property Name="CITEMCLASS" Type="nvarchar" MaxLength="10" />
+    <Property Name="CITEMCODE" Type="nvarchar" MaxLength="60" />
+    <Property Name="CITEMCNAME" Type="nvarchar" MaxLength="20" />
+    <Property Name="CITEMNAME" Type="nvarchar" MaxLength="255" />
+    <Property Name="REJECTAUTOID" Type="int" />
+    <Property Name="SOURCEAUTOID" Type="int" />
+    <Property Name="ITESTSTYLE" Type="int" Nullable="false" />
+    <Property Name="CINVCODE" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="CINVNAME" Type="nvarchar" MaxLength="255" />
+    <Property Name="CINVSTD" Type="nvarchar" MaxLength="255" />
+    <Property Name="CCOMUNITCODE" Type="nvarchar" MaxLength="35" />
+    <Property Name="CCOMUNITNAME" Type="nvarchar" MaxLength="20" />
+    <Property Name="CBATCH" Type="nvarchar" MaxLength="60" />
+    <Property Name="CPROBATCH" Type="nvarchar" MaxLength="60" />
+    <Property Name="DPRODATE" Type="datetime" />
+    <Property Name="DVDATE" Type="datetime" />
+    <Property Name="CUNITID" Type="nvarchar" MaxLength="35" />
+    <Property Name="CUNITNAME" Type="nvarchar" MaxLength="20" />
+    <Property Name="FCHANGRATE" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FQUANTITY" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FNUM" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="BFLAG" Type="bit" Nullable="false" />
+    <Property Name="CFREE1" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE2" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE3" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE4" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE5" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE6" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE7" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE8" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE9" Type="nvarchar" MaxLength="20" />
+    <Property Name="CFREE10" Type="nvarchar" MaxLength="20" />
+    <Property Name="CDEFINE22" Type="nvarchar" MaxLength="60" />
+    <Property Name="CDEFINE23" Type="nvarchar" MaxLength="60" />
+    <Property Name="CDEFINE24" Type="nvarchar" MaxLength="60" />
+    <Property Name="CDEFINE25" Type="nvarchar" MaxLength="60" />
+    <Property Name="CDEFINE26" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="CDEFINE27" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="CDEFINE28" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE29" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE30" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE31" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE32" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE33" Type="nvarchar" MaxLength="120" />
+    <Property Name="CDEFINE34" Type="int" />
+    <Property Name="CDEFINE35" Type="int" />
+    <Property Name="CDEFINE36" Type="datetime" />
+    <Property Name="CDEFINE37" Type="datetime" />
+    <Property Name="CINVDEFINE1" Type="nvarchar" MaxLength="20" />
+    <Property Name="CINVDEFINE2" Type="nvarchar" MaxLength="20" />
+    <Property Name="CINVDEFINE3" Type="nvarchar" MaxLength="20" />
+    <Property Name="CINVDEFINE4" Type="nvarchar" MaxLength="60" />
+    <Property Name="CINVDEFINE5" Type="nvarchar" MaxLength="60" />
+    <Property Name="CINVDEFINE6" Type="nvarchar" MaxLength="60" />
+    <Property Name="CINVDEFINE7" Type="nvarchar" MaxLength="120" />
+    <Property Name="CINVDEFINE8" Type="nvarchar" MaxLength="120" />
+    <Property Name="CINVDEFINE9" Type="nvarchar" MaxLength="120" />
+    <Property Name="CINVDEFINE10" Type="nvarchar" MaxLength="120" />
+    <Property Name="CINVDEFINE11" Type="int" />
+    <Property Name="CINVDEFINE12" Type="int" />
+    <Property Name="CINVDEFINE13" Type="float" />
+    <Property Name="CINVDEFINE14" Type="float" />
+    <Property Name="CINVDEFINE15" Type="datetime" />
+    <Property Name="CINVDEFINE16" Type="datetime" />
+    <Property Name="IID" Type="int" />
+    <Property Name="CCUSNAME" Type="nvarchar" MaxLength="98" />
+    <Property Name="CCUSCODE" Type="nvarchar" MaxLength="20" />
+    <Property Name="IPROORDERID" Type="int" />
+    <Property Name="CPROORDERCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="IPROORDERAUTOID" Type="int" />
+    <Property Name="IORDERTYPE" Type="int" />
+    <Property Name="CSOORDERCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="ISOORDERAUTOID" Type="nvarchar" MaxLength="50" />
+    <Property Name="CCONTRACTCODE" Type="nvarchar" MaxLength="64" />
+    <Property Name="CCONTRACTSTRCODE" Type="nvarchar" MaxLength="64" />
+    <Property Name="BEXIGENCY" Type="bit" Nullable="false" />
+    <Property Name="CCHECKTYPECODE" Type="nvarchar" MaxLength="10" />
+    <Property Name="CCHECKTYPENAME" Type="nvarchar" MaxLength="30" />
+    <Property Name="CBYPRODUCT" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CMASSUNIT" Type="nvarchar" MaxLength="2" />
+    <Property Name="IMASSDATE" Type="smallint" />
+    <Property Name="CWHCODE" Type="nvarchar" MaxLength="10" />
+    <Property Name="CWHNAME" Type="nvarchar" MaxLength="20" />
+    <Property Name="CINVADDCODE" Type="nvarchar" MaxLength="255" />
+    <Property Name="CWORKCENTER" Type="nvarchar" MaxLength="60" />
+    <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="60" />
+    <Property Name="IWORKCENTER" Type="int" />
+    <Property Name="IROWNO" Type="int" />
+    <Property Name="CRCLASSNAME" Type="nvarchar" MaxLength="255" />
+    <Property Name="FSUMCHECKQTY" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FSUMCHECKNUM" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="FUNCHECKQTY" Type="decimal" Precision="29" Scale="6" />
+    <Property Name="FUNCHECKNUM" Type="decimal" Precision="38" Scale="9" />
+    <Property Name="FBCCHECKQTY" Type="decimal" Precision="29" Scale="6" />
+    <Property Name="FBCCHECKNUM" Type="decimal" Precision="38" Scale="9" />
+    <Property Name="IGROUPTYPE" Type="tinyint" Nullable="false" />
+    <Property Name="CCONTRACTROWNO" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="CMODIFIER" Type="nvarchar" MaxLength="20" />
+    <Property Name="DMAKETIME" Type="datetime" />
+    <Property Name="DMODIFYDATE" Type="datetime" />
+    <Property Name="DVERIFYDATE" Type="datetime" />
+    <Property Name="DMODIFYTIME" Type="datetime" />
+    <Property Name="DVERIFYTIME" Type="datetime" />
+    <Property Name="CSOURCEPROORDERCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="ISOURCEPROORDERROWNO" Type="int" />
+    <Property Name="ISOURCEPROORDERID" Type="int" />
+    <Property Name="ISOURCEPROORDERAUTOID" Type="int" />
+    <Property Name="IEXPIRATDATECALCU" Type="smallint" />
+    <Property Name="CEXPIRATIONDATE" Type="nvarchar" MaxLength="20" />
+    <Property Name="DEXPIRATIONDATE" Type="datetime" />
+    <Property Name="MO_STATUS" Type="tinyint" />
+    <Property Name="CBATCHPROPERTY1" Type="decimal" Precision="38" Scale="8" />
+    <Property Name="CBATCHPROPERTY2" Type="decimal" Precision="38" Scale="8" />
+    <Property Name="CBATCHPROPERTY3" Type="decimal" Precision="38" Scale="8" />
+    <Property Name="CBATCHPROPERTY4" Type="decimal" Precision="38" Scale="8" />
+    <Property Name="CBATCHPROPERTY5" Type="decimal" Precision="38" Scale="8" />
+    <Property Name="CBATCHPROPERTY6" Type="nvarchar" MaxLength="120" />
+    <Property Name="CBATCHPROPERTY7" Type="nvarchar" MaxLength="120" />
+    <Property Name="CBATCHPROPERTY8" Type="nvarchar" MaxLength="120" />
+    <Property Name="CBATCHPROPERTY9" Type="nvarchar" MaxLength="120" />
+    <Property Name="CBATCHPROPERTY10" Type="datetime" />
+    <Property Name="IPRINTCOUNT" Type="int" />
+    <Property Name="CSYSBARCODE" Type="nvarchar" MaxLength="60" />
+    <Property Name="CBSYSBARCODE" Type="nvarchar" MaxLength="80" />
+    <Property Name="DOCSTATE" Type="int" Nullable="false" />
+    <Property Name="CCHECKCODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="PLANLOTNUMBER" Type="nvarchar" MaxLength="60" />
+    <Property Name="BMERGECHECKFLAG" Type="bit" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“UFDATA_666_2015.dbo.v_fc_refermoroutingmixedlist”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="v_fc_refermoroutingmixedlist">
+    <Key>
+      <PropertyRef Name="moid" />
+      <PropertyRef Name="modid" />
+      <PropertyRef Name="mocode" />
+      <PropertyRef Name="sortseq" />
+      <PropertyRef Name="moroutingid" />
+      <PropertyRef Name="moroutingdid" />
+      <PropertyRef Name="shiftqty" />
+      <PropertyRef Name="bscrap" />
+    </Key>
+    <Property Name="moid" Type="int" Nullable="false" />
+    <Property Name="modid" Type="int" Nullable="false" />
+    <Property Name="mocode" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="sortseq" Type="int" Nullable="false" />
+    <Property Name="motypedesc" Type="nvarchar" MaxLength="60" />
+    <Property Name="invcode" Type="nvarchar" MaxLength="60" />
+    <Property Name="cinvname" Type="nvarchar" MaxLength="255" />
+    <Property Name="cinvstd" Type="nvarchar" MaxLength="255" />
+    <Property Name="cinvaddcode" Type="nvarchar" MaxLength="255" />
+    <Property Name="molotcode" Type="nvarchar" MaxLength="60" />
+    <Property Name="cengineerfigno" Type="nvarchar" MaxLength="60" />
+    <Property Name="qty" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="ccomunitcode" Type="nvarchar" MaxLength="35" />
+    <Property Name="ccomunitname" Type="nvarchar" MaxLength="20" />
+    <Property Name="status" Type="tinyint" />
+    <Property Name="modescription" Type="nvarchar" MaxLength="60" />
+    <Property Name="SoCode" Type="nvarchar" MaxLength="30" />
+    <Property Name="SoSeq" Type="int" />
+    <Property Name="free1" Type="nvarchar" MaxLength="20" />
+    <Property Name="free2" Type="nvarchar" MaxLength="20" />
+    <Property Name="free3" Type="nvarchar" MaxLength="20" />
+    <Property Name="free4" Type="nvarchar" MaxLength="20" />
+    <Property Name="free5" Type="nvarchar" MaxLength="20" />
+    <Property Name="free6" Type="nvarchar" MaxLength="20" />
+    <Property Name="free7" Type="nvarchar" MaxLength="20" />
+    <Property Name="free8" Type="nvarchar" MaxLength="20" />
+    <Property Name="free9" Type="nvarchar" MaxLength="20" />
+    <Property Name="free10" Type="nvarchar" MaxLength="20" />
+    <Property Name="cinvdefine1" Type="nvarchar" MaxLength="20" />
+    <Property Name="cinvdefine2" Type="nvarchar" MaxLength="20" />
+    <Property Name="cinvdefine3" Type="nvarchar" MaxLength="20" />
+    <Property Name="cinvdefine4" Type="nvarchar" MaxLength="60" />
+    <Property Name="cinvdefine5" Type="nvarchar" MaxLength="60" />
+    <Property Name="cinvdefine6" Type="nvarchar" MaxLength="60" />
+    <Property Name="cinvdefine7" Type="nvarchar" MaxLength="120" />
+    <Property Name="cinvdefine8" Type="nvarchar" MaxLength="120" />
+    <Property Name="cinvdefine9" Type="nvarchar" MaxLength="120" />
+    <Property Name="cinvdefine10" Type="nvarchar" MaxLength="120" />
+    <Property Name="cinvdefine11" Type="int" />
+    <Property Name="cinvdefine12" Type="int" />
+    <Property Name="cinvdefine13" Type="float" />
+    <Property Name="cinvdefine14" Type="float" />
+    <Property Name="cinvdefine15" Type="datetime" />
+    <Property Name="cinvdefine16" Type="datetime" />
+    <Property Name="MdeptCode" Type="nvarchar" MaxLength="12" />
+    <Property Name="cdepname" Type="nvarchar" MaxLength="255" />
+    <Property Name="moroutingid" Type="int" Nullable="false" />
+    <Property Name="moroutingdid" Type="int" Nullable="false" />
+    <Property Name="opseq" Type="nchar" MaxLength="4" />
+    <Property Name="opcode" Type="nvarchar" MaxLength="10" />
+    <Property Name="opdescription" Type="nvarchar" MaxLength="60" />
+    <Property Name="subflag" Type="bit" />
+    <Property Name="wcid" Type="int" />
+    <Property Name="wccode" Type="nvarchar" MaxLength="8" />
+    <Property Name="wcdescription" Type="nvarchar" MaxLength="60" />
+    <Property Name="wcdepcode" Type="nvarchar" MaxLength="12" />
+    <Property Name="startdate" Type="datetime" />
+    <Property Name="duedate" Type="datetime" />
+    <Property Name="starttime" Type="datetime" />
+    <Property Name="duetime" Type="datetime" />
+    <Property Name="inopunitcode" Type="nvarchar" MaxLength="35" />
+    <Property Name="inopunitname" Type="nvarchar" MaxLength="20" />
+    <Property Name="inchangerate" Type="decimal" Precision="22" Scale="6" />
+    <Property Name="inauxopqty" Type="decimal" Precision="38" Scale="10" />
+    <Property Name="balmachiningqty" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="baldeclareqty" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="balqualifiedqty" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="balrefusedqty" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="balscrapqty" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="perworkhr" Type="int" />
+    <Property Name="FirstFlag" Type="bit" />
+    <Property Name="LastFlag" Type="bit" />
+    <Property Name="reportqty" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="moroutingshiftid" Type="int" />
+    <Property Name="shiftqty" Type="decimal" Precision="28" Scale="6" Nullable="false" />
+    <Property Name="moreportqty" Type="decimal" Precision="28" Scale="6" />
+    <Property Name="completedqty" Type="decimal" Precision="38" Scale="6" />
+    <Property Name="uncompletedqty" Type="decimal" Precision="38" Scale="6" />
+    <Property Name="eqid" Type="int" />
+    <Property Name="ceqcode" Type="nvarchar" MaxLength="30" />
+    <Property Name="ceqname" Type="nvarchar" MaxLength="50" />
+    <Property Name="employcode" Type="nvarchar" MaxLength="20" />
+    <Property Name="employname" Type="nvarchar" MaxLength="40" />
+    <Property Name="dutyclasscode" Type="nvarchar" MaxLength="50" />
+    <Property Name="dutyclassname" Type="nvarchar" MaxLength="50" />
+    <Property Name="workshiftid" Type="int" />
+    <Property Name="wscode" Type="nvarchar" MaxLength="6" />
+    <Property Name="bcdescription" Type="nvarchar" MaxLength="60" />
+    <Property Name="unreportqty" Type="decimal" Precision="29" Scale="6" />
+    <Property Name="cmoroutufts" Type="char" MaxLength="30" />
+    <Property Name="cshiftufts" Type="char" MaxLength="30" />
+    <Property Name="bscrap" Type="int" Nullable="false" />
+    <Property Name="shiftstartdate" Type="datetime" />
+    <Property Name="shiftduedate" Type="datetime" />
+  </EntityType>
+  <Association Name="FK__Warehouse__cDepC__46093FC3">
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="cDepCode" />
+      </Principal>
+      <Dependent Role="Warehouse">
+        <PropertyRef Name="cDepCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_mom_morder">
+    <End Role="mom_orderdetail" Type="Self.mom_orderdetail" Multiplicity="1" />
+    <End Role="mom_morder" Type="Self.mom_morder" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="mom_orderdetail">
+        <PropertyRef Name="MoDId" />
+      </Principal>
+      <Dependent Role="mom_morder">
+        <PropertyRef Name="MoDId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_mom_orderdetail">
+    <End Role="mom_order" Type="Self.mom_order" Multiplicity="1" />
+    <End Role="mom_orderdetail" Type="Self.mom_orderdetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mom_order">
+        <PropertyRef Name="MoId" />
+      </Principal>
+      <Dependent Role="mom_orderdetail">
+        <PropertyRef Name="MoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QMCHECKVOUCHER_DEPARTMENT">
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="QMCHECKVOUCHER" Type="Self.QMCHECKVOUCHER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="cDepCode" />
+      </Principal>
+      <Dependent Role="QMCHECKVOUCHER">
+        <PropertyRef Name="CINSPECTDEPCODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QMCHECKVOUCHER_DEPARTMENT1">
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="QMCHECKVOUCHER" Type="Self.QMCHECKVOUCHER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="cDepCode" />
+      </Principal>
+      <Dependent Role="QMCHECKVOUCHER">
+        <PropertyRef Name="CDEPCODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QMCHECKVOUCHER_REASON">
+    <End Role="Reason" Type="Self.Reason" Multiplicity="0..1" />
+    <End Role="QMCHECKVOUCHER" Type="Self.QMCHECKVOUCHER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Reason">
+        <PropertyRef Name="cReasonCode" />
+      </Principal>
+      <Dependent Role="QMCHECKVOUCHER">
+        <PropertyRef Name="CREASONCODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QMCHECKVOUCHER_SFC_WorkCenter">
+    <End Role="sfc_workcenter" Type="Self.sfc_workcenter" Multiplicity="0..1" />
+    <End Role="QMCHECKVOUCHER" Type="Self.QMCHECKVOUCHER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sfc_workcenter">
+        <PropertyRef Name="WcId" />
+      </Principal>
+      <Dependent Role="QMCHECKVOUCHER">
+        <PropertyRef Name="IWORKCENTER" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QMCHECKVOUCHER_WAREHOUSE">
+    <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="0..1" />
+    <End Role="QMCHECKVOUCHER" Type="Self.QMCHECKVOUCHER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Warehouse">
+        <PropertyRef Name="cWhCode" />
+      </Principal>
+      <Dependent Role="QMCHECKVOUCHER">
+        <PropertyRef Name="CWHCODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QMINSPECTVOUCHER_DEPARTMENT">
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="QMINSPECTVOUCHER" Type="Self.QMINSPECTVOUCHER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="cDepCode" />
+      </Principal>
+      <Dependent Role="QMINSPECTVOUCHER">
+        <PropertyRef Name="CDEPCODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QMINSPECTVOUCHER_Department1">
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="QMINSPECTVOUCHER" Type="Self.QMINSPECTVOUCHER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="cDepCode" />
+      </Principal>
+      <Dependent Role="QMINSPECTVOUCHER">
+        <PropertyRef Name="CINSPECTDEPCODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QMINSPECTVOUCHER_SFC_WorkCenter">
+    <End Role="sfc_workcenter" Type="Self.sfc_workcenter" Multiplicity="0..1" />
+    <End Role="QMINSPECTVOUCHER" Type="Self.QMINSPECTVOUCHER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sfc_workcenter">
+        <PropertyRef Name="WcId" />
+      </Principal>
+      <Dependent Role="QMINSPECTVOUCHER">
+        <PropertyRef Name="IWORKCENTER" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QMINSPECTVOUCHERS_WAREHOUSE">
+    <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="0..1" />
+    <End Role="QMINSPECTVOUCHERS" Type="Self.QMINSPECTVOUCHERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Warehouse">
+        <PropertyRef Name="cWhCode" />
+      </Principal>
+      <Dependent Role="QMINSPECTVOUCHERS">
+        <PropertyRef Name="CWHCODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QMREJECTVOUCHER_DEPARTMENT">
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="QMREJECTVOUCHER" Type="Self.QMREJECTVOUCHER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="cDepCode" />
+      </Principal>
+      <Dependent Role="QMREJECTVOUCHER">
+        <PropertyRef Name="CINSPECTDEPCODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QMREJECTVOUCHER_SFC_WorkCenter">
+    <End Role="sfc_workcenter" Type="Self.sfc_workcenter" Multiplicity="0..1" />
+    <End Role="QMREJECTVOUCHER" Type="Self.QMREJECTVOUCHER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sfc_workcenter">
+        <PropertyRef Name="WcId" />
+      </Principal>
+      <Dependent Role="QMREJECTVOUCHER">
+        <PropertyRef Name="IWORKCENTER" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QMREJECTVOUCHER_WAREHOUSE">
+    <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="0..1" />
+    <End Role="QMREJECTVOUCHER" Type="Self.QMREJECTVOUCHER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Warehouse">
+        <PropertyRef Name="cWhCode" />
+      </Principal>
+      <Dependent Role="QMREJECTVOUCHER">
+        <PropertyRef Name="CWHCODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QMREJECTVOUCHERS_DEPARTMENT">
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="QMREJECTVOUCHERS" Type="Self.QMREJECTVOUCHERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="cDepCode" />
+      </Principal>
+      <Dependent Role="QMREJECTVOUCHERS">
+        <PropertyRef Name="CDEPCODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QMREJECTVOUCHERS_QMSCRAPDISPOSE">
+    <End Role="QMSCRAPDISPOSE" Type="Self.QMSCRAPDISPOSE" Multiplicity="0..1" />
+    <End Role="QMREJECTVOUCHERS" Type="Self.QMREJECTVOUCHERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QMSCRAPDISPOSE">
+        <PropertyRef Name="CSCRAPDISCODE" />
+      </Principal>
+      <Dependent Role="QMREJECTVOUCHERS">
+        <PropertyRef Name="CSCRAPDISCODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QMREJECTVOUCHERS_REASON">
+    <End Role="Reason" Type="Self.Reason" Multiplicity="0..1" />
+    <End Role="QMREJECTVOUCHERS" Type="Self.QMREJECTVOUCHERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Reason">
+        <PropertyRef Name="cReasonCode" />
+      </Principal>
+      <Dependent Role="QMREJECTVOUCHERS">
+        <PropertyRef Name="CREASONCODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="sp_GetID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RemoteId" Type="nvarchar" Mode="In" />
+    <Parameter Name="cAcc_Id" Type="nvarchar" Mode="In" />
+    <Parameter Name="cVouchType" Type="nvarchar" Mode="In" />
+    <Parameter Name="iAmount" Type="int" Mode="In" />
+    <Parameter Name="bEnableNewRule" Type="bit" Mode="In" />
+    <Parameter Name="iFatherId" Type="int" Mode="InOut" />
+    <Parameter Name="iChildId" Type="int" Mode="InOut" />
+  </Function>
+  <EntityContainer Name="UFModelStoreContainer">
+    <EntitySet Name="ComputationUnit" EntityType="Self.ComputationUnit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DL_U8_Options" EntityType="Self.DL_U8_Options" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DL_U8_Tare" EntityType="Self.DL_U8_Tare" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DL_U8_Users" EntityType="Self.DL_U8_Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EQ_EQData" EntityType="Self.EQ_EQData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="fc_MoRoutingBill" EntityType="Self.fc_MoRoutingBill" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="fc_MoRoutingBilldetail" EntityType="Self.fc_MoRoutingBilldetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hr_hi_person" EntityType="Self.hr_hi_person" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Inventory" EntityType="Self.Inventory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mom_morder" EntityType="Self.mom_morder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mom_order" EntityType="Self.mom_order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mom_orderdetail" EntityType="Self.mom_orderdetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QMCHECKPROJECT" EntityType="Self.QMCHECKPROJECT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QMCHECKPROJECTS" EntityType="Self.QMCHECKPROJECTS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QMCHECKVOUCHER" EntityType="Self.QMCHECKVOUCHER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QMCHECKVOUCHERS" EntityType="Self.QMCHECKVOUCHERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QMINSPECTVOUCHER" EntityType="Self.QMINSPECTVOUCHER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QMINSPECTVOUCHERS" EntityType="Self.QMINSPECTVOUCHERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QMREJECTVOUCHER" EntityType="Self.QMREJECTVOUCHER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QMREJECTVOUCHERS" EntityType="Self.QMREJECTVOUCHERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QMSCRAPDISPOSE" EntityType="Self.QMSCRAPDISPOSE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rd_Style" EntityType="Self.Rd_Style" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="rdrecord10_extradefine" EntityType="Self.rdrecord10_extradefine" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Reason" EntityType="Self.Reason" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sfc_optransform" EntityType="Self.sfc_optransform" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sfc_workcenter" EntityType="Self.sfc_workcenter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VoucherHistory" EntityType="Self.VoucherHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Warehouse" EntityType="Self.Warehouse" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DL_U8_pgshift" EntityType="Self.DL_U8_pgshift" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[DL_U8_pgshift].[moroutingid] AS [moroutingid], 
+[DL_U8_pgshift].[moroutingdid] AS [moroutingdid], 
+[DL_U8_pgshift].[moid] AS [moid], 
+[DL_U8_pgshift].[modid] AS [modid], 
+[DL_U8_pgshift].[mocode] AS [mocode], 
+[DL_U8_pgshift].[moseq] AS [moseq], 
+[DL_U8_pgshift].[moclass] AS [moclass], 
+[DL_U8_pgshift].[motypedesc] AS [motypedesc], 
+[DL_U8_pgshift].[ordertype] AS [ordertype], 
+[DL_U8_pgshift].[status] AS [status], 
+[DL_U8_pgshift].[cinvcode] AS [cinvcode], 
+[DL_U8_pgshift].[cinvname] AS [cinvname], 
+[DL_U8_pgshift].[cinvaddcode] AS [cinvaddcode], 
+[DL_U8_pgshift].[cinvstd] AS [cinvstd], 
+[DL_U8_pgshift].[moqty] AS [moqty], 
+[DL_U8_pgshift].[cdepcode] AS [cdepcode], 
+[DL_U8_pgshift].[cdepname] AS [cdepname], 
+[DL_U8_pgshift].[opseq] AS [opseq], 
+[DL_U8_pgshift].[description] AS [description], 
+[DL_U8_pgshift].[subflag] AS [subflag], 
+[DL_U8_pgshift].[wccode] AS [wccode], 
+[DL_U8_pgshift].[wcdescription] AS [wcdescription], 
+[DL_U8_pgshift].[moroutingshiftid] AS [moroutingshiftid], 
+[DL_U8_pgshift].[sortseq] AS [sortseq], 
+[DL_U8_pgshift].[workshiftid] AS [workshiftid], 
+[DL_U8_pgshift].[bccode] AS [bccode], 
+[DL_U8_pgshift].[bcdescription] AS [bcdescription], 
+[DL_U8_pgshift].[dutyclasscode] AS [dutyclasscode], 
+[DL_U8_pgshift].[dcdescription] AS [dcdescription], 
+[DL_U8_pgshift].[eqid] AS [eqid], 
+[DL_U8_pgshift].[ceqcode] AS [ceqcode], 
+[DL_U8_pgshift].[ceqname] AS [ceqname], 
+[DL_U8_pgshift].[employcode] AS [employcode], 
+[DL_U8_pgshift].[employname] AS [employname], 
+[DL_U8_pgshift].[qty] AS [qty], 
+[DL_U8_pgshift].[completedqty] AS [completedqty], 
+[DL_U8_pgshift].[remark] AS [remark], 
+[DL_U8_pgshift].[startdate] AS [startdate], 
+[DL_U8_pgshift].[duedate] AS [duedate], 
+[DL_U8_pgshift].[starttime] AS [starttime], 
+[DL_U8_pgshift].[duetime] AS [duetime], 
+[DL_U8_pgshift].[reportqty] AS [reportqty], 
+[DL_U8_pgshift].[shiftqty] AS [shiftqty], 
+[DL_U8_pgshift].[unshiftqty] AS [unshiftqty], 
+[DL_U8_pgshift].[perhour] AS [perhour], 
+[DL_U8_pgshift].[shifthour] AS [shifthour], 
+[DL_U8_pgshift].[unshifthour] AS [unshifthour], 
+[DL_U8_pgshift].[define22] AS [define22], 
+[DL_U8_pgshift].[define23] AS [define23], 
+[DL_U8_pgshift].[define24] AS [define24], 
+[DL_U8_pgshift].[define25] AS [define25], 
+[DL_U8_pgshift].[define26] AS [define26], 
+[DL_U8_pgshift].[define27] AS [define27], 
+[DL_U8_pgshift].[define28] AS [define28], 
+[DL_U8_pgshift].[define29] AS [define29], 
+[DL_U8_pgshift].[define30] AS [define30], 
+[DL_U8_pgshift].[define31] AS [define31], 
+[DL_U8_pgshift].[define32] AS [define32], 
+[DL_U8_pgshift].[define33] AS [define33], 
+[DL_U8_pgshift].[define34] AS [define34], 
+[DL_U8_pgshift].[define35] AS [define35], 
+[DL_U8_pgshift].[define36] AS [define36], 
+[DL_U8_pgshift].[define37] AS [define37], 
+[DL_U8_pgshift].[ufts2] AS [ufts2], 
+[DL_U8_pgshift].[ufts] AS [ufts], 
+[DL_U8_pgshift].[editprop] AS [editprop], 
+[DL_U8_pgshift].[cInvCCode] AS [cInvCCode], 
+[DL_U8_pgshift].[Id_ColumnName] AS [Id_ColumnName]
+FROM [dbo].[DL_U8_pgshift] AS [DL_U8_pgshift]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="QM_QPROINSPECTLIST" EntityType="Self.QM_QPROINSPECTLIST" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[QM_QPROINSPECTLIST].[INSPECTGUID] AS [INSPECTGUID], 
+[QM_QPROINSPECTLIST].[ID] AS [ID], 
+[QM_QPROINSPECTLIST].[CVOUCHTYPE] AS [CVOUCHTYPE], 
+[QM_QPROINSPECTLIST].[CINSPECTCODE] AS [CINSPECTCODE], 
+[QM_QPROINSPECTLIST].[CREJECTCODE] AS [CREJECTCODE], 
+[QM_QPROINSPECTLIST].[CSOURCECODE] AS [CSOURCECODE], 
+[QM_QPROINSPECTLIST].[REJECTID] AS [REJECTID], 
+[QM_QPROINSPECTLIST].[CSOURCEID] AS [CSOURCEID], 
+[QM_QPROINSPECTLIST].[DARRIVALDATE] AS [DARRIVALDATE], 
+[QM_QPROINSPECTLIST].[CDEPCODE] AS [CDEPCODE], 
+[QM_QPROINSPECTLIST].[CDEPNAME] AS [CDEPNAME], 
+[QM_QPROINSPECTLIST].[CINSPECTDEPCODE] AS [CINSPECTDEPCODE], 
+[QM_QPROINSPECTLIST].[CINSPECTDEPNAME] AS [CINSPECTDEPNAME], 
+[QM_QPROINSPECTLIST].[DDATE] AS [DDATE], 
+[QM_QPROINSPECTLIST].[CTIME] AS [CTIME], 
+[QM_QPROINSPECTLIST].[CSOURCE] AS [CSOURCE], 
+[QM_QPROINSPECTLIST].[IVTID] AS [IVTID], 
+[QM_QPROINSPECTLIST].[UFTS] AS [UFTS], 
+[QM_QPROINSPECTLIST].[CMAKER] AS [CMAKER], 
+[QM_QPROINSPECTLIST].[CVERIFIER] AS [CVERIFIER], 
+[QM_QPROINSPECTLIST].[CDEFINE1] AS [CDEFINE1], 
+[QM_QPROINSPECTLIST].[CDEFINE2] AS [CDEFINE2], 
+[QM_QPROINSPECTLIST].[CDEFINE3] AS [CDEFINE3], 
+[QM_QPROINSPECTLIST].[CDEFINE4] AS [CDEFINE4], 
+[QM_QPROINSPECTLIST].[CDEFINE5] AS [CDEFINE5], 
+[QM_QPROINSPECTLIST].[CDEFINE6] AS [CDEFINE6], 
+[QM_QPROINSPECTLIST].[CDEFINE7] AS [CDEFINE7], 
+[QM_QPROINSPECTLIST].[CDEFINE8] AS [CDEFINE8], 
+[QM_QPROINSPECTLIST].[CDEFINE9] AS [CDEFINE9], 
+[QM_QPROINSPECTLIST].[CDEFINE10] AS [CDEFINE10], 
+[QM_QPROINSPECTLIST].[CDEFINE11] AS [CDEFINE11], 
+[QM_QPROINSPECTLIST].[CDEFINE12] AS [CDEFINE12], 
+[QM_QPROINSPECTLIST].[CDEFINE13] AS [CDEFINE13], 
+[QM_QPROINSPECTLIST].[CDEFINE14] AS [CDEFINE14], 
+[QM_QPROINSPECTLIST].[CDEFINE15] AS [CDEFINE15], 
+[QM_QPROINSPECTLIST].[CDEFINE16] AS [CDEFINE16], 
+[QM_QPROINSPECTLIST].[AUTOID] AS [AUTOID], 
+[QM_QPROINSPECTLIST].[CITEMCLASS] AS [CITEMCLASS], 
+[QM_QPROINSPECTLIST].[CITEMCODE] AS [CITEMCODE], 
+[QM_QPROINSPECTLIST].[CITEMCNAME] AS [CITEMCNAME], 
+[QM_QPROINSPECTLIST].[CITEMNAME] AS [CITEMNAME], 
+[QM_QPROINSPECTLIST].[REJECTAUTOID] AS [REJECTAUTOID], 
+[QM_QPROINSPECTLIST].[SOURCEAUTOID] AS [SOURCEAUTOID], 
+[QM_QPROINSPECTLIST].[ITESTSTYLE] AS [ITESTSTYLE], 
+[QM_QPROINSPECTLIST].[CINVCODE] AS [CINVCODE], 
+[QM_QPROINSPECTLIST].[CINVNAME] AS [CINVNAME], 
+[QM_QPROINSPECTLIST].[CINVSTD] AS [CINVSTD], 
+[QM_QPROINSPECTLIST].[CCOMUNITCODE] AS [CCOMUNITCODE], 
+[QM_QPROINSPECTLIST].[CCOMUNITNAME] AS [CCOMUNITNAME], 
+[QM_QPROINSPECTLIST].[CBATCH] AS [CBATCH], 
+[QM_QPROINSPECTLIST].[CPROBATCH] AS [CPROBATCH], 
+[QM_QPROINSPECTLIST].[DPRODATE] AS [DPRODATE], 
+[QM_QPROINSPECTLIST].[DVDATE] AS [DVDATE], 
+[QM_QPROINSPECTLIST].[CUNITID] AS [CUNITID], 
+[QM_QPROINSPECTLIST].[CUNITNAME] AS [CUNITNAME], 
+[QM_QPROINSPECTLIST].[FCHANGRATE] AS [FCHANGRATE], 
+[QM_QPROINSPECTLIST].[FQUANTITY] AS [FQUANTITY], 
+[QM_QPROINSPECTLIST].[FNUM] AS [FNUM], 
+[QM_QPROINSPECTLIST].[BFLAG] AS [BFLAG], 
+[QM_QPROINSPECTLIST].[CFREE1] AS [CFREE1], 
+[QM_QPROINSPECTLIST].[CFREE2] AS [CFREE2], 
+[QM_QPROINSPECTLIST].[CFREE3] AS [CFREE3], 
+[QM_QPROINSPECTLIST].[CFREE4] AS [CFREE4], 
+[QM_QPROINSPECTLIST].[CFREE5] AS [CFREE5], 
+[QM_QPROINSPECTLIST].[CFREE6] AS [CFREE6], 
+[QM_QPROINSPECTLIST].[CFREE7] AS [CFREE7], 
+[QM_QPROINSPECTLIST].[CFREE8] AS [CFREE8], 
+[QM_QPROINSPECTLIST].[CFREE9] AS [CFREE9], 
+[QM_QPROINSPECTLIST].[CFREE10] AS [CFREE10], 
+[QM_QPROINSPECTLIST].[CDEFINE22] AS [CDEFINE22], 
+[QM_QPROINSPECTLIST].[CDEFINE23] AS [CDEFINE23], 
+[QM_QPROINSPECTLIST].[CDEFINE24] AS [CDEFINE24], 
+[QM_QPROINSPECTLIST].[CDEFINE25] AS [CDEFINE25], 
+[QM_QPROINSPECTLIST].[CDEFINE26] AS [CDEFINE26], 
+[QM_QPROINSPECTLIST].[CDEFINE27] AS [CDEFINE27], 
+[QM_QPROINSPECTLIST].[CDEFINE28] AS [CDEFINE28], 
+[QM_QPROINSPECTLIST].[CDEFINE29] AS [CDEFINE29], 
+[QM_QPROINSPECTLIST].[CDEFINE30] AS [CDEFINE30], 
+[QM_QPROINSPECTLIST].[CDEFINE31] AS [CDEFINE31], 
+[QM_QPROINSPECTLIST].[CDEFINE32] AS [CDEFINE32], 
+[QM_QPROINSPECTLIST].[CDEFINE33] AS [CDEFINE33], 
+[QM_QPROINSPECTLIST].[CDEFINE34] AS [CDEFINE34], 
+[QM_QPROINSPECTLIST].[CDEFINE35] AS [CDEFINE35], 
+[QM_QPROINSPECTLIST].[CDEFINE36] AS [CDEFINE36], 
+[QM_QPROINSPECTLIST].[CDEFINE37] AS [CDEFINE37], 
+[QM_QPROINSPECTLIST].[CINVDEFINE1] AS [CINVDEFINE1], 
+[QM_QPROINSPECTLIST].[CINVDEFINE2] AS [CINVDEFINE2], 
+[QM_QPROINSPECTLIST].[CINVDEFINE3] AS [CINVDEFINE3], 
+[QM_QPROINSPECTLIST].[CINVDEFINE4] AS [CINVDEFINE4], 
+[QM_QPROINSPECTLIST].[CINVDEFINE5] AS [CINVDEFINE5], 
+[QM_QPROINSPECTLIST].[CINVDEFINE6] AS [CINVDEFINE6], 
+[QM_QPROINSPECTLIST].[CINVDEFINE7] AS [CINVDEFINE7], 
+[QM_QPROINSPECTLIST].[CINVDEFINE8] AS [CINVDEFINE8], 
+[QM_QPROINSPECTLIST].[CINVDEFINE9] AS [CINVDEFINE9], 
+[QM_QPROINSPECTLIST].[CINVDEFINE10] AS [CINVDEFINE10], 
+[QM_QPROINSPECTLIST].[CINVDEFINE11] AS [CINVDEFINE11], 
+[QM_QPROINSPECTLIST].[CINVDEFINE12] AS [CINVDEFINE12], 
+[QM_QPROINSPECTLIST].[CINVDEFINE13] AS [CINVDEFINE13], 
+[QM_QPROINSPECTLIST].[CINVDEFINE14] AS [CINVDEFINE14], 
+[QM_QPROINSPECTLIST].[CINVDEFINE15] AS [CINVDEFINE15], 
+[QM_QPROINSPECTLIST].[CINVDEFINE16] AS [CINVDEFINE16], 
+[QM_QPROINSPECTLIST].[IID] AS [IID], 
+[QM_QPROINSPECTLIST].[CCUSNAME] AS [CCUSNAME], 
+[QM_QPROINSPECTLIST].[CCUSCODE] AS [CCUSCODE], 
+[QM_QPROINSPECTLIST].[IPROORDERID] AS [IPROORDERID], 
+[QM_QPROINSPECTLIST].[CPROORDERCODE] AS [CPROORDERCODE], 
+[QM_QPROINSPECTLIST].[IPROORDERAUTOID] AS [IPROORDERAUTOID], 
+[QM_QPROINSPECTLIST].[IORDERTYPE] AS [IORDERTYPE], 
+[QM_QPROINSPECTLIST].[CSOORDERCODE] AS [CSOORDERCODE], 
+[QM_QPROINSPECTLIST].[ISOORDERAUTOID] AS [ISOORDERAUTOID], 
+[QM_QPROINSPECTLIST].[CCONTRACTCODE] AS [CCONTRACTCODE], 
+[QM_QPROINSPECTLIST].[CCONTRACTSTRCODE] AS [CCONTRACTSTRCODE], 
+[QM_QPROINSPECTLIST].[BEXIGENCY] AS [BEXIGENCY], 
+[QM_QPROINSPECTLIST].[CCHECKTYPECODE] AS [CCHECKTYPECODE], 
+[QM_QPROINSPECTLIST].[CCHECKTYPENAME] AS [CCHECKTYPENAME], 
+[QM_QPROINSPECTLIST].[CBYPRODUCT] AS [CBYPRODUCT], 
+[QM_QPROINSPECTLIST].[CMASSUNIT] AS [CMASSUNIT], 
+[QM_QPROINSPECTLIST].[IMASSDATE] AS [IMASSDATE], 
+[QM_QPROINSPECTLIST].[CWHCODE] AS [CWHCODE], 
+[QM_QPROINSPECTLIST].[CWHNAME] AS [CWHNAME], 
+[QM_QPROINSPECTLIST].[CINVADDCODE] AS [CINVADDCODE], 
+[QM_QPROINSPECTLIST].[CWORKCENTER] AS [CWORKCENTER], 
+[QM_QPROINSPECTLIST].[DESCRIPTION] AS [DESCRIPTION], 
+[QM_QPROINSPECTLIST].[IWORKCENTER] AS [IWORKCENTER], 
+[QM_QPROINSPECTLIST].[IROWNO] AS [IROWNO], 
+[QM_QPROINSPECTLIST].[CRCLASSNAME] AS [CRCLASSNAME], 
+[QM_QPROINSPECTLIST].[FSUMCHECKQTY] AS [FSUMCHECKQTY], 
+[QM_QPROINSPECTLIST].[FSUMCHECKNUM] AS [FSUMCHECKNUM], 
+[QM_QPROINSPECTLIST].[FUNCHECKQTY] AS [FUNCHECKQTY], 
+[QM_QPROINSPECTLIST].[FUNCHECKNUM] AS [FUNCHECKNUM], 
+[QM_QPROINSPECTLIST].[FBCCHECKQTY] AS [FBCCHECKQTY], 
+[QM_QPROINSPECTLIST].[FBCCHECKNUM] AS [FBCCHECKNUM], 
+[QM_QPROINSPECTLIST].[IGROUPTYPE] AS [IGROUPTYPE], 
+[QM_QPROINSPECTLIST].[CCONTRACTROWNO] AS [CCONTRACTROWNO], 
+[QM_QPROINSPECTLIST].[CMODIFIER] AS [CMODIFIER], 
+[QM_QPROINSPECTLIST].[DMAKETIME] AS [DMAKETIME], 
+[QM_QPROINSPECTLIST].[DMODIFYDATE] AS [DMODIFYDATE], 
+[QM_QPROINSPECTLIST].[DVERIFYDATE] AS [DVERIFYDATE], 
+[QM_QPROINSPECTLIST].[DMODIFYTIME] AS [DMODIFYTIME], 
+[QM_QPROINSPECTLIST].[DVERIFYTIME] AS [DVERIFYTIME], 
+[QM_QPROINSPECTLIST].[CSOURCEPROORDERCODE] AS [CSOURCEPROORDERCODE], 
+[QM_QPROINSPECTLIST].[ISOURCEPROORDERROWNO] AS [ISOURCEPROORDERROWNO], 
+[QM_QPROINSPECTLIST].[ISOURCEPROORDERID] AS [ISOURCEPROORDERID], 
+[QM_QPROINSPECTLIST].[ISOURCEPROORDERAUTOID] AS [ISOURCEPROORDERAUTOID], 
+[QM_QPROINSPECTLIST].[IEXPIRATDATECALCU] AS [IEXPIRATDATECALCU], 
+[QM_QPROINSPECTLIST].[CEXPIRATIONDATE] AS [CEXPIRATIONDATE], 
+[QM_QPROINSPECTLIST].[DEXPIRATIONDATE] AS [DEXPIRATIONDATE], 
+[QM_QPROINSPECTLIST].[MO_STATUS] AS [MO_STATUS], 
+[QM_QPROINSPECTLIST].[CBATCHPROPERTY1] AS [CBATCHPROPERTY1], 
+[QM_QPROINSPECTLIST].[CBATCHPROPERTY2] AS [CBATCHPROPERTY2], 
+[QM_QPROINSPECTLIST].[CBATCHPROPERTY3] AS [CBATCHPROPERTY3], 
+[QM_QPROINSPECTLIST].[CBATCHPROPERTY4] AS [CBATCHPROPERTY4], 
+[QM_QPROINSPECTLIST].[CBATCHPROPERTY5] AS [CBATCHPROPERTY5], 
+[QM_QPROINSPECTLIST].[CBATCHPROPERTY6] AS [CBATCHPROPERTY6], 
+[QM_QPROINSPECTLIST].[CBATCHPROPERTY7] AS [CBATCHPROPERTY7], 
+[QM_QPROINSPECTLIST].[CBATCHPROPERTY8] AS [CBATCHPROPERTY8], 
+[QM_QPROINSPECTLIST].[CBATCHPROPERTY9] AS [CBATCHPROPERTY9], 
+[QM_QPROINSPECTLIST].[CBATCHPROPERTY10] AS [CBATCHPROPERTY10], 
+[QM_QPROINSPECTLIST].[IPRINTCOUNT] AS [IPRINTCOUNT], 
+[QM_QPROINSPECTLIST].[CSYSBARCODE] AS [CSYSBARCODE], 
+[QM_QPROINSPECTLIST].[CBSYSBARCODE] AS [CBSYSBARCODE], 
+[QM_QPROINSPECTLIST].[DOCSTATE] AS [DOCSTATE], 
+[QM_QPROINSPECTLIST].[CCHECKCODE] AS [CCHECKCODE], 
+[QM_QPROINSPECTLIST].[PLANLOTNUMBER] AS [PLANLOTNUMBER], 
+[QM_QPROINSPECTLIST].[BMERGECHECKFLAG] AS [BMERGECHECKFLAG]
+FROM [dbo].[QM_QPROINSPECTLIST] AS [QM_QPROINSPECTLIST]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_fc_refermoroutingmixedlist" EntityType="Self.v_fc_refermoroutingmixedlist" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[v_fc_refermoroutingmixedlist].[moid] AS [moid], 
+[v_fc_refermoroutingmixedlist].[modid] AS [modid], 
+[v_fc_refermoroutingmixedlist].[mocode] AS [mocode], 
+[v_fc_refermoroutingmixedlist].[sortseq] AS [sortseq], 
+[v_fc_refermoroutingmixedlist].[motypedesc] AS [motypedesc], 
+[v_fc_refermoroutingmixedlist].[invcode] AS [invcode], 
+[v_fc_refermoroutingmixedlist].[cinvname] AS [cinvname], 
+[v_fc_refermoroutingmixedlist].[cinvstd] AS [cinvstd], 
+[v_fc_refermoroutingmixedlist].[cinvaddcode] AS [cinvaddcode], 
+[v_fc_refermoroutingmixedlist].[molotcode] AS [molotcode], 
+[v_fc_refermoroutingmixedlist].[cengineerfigno] AS [cengineerfigno], 
+[v_fc_refermoroutingmixedlist].[qty] AS [qty], 
+[v_fc_refermoroutingmixedlist].[ccomunitcode] AS [ccomunitcode], 
+[v_fc_refermoroutingmixedlist].[ccomunitname] AS [ccomunitname], 
+[v_fc_refermoroutingmixedlist].[status] AS [status], 
+[v_fc_refermoroutingmixedlist].[modescription] AS [modescription], 
+[v_fc_refermoroutingmixedlist].[SoCode] AS [SoCode], 
+[v_fc_refermoroutingmixedlist].[SoSeq] AS [SoSeq], 
+[v_fc_refermoroutingmixedlist].[free1] AS [free1], 
+[v_fc_refermoroutingmixedlist].[free2] AS [free2], 
+[v_fc_refermoroutingmixedlist].[free3] AS [free3], 
+[v_fc_refermoroutingmixedlist].[free4] AS [free4], 
+[v_fc_refermoroutingmixedlist].[free5] AS [free5], 
+[v_fc_refermoroutingmixedlist].[free6] AS [free6], 
+[v_fc_refermoroutingmixedlist].[free7] AS [free7], 
+[v_fc_refermoroutingmixedlist].[free8] AS [free8], 
+[v_fc_refermoroutingmixedlist].[free9] AS [free9], 
+[v_fc_refermoroutingmixedlist].[free10] AS [free10], 
+[v_fc_refermoroutingmixedlist].[cinvdefine1] AS [cinvdefine1], 
+[v_fc_refermoroutingmixedlist].[cinvdefine2] AS [cinvdefine2], 
+[v_fc_refermoroutingmixedlist].[cinvdefine3] AS [cinvdefine3], 
+[v_fc_refermoroutingmixedlist].[cinvdefine4] AS [cinvdefine4], 
+[v_fc_refermoroutingmixedlist].[cinvdefine5] AS [cinvdefine5], 
+[v_fc_refermoroutingmixedlist].[cinvdefine6] AS [cinvdefine6], 
+[v_fc_refermoroutingmixedlist].[cinvdefine7] AS [cinvdefine7], 
+[v_fc_refermoroutingmixedlist].[cinvdefine8] AS [cinvdefine8], 
+[v_fc_refermoroutingmixedlist].[cinvdefine9] AS [cinvdefine9], 
+[v_fc_refermoroutingmixedlist].[cinvdefine10] AS [cinvdefine10], 
+[v_fc_refermoroutingmixedlist].[cinvdefine11] AS [cinvdefine11], 
+[v_fc_refermoroutingmixedlist].[cinvdefine12] AS [cinvdefine12], 
+[v_fc_refermoroutingmixedlist].[cinvdefine13] AS [cinvdefine13], 
+[v_fc_refermoroutingmixedlist].[cinvdefine14] AS [cinvdefine14], 
+[v_fc_refermoroutingmixedlist].[cinvdefine15] AS [cinvdefine15], 
+[v_fc_refermoroutingmixedlist].[cinvdefine16] AS [cinvdefine16], 
+[v_fc_refermoroutingmixedlist].[MdeptCode] AS [MdeptCode], 
+[v_fc_refermoroutingmixedlist].[cdepname] AS [cdepname], 
+[v_fc_refermoroutingmixedlist].[moroutingid] AS [moroutingid], 
+[v_fc_refermoroutingmixedlist].[moroutingdid] AS [moroutingdid], 
+[v_fc_refermoroutingmixedlist].[opseq] AS [opseq], 
+[v_fc_refermoroutingmixedlist].[opcode] AS [opcode], 
+[v_fc_refermoroutingmixedlist].[opdescription] AS [opdescription], 
+[v_fc_refermoroutingmixedlist].[subflag] AS [subflag], 
+[v_fc_refermoroutingmixedlist].[wcid] AS [wcid], 
+[v_fc_refermoroutingmixedlist].[wccode] AS [wccode], 
+[v_fc_refermoroutingmixedlist].[wcdescription] AS [wcdescription], 
+[v_fc_refermoroutingmixedlist].[wcdepcode] AS [wcdepcode], 
+[v_fc_refermoroutingmixedlist].[startdate] AS [startdate], 
+[v_fc_refermoroutingmixedlist].[duedate] AS [duedate], 
+[v_fc_refermoroutingmixedlist].[starttime] AS [starttime], 
+[v_fc_refermoroutingmixedlist].[duetime] AS [duetime], 
+[v_fc_refermoroutingmixedlist].[inopunitcode] AS [inopunitcode], 
+[v_fc_refermoroutingmixedlist].[inopunitname] AS [inopunitname], 
+[v_fc_refermoroutingmixedlist].[inchangerate] AS [inchangerate], 
+[v_fc_refermoroutingmixedlist].[inauxopqty] AS [inauxopqty], 
+[v_fc_refermoroutingmixedlist].[balmachiningqty] AS [balmachiningqty], 
+[v_fc_refermoroutingmixedlist].[baldeclareqty] AS [baldeclareqty], 
+[v_fc_refermoroutingmixedlist].[balqualifiedqty] AS [balqualifiedqty], 
+[v_fc_refermoroutingmixedlist].[balrefusedqty] AS [balrefusedqty], 
+[v_fc_refermoroutingmixedlist].[balscrapqty] AS [balscrapqty], 
+[v_fc_refermoroutingmixedlist].[perworkhr] AS [perworkhr], 
+[v_fc_refermoroutingmixedlist].[FirstFlag] AS [FirstFlag], 
+[v_fc_refermoroutingmixedlist].[LastFlag] AS [LastFlag], 
+[v_fc_refermoroutingmixedlist].[reportqty] AS [reportqty], 
+[v_fc_refermoroutingmixedlist].[moroutingshiftid] AS [moroutingshiftid], 
+[v_fc_refermoroutingmixedlist].[shiftqty] AS [shiftqty], 
+[v_fc_refermoroutingmixedlist].[moreportqty] AS [moreportqty], 
+[v_fc_refermoroutingmixedlist].[completedqty] AS [completedqty], 
+[v_fc_refermoroutingmixedlist].[uncompletedqty] AS [uncompletedqty], 
+[v_fc_refermoroutingmixedlist].[eqid] AS [eqid], 
+[v_fc_refermoroutingmixedlist].[ceqcode] AS [ceqcode], 
+[v_fc_refermoroutingmixedlist].[ceqname] AS [ceqname], 
+[v_fc_refermoroutingmixedlist].[employcode] AS [employcode], 
+[v_fc_refermoroutingmixedlist].[employname] AS [employname], 
+[v_fc_refermoroutingmixedlist].[dutyclasscode] AS [dutyclasscode], 
+[v_fc_refermoroutingmixedlist].[dutyclassname] AS [dutyclassname], 
+[v_fc_refermoroutingmixedlist].[workshiftid] AS [workshiftid], 
+[v_fc_refermoroutingmixedlist].[wscode] AS [wscode], 
+[v_fc_refermoroutingmixedlist].[bcdescription] AS [bcdescription], 
+[v_fc_refermoroutingmixedlist].[unreportqty] AS [unreportqty], 
+[v_fc_refermoroutingmixedlist].[cmoroutufts] AS [cmoroutufts], 
+[v_fc_refermoroutingmixedlist].[cshiftufts] AS [cshiftufts], 
+[v_fc_refermoroutingmixedlist].[bscrap] AS [bscrap], 
+[v_fc_refermoroutingmixedlist].[shiftstartdate] AS [shiftstartdate], 
+[v_fc_refermoroutingmixedlist].[shiftduedate] AS [shiftduedate]
+FROM [dbo].[v_fc_refermoroutingmixedlist] AS [v_fc_refermoroutingmixedlist]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__Warehouse__cDepC__46093FC3" Association="Self.FK__Warehouse__cDepC__46093FC3">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Warehouse" EntitySet="Warehouse" />
+    </AssociationSet>
+    <AssociationSet Name="FK_mom_morder" Association="Self.FK_mom_morder">
+      <End Role="mom_orderdetail" EntitySet="mom_orderdetail" />
+      <End Role="mom_morder" EntitySet="mom_morder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_mom_orderdetail" Association="Self.FK_mom_orderdetail">
+      <End Role="mom_order" EntitySet="mom_order" />
+      <End Role="mom_orderdetail" EntitySet="mom_orderdetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QMCHECKVOUCHER_DEPARTMENT" Association="Self.FK_QMCHECKVOUCHER_DEPARTMENT">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="QMCHECKVOUCHER" EntitySet="QMCHECKVOUCHER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QMCHECKVOUCHER_DEPARTMENT1" Association="Self.FK_QMCHECKVOUCHER_DEPARTMENT1">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="QMCHECKVOUCHER" EntitySet="QMCHECKVOUCHER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QMCHECKVOUCHER_REASON" Association="Self.FK_QMCHECKVOUCHER_REASON">
+      <End Role="Reason" EntitySet="Reason" />
+      <End Role="QMCHECKVOUCHER" EntitySet="QMCHECKVOUCHER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QMCHECKVOUCHER_SFC_WorkCenter" Association="Self.FK_QMCHECKVOUCHER_SFC_WorkCenter">
+      <End Role="sfc_workcenter" EntitySet="sfc_workcenter" />
+      <End Role="QMCHECKVOUCHER" EntitySet="QMCHECKVOUCHER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QMCHECKVOUCHER_WAREHOUSE" Association="Self.FK_QMCHECKVOUCHER_WAREHOUSE">
+      <End Role="Warehouse" EntitySet="Warehouse" />
+      <End Role="QMCHECKVOUCHER" EntitySet="QMCHECKVOUCHER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QMINSPECTVOUCHER_DEPARTMENT" Association="Self.FK_QMINSPECTVOUCHER_DEPARTMENT">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="QMINSPECTVOUCHER" EntitySet="QMINSPECTVOUCHER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QMINSPECTVOUCHER_Department1" Association="Self.FK_QMINSPECTVOUCHER_Department1">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="QMINSPECTVOUCHER" EntitySet="QMINSPECTVOUCHER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QMINSPECTVOUCHER_SFC_WorkCenter" Association="Self.FK_QMINSPECTVOUCHER_SFC_WorkCenter">
+      <End Role="sfc_workcenter" EntitySet="sfc_workcenter" />
+      <End Role="QMINSPECTVOUCHER" EntitySet="QMINSPECTVOUCHER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QMINSPECTVOUCHERS_WAREHOUSE" Association="Self.FK_QMINSPECTVOUCHERS_WAREHOUSE">
+      <End Role="Warehouse" EntitySet="Warehouse" />
+      <End Role="QMINSPECTVOUCHERS" EntitySet="QMINSPECTVOUCHERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QMREJECTVOUCHER_DEPARTMENT" Association="Self.FK_QMREJECTVOUCHER_DEPARTMENT">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="QMREJECTVOUCHER" EntitySet="QMREJECTVOUCHER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QMREJECTVOUCHER_SFC_WorkCenter" Association="Self.FK_QMREJECTVOUCHER_SFC_WorkCenter">
+      <End Role="sfc_workcenter" EntitySet="sfc_workcenter" />
+      <End Role="QMREJECTVOUCHER" EntitySet="QMREJECTVOUCHER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QMREJECTVOUCHER_WAREHOUSE" Association="Self.FK_QMREJECTVOUCHER_WAREHOUSE">
+      <End Role="Warehouse" EntitySet="Warehouse" />
+      <End Role="QMREJECTVOUCHER" EntitySet="QMREJECTVOUCHER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QMREJECTVOUCHERS_DEPARTMENT" Association="Self.FK_QMREJECTVOUCHERS_DEPARTMENT">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="QMREJECTVOUCHERS" EntitySet="QMREJECTVOUCHERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QMREJECTVOUCHERS_QMSCRAPDISPOSE" Association="Self.FK_QMREJECTVOUCHERS_QMSCRAPDISPOSE">
+      <End Role="QMSCRAPDISPOSE" EntitySet="QMSCRAPDISPOSE" />
+      <End Role="QMREJECTVOUCHERS" EntitySet="QMREJECTVOUCHERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QMREJECTVOUCHERS_REASON" Association="Self.FK_QMREJECTVOUCHERS_REASON">
+      <End Role="Reason" EntitySet="Reason" />
+      <End Role="QMREJECTVOUCHERS" EntitySet="QMREJECTVOUCHERS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
