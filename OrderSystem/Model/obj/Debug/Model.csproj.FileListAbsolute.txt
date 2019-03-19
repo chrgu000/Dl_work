@@ -29,3 +29,8 @@ E:\devpro\DingDan_WebForm_V2_SignalR(20190121增加PE)\Model\bin\Debug\Model.pdb
 E:\devpro\DingDan_WebForm_V2_SignalR(20190121增加PE)\Model\obj\Debug\Model.dll
 E:\devpro\DingDan_WebForm_V2_SignalR(20190121增加PE)\Model\obj\Debug\Model.pdb
 E:\devpro\DingDan_WebForm_V2_SignalR(20190121增加PE)\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+F:\dengsheng\Github\Dl_work\OrderSystem\Model\bin\Debug\Model.dll
+F:\dengsheng\Github\Dl_work\OrderSystem\Model\bin\Debug\Model.pdb
+F:\dengsheng\Github\Dl_work\OrderSystem\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+F:\dengsheng\Github\Dl_work\OrderSystem\Model\obj\Debug\Model.dll
+F:\dengsheng\Github\Dl_work\OrderSystem\Model\obj\Debug\Model.pdb

@@ -66,3 +66,13 @@ E:\devpro\DingDan_WebForm_V2_SignalR(20190121增加PE)\BLL\bin\Debug\Model.pdb
 E:\devpro\DingDan_WebForm_V2_SignalR(20190121增加PE)\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 E:\devpro\DingDan_WebForm_V2_SignalR(20190121增加PE)\BLL\obj\Debug\BLL.dll
 E:\devpro\DingDan_WebForm_V2_SignalR(20190121增加PE)\BLL\obj\Debug\BLL.pdb
+F:\dengsheng\Github\Dl_work\OrderSystem\BLL\bin\Debug\BLL.dll
+F:\dengsheng\Github\Dl_work\OrderSystem\BLL\bin\Debug\BLL.pdb
+F:\dengsheng\Github\Dl_work\OrderSystem\BLL\bin\Debug\DAL.dll
+F:\dengsheng\Github\Dl_work\OrderSystem\BLL\bin\Debug\Model.dll
+F:\dengsheng\Github\Dl_work\OrderSystem\BLL\bin\Debug\Newtonsoft.Json.dll
+F:\dengsheng\Github\Dl_work\OrderSystem\BLL\bin\Debug\DAL.pdb
+F:\dengsheng\Github\Dl_work\OrderSystem\BLL\bin\Debug\Model.pdb
+F:\dengsheng\Github\Dl_work\OrderSystem\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+F:\dengsheng\Github\Dl_work\OrderSystem\BLL\obj\Debug\BLL.dll
+F:\dengsheng\Github\Dl_work\OrderSystem\BLL\obj\Debug\BLL.pdb

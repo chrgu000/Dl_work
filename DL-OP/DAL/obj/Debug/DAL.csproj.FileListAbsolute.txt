@@ -97,3 +97,10 @@ E:\工作目录\王俊杰\工作交接\EchoWork20180219\EchoWork\源代码\DL-OP
 E:\工作目录\王俊杰\工作交接\EchoWork20180219\EchoWork\源代码\DL-OP(20190108,PE预留)\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 E:\工作目录\王俊杰\工作交接\EchoWork20180219\EchoWork\源代码\DL-OP(20190108,PE预留)\DAL\obj\Debug\DAL.dll
 E:\工作目录\王俊杰\工作交接\EchoWork20180219\EchoWork\源代码\DL-OP(20190108,PE预留)\DAL\obj\Debug\DAL.pdb
+F:\dengsheng\Github\Dl_work\DL-OP\DAL\bin\Debug\DAL.dll
+F:\dengsheng\Github\Dl_work\DL-OP\DAL\bin\Debug\DAL.pdb
+F:\dengsheng\Github\Dl_work\DL-OP\DAL\bin\Debug\Model.dll
+F:\dengsheng\Github\Dl_work\DL-OP\DAL\bin\Debug\Model.pdb
+F:\dengsheng\Github\Dl_work\DL-OP\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+F:\dengsheng\Github\Dl_work\DL-OP\DAL\obj\Debug\DAL.dll
+F:\dengsheng\Github\Dl_work\DL-OP\DAL\obj\Debug\DAL.pdb

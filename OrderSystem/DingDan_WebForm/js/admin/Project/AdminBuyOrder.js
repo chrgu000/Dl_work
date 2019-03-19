@@ -585,7 +585,7 @@ function Change_Kpdw() {
 	});
 }
 
-$(document).on('click', '#submit_buy_list', function() {
+$(document).on('click', '#submit_buy_list', function () {
 	if ($('#txtAddress').val() == '' || $('#txtAddress').val() == 0) {
 		errMsg('还未选择送货地址！');
 		return false;
