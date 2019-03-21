@@ -1,0 +1,42 @@
+E:\devpro\DL-WebServices\DAL\bin\Debug\DAL.dll
+E:\devpro\DL-WebServices\DAL\bin\Debug\DAL.pdb
+E:\devpro\DL-WebServices\DAL\bin\Debug\Model.dll
+E:\devpro\DL-WebServices\DAL\bin\Debug\Model.pdb
+E:\devpro\DL-WebServices\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+E:\devpro\DL-WebServices\DAL\obj\Debug\DAL.dll
+E:\devpro\DL-WebServices\DAL\obj\Debug\DAL.pdb
+F:\Projects\DL-WebServices (1)\DAL\bin\Debug\DAL.dll
+F:\Projects\DL-WebServices (1)\DAL\bin\Debug\DAL.pdb
+F:\Projects\DL-WebServices (1)\DAL\bin\Debug\Model.dll
+F:\Projects\DL-WebServices (1)\DAL\bin\Debug\Model.pdb
+F:\Projects\DL-WebServices (1)\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+F:\Projects\DL-WebServices (1)\DAL\obj\Debug\DAL.dll
+F:\Projects\DL-WebServices (1)\DAL\obj\Debug\DAL.pdb
+C:\Users\echo\Desktop\DL-WebServices (9003)\DAL\bin\Debug\DAL.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\DAL\bin\Debug\DAL.pdb
+C:\Users\echo\Desktop\DL-WebServices (9003)\DAL\bin\Debug\Model.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\DAL\bin\Debug\Model.pdb
+C:\Users\echo\Desktop\DL-WebServices (9003)\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\echo\Desktop\DL-WebServices (9003)\DAL\obj\Debug\DAL.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\DAL\obj\Debug\DAL.pdb
+E:\devpro\DL-WebServices (9003)\DAL\bin\Debug\DAL.dll
+E:\devpro\DL-WebServices (9003)\DAL\bin\Debug\DAL.pdb
+E:\devpro\DL-WebServices (9003)\DAL\bin\Debug\Model.dll
+E:\devpro\DL-WebServices (9003)\DAL\bin\Debug\Model.pdb
+E:\devpro\DL-WebServices (9003)\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+E:\devpro\DL-WebServices (9003)\DAL\obj\Debug\DAL.dll
+E:\devpro\DL-WebServices (9003)\DAL\obj\Debug\DAL.pdb
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\DAL\bin\Debug\DAL.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\DAL\bin\Debug\DAL.pdb
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\DAL\bin\Debug\Model.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\DAL\bin\Debug\Model.pdb
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\DAL\obj\Debug\DAL.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\DAL\obj\Debug\DAL.pdb
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\DAL\bin\Debug\DAL.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\DAL\bin\Debug\DAL.pdb
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\DAL\bin\Debug\Model.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\DAL\bin\Debug\Model.pdb
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\DAL\obj\Debug\DAL.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\DAL\obj\Debug\DAL.pdb

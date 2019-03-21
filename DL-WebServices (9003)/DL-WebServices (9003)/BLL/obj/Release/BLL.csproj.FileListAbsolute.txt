@@ -1,0 +1,229 @@
+E:\devpro\DL-WebServices\BLL\bin\Release\BLL.dll
+E:\devpro\DL-WebServices\BLL\bin\Release\BLL.pdb
+E:\devpro\DL-WebServices\BLL\bin\Release\DAL.dll
+E:\devpro\DL-WebServices\BLL\bin\Release\Model.dll
+E:\devpro\DL-WebServices\BLL\bin\Release\DAL.pdb
+E:\devpro\DL-WebServices\BLL\bin\Release\Model.pdb
+E:\devpro\DL-WebServices\BLL\obj\Release\BLL.csprojResolveAssemblyReference.cache
+E:\devpro\DL-WebServices\BLL\obj\Release\BLL.dll
+E:\devpro\DL-WebServices\BLL\obj\Release\BLL.pdb
+F:\Projects\DL-WebServices (1)\BLL\bin\Release\BLL.dll
+F:\Projects\DL-WebServices (1)\BLL\bin\Release\BLL.pdb
+F:\Projects\DL-WebServices (1)\BLL\bin\Release\DAL.dll
+F:\Projects\DL-WebServices (1)\BLL\bin\Release\Model.dll
+F:\Projects\DL-WebServices (1)\BLL\bin\Release\DAL.pdb
+F:\Projects\DL-WebServices (1)\BLL\bin\Release\Model.pdb
+F:\Projects\DL-WebServices (1)\BLL\obj\Release\BLL.csprojResolveAssemblyReference.cache
+F:\Projects\DL-WebServices (1)\BLL\obj\Release\BLL.dll
+F:\Projects\DL-WebServices (1)\BLL\obj\Release\BLL.pdb
+C:\Users\echo\Desktop\DL-WebServices (9003)\BLL\bin\Release\BLL.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\BLL\bin\Release\BLL.pdb
+C:\Users\echo\Desktop\DL-WebServices (9003)\BLL\bin\Release\ADODB.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\BLL\bin\Release\DAL.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\BLL\bin\Release\Interop.MSXML2.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\BLL\bin\Release\Model.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\BLL\bin\Release\U8API.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\BLL\bin\Release\UFIDA.U8.MomServiceCommon.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\BLL\bin\Release\UFIDA.U8.U8APIFramework.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\BLL\bin\Release\UFIDA.U8.U8MOMAPIFramework.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\BLL\bin\Release\UFSoft.AIF.MOM.Common.MessageObjectModel.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\BLL\bin\Release\UFSoft.AIF.MOM.Common.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\BLL\bin\Release\UFIDA.U8.UAP.VoucherMetaUpgrade.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\BLL\bin\Release\MOMAdapter.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\BLL\bin\Release\MOMProtocol.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\BLL\bin\Release\MOMEngineDAC.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\BLL\bin\Release\MOMEngine.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\BLL\bin\Release\DotNetAssemblyProtocol.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\BLL\bin\Release\MSCOMProtocol.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\BLL\bin\Release\COMAdapterForOldAPI.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\BLL\bin\Release\MOMChannelProcessor.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\BLL\bin\Release\MOMMessageFilter.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\BLL\bin\Release\IESBSDLMsgType.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\BLL\bin\Release\DotNetTransactionScopeService.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\BLL\bin\Release\Interop.U8APITransactionProxy.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\BLL\bin\Release\IAppReceive.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\BLL\bin\Release\Interop.TLI.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\BLL\bin\Release\Interop.VBAsyncPluginInvoker.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\BLL\bin\Release\DAL.pdb
+C:\Users\echo\Desktop\DL-WebServices (9003)\BLL\bin\Release\Model.pdb
+C:\Users\echo\Desktop\DL-WebServices (9003)\BLL\bin\Release\U8API.pdb
+C:\Users\echo\Desktop\DL-WebServices (9003)\BLL\bin\Release\UFSoft.AIF.MOM.Common.MessageObjectModel.xml
+C:\Users\echo\Desktop\DL-WebServices (9003)\BLL\obj\Release\BLL.csprojResolveAssemblyReference.cache
+C:\Users\echo\Desktop\DL-WebServices (9003)\BLL\obj\Release\BLL.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\BLL\obj\Release\BLL.pdb
+E:\devpro\DL-WebServices (9003)\BLL\bin\Release\BLL.dll
+E:\devpro\DL-WebServices (9003)\BLL\bin\Release\BLL.pdb
+E:\devpro\DL-WebServices (9003)\BLL\bin\Release\ADODB.dll
+E:\devpro\DL-WebServices (9003)\BLL\bin\Release\DAL.dll
+E:\devpro\DL-WebServices (9003)\BLL\bin\Release\Interop.MSXML2.dll
+E:\devpro\DL-WebServices (9003)\BLL\bin\Release\Model.dll
+E:\devpro\DL-WebServices (9003)\BLL\bin\Release\U8API.dll
+E:\devpro\DL-WebServices (9003)\BLL\bin\Release\UFIDA.U8.MomServiceCommon.dll
+E:\devpro\DL-WebServices (9003)\BLL\bin\Release\UFIDA.U8.U8APIFramework.dll
+E:\devpro\DL-WebServices (9003)\BLL\bin\Release\UFIDA.U8.U8MOMAPIFramework.dll
+E:\devpro\DL-WebServices (9003)\BLL\bin\Release\UFSoft.AIF.MOM.Common.MessageObjectModel.dll
+E:\devpro\DL-WebServices (9003)\BLL\bin\Release\UFSoft.AIF.MOM.Common.dll
+E:\devpro\DL-WebServices (9003)\BLL\bin\Release\UFIDA.U8.UAP.VoucherMetaUpgrade.dll
+E:\devpro\DL-WebServices (9003)\BLL\bin\Release\MOMAdapter.dll
+E:\devpro\DL-WebServices (9003)\BLL\bin\Release\MOMProtocol.dll
+E:\devpro\DL-WebServices (9003)\BLL\bin\Release\MOMEngineDAC.dll
+E:\devpro\DL-WebServices (9003)\BLL\bin\Release\MOMEngine.dll
+E:\devpro\DL-WebServices (9003)\BLL\bin\Release\DotNetAssemblyProtocol.dll
+E:\devpro\DL-WebServices (9003)\BLL\bin\Release\MSCOMProtocol.dll
+E:\devpro\DL-WebServices (9003)\BLL\bin\Release\COMAdapterForOldAPI.dll
+E:\devpro\DL-WebServices (9003)\BLL\bin\Release\MOMChannelProcessor.dll
+E:\devpro\DL-WebServices (9003)\BLL\bin\Release\MOMMessageFilter.dll
+E:\devpro\DL-WebServices (9003)\BLL\bin\Release\IESBSDLMsgType.dll
+E:\devpro\DL-WebServices (9003)\BLL\bin\Release\DotNetTransactionScopeService.dll
+E:\devpro\DL-WebServices (9003)\BLL\bin\Release\Interop.U8APITransactionProxy.dll
+E:\devpro\DL-WebServices (9003)\BLL\bin\Release\IAppReceive.dll
+E:\devpro\DL-WebServices (9003)\BLL\bin\Release\Interop.TLI.dll
+E:\devpro\DL-WebServices (9003)\BLL\bin\Release\Interop.VBAsyncPluginInvoker.dll
+E:\devpro\DL-WebServices (9003)\BLL\bin\Release\DAL.pdb
+E:\devpro\DL-WebServices (9003)\BLL\bin\Release\Model.pdb
+E:\devpro\DL-WebServices (9003)\BLL\bin\Release\U8API.pdb
+E:\devpro\DL-WebServices (9003)\BLL\bin\Release\UFSoft.AIF.MOM.Common.MessageObjectModel.xml
+E:\devpro\DL-WebServices (9003)\BLL\obj\Release\BLL.csprojResolveAssemblyReference.cache
+E:\devpro\DL-WebServices (9003)\BLL\obj\Release\BLL.dll
+E:\devpro\DL-WebServices (9003)\BLL\obj\Release\BLL.pdb
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\BLL\bin\Release\BLL.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\BLL\bin\Release\BLL.pdb
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\BLL\bin\Release\ADODB.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\BLL\bin\Release\DAL.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\BLL\bin\Release\Interop.MSXML2.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\BLL\bin\Release\Model.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\BLL\bin\Release\U8API.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\BLL\bin\Release\UFIDA.U8.MomServiceCommon.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\BLL\bin\Release\UFIDA.U8.U8APIFramework.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\BLL\bin\Release\UFIDA.U8.U8MOMAPIFramework.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\BLL\bin\Release\UFSoft.AIF.MOM.Common.MessageObjectModel.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\BLL\bin\Release\UFSoft.AIF.MOM.Common.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\BLL\bin\Release\UFIDA.U8.UAP.VoucherMetaUpgrade.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\BLL\bin\Release\MOMAdapter.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\BLL\bin\Release\MOMProtocol.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\BLL\bin\Release\MOMEngineDAC.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\BLL\bin\Release\MOMEngine.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\BLL\bin\Release\DotNetAssemblyProtocol.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\BLL\bin\Release\MSCOMProtocol.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\BLL\bin\Release\COMAdapterForOldAPI.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\BLL\bin\Release\MOMChannelProcessor.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\BLL\bin\Release\MOMMessageFilter.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\BLL\bin\Release\IESBSDLMsgType.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\BLL\bin\Release\DotNetTransactionScopeService.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\BLL\bin\Release\Interop.U8APITransactionProxy.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\BLL\bin\Release\IAppReceive.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\BLL\bin\Release\Interop.TLI.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\BLL\bin\Release\Interop.VBAsyncPluginInvoker.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\BLL\bin\Release\DAL.pdb
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\BLL\bin\Release\Model.pdb
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\BLL\bin\Release\U8API.pdb
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\BLL\bin\Release\UFSoft.AIF.MOM.Common.MessageObjectModel.xml
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\BLL\obj\Release\BLL.csprojResolveAssemblyReference.cache
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\BLL\obj\Release\BLL.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\BLL\obj\Release\BLL.pdb
+E:\devpro\DL-WebServices (9003)\BLL\bin\Release\ThoughtWorks.QRCode.dll
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\BLL\obj\Release\BLL.csprojResolveAssemblyReference.cache
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\BLL\bin\Release\BLL.dll
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\BLL\bin\Release\BLL.pdb
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\BLL\bin\Release\ADODB.dll
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\BLL\bin\Release\DAL.dll
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\BLL\bin\Release\Interop.MSXML2.dll
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\BLL\bin\Release\Model.dll
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\BLL\bin\Release\U8API.dll
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\BLL\bin\Release\UFIDA.U8.MomServiceCommon.dll
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\BLL\bin\Release\UFIDA.U8.U8APIFramework.dll
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\BLL\bin\Release\UFIDA.U8.U8MOMAPIFramework.dll
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\BLL\bin\Release\UFSoft.AIF.MOM.Common.MessageObjectModel.dll
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\BLL\bin\Release\UFIDA.U8.UAP.VoucherMetaUpgrade.dll
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\BLL\bin\Release\UFSoft.AIF.MOM.Common.dll
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\BLL\bin\Release\MOMAdapter.dll
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\BLL\bin\Release\MOMProtocol.dll
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\BLL\bin\Release\MOMEngineDAC.dll
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\BLL\bin\Release\MOMEngine.dll
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\BLL\bin\Release\DotNetAssemblyProtocol.dll
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\BLL\bin\Release\MSCOMProtocol.dll
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\BLL\bin\Release\COMAdapterForOldAPI.dll
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\BLL\bin\Release\MOMChannelProcessor.dll
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\BLL\bin\Release\MOMMessageFilter.dll
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\BLL\bin\Release\IESBSDLMsgType.dll
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\BLL\bin\Release\DotNetTransactionScopeService.dll
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\BLL\bin\Release\Interop.U8APITransactionProxy.dll
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\BLL\bin\Release\IAppReceive.dll
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\BLL\bin\Release\Interop.TLI.dll
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\BLL\bin\Release\Interop.VBAsyncPluginInvoker.dll
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\BLL\bin\Release\DAL.pdb
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\BLL\bin\Release\Model.pdb
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\BLL\bin\Release\U8API.pdb
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\BLL\bin\Release\UFSoft.AIF.MOM.Common.MessageObjectModel.xml
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\BLL\obj\Release\BLL.dll
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\BLL\obj\Release\BLL.pdb
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\BLL\bin\Release\BLL.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\BLL\bin\Release\BLL.pdb
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\BLL\bin\Release\ADODB.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\BLL\bin\Release\DAL.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\BLL\bin\Release\Interop.MSXML2.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\BLL\bin\Release\Model.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\BLL\bin\Release\U8API.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\BLL\bin\Release\UFIDA.U8.MomServiceCommon.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\BLL\bin\Release\UFIDA.U8.U8APIFramework.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\BLL\bin\Release\UFIDA.U8.U8MOMAPIFramework.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\BLL\bin\Release\UFSoft.AIF.MOM.Common.MessageObjectModel.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\BLL\bin\Release\UFIDA.U8.UAP.VoucherMetaUpgrade.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\BLL\bin\Release\UFSoft.AIF.MOM.Common.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\BLL\bin\Release\MOMAdapter.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\BLL\bin\Release\MOMProtocol.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\BLL\bin\Release\MOMEngineDAC.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\BLL\bin\Release\MOMEngine.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\BLL\bin\Release\DotNetAssemblyProtocol.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\BLL\bin\Release\MSCOMProtocol.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\BLL\bin\Release\COMAdapterForOldAPI.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\BLL\bin\Release\MOMChannelProcessor.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\BLL\bin\Release\MOMMessageFilter.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\BLL\bin\Release\IESBSDLMsgType.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\BLL\bin\Release\DotNetTransactionScopeService.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\BLL\bin\Release\Interop.U8APITransactionProxy.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\BLL\bin\Release\IAppReceive.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\BLL\bin\Release\Interop.TLI.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\BLL\bin\Release\Interop.VBAsyncPluginInvoker.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\BLL\bin\Release\DAL.pdb
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\BLL\bin\Release\Model.pdb
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\BLL\bin\Release\U8API.pdb
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\BLL\bin\Release\UFSoft.AIF.MOM.Common.MessageObjectModel.xml
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\BLL\obj\Release\BLL.csprojResolveAssemblyReference.cache
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\BLL\obj\Release\BLL.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\BLL\obj\Release\BLL.pdb
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\BLL\bin\Release\BLL.dll
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\BLL\bin\Release\BLL.pdb
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\BLL\bin\Release\ADODB.dll
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\BLL\bin\Release\DAL.dll
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\BLL\bin\Release\Interop.MSXML2.dll
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\BLL\bin\Release\Model.dll
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\BLL\bin\Release\U8API.dll
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\BLL\bin\Release\UFIDA.U8.MomServiceCommon.dll
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\BLL\bin\Release\UFIDA.U8.U8APIFramework.dll
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\BLL\bin\Release\UFIDA.U8.U8MOMAPIFramework.dll
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\BLL\bin\Release\UFSoft.AIF.MOM.Common.MessageObjectModel.dll
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\BLL\bin\Release\UFIDA.U8.UAP.VoucherMetaUpgrade.dll
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\BLL\bin\Release\UFSoft.AIF.MOM.Common.dll
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\BLL\bin\Release\MOMAdapter.dll
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\BLL\bin\Release\MOMProtocol.dll
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\BLL\bin\Release\MOMEngineDAC.dll
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\BLL\bin\Release\MOMEngine.dll
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\BLL\bin\Release\DotNetAssemblyProtocol.dll
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\BLL\bin\Release\MSCOMProtocol.dll
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\BLL\bin\Release\COMAdapterForOldAPI.dll
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\BLL\bin\Release\MOMChannelProcessor.dll
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\BLL\bin\Release\MOMMessageFilter.dll
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\BLL\bin\Release\IESBSDLMsgType.dll
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\BLL\bin\Release\DotNetTransactionScopeService.dll
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\BLL\bin\Release\Interop.U8APITransactionProxy.dll
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\BLL\bin\Release\IAppReceive.dll
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\BLL\bin\Release\Interop.TLI.dll
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\BLL\bin\Release\Interop.VBAsyncPluginInvoker.dll
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\BLL\bin\Release\DAL.pdb
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\BLL\bin\Release\Model.pdb
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\BLL\bin\Release\U8API.pdb
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\BLL\bin\Release\UFSoft.AIF.MOM.Common.MessageObjectModel.xml
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\BLL\obj\Release\BLL.csprojResolveAssemblyReference.cache
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\BLL\obj\Release\BLL.dll
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\BLL\obj\Release\BLL.pdb

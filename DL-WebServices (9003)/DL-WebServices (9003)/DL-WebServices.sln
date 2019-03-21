@@ -1,0 +1,68 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{DEE743DA-7D78-4B35-9BC3-B494B97DB54E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E252E8C9-0692-4E5E-BE38-41772670B16B} = {E252E8C9-0692-4E5E-BE38-41772670B16B}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{6DACF4BD-E159-4764-9EAE-AEE69FF835BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{DDAC26CA-32F2-4064-A48D-5A03C983537D}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Webws", "http://localhost:4726", "{F6F258C0-C6E0-4614-98D2-E5011441B777}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		ProjectReferences = "{dee743da-7d78-4b35-9bc3-b494b97db54e}|BLL.dll;{6DACF4BD-E159-4764-9EAE-AEE69FF835BF}|DAL.dll;{DDAC26CA-32F2-4064-A48D-5A03C983537D}|Model.dll;{E252E8C9-0692-4E5E-BE38-41772670B16B}|U8API.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_4726"
+		Debug.AspNetCompiler.PhysicalPath = "Webws\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_4726\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_4726"
+		Release.AspNetCompiler.PhysicalPath = "Webws\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_4726\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "Webws\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "U8API", "U8API\U8API.csproj", "{E252E8C9-0692-4E5E-BE38-41772670B16B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DEE743DA-7D78-4B35-9BC3-B494B97DB54E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEE743DA-7D78-4B35-9BC3-B494B97DB54E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEE743DA-7D78-4B35-9BC3-B494B97DB54E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEE743DA-7D78-4B35-9BC3-B494B97DB54E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DACF4BD-E159-4764-9EAE-AEE69FF835BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DACF4BD-E159-4764-9EAE-AEE69FF835BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DACF4BD-E159-4764-9EAE-AEE69FF835BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DACF4BD-E159-4764-9EAE-AEE69FF835BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDAC26CA-32F2-4064-A48D-5A03C983537D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDAC26CA-32F2-4064-A48D-5A03C983537D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDAC26CA-32F2-4064-A48D-5A03C983537D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDAC26CA-32F2-4064-A48D-5A03C983537D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6F258C0-C6E0-4614-98D2-E5011441B777}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6F258C0-C6E0-4614-98D2-E5011441B777}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6F258C0-C6E0-4614-98D2-E5011441B777}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6F258C0-C6E0-4614-98D2-E5011441B777}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{E252E8C9-0692-4E5E-BE38-41772670B16B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E252E8C9-0692-4E5E-BE38-41772670B16B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E252E8C9-0692-4E5E-BE38-41772670B16B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E252E8C9-0692-4E5E-BE38-41772670B16B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

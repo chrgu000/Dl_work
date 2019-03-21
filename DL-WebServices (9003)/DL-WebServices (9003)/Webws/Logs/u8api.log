@@ -1,0 +1,192 @@
+2017-05-09 17:10:27,549 [7] INFO  - 
+2017-05-09 17:10:27,557 [7] DEBUG - 
+UFSoft.U8.Framework.InvokeService.GetObject(System.Type, string, Hashtable):
+	--remote type:        UFSoft.U8.Framework.Login.BO.I_CreditIdentity
+	--calling codebase:   file:///D:/U8SOFT/Framework/UFSoft.U8.Framework.Login.BO.DLL
+	--calling assembly:   UFSoft.U8.Framework.Login.BO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=22eca903d177133a
+	--executing codebase: file:///C:/Windows/assembly/GAC_MSIL/UFSoft.U8.Framework.InvokeService/1.0.860.0__27100cfe39774293/UFSoft.U8.Framework.InvokeService.dll
+	--executing assembly: UFSoft.U8.Framework.InvokeService, Version=1.0.860.0, Culture=neutral, PublicKeyToken=27100cfe39774293
+	--serverName:         localhost
+	--remote url:         tcp://localhost:11520/U8ApplicationEx/UFSoft.U8.Framework.Login.BO.CreditIdentity.rem
+	--active url:         tcp://localhost:11520/UFSoft.U8.Framework.Login.BO.CreditIdentity.rem
+2017-05-09 17:10:27,559 [7] INFO  - m_userToken != UserToken appserver192.168.0.242
+2017-05-09 17:10:27,560 [7] INFO  - 192.168.0.242
+2017-05-09 17:10:27,560 [7] DEBUG - 
+UFSoft.U8.Framework.InvokeService.GetObject(System.Type, string, Hashtable):
+	--remote type:        UFSoft.U8.Framework.Login.BO.I_CreditIdentity
+	--calling codebase:   file:///D:/U8SOFT/Framework/UFSoft.U8.Framework.Login.BO.DLL
+	--calling assembly:   UFSoft.U8.Framework.Login.BO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=22eca903d177133a
+	--executing codebase: file:///C:/Windows/assembly/GAC_MSIL/UFSoft.U8.Framework.InvokeService/1.0.860.0__27100cfe39774293/UFSoft.U8.Framework.InvokeService.dll
+	--executing assembly: UFSoft.U8.Framework.InvokeService, Version=1.0.860.0, Culture=neutral, PublicKeyToken=27100cfe39774293
+	--serverName:         192.168.0.242
+	--remote url:         tcp://192.168.0.242:11520/U8ApplicationEx/UFSoft.U8.Framework.Login.BO.CreditIdentity.rem
+	--active url:         tcp://192.168.0.242:11520/UFSoft.U8.Framework.Login.BO.CreditIdentity.rem
+2017-05-09 17:10:27,590 [7] INFO  - UserDataXML<ufsoft><Entry user="EUR8J1PL3e91HVVwakPokA==" data="lZeSKppcVUjLdDkaG2cjKg==" accid="uBUf+t74voCW6bC+t2eN2g==" appserver="3rIoXDRYs1pe8Nq06LAd0w==" subid="mc5HVtX1a2G8bh+pEvpowg==" iyear="TY0m9g9xNoC0O9Ls3IgrjA==" connstring="06Xfnh9MhPpohyZiN3yK2bvxHO5T2LKVbBnqgeG057AWLpfHusMcZdwSVNYIXAelu2UVRF+o+w+8C6qoRogNecjMlPFZlnNu5Jk7PvSFP0eZ6h9jJ5tw6VcYL9saQyOSvyNolJFRrirgzETGzP0h2yKkA3H5pXKLeHhEhbv8EXfA2Q2Vrz5pJINWP2l1UIPkmjebM9NTuqWGzVJZ7qBaMVtWpC0GvxSUSuuGcbkwEOs+PchZ6ZGCaTMLvmHgAPCO" operdate="83I6ZdLTyqNVoMy6ieI91w==" datasource="qGydY9W6d1sdUaIntcwu2+3O+u9xiG2t+h4/8DQYrt4=" languageid="PWpFxOJCQLTDmynlck5cFg==" workstationserial="Jy9QJ/PUukp4D20amFo1/M+xD8nMqfQG79V3ocPwSvqQH210vPP/h0T56/7+wxQfbkeUXjtUrBX2fBSpn5Irag==" rightserver="3rIoXDRYs1pe8Nq06LAd0w==" iscompanyver="HOoLY2hnMvwGvmvUYVZjAw==" secondconnstring="kTW9JnfEJ3mAMwtmDtBpA3h1+wBne3p19A7IbNQPXFKIQXe+jz5zR7kJ5fs456n8FUadW8pq7NIpA8t7WEyyqZxDvruh7Z0uXvIwscWg8YvD4p/BQ99WK6LQQwZ68nmdkB+4mvItf7f320z8JoeyFu2OxjsT93+fVtw7pDoB80i/j4SNAuCOkUuGZ7laa7NxR6zy644P76CnOGy0CiDIE+ZeYdSMylO7AQZbxVr38vpwLykuOHXit3j+Tv0I0I4aQDLwwKCLfsTmuCrv2SCePCZRrfkV7ZA+44IFuyES6XezSlYt02/IKIWR/3ZmXQdHTvSdAMzYh2pMzUeSpqUW4ZTddB6x6FHSiZoNTm3ekz1yFmKL3ivfwOGO/yRhX2HkAnIiGFf1Zo12n17a6dWjyTAmr6UhWRpJR/SNjNMTU7tqMZuFlgYtoBucGRoge+iXi+R9shL+ZGDSGAGjKm2COExPEvEkcpqP5RNb8ebtWUGJW3UVxdTsk8L1/ChKqEM3JnPcipOIcx636RWvAfhe/RXRmku4OI9rIDD1TmN9TUOX5Co539s1CV7P4LK/5Y3DJeSK7MUQ3TWEqHk7bQwaW1TLTSLAuI2oIskrgyC5hWcWKqgxdWrrYmMS+Sz7fnI7IowdYwtXitSk9lQNoTWirQssXvYCZFO1PBE/ACbPeGsO9Uv61byrETqkS00HIIXrYNUmbVhEZetPyHnGqtmL+QeUWgpyNmujvWSvBND8X3TkUavzkPIpc0QMZML4bwGOWzZhKuQ+8hEwHo3qTNO+XewrLTwDang3ZTWdwWNGRiyw4mywDLWSDM3XiauAS425Xp//SG3cderA86Knfdw3WQ==" employeeid="EUR8J1PL3e91HVVwakPokA==" isadmin="+aDYQcnV8DHzYdHg3ZIbCw==" username="4VYYVoGeVub2BCU1Jmwb2A==" accname="aS7NpMBvod8g6Vvc5hACLMMJYaeKzqvc7CLziMArJpA=" enttypeid="yCaA+Rt2wHzOgBxflNozCA==" imonth="JAnAsjyNxemoa7+pv2+R2A==" appServerserial="DgHjo6XKTs2JwHYwX1yjc4n1+QFzTAS2/aW/ZYW03I1AolGhV0zXZV6fdq4jJj5r" roles="lZeSKppcVUjLdDkaG2cjKg==" protocolport="zKv07EAj9LmEpuw+0ByZzYGla3rZ+f3LJ+pnV2VK67ntwm7leumHMZ+xbkn1xLrNwASO4O4+/kFn+K1s5CJvzw==" barcode="96Pqog5rzOsXqaWVmg8JbQ==" customer="j+1MmDwzERyA2/VTNIiCEclTBDntHKUBBpSCvuUknM3f7aF/dyp/PpmOZlmPr7R/jIFJudeeiwKbKEuIj8HmCw==" authenmode="8Zinlxgd3MHJOxkrOL5Nhg==" authenextrainfo="lZeSKppcVUjLdDkaG2cjKg==" industrytype="lZeSKppcVUjLdDkaG2cjKg==" ibeginyear="kNgI7DlZNt6Z5zkzosUpkg==" aiosrv="lZeSKppcVUjLdDkaG2cjKg==" crmsrv="0dt+nEOT4HsVf9RkwDtLnQ==" utusrv="sQbEF7UaYalraPKqQnKSBQ==" remind="HOoLY2hnMvwGvmvUYVZjAw==" usermode="8wgebED4l7mUOk3Ke7fy6Q==" sps="+aDYQcnV8DHzYdHg3ZIbCw==" sysdate="ZFZvlqr+wxMDcz+YD6NGhw==" /></ufsoft>
+2017-05-09 17:11:03,605 [14] INFO  - 
+2017-05-09 17:11:03,606 [14] DEBUG - 
+UFSoft.U8.Framework.InvokeService.GetObject(System.Type, string, Hashtable):
+	--remote type:        UFSoft.U8.Framework.Login.BO.I_CreditIdentity
+	--calling codebase:   file:///D:/U8SOFT/Framework/UFSoft.U8.Framework.Login.BO.DLL
+	--calling assembly:   UFSoft.U8.Framework.Login.BO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=22eca903d177133a
+	--executing codebase: file:///C:/Windows/assembly/GAC_MSIL/UFSoft.U8.Framework.InvokeService/1.0.860.0__27100cfe39774293/UFSoft.U8.Framework.InvokeService.dll
+	--executing assembly: UFSoft.U8.Framework.InvokeService, Version=1.0.860.0, Culture=neutral, PublicKeyToken=27100cfe39774293
+	--serverName:         localhost
+	--remote url:         tcp://localhost:11520/U8ApplicationEx/UFSoft.U8.Framework.Login.BO.CreditIdentity.rem
+	--active url:         tcp://localhost:11520/UFSoft.U8.Framework.Login.BO.CreditIdentity.rem
+2017-05-09 17:11:03,607 [14] INFO  - m_userToken != UserToken appserver192.168.0.242
+2017-05-09 17:11:03,608 [14] INFO  - 192.168.0.242
+2017-05-09 17:11:03,609 [14] DEBUG - 
+UFSoft.U8.Framework.InvokeService.GetObject(System.Type, string, Hashtable):
+	--remote type:        UFSoft.U8.Framework.Login.BO.I_CreditIdentity
+	--calling codebase:   file:///D:/U8SOFT/Framework/UFSoft.U8.Framework.Login.BO.DLL
+	--calling assembly:   UFSoft.U8.Framework.Login.BO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=22eca903d177133a
+	--executing codebase: file:///C:/Windows/assembly/GAC_MSIL/UFSoft.U8.Framework.InvokeService/1.0.860.0__27100cfe39774293/UFSoft.U8.Framework.InvokeService.dll
+	--executing assembly: UFSoft.U8.Framework.InvokeService, Version=1.0.860.0, Culture=neutral, PublicKeyToken=27100cfe39774293
+	--serverName:         192.168.0.242
+	--remote url:         tcp://192.168.0.242:11520/U8ApplicationEx/UFSoft.U8.Framework.Login.BO.CreditIdentity.rem
+	--active url:         tcp://192.168.0.242:11520/UFSoft.U8.Framework.Login.BO.CreditIdentity.rem
+2017-05-09 17:11:03,650 [14] INFO  - UserDataXML<ufsoft><Entry user="V7JyxmUbtGOxo1xzOQkcnQ==" data="Ftg10BIqg7Wn7Dymt1kFpA==" accid="LixNfNak9DO2t2rEej2jGQ==" appserver="PJStjM89edSzWIrgGU2+ww==" subid="XnJQ2de8RrEEPndv19k3Fw==" iyear="M6jXl5CZ0nR8x0etYtl46A==" connstring="BjhgAOSgammRhG+oWYIz68i3E8Zp4KuVwd0yhbW8c9LJ+E1R0rbndShO1HDMhHaYRt5YI4WMf/QG2TzQCjsIpaXvHMAjcUMEo3KkiRLvLuKxfe1YZYeFss/nqebDOaRjBleeZViLk0aQKYiIx0yufdD4cYDKEBzIfjAMxbgRF4RPGaKUbE1dicHPr0IPP/0ldSCCZNzxqW3muAUqnfmVh03v8sywVs5z4Vy8nv6w0X1OKpElKEQo84nhvfxUTYYL" operdate="Ze5uSsVUZSIsbTTPPeJPuQ==" datasource="QDD5RIPHBmjkZfDMYEsMWy2lNRZh0rFcBo7d2F2rvzo=" languageid="tXtv6yx1J9O4HfRmDGiDWg==" workstationserial="tdirke7qxS9GdFoxRNLT4/SfXpoKQBlONoQ6kLcv8ns1/7vMXTxrSCmexho+idDdEFA4v557NAHbxZjgCGUNYw==" rightserver="PJStjM89edSzWIrgGU2+ww==" iscompanyver="SDwt+TkW1ulnem6GOOxMSg==" secondconnstring="F2hQQcWFCjW28DcZdebIxuzNHgGpgNNzV9bxP2r1Q2qkQ5fJ3RrH/9TT+RoT1AtomQG4HryFfEcJsJ9sOGXZYpXqsBg3svzuvj5uac5tUiS6NzYgia/QMavgdaCS87nyRzPyHYWu/U2yx0ILz9fWSA+ob/+b6EULF68ZELBE+eGftcKFRutXfklfWQ5HIswRo7rUYB8ds5X76b3p47+GK0ZJbiMn9enZDcmLuzVZrdgR4Xs5N5CG1HdvPY2z9Mfj8IabMUEy+ce2ZZ+PcVxuUWcxzEYP9hx+kd4j2fpkHeFgJ6a78Ma2cYcFrJcShkniHcorWay9fU/R7O6KTcJxL036IsifXOluZ6N3qLIOtVDDjPdTSYK3krIUpafxl7FXlVUkS8maQpZOh2+hu/35m4SnfHpPZBmbowCxQjyHeNLL/GYR1e1BtZMhdpoA7eRODJfkI6MvoZpkvdPIp0Cdw4tNYTRMTacH9rw/QYEpzacYiRop8cxTw2JO5ew2FX9xtMiNADET/3ovSW2HWmKp/OdHHxXyFbwMixsqEjftM18F7Ro7o1mAG3DdMP6Q14Z/FKRfV4YVLgRURznFqT+VZC9PhSQe5nRVtARqlmy4M8pCIbkqOaRO9ymfzLVAuz6wuY0+46RreORjH8qQLGBoQtJAsbntTk/2CW7VvomW2EUuJJs8rROtesVseC/pmUpbh/IcX6FelrkKVQwJAAUPvMDDb4X7DCDeL6zDw+A5eKTyFnWMAAo8smlr/kTu0ddVN3hSM5QiDhTwdxrtOIE25yWwxvfJtOx9oEbfb02X6jb4TKY5EZz0LD+6ThcR4jJRp9/mgVmIx6UXV4EOygj3Bg==" employeeid="V7JyxmUbtGOxo1xzOQkcnQ==" isadmin="BfU9Nup36i9cG3oMGhbmQQ==" username="dIxZdbaKhR1x9KLRNK3Zog==" accname="SdY8YvNo5KAEWqF9T5OO1hBY3DiGX+6W7Dmg1vK5T1Q=" enttypeid="1OQMzH5iUc0a3CS/s48FuA==" imonth="qzJOBHZu9UoegSo6wR8UDA==" appServerserial="rUduc+yL2Y8/pccOBq7h921nSYtO6tksMML7FGbBQWJwfts3yMGxO4j+BZ3Yc+Ur" roles="Ftg10BIqg7Wn7Dymt1kFpA==" protocolport="OW5lnGq1eTtIlIJTx78mO9eY53ndGYWgQPE1Qn8TOZNTaDpDyuOTvskCmZrb1jIlSsO0j3vaPbEeC3ccnDAvig==" barcode="5rzcmlQVG8bb79yDKOKp0w==" customer="U1Zvlugw1WewdE7SuW/aDcRwBFi7No+Sfz6jJDdKo0OhoxtmbbG3Q7yAyQuuBD1ZfT88YajG+gX6jrKdbOyTlQ==" authenmode="ZSZBqD3A52+It6akfLeahw==" authenextrainfo="Ftg10BIqg7Wn7Dymt1kFpA==" industrytype="Ftg10BIqg7Wn7Dymt1kFpA==" ibeginyear="8yMXBzqUomPkKygM9//pXA==" aiosrv="Ftg10BIqg7Wn7Dymt1kFpA==" crmsrv="CbIOJ8TLF4F2Ckv6iVX7xw==" utusrv="Kbubo3KptvJ3/wzubO+uSQ==" remind="SDwt+TkW1ulnem6GOOxMSg==" usermode="vHTiwKBT5IXwusNxC6tnew==" sps="BfU9Nup36i9cG3oMGhbmQQ==" sysdate="yGZOCkW3vHF2s2+fzhLrqQ==" /></ufsoft>
+2017-05-09 17:12:38,630 [9] INFO  - 
+2017-05-09 17:12:38,631 [9] DEBUG - 
+UFSoft.U8.Framework.InvokeService.GetObject(System.Type, string, Hashtable):
+	--remote type:        UFSoft.U8.Framework.Login.BO.I_CreditIdentity
+	--calling codebase:   file:///D:/U8SOFT/Framework/UFSoft.U8.Framework.Login.BO.DLL
+	--calling assembly:   UFSoft.U8.Framework.Login.BO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=22eca903d177133a
+	--executing codebase: file:///C:/Windows/assembly/GAC_MSIL/UFSoft.U8.Framework.InvokeService/1.0.860.0__27100cfe39774293/UFSoft.U8.Framework.InvokeService.dll
+	--executing assembly: UFSoft.U8.Framework.InvokeService, Version=1.0.860.0, Culture=neutral, PublicKeyToken=27100cfe39774293
+	--serverName:         localhost
+	--remote url:         tcp://localhost:11520/U8ApplicationEx/UFSoft.U8.Framework.Login.BO.CreditIdentity.rem
+	--active url:         tcp://localhost:11520/UFSoft.U8.Framework.Login.BO.CreditIdentity.rem
+2017-05-09 17:12:38,632 [9] INFO  - m_userToken != UserToken appserver192.168.0.242
+2017-05-09 17:12:38,633 [9] INFO  - 192.168.0.242
+2017-05-09 17:12:38,634 [9] DEBUG - 
+UFSoft.U8.Framework.InvokeService.GetObject(System.Type, string, Hashtable):
+	--remote type:        UFSoft.U8.Framework.Login.BO.I_CreditIdentity
+	--calling codebase:   file:///D:/U8SOFT/Framework/UFSoft.U8.Framework.Login.BO.DLL
+	--calling assembly:   UFSoft.U8.Framework.Login.BO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=22eca903d177133a
+	--executing codebase: file:///C:/Windows/assembly/GAC_MSIL/UFSoft.U8.Framework.InvokeService/1.0.860.0__27100cfe39774293/UFSoft.U8.Framework.InvokeService.dll
+	--executing assembly: UFSoft.U8.Framework.InvokeService, Version=1.0.860.0, Culture=neutral, PublicKeyToken=27100cfe39774293
+	--serverName:         192.168.0.242
+	--remote url:         tcp://192.168.0.242:11520/U8ApplicationEx/UFSoft.U8.Framework.Login.BO.CreditIdentity.rem
+	--active url:         tcp://192.168.0.242:11520/UFSoft.U8.Framework.Login.BO.CreditIdentity.rem
+2017-05-09 17:12:38,662 [9] INFO  - UserDataXML<ufsoft><Entry user="i/Iv7HjAjs5HlsgI5jxJqw==" data="MjeDCqMtF2M/MWZR57ByEw==" accid="NkraHTUByz5wSKsQRKTQCQ==" appserver="1A9rATFOcFR4tzgUlbT/4g==" subid="HH5sY3CEYiry/OtiUsqm0g==" iyear="UZGaq+tZa5w3iyh4PN0SdA==" connstring="TSRSyPsR6IaTHU3gMSPW2Zv31rI75VL8loY71MH/WccCrcW3nYURuuy8BApZX5wmuzCIXPvIiOfrwjDbqKIc/qtBQB1HJWwojYy37EhIFcAV7NKfa5k4s1Hs7Wk7I0CIYELf9026PJsUNRLqSofwr3coCnhKbIqLO89Iuk4BRC0wpG8mk1vuC0ptJ6DgSO21mCSWDGt6nJGMdZEZM4NFV75DXsmL/hiUWVGm2MySWXHJ06IHz02nJ12ygy84YeQT" operdate="WrWoW/uBrRvpJ9K9k9gJRg==" datasource="hFB13skHPhXljtNstakuaAXOJPSwItPgEnut4ux64vQ=" languageid="r+FKMXjVja32paEN3rDjxw==" workstationserial="02iz/YeHD1uZ7TBriiOXguan8h7jgmBLF+sTm3Kbk1v2cuTzfGZfJbqZeA83rIhMhzfzydyh6Ix6iHWWtbRAKw==" rightserver="1A9rATFOcFR4tzgUlbT/4g==" iscompanyver="Fi+yxN0s6Ql1xrrb2vAAZA==" secondconnstring="gO/eo3l54HxUuL3ifHx50An0/b1HtMq5gG7FbKLTrGiDxhHP6nXtiKZ5KLE7IGIhcIQ4FBn+FkAmG3S7Wt5KAgLpWL8trH5lsOcBoJQJ0D7ZnFj5V9aK5gfklpZQ/HiXWP5c6q3uAMvZ7+2609jekBD8ncGttRelM9Xuje4eO9w005LzGofKc4kDvinOuaOWgzJFPAdgWnH0KcDmpI/gF2/uBIpJHX2RFKPjraCHOX11cSZ7LXoz31quw+jjGfB1qVQ7L9dArymNvNyru5VLU+VSQKOK6AnbkSJ+UU+rAP2cl8ruTEm8/8iMqUwGO0gZ9WtoxzLM5D6NNnfcQprfIR2DWIN7EB6Mx4Zhsf5Dix8UbLhWck6dfD2QsUm9Xjglk1Nq6Kc2fpXEpzOHkAJf0Vm53/Q5kpUM2E7WpipJTzqDTGM/jMXGNoE1bC5GE6NeQ4lOHjhoRchxQmnQXm42XKwxOhPFdS3/wvy+o//czSCrRdMOMJppBKXhmP/O7lML0zNTbECzdAdOxsehn4xOag0RKVowzDHmym8ySRoiA4Oq30bw36jiaqORMjcJSnIVUkrFhIO3prr9kvwT9+PXfnd0vlC7OtoBHGXgt4dVCW3V++bOY4rqilTSGloGJgfKYiW7U/kj9fwA2y8lsgOLBYtRd+tzyeSUq7AxOhf5I4cxfbY1xUWBFW7SyYdTa3wSbpD+mW0Zj5YxIcGuc4gwJsl6V57RDgqQFYe5QjqVq+/y6ONyALBC+jrTmVM5q/QLZHatUVzC02KL0aMXT1HT1G20Pt2r2TR0OiDrijNSvnhwZAUf19rtbj4dfP+USwbu9BgiTX64I5FkzlvUoBqjPQ==" employeeid="i/Iv7HjAjs5HlsgI5jxJqw==" isadmin="lX77LjLViuqGckYRG5vS4Q==" username="wAUzSU9Cof1J9j2vmFTiwg==" accname="K1rZzIZntL34+01hCfB/WaCc0jCloREo/vmNYNDGRIg=" enttypeid="fc/M5GGcUcUZEzhbo32W0w==" imonth="MM1WlNeyR+qsUKaivGjSHQ==" appServerserial="So9BA7YHjjySr/k61OxLzZZZO8Tvvd2SbgQZWmOutyWA9Q+l1V+NizNqkaNGy35y" roles="MjeDCqMtF2M/MWZR57ByEw==" protocolport="IXOtnq3BiZczN5BRx5LJyJw2dHIztrY9H97F+IwTscYCBYNCuBJO+yBY8NAKaCfco+k80zm2MXh4dMmLvX1RpQ==" barcode="PUyEL/TUP0Ol9E2e1AxY7A==" customer="zAm2BmjZaxuqm+MaoWAKiZnERhY7+dB2BlrOb3kzp4T8PMm5FN2giaTOAz8XOSKV0f3yRLi4ojahd7loRn79Jg==" authenmode="qSjQf+gForAOpyAjH9N4iA==" authenextrainfo="MjeDCqMtF2M/MWZR57ByEw==" industrytype="MjeDCqMtF2M/MWZR57ByEw==" ibeginyear="jsTEQ1nYKZTjwD1IZITSCA==" aiosrv="MjeDCqMtF2M/MWZR57ByEw==" crmsrv="et/R8YtSsJ5j4pJfQNAY5A==" utusrv="K03JuCwYTKxkd2TEtQ0OOg==" remind="Fi+yxN0s6Ql1xrrb2vAAZA==" usermode="w+voeUo4d8lqlWJzA9hh9Q==" sps="lX77LjLViuqGckYRG5vS4Q==" sysdate="h5FMtQT5JAa+umqi9U223g==" /></ufsoft>
+2017-05-09 17:25:19,594 [27] INFO  - 
+2017-05-09 17:25:19,595 [27] DEBUG - 
+UFSoft.U8.Framework.InvokeService.GetObject(System.Type, string, Hashtable):
+	--remote type:        UFSoft.U8.Framework.Login.BO.I_CreditIdentity
+	--calling codebase:   file:///D:/U8SOFT/Framework/UFSoft.U8.Framework.Login.BO.DLL
+	--calling assembly:   UFSoft.U8.Framework.Login.BO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=22eca903d177133a
+	--executing codebase: file:///C:/Windows/assembly/GAC_MSIL/UFSoft.U8.Framework.InvokeService/1.0.860.0__27100cfe39774293/UFSoft.U8.Framework.InvokeService.dll
+	--executing assembly: UFSoft.U8.Framework.InvokeService, Version=1.0.860.0, Culture=neutral, PublicKeyToken=27100cfe39774293
+	--serverName:         localhost
+	--remote url:         tcp://localhost:11520/U8ApplicationEx/UFSoft.U8.Framework.Login.BO.CreditIdentity.rem
+	--active url:         tcp://localhost:11520/UFSoft.U8.Framework.Login.BO.CreditIdentity.rem
+2017-05-09 17:25:19,597 [27] INFO  - m_userToken != UserToken appserver192.168.0.242
+2017-05-09 17:25:19,598 [27] INFO  - 192.168.0.242
+2017-05-09 17:25:19,598 [27] DEBUG - 
+UFSoft.U8.Framework.InvokeService.GetObject(System.Type, string, Hashtable):
+	--remote type:        UFSoft.U8.Framework.Login.BO.I_CreditIdentity
+	--calling codebase:   file:///D:/U8SOFT/Framework/UFSoft.U8.Framework.Login.BO.DLL
+	--calling assembly:   UFSoft.U8.Framework.Login.BO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=22eca903d177133a
+	--executing codebase: file:///C:/Windows/assembly/GAC_MSIL/UFSoft.U8.Framework.InvokeService/1.0.860.0__27100cfe39774293/UFSoft.U8.Framework.InvokeService.dll
+	--executing assembly: UFSoft.U8.Framework.InvokeService, Version=1.0.860.0, Culture=neutral, PublicKeyToken=27100cfe39774293
+	--serverName:         192.168.0.242
+	--remote url:         tcp://192.168.0.242:11520/U8ApplicationEx/UFSoft.U8.Framework.Login.BO.CreditIdentity.rem
+	--active url:         tcp://192.168.0.242:11520/UFSoft.U8.Framework.Login.BO.CreditIdentity.rem
+2017-05-09 17:25:19,631 [27] INFO  - UserDataXML<ufsoft><Entry user="mj8ctsLgoR6+q/hlOJxZYA==" data="YW29KYVltZ9qnEtUQgOk+Q==" accid="DWjBFF6VmNJXkDfNItyu6w==" appserver="lA4w4Loi3RH5NTBO1CI/dg==" subid="WePcPxdvJQTVnJJY2p6uHg==" iyear="P4yoxfRZX887Mc3rONkADg==" connstring="bUPeVyEmwpMIRA1jlHuTHddKgEfa26clzXk4Y1fQaad0kY14JBFINQgcV79jowotyPFr9StQusMYuFSSiHdd5X1sGuqCyPaF0ZccAAURT7yeLpJHfnWN+G2LCrgGoE+QguWPDWJF8A5U0jfAS5CrVwsYNRdsTGw43yGRnA3n4oajeXt67CuEUTb5o1mFLSqrSoTvz23Zv2MGC7mr8/rp4JwGaU+ARWjBEPyNltWmal6cieTSMidojqSthvrI+eQb" operdate="W10FRy/s7J98ogRMPUQbgw==" datasource="vxz8sxLrUUMeGZ7QowX/GF08ORZA0pKcXyH2wT+d6fA=" languageid="En5oJlCvyAKIDbrHwvZeqQ==" workstationserial="XTok4sZNJWRiSPBUL5JcGadzosOlDcFfkNcDbxky+ZPuTKqfra3UOnsFE8t+aCHXJcqO+f91V9dVF8GcY2VUzA==" rightserver="lA4w4Loi3RH5NTBO1CI/dg==" iscompanyver="ngVom93xBu9MWmIwQ8/qpw==" secondconnstring="Tpab5dfVSVauOCY23DfhyyAcJ4/ebh02DjEhEq/+TCrksPc+ESoylgmG4f58HpSuVdKPZ1xSPaVuCZrUab67JX9JIMqMVZj1rdx6W2+sjP/i0wKFP3gGJ8kGYUkK/wQOVR54HKAbSbUA8D6wO/qSByl1foJ3MXzCqSv1SgFUI7jx/aJ5oHmZOUWZ2119Su55OlKMrpY9OSuORMccyFmbFRF49uftFW3KeIJJ6Bs/RHqYt5C2bgZaf8BTiBHaSN3OPXlp0XpVBSkzUi+2mMi4fwCgsKOYQ3X4ImcxnPvfKFQK3Bxt49US+zTrM9S0QTxxHkzX/9ZLbgK8BVjxOIKF7+sgZbK3kwD+xE5+eWZpZS3+WTZxxKDj7rFnybNHlSdLYtfSzMk+4hlLK4KzrPmn34GQMdUX9ppfYOQYdoDBja++hVUdGaXF4lPr8uY81bxFPYqoC3XGMwDTy0C8EiHlFfqFcaE0Khwo836DpOJzQD5zWH/818pQXQc+EELUE0gBnozx/8A8REO0V9RI8PNUvXu0mkuvA+7/AGI6ua6sw3+P7LnZyhJYCwKM11XTE8tC2e+KnHgpeEaMKj0o/E5ShxaACPLbzSsTaH4ywLUOeWTZK/JfWZGfC4pGbBS39nGYEHGI1QAj2lvBNOFaNtYcv3hTQVvaBKXCOXo/q+viv5syhh1OD5a+lTyiZBI3j6QRZ87NjZIQyO4PNZY9QeaT5ESpzg2+ozJ9XkfxfkIvxI9CYYwCFrb/oU//6H/4OfKszob0lrv65TTgJD4tvsJ8WC7oUKX1PsdmQ12t4z6vj55NiCDmp5yxNI6618cQ3HVaT2zr/PnGDb3n8ieRUOTN+Q==" employeeid="mj8ctsLgoR6+q/hlOJxZYA==" isadmin="4ONAV4mOUORKT3SNsF9zcg==" username="tSH6HqSAmppKrobFXoYuWw==" accname="71bDf73EMj3mhUMzcPX+NwC7WINYhmYvSPxotbPuw8I=" enttypeid="cG3YegjoxFYp/XDi3xvTag==" imonth="1sgivQq8v2zYvXy4GGA4LQ==" appServerserial="UH8m7+4RwMriVpLulPRgPN208MKS7wsOnAit1mx2nqMLkFdczQFY/5TFLbqB5aw5" roles="YW29KYVltZ9qnEtUQgOk+Q==" protocolport="iXlmQgx9s2FTgYrlMbPrgapqPGB9Vq2uaKOao071hM/y2TVDsD9V/4bmfLL38wVtc2SQuHKaSsAf5nEmwAUQlA==" barcode="vJ4/DgYI5rL+3Y3i6Mh9MQ==" customer="QXFYffOuDw7Gmi5adeDGs/0qvjljMBR/IrFrAfoPVyBaN9f9dmvXahulrG+i8ikL3fLGpv1zM23w6QxazmCJqg==" authenmode="aVWT55U4dgSgmqJKQJfuHA==" authenextrainfo="YW29KYVltZ9qnEtUQgOk+Q==" industrytype="YW29KYVltZ9qnEtUQgOk+Q==" ibeginyear="QLU7rfoWiXq0zNgyJt8NQg==" aiosrv="YW29KYVltZ9qnEtUQgOk+Q==" crmsrv="WWbQ0xGY36Hj7IIW6dgsTA==" utusrv="dCadpszpKplybpHOOjTRHg==" remind="ngVom93xBu9MWmIwQ8/qpw==" usermode="kv76GqahSk9as7UuBQi90g==" sps="4ONAV4mOUORKT3SNsF9zcg==" sysdate="m51lZuyUnZXwEacJZJ+xIg==" /></ufsoft>
+2017-05-09 17:26:41,989 [22] INFO  - 
+2017-05-09 17:26:41,989 [22] DEBUG - 
+UFSoft.U8.Framework.InvokeService.GetObject(System.Type, string, Hashtable):
+	--remote type:        UFSoft.U8.Framework.Login.BO.I_CreditIdentity
+	--calling codebase:   file:///D:/U8SOFT/Framework/UFSoft.U8.Framework.Login.BO.DLL
+	--calling assembly:   UFSoft.U8.Framework.Login.BO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=22eca903d177133a
+	--executing codebase: file:///C:/Windows/assembly/GAC_MSIL/UFSoft.U8.Framework.InvokeService/1.0.860.0__27100cfe39774293/UFSoft.U8.Framework.InvokeService.dll
+	--executing assembly: UFSoft.U8.Framework.InvokeService, Version=1.0.860.0, Culture=neutral, PublicKeyToken=27100cfe39774293
+	--serverName:         localhost
+	--remote url:         tcp://localhost:11520/U8ApplicationEx/UFSoft.U8.Framework.Login.BO.CreditIdentity.rem
+	--active url:         tcp://localhost:11520/UFSoft.U8.Framework.Login.BO.CreditIdentity.rem
+2017-05-09 17:26:41,993 [22] INFO  - m_userToken != UserToken appserver192.168.0.242
+2017-05-09 17:26:41,994 [22] INFO  - 192.168.0.242
+2017-05-09 17:26:41,995 [22] DEBUG - 
+UFSoft.U8.Framework.InvokeService.GetObject(System.Type, string, Hashtable):
+	--remote type:        UFSoft.U8.Framework.Login.BO.I_CreditIdentity
+	--calling codebase:   file:///D:/U8SOFT/Framework/UFSoft.U8.Framework.Login.BO.DLL
+	--calling assembly:   UFSoft.U8.Framework.Login.BO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=22eca903d177133a
+	--executing codebase: file:///C:/Windows/assembly/GAC_MSIL/UFSoft.U8.Framework.InvokeService/1.0.860.0__27100cfe39774293/UFSoft.U8.Framework.InvokeService.dll
+	--executing assembly: UFSoft.U8.Framework.InvokeService, Version=1.0.860.0, Culture=neutral, PublicKeyToken=27100cfe39774293
+	--serverName:         192.168.0.242
+	--remote url:         tcp://192.168.0.242:11520/U8ApplicationEx/UFSoft.U8.Framework.Login.BO.CreditIdentity.rem
+	--active url:         tcp://192.168.0.242:11520/UFSoft.U8.Framework.Login.BO.CreditIdentity.rem
+2017-05-09 17:26:42,024 [22] INFO  - UserDataXML<ufsoft><Entry user="yFgiHXUf5OmqT+DXxeHueg==" data="mLxYDoYrgKO2MnicZDUuzQ==" accid="eg7qbHJ0boB5fQx8msvd1w==" appserver="/ds363Lzz/96W/YkFONQ9g==" subid="uc8LnmKDo6jg5u+fTEPP6Q==" iyear="YSH5t5Gk8+wObrEECdfAAA==" connstring="4cahlOWHc3hNArt22L1EJJLQhEk5Ky8MKJX6DalJtgEOGw31cpW6PvNHAlvsWLWP4lcVNwBD3bl07aas2jCokQ5gHsO22lrDhupSJfzuUIAJog3/fLvkrUvJWL4Pa3lgR4SK0DOn7K7pAVXjq4P9XYyubIGF8XEBZrflL5ZdulBQpAw2y6e02OguzCMMI30BZTzq84Z8R5Iz4b3d7aBOs72QmXjGBmbX+3wflVAsDnwI+xe8petZefYkWHg2EyX1" operdate="bb1DQwrQVQF3fB357b7j1A==" datasource="b7KMrxkqKIIQjpdjbYb78DWFBAPHpQPtT48NLuYIcG4=" languageid="XzY9kmSIO1Kotl8tp0Kzfg==" workstationserial="8sIJfIN0/if5FOk043dvalAk9RPuzNw/L+lbrR5vNuaX+w/WNgEwLCI5YgB6+fvwPk0irTac27/8pL8dUjNuUQ==" rightserver="/ds363Lzz/96W/YkFONQ9g==" iscompanyver="gTEECi1ExnGKUnIr+TlViA==" secondconnstring="p/scOD95uEAwaPbPAWZM41RqHjCwK3P7JiCkS3cLnUvdOEXPJCUMrw7RzQa1AL2uxnTe0VKtXUcM7/MLBQq+y1LO4rNzk4+XHT8FMTNVrvOeFS49ERhRNpS6m4Oa6hkKVg74HMA38WeTA4vfKI3o63Mckv5XDF8FACiGQpA8PFRw+NsTgcUrIWrr5E+xacDr3aI5pMVGG8D+j2rOltarFZCQtoe+mnF+13XFFtLiU5NZaDmjCAeirfzpoiAGvhkTxiXXn8f9pXeFIWlMBiNF5uMTKim/NEs9sHW7bul4QpEFm9lDG5PWzeacXnDxWkmvgTlU97W2IWBWbcPXW2MWUP0FgDGIbGG+t3NlhLPvJNZfAtBzHSka7qQsLRcH675sM7jx7GkaRiwFLgQ9TJKCJM1qNuQlPSjQa/0wSOzEZw5Dfsqx4bz3DnNGCPfPcMW6TqQssyZqrUkHDMfnIYBLGsIZx38TAac2i9z5Inimu8SLuE+JXDeMpV9N//ZRMX3V1c9RaaV+Aj/4L6pBIs9/QLRwC5AYAtDcMfIGhPevtjmD3/AcOCMStsEBW/9EGNPypJ86MmeFPzq1A2CcVnW99l/jgE66wsnPpcHiTU2BRlMD3iC22IHPha67bIzx3GEIshTaI47G24KtOIijCooqRSPzDh17ICAWaWC4vp4diny4L7r53wjp/KOTiGtI7XKl/XROHWVlnJ9vNXYvvcLUE64Q9z14OwaPMQV4BKfjD+0gxB4QpIaC0Vlbe6Wdo6MMq5E2uEck26Bje4WtbpsAr5UGAh3XPaRn0PfBYkMFlByDvgw6u4TkAHGURPzJFma+x5XAJ2AYRlRwnZDvS5iBMA==" employeeid="yFgiHXUf5OmqT+DXxeHueg==" isadmin="C2rqUTG1BlkVxfwfO3xUTw==" username="qC/Iryb3ZVHklqG1Pr+R1Q==" accname="Ul9xqfjn4TIFoKeKSJmIfh/vOieewt/LjpCjSDLgLkk=" enttypeid="xKkdSnuwBDSwX8TgkThAUQ==" imonth="2ocaK+QVGmglLPWpgfAkBQ==" appServerserial="jKFPsEZMhk53IHAEm+xo46gxDdbjaml6OomO+mv36RzJPnJv53eObXkT6TP0x6/D" roles="mLxYDoYrgKO2MnicZDUuzQ==" protocolport="9rkJ+ym6bSLrhAyWnDFJnCRqQXetqSCB2//7br6ovnOJEh4uqS/qljN4uN+g+rFydjuORwkeXVXJqthfLkImzA==" barcode="nut9pAeT8CCQv9ynNQG10A==" customer="T5jatpOGm2fxusSSWK3/heaf8Lm52MYSBWkdmjyN7yl2dBCgROFYnjrf/Xk1B3EWFxPB/8DcUHGjinco1+LdEA==" authenmode="XcFN5aoa2hUBBB1u/P6V4w==" authenextrainfo="mLxYDoYrgKO2MnicZDUuzQ==" industrytype="mLxYDoYrgKO2MnicZDUuzQ==" ibeginyear="YzCNUSTq6P1zIbBslxwMrw==" aiosrv="mLxYDoYrgKO2MnicZDUuzQ==" crmsrv="wY1ZW+nDE1itL5S04FVFKw==" utusrv="Ed1UmmfIF8+FgC8wHQrRRg==" remind="gTEECi1ExnGKUnIr+TlViA==" usermode="nAfwghaHu0Te2BL9b1lw7A==" sps="C2rqUTG1BlkVxfwfO3xUTw==" sysdate="UzWVN3xp11ziWJGZg+UX0w==" /></ufsoft>
+2017-05-09 17:28:05,058 [6] INFO  - 
+2017-05-09 17:28:05,059 [6] DEBUG - 
+UFSoft.U8.Framework.InvokeService.GetObject(System.Type, string, Hashtable):
+	--remote type:        UFSoft.U8.Framework.Login.BO.I_CreditIdentity
+	--calling codebase:   file:///D:/U8SOFT/Framework/UFSoft.U8.Framework.Login.BO.DLL
+	--calling assembly:   UFSoft.U8.Framework.Login.BO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=22eca903d177133a
+	--executing codebase: file:///C:/Windows/assembly/GAC_MSIL/UFSoft.U8.Framework.InvokeService/1.0.860.0__27100cfe39774293/UFSoft.U8.Framework.InvokeService.dll
+	--executing assembly: UFSoft.U8.Framework.InvokeService, Version=1.0.860.0, Culture=neutral, PublicKeyToken=27100cfe39774293
+	--serverName:         localhost
+	--remote url:         tcp://localhost:11520/U8ApplicationEx/UFSoft.U8.Framework.Login.BO.CreditIdentity.rem
+	--active url:         tcp://localhost:11520/UFSoft.U8.Framework.Login.BO.CreditIdentity.rem
+2017-05-09 17:28:05,062 [6] INFO  - m_userToken != UserToken appserver192.168.0.242
+2017-05-09 17:28:05,063 [6] INFO  - 192.168.0.242
+2017-05-09 17:28:05,064 [6] DEBUG - 
+UFSoft.U8.Framework.InvokeService.GetObject(System.Type, string, Hashtable):
+	--remote type:        UFSoft.U8.Framework.Login.BO.I_CreditIdentity
+	--calling codebase:   file:///D:/U8SOFT/Framework/UFSoft.U8.Framework.Login.BO.DLL
+	--calling assembly:   UFSoft.U8.Framework.Login.BO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=22eca903d177133a
+	--executing codebase: file:///C:/Windows/assembly/GAC_MSIL/UFSoft.U8.Framework.InvokeService/1.0.860.0__27100cfe39774293/UFSoft.U8.Framework.InvokeService.dll
+	--executing assembly: UFSoft.U8.Framework.InvokeService, Version=1.0.860.0, Culture=neutral, PublicKeyToken=27100cfe39774293
+	--serverName:         192.168.0.242
+	--remote url:         tcp://192.168.0.242:11520/U8ApplicationEx/UFSoft.U8.Framework.Login.BO.CreditIdentity.rem
+	--active url:         tcp://192.168.0.242:11520/UFSoft.U8.Framework.Login.BO.CreditIdentity.rem
+2017-05-09 17:28:05,091 [6] INFO  - UserDataXML<ufsoft><Entry user="JtezaSkCJjuhqE6005MZtw==" data="198J52gEfXf/0kpz14Qa8A==" accid="CI3Hg36XvJjTlE9XaYawXg==" appserver="1hq6Adik0I8X413gtn04aQ==" subid="beLOvVpNlyN0j0HTfPwppg==" iyear="iKA12DvxOPksfdou3qOQAQ==" connstring="UTsmol9S78bqdcxpelfB50qmtgQIlp1ombcau5KikVfHM9bdp2xAbhgIQKmXEHJfekgOdL/UJWFD9obW9eXj83XWnVztIT3GcoeekVApk/UQ1E6xnrLzvc7Rrd6ahqGhOUKzJOiLRGnp/HvTOezJKOeGIv9xPEwI61cwNcGorx2L27XpwM5+fGi8MQGXhjIdHokRwLIqRYPQK8VvEdAtjNviEpW1/wOKr5LF2ZFlrUOSIf+IqiPNWe0KT9kgVx2n" operdate="MvkVKdiWcsjXA5zXs7y8nQ==" datasource="2YzSu105cOek4rdvggJ7Fm0F4mBowST0Ru0d1MrI/o8=" languageid="tqCfybxLuIrNwxsfPYIWwg==" workstationserial="Dr8eWGYFxMlqOUo7jy6qie7PmIDau58MKmcuGWWxU6AZcIA3W8GJVVl6DMr5skjOOu9CcZmj1rRtivHUFTnpqw==" rightserver="1hq6Adik0I8X413gtn04aQ==" iscompanyver="HK3mXFI5WBDXKpT9Ak1bmw==" secondconnstring="AFR7FBsV0h0/oXoicmu8ml04deqWgHayOgPLKtMrzUPXBll/VouP31G4TokiWduFkD5ljP3v382YMebQJZTbexJLFRg0YzJ7HUXi2MT/Ce9tl40fzFMRqZrt3oEic8cFEUSk2m31f2LM5S7bJayuexHY3x/Kc2zJVfPxGSrxNk8BJe/BtRWt+Adgv16wbpix3nuPpiqB8nUGT/IEMdFGxLxPtj8CIOjcBNmLHrbkFqe3u5Yi810zx5FNcmW0XXtd9B6N85W/edHKB5RV5qngx6309NowZ44RZ7ETu+vU3fGHVW31ukJBgBFsvuaavitxW1we7E5bGIRddvS378UMh27HPdaYLUTiwqtKmZq+kXCwjqPgU2SQZqt1i/DtccSDTyEBNzad8PLaaqM1ihI/6WuYdy8b1ulAimMzZUtVkVTuwRnv4Mxhbxr1r9csyrAMTvVXibWoOB8/l2HazMjuRY718ImtPzNkSGLOZQP9fGaUBfZtVXPo3QkRBaBzSI6NYgcbK9YodOJaNSzcOLWmsRNeNbRLJKzpK5EnGPbcv1SyL1wtn6vd7yD5nj374GyTNBUtC1brj3NFWggcWGcb3MybgTBTtJKUIsDW/n/SFKAeRdYWyooghh71VWnnCNvDBbIow7l9fVB4ADD+kNQyQoTo8bPGPoEGofhfCvfPgBQrQ4oj/KGVHmx0kKe58AcoiAEBgmcx8k3/S31Ux0ow8RQEvPdQKQnC6Szsyt2BmwbHE/hLUfzS+DV4EcYRnhwiErLrOvD3uDDKhY8uvN1rY7q5RFhjtKyprgdJmglR1HOOLlki+GJUAfa/w7Mps+S/A7st8CuGrCUya0PQsBi1EA==" employeeid="JtezaSkCJjuhqE6005MZtw==" isadmin="Yt3HU5W5qw2gBDVph9qDXg==" username="20+n7wtcpcpJbT3y9D5D9A==" accname="dgwEQzdZYwCIhZ0IpQz9BL9h3s/u2UnjYutDJrshUwY=" enttypeid="bL4MqugsO2bnI/kzeEkYzQ==" imonth="KIozocHKRl+Kc7FiGV+Hmg==" appServerserial="TpEdPbsWL+n9Jc2nJwNvBh0h5rX9ClY1p0UTObSylo/SqOsJVlmwKpnM09q1ELLp" roles="198J52gEfXf/0kpz14Qa8A==" protocolport="pmZuQjq0C0ny+jsnSFCUO4ZtzsCKkP9e9o8j5MpI4bFvfWzQh40kelK8T0Dh+BLTxwF1Srw56sNJcjkzTkGCYA==" barcode="5J8JYqw4gWDjHtEI141EDQ==" customer="ZFwU/eB0PM9SULbKv6tXoF8X5s8GvyT/Wl1EwWQq9jRn0wdpBbOVYY2ualZPdj+MIHD/ERO2LtSGHDa90vuVZA==" authenmode="3YQ6YAK5+OxN2oQjGb8dEw==" authenextrainfo="198J52gEfXf/0kpz14Qa8A==" industrytype="198J52gEfXf/0kpz14Qa8A==" ibeginyear="GTanbeuj1iatPsINZhOANA==" aiosrv="198J52gEfXf/0kpz14Qa8A==" crmsrv="aihXruCr+obfRCah2fE5/A==" utusrv="SgnA1Zr4jjpfE6Y7euQYvA==" remind="HK3mXFI5WBDXKpT9Ak1bmw==" usermode="DeatzGIfVnpH8B4sJESWHA==" sps="Yt3HU5W5qw2gBDVph9qDXg==" sysdate="JXPaJcX72xgyoSv0zBR+Dw==" /></ufsoft>
+2017-05-10 09:05:29,365 [7] INFO  - 
+2017-05-10 09:05:29,374 [7] DEBUG - 
+UFSoft.U8.Framework.InvokeService.GetObject(System.Type, string, Hashtable):
+	--remote type:        UFSoft.U8.Framework.Login.BO.I_CreditIdentity
+	--calling codebase:   file:///D:/U8SOFT/Framework/UFSoft.U8.Framework.Login.BO.DLL
+	--calling assembly:   UFSoft.U8.Framework.Login.BO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=22eca903d177133a
+	--executing codebase: file:///C:/Windows/assembly/GAC_MSIL/UFSoft.U8.Framework.InvokeService/1.0.860.0__27100cfe39774293/UFSoft.U8.Framework.InvokeService.dll
+	--executing assembly: UFSoft.U8.Framework.InvokeService, Version=1.0.860.0, Culture=neutral, PublicKeyToken=27100cfe39774293
+	--serverName:         localhost
+	--remote url:         tcp://localhost:11520/U8ApplicationEx/UFSoft.U8.Framework.Login.BO.CreditIdentity.rem
+	--active url:         tcp://localhost:11520/UFSoft.U8.Framework.Login.BO.CreditIdentity.rem
+2017-05-10 09:05:29,375 [7] INFO  - m_userToken != UserToken appserver192.168.0.242
+2017-05-10 09:05:29,376 [7] INFO  - 192.168.0.242
+2017-05-10 09:05:29,377 [7] DEBUG - 
+UFSoft.U8.Framework.InvokeService.GetObject(System.Type, string, Hashtable):
+	--remote type:        UFSoft.U8.Framework.Login.BO.I_CreditIdentity
+	--calling codebase:   file:///D:/U8SOFT/Framework/UFSoft.U8.Framework.Login.BO.DLL
+	--calling assembly:   UFSoft.U8.Framework.Login.BO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=22eca903d177133a
+	--executing codebase: file:///C:/Windows/assembly/GAC_MSIL/UFSoft.U8.Framework.InvokeService/1.0.860.0__27100cfe39774293/UFSoft.U8.Framework.InvokeService.dll
+	--executing assembly: UFSoft.U8.Framework.InvokeService, Version=1.0.860.0, Culture=neutral, PublicKeyToken=27100cfe39774293
+	--serverName:         192.168.0.242
+	--remote url:         tcp://192.168.0.242:11520/U8ApplicationEx/UFSoft.U8.Framework.Login.BO.CreditIdentity.rem
+	--active url:         tcp://192.168.0.242:11520/UFSoft.U8.Framework.Login.BO.CreditIdentity.rem
+2017-05-10 09:05:29,407 [7] INFO  - UserDataXML<ufsoft><Entry user="COGDDEhbLHc7Kmx41W45hw==" data="KTAkWOlBegs7zc+qVfSDwg==" accid="oMgB9A34j016XwULBB0xiw==" appserver="f6d/qhWffKfzMO8BedJmDw==" subid="zQgS0cApB8q05+2RYZhxLA==" iyear="m7SfGiJOK/oXnNqDsKGYPA==" connstring="VVPiQtZJdVJil8QP35FMqqU2xpalF6o/O8ruFvvKNinm/5ptkvd0XmINBWX/cCOoQ8Z/JdxGrlkixS1tlOoPiob6+ZihXdYB7dOTv3SYQlCjyzpeF0lp5Uwnvv+trdQtCaFyzbQeJRZih6wz2ap5PDWsP+zch9ZVAauMrshYYOJeMtKZiA8anNtSGNLG1u/nV7riTHauGgLIhMYHpCgu1F1mCIJ/3nvPQuL9+B8BWjSNB4nh3yLK90/MqwcWgZg+" operdate="w/Yz0TpjfEv+XwQq9PAKuA==" datasource="ZKCvbjz9C17ReRQ5mDs+0u+c6B7+hLU2WA3dL6tIRCU=" languageid="QSxkl1DX9TeBktbn8X3R7g==" workstationserial="Z99325Ta0KUaRNjqyrjAY0ypA3wfTX9uZcPZpKdhMxOv81rF02GQiqL6QPxXo1VgrD1J0ZO5yFmZT4P5qwfXgA==" rightserver="f6d/qhWffKfzMO8BedJmDw==" iscompanyver="QoOfn8UqxuPsOH5Q3y3CbQ==" secondconnstring="gxiSVcxZ4YACktozQksQEXQPYt6PhQUcx4hVOR4In2cba3gQPFVF4Q2fLCZLVNJvIdy7ep0be5gz7YX6JOSfUnIKkm1Gr0IlDu/hrqyLtGKtaF0ZYdGKAaryiRXDc4ZkNsyW9/dYS28gaMm5YCN3ysErOT7NTkgmFe7/67zYChPD3Y1Z+fqLkkKY2pu0LGI5hvDHWwboLAqDQ83sAeej01kFcxt0KEaLK7qDgjfiVx+d3xB1j9d7fSpm0qVMGlSiy3ZAmNC7nryDeJMWfhSHKHbKeWzNWDNnWTI0IP4OSEBS4XBl9IOccJdtVM7Qn6pTAjQlK3H/mvf0fyywD8OokizRL2hLWTBRCos7DZywDtOBSrTkOkaNIg0GmNy98gn+Za6zlVOYws59Wgm8GRjwODRbV7wD6q5b8L5SH0ivD6ZEkZYM0e3eGdn9r3uSSjASu0PecuxcVA4QNVBl+qj4/60IED+rjokXYu/wwHmAAzYgkatnbX6nRvvgV1NmRkwtWTcJrHg9XvNy3lM1QqutDme/QQGHHX+WVRfxE2a29TLTvguDisnUijtBXqOMwJNfuWrj97JyoEjF3LqbRylMf3EV0h2L1E+Mvd2da3RqIgNp2VTkn2L93f0CGNSMokTb6mBLoNjdXTo3nKW60HK8lE1Tz6WVnl39SWl3W+hcmh4QucUGNgMA997EFcduI9zHgw76DFh5iooZ71kc6rzrYb1Uo3m2YKE0XOyXKBFNuasrAbJTp2T285QEtvcRD5CcO7Z8hJXrY6vScMT0Q1hGTyXvTIMlOyoiVTthpFmPdJRKBbPZhB44QllTVq7AowgfDu4WewQO8zfvnz41bBCSjA==" employeeid="COGDDEhbLHc7Kmx41W45hw==" isadmin="UnavqShbLbK+FRX1Lru1GQ==" username="zNsLhuZBWA92QkHSA9o9nQ==" accname="etOOWasg23/lFnSZ+3jef3upsHfL4Q0W+caJLJf5ErY=" enttypeid="jhlgbaBskw/vUpgMLmoznA==" imonth="izF7ZDzl0NmTFg9jp0NMxQ==" appServerserial="6D8RS887H1MN5+xPszCS61PLEPtPV7QdG6dMAt6Gjdib6pLDHqRKg7G/CJsrqL3s" roles="KTAkWOlBegs7zc+qVfSDwg==" protocolport="gMvUKY91v6xLF6ggGEjbUIHAFBjz2SWbULwbUGeiGUK6435Ys4/G0EEo/LTTMUUnZweQfU7/OG6UQJ6cN2BTQQ==" barcode="d6lGE5ffHcXzFmcSiEWk9Q==" customer="ovzJaX2pMg9Lia1CWsg6+2aqxM2IrXo5yioLyWfZbz6BX3f+O7u8/A37LrC2Q+oG+kPstwqikPw1fWRNY7/feg==" authenmode="CcLEN74KE/JZN5E9GQA7hw==" authenextrainfo="KTAkWOlBegs7zc+qVfSDwg==" industrytype="KTAkWOlBegs7zc+qVfSDwg==" ibeginyear="wdqkqZb0mpWsPAXp77q5SQ==" aiosrv="KTAkWOlBegs7zc+qVfSDwg==" crmsrv="MAZ1o3DcWJ0ow1ErVKzE+w==" utusrv="TbUTG5o0TolTyroDigq/Bg==" remind="QoOfn8UqxuPsOH5Q3y3CbQ==" usermode="eJa6/of0bvxfQs8T01Mr9g==" sps="UnavqShbLbK+FRX1Lru1GQ==" sysdate="pedWFXsy3m+nx7YxWpiPYg==" /></ufsoft>
+2017-05-10 10:17:48,809 [36] INFO  - 
+2017-05-10 10:17:48,810 [36] DEBUG - 
+UFSoft.U8.Framework.InvokeService.GetObject(System.Type, string, Hashtable):
+	--remote type:        UFSoft.U8.Framework.Login.BO.I_CreditIdentity
+	--calling codebase:   file:///D:/U8SOFT/Framework/UFSoft.U8.Framework.Login.BO.DLL
+	--calling assembly:   UFSoft.U8.Framework.Login.BO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=22eca903d177133a
+	--executing codebase: file:///C:/Windows/assembly/GAC_MSIL/UFSoft.U8.Framework.InvokeService/1.0.860.0__27100cfe39774293/UFSoft.U8.Framework.InvokeService.dll
+	--executing assembly: UFSoft.U8.Framework.InvokeService, Version=1.0.860.0, Culture=neutral, PublicKeyToken=27100cfe39774293
+	--serverName:         localhost
+	--remote url:         tcp://localhost:11520/U8ApplicationEx/UFSoft.U8.Framework.Login.BO.CreditIdentity.rem
+	--active url:         tcp://localhost:11520/UFSoft.U8.Framework.Login.BO.CreditIdentity.rem
+2017-05-10 10:17:48,812 [36] INFO  - m_userToken != UserToken appserver192.168.0.242
+2017-05-10 10:17:48,813 [36] INFO  - 192.168.0.242
+2017-05-10 10:17:48,813 [36] DEBUG - 
+UFSoft.U8.Framework.InvokeService.GetObject(System.Type, string, Hashtable):
+	--remote type:        UFSoft.U8.Framework.Login.BO.I_CreditIdentity
+	--calling codebase:   file:///D:/U8SOFT/Framework/UFSoft.U8.Framework.Login.BO.DLL
+	--calling assembly:   UFSoft.U8.Framework.Login.BO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=22eca903d177133a
+	--executing codebase: file:///C:/Windows/assembly/GAC_MSIL/UFSoft.U8.Framework.InvokeService/1.0.860.0__27100cfe39774293/UFSoft.U8.Framework.InvokeService.dll
+	--executing assembly: UFSoft.U8.Framework.InvokeService, Version=1.0.860.0, Culture=neutral, PublicKeyToken=27100cfe39774293
+	--serverName:         192.168.0.242
+	--remote url:         tcp://192.168.0.242:11520/U8ApplicationEx/UFSoft.U8.Framework.Login.BO.CreditIdentity.rem
+	--active url:         tcp://192.168.0.242:11520/UFSoft.U8.Framework.Login.BO.CreditIdentity.rem
+2017-05-10 10:17:48,850 [36] INFO  - UserDataXML<ufsoft><Entry user="mIhRq+MCs9pl6hX+78bJOA==" data="/OihGE/NHNjgeHTeolAt7g==" accid="Tbpb+83/Q6FL6U5/BAwT+A==" appserver="gW0ndRCOmR8J7iVk1N+osA==" subid="A7kmRjt9KEJduVYUaEcAZA==" iyear="Dkhy7juMxW2py4zYDr0mTw==" connstring="29fbyN4vPxnufEmCwxPFnJ5MdHZ1pIMGIlsW5YFCx4MGjKoustRHkaqfZWk5FDfDXz0ruqyQ3kJIRS2IPk0PffJqW4Qft/+6WwFkUhjf+U/zeeU3SOAy4JY1d78cH+vjZUX6OX27sjrqUeKqgcynAnAJEw7AT72dexB2eXRl+eNy8f2M5THfveM7JifVzpV0+E1GtuT/8tQ8TXaJQFFfK/opOugcAEuMIAKpBExWJxrfvU9T08MvKSFgtEPxp8os" operdate="HIjzvNRT7KRvvFfFMyOyHg==" datasource="cf+dor6fe8KoCh8JLvxwOF7mwzRR9B52M42XJkBa69g=" languageid="EjwWS+pIa2PXwPk8moJQEg==" workstationserial="A7z2c1pPzdPr9+dncC6GmiK0dlHrfZuqv/HvzgjZ7u3V3WcOw6+ZKKW9HRnYpExJyDfqHd+jQXI48U8w/p+aVA==" rightserver="gW0ndRCOmR8J7iVk1N+osA==" iscompanyver="QdMDI0jTvlC+nrRC0O2c1g==" secondconnstring="cbJKulpSnuIHu3wXB+FLuJAMMcmzv3J7os9RT2PVq12kNPEX5pfqvhnqwXy76uZsuwdT+OR4slXui3/QPBOos1zYhB11jGP8lS0lcGFMIobRlGHszXmx2lMXFuUWkXo08CsMIQGPC84n351dSE7nCHOfxnRZ64AxZ2tLDm4oe/7jx6e4hwx1PqcRmJHQY2dAUU3g1bcSIcn38DtgXhuF5TvvQyK4NAyMj5ac2lTm/XqSYuJ0hwRw2FU9bEHeIyyAI1Jjspj/YsalzzqwK8xA2qHdD9HlB7ipfAuaTeVwnSIg3dF2h9GteMPMyXUBuLMQ3EzHPtg4XkIHQcIRqNCir1PHJ4wZvn9twNJDdShC8BDm7cjaAl8DgHne9e7XtovXOuMzGqMNs4ubZQn/50s4061hqDAd2HpB2zdm95rFmrpaGhH+FGbviYsbJKoKRM1v+5zHqqkDsdkwu52mE0gv045nrRsUr0DDnhcEPeJUvg08H48TlPpi/8wHQ32LRCOrc6E+dBXAsD0ulry4lWMiv+YvW9Xi+oFasLvtJIKobn9KpCZmF6VOxscILXw+TyHexmwIkqRW1UyvO58tMt6ooljIG0e9qR5tIiJDk1wMZoYadrFpT93bU/mLKq6Gxm5f/WskDYp3O1QH/OPv1zscxkph+35EhmoasHiIWXVmzMEmrQuPKn3/zVEq/PKDypBTLS+U0EjnKseXU0pDS07dPStaKNWhDPbcEOaYKgGl4FshITye+FpPKS2tV75yz+SI0lmxSXFBfmL2D5oxl7mOAIjJU/zP8e2WqomYdlpPQYGWLZjJMEE0ZJoPvZHDD14ezZj9lJL/GhDo6hhLIc8XXA==" employeeid="mIhRq+MCs9pl6hX+78bJOA==" isadmin="19Pn+damcY0kk8VK1WbO9w==" username="PwgQbxQbCLClcgq+/x/PIQ==" accname="gRteU1CZ6dzKGOr9zCby8/xTYevgi/yCSQbUUPj9fSE=" enttypeid="08EADbNLrg8ZdAeCXN7Mpg==" imonth="JFHm//yR5V60JoDEPSs5Lg==" appServerserial="DAfeo/Tz+LDYJOPS6TymR8MCo0hNu03K7CnkQL+64yRuZlan5mVMocXCDVvEXrnc" roles="/OihGE/NHNjgeHTeolAt7g==" protocolport="MFgA0ddzdOHJMfFnWgxZUISSIOiqxNne1wbExptBcQSC9tY3OdL3Daob+DtR23QbBD2gRif6WkhKZWVms+/Wng==" barcode="JqYHsNSc49mfi4Ef0vTj9A==" customer="L14dvK0eVRUZgYBczf68o9m8DC/Ka9guIlIVIOjvVGpb7DEH4nmr7Y93/k5j++H4oQ7il02DggUmVetjyI24MQ==" authenmode="LYKW0TQM5RPglDI27FQcmw==" authenextrainfo="/OihGE/NHNjgeHTeolAt7g==" industrytype="/OihGE/NHNjgeHTeolAt7g==" ibeginyear="TSGhDufCBJA+LPcU4Zc2bg==" aiosrv="/OihGE/NHNjgeHTeolAt7g==" crmsrv="3dAYQLup0/MDSHgF3UkV5Q==" utusrv="oSFMlGATGQ/ZB7bwnMGj0A==" remind="QdMDI0jTvlC+nrRC0O2c1g==" usermode="gIQfJwbKbeN2U/egvhr80w==" sps="19Pn+damcY0kk8VK1WbO9w==" sysdate="bUolbRMUofObW1I2W15teg==" /></ufsoft>

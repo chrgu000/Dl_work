@@ -1,0 +1,37 @@
+E:\devpro\DL-WebServices\Model\bin\Release\Model.dll
+E:\devpro\DL-WebServices\Model\bin\Release\Model.pdb
+E:\devpro\DL-WebServices\Model\obj\Release\Model.dll
+E:\devpro\DL-WebServices\Model\obj\Release\Model.pdb
+F:\Projects\DL-WebServices (1)\Model\bin\Release\Model.dll
+F:\Projects\DL-WebServices (1)\Model\bin\Release\Model.pdb
+F:\Projects\DL-WebServices (1)\Model\obj\Release\Model.csprojResolveAssemblyReference.cache
+F:\Projects\DL-WebServices (1)\Model\obj\Release\Model.dll
+F:\Projects\DL-WebServices (1)\Model\obj\Release\Model.pdb
+C:\Users\echo\Desktop\DL-WebServices (9003)\Model\bin\Release\Model.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\Model\bin\Release\Model.pdb
+C:\Users\echo\Desktop\DL-WebServices (9003)\Model\obj\Release\Model.csprojResolveAssemblyReference.cache
+C:\Users\echo\Desktop\DL-WebServices (9003)\Model\obj\Release\Model.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\Model\obj\Release\Model.pdb
+E:\devpro\DL-WebServices (9003)\Model\bin\Release\Model.dll
+E:\devpro\DL-WebServices (9003)\Model\bin\Release\Model.pdb
+E:\devpro\DL-WebServices (9003)\Model\obj\Release\Model.dll
+E:\devpro\DL-WebServices (9003)\Model\obj\Release\Model.pdb
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\Model\bin\Release\Model.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\Model\bin\Release\Model.pdb
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\Model\obj\Release\Model.csprojResolveAssemblyReference.cache
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\Model\obj\Release\Model.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\Model\obj\Release\Model.pdb
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\Model\bin\Release\Model.dll
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\Model\bin\Release\Model.pdb
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\Model\obj\Release\Model.dll
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\Model\obj\Release\Model.pdb
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\Model\obj\Release\Model.csprojResolveAssemblyReference.cache
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\Model\bin\Release\Model.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\Model\bin\Release\Model.pdb
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\Model\obj\Release\Model.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\Model\obj\Release\Model.pdb
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\Model\bin\Release\Model.dll
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\Model\bin\Release\Model.pdb
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\Model\obj\Release\Model.csprojResolveAssemblyReference.cache
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\Model\obj\Release\Model.dll
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\Model\obj\Release\Model.pdb

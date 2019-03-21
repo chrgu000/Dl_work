@@ -1,0 +1,34 @@
+C:\Users\echo\Desktop\DL-WebServices (9003)\U8API\bin\Release\U8API.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\U8API\bin\Release\U8API.pdb
+C:\Users\echo\Desktop\DL-WebServices (9003)\U8API\bin\Release\Interop.MSXML2.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\U8API\obj\Release\U8API.csprojResolveAssemblyReference.cache
+C:\Users\echo\Desktop\DL-WebServices (9003)\U8API\obj\Release\U8API.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\U8API\obj\Release\U8API.pdb
+E:\devpro\DL-WebServices (9003)\U8API\bin\Release\U8API.dll
+E:\devpro\DL-WebServices (9003)\U8API\bin\Release\U8API.pdb
+E:\devpro\DL-WebServices (9003)\U8API\bin\Release\Interop.MSXML2.dll
+E:\devpro\DL-WebServices (9003)\U8API\obj\Release\U8API.dll
+E:\devpro\DL-WebServices (9003)\U8API\obj\Release\U8API.pdb
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\U8API\bin\Release\U8API.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\U8API\bin\Release\U8API.pdb
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\U8API\bin\Release\Interop.MSXML2.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\U8API\obj\Release\U8API.csprojResolveAssemblyReference.cache
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\U8API\obj\Release\U8API.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\U8API\obj\Release\U8API.pdb
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\U8API\bin\Release\U8API.dll
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\U8API\bin\Release\U8API.pdb
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\U8API\bin\Release\Interop.MSXML2.dll
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\U8API\obj\Release\U8API.dll
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\U8API\obj\Release\U8API.pdb
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\U8API\obj\Release\U8API.csprojResolveAssemblyReference.cache
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\U8API\bin\Release\U8API.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\U8API\bin\Release\U8API.pdb
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\U8API\bin\Release\Interop.MSXML2.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\U8API\obj\Release\U8API.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\U8API\obj\Release\U8API.pdb
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\U8API\bin\Release\U8API.dll
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\U8API\bin\Release\U8API.pdb
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\U8API\bin\Release\Interop.MSXML2.dll
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\U8API\obj\Release\U8API.csprojResolveAssemblyReference.cache
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\U8API\obj\Release\U8API.dll
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\U8API\obj\Release\U8API.pdb

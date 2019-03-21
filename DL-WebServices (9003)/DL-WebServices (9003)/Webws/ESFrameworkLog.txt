@@ -1,0 +1,10 @@
+
+2018/8/7 15:25:26 : 普通 －－ 正在中止线程。 [:]    在 System.Threading.Thread.SleepInternal(Int32 millisecondsTimeout)
+   在 System.Threading.Thread.Sleep(Int32 millisecondsTimeout)
+   在 O7xpeXwQqWGLcmtHYD.6oaWBZZLdcbg1EQtEC.DoDetect() 。错误类型:System.Threading.ThreadAbortException。位置：ESFramework.Engine.Udp.EnhancedP2P.EnhancedUdpClinet.DoDetect
+
+
+2018/8/7 15:29:46 : 普通 －－ 正在中止线程。 [:]    在 System.Threading.Thread.SleepInternal(Int32 millisecondsTimeout)
+   在 System.Threading.Thread.Sleep(Int32 millisecondsTimeout)
+   在 O7xpeXwQqWGLcmtHYD.6oaWBZZLdcbg1EQtEC.DoDetect() 。错误类型:System.Threading.ThreadAbortException。位置：ESFramework.Engine.Udp.EnhancedP2P.EnhancedUdpClinet.DoDetect
+

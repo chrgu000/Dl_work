@@ -1,0 +1,56 @@
+E:\devpro\DL-WebServices\DAL\bin\Release\DAL.dll
+E:\devpro\DL-WebServices\DAL\bin\Release\DAL.pdb
+E:\devpro\DL-WebServices\DAL\bin\Release\Model.dll
+E:\devpro\DL-WebServices\DAL\bin\Release\Model.pdb
+E:\devpro\DL-WebServices\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+E:\devpro\DL-WebServices\DAL\obj\Release\DAL.dll
+E:\devpro\DL-WebServices\DAL\obj\Release\DAL.pdb
+F:\Projects\DL-WebServices (1)\DAL\bin\Release\DAL.dll
+F:\Projects\DL-WebServices (1)\DAL\bin\Release\DAL.pdb
+F:\Projects\DL-WebServices (1)\DAL\bin\Release\Model.dll
+F:\Projects\DL-WebServices (1)\DAL\bin\Release\Model.pdb
+F:\Projects\DL-WebServices (1)\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+F:\Projects\DL-WebServices (1)\DAL\obj\Release\DAL.dll
+F:\Projects\DL-WebServices (1)\DAL\obj\Release\DAL.pdb
+C:\Users\echo\Desktop\DL-WebServices (9003)\DAL\bin\Release\DAL.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\DAL\bin\Release\DAL.pdb
+C:\Users\echo\Desktop\DL-WebServices (9003)\DAL\bin\Release\Model.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\DAL\bin\Release\Model.pdb
+C:\Users\echo\Desktop\DL-WebServices (9003)\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+C:\Users\echo\Desktop\DL-WebServices (9003)\DAL\obj\Release\DAL.dll
+C:\Users\echo\Desktop\DL-WebServices (9003)\DAL\obj\Release\DAL.pdb
+E:\devpro\DL-WebServices (9003)\DAL\bin\Release\DAL.dll
+E:\devpro\DL-WebServices (9003)\DAL\bin\Release\DAL.pdb
+E:\devpro\DL-WebServices (9003)\DAL\bin\Release\Model.dll
+E:\devpro\DL-WebServices (9003)\DAL\bin\Release\Model.pdb
+E:\devpro\DL-WebServices (9003)\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+E:\devpro\DL-WebServices (9003)\DAL\obj\Release\DAL.dll
+E:\devpro\DL-WebServices (9003)\DAL\obj\Release\DAL.pdb
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\DAL\bin\Release\DAL.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\DAL\bin\Release\DAL.pdb
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\DAL\bin\Release\Model.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\DAL\bin\Release\Model.pdb
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\DAL\obj\Release\DAL.dll
+F:\Projects\DL-WebServices (9003)【20170609】\DL-WebServices (9003)\DAL\obj\Release\DAL.pdb
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\DAL\bin\Release\DAL.dll
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\DAL\bin\Release\DAL.pdb
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\DAL\bin\Release\Model.dll
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\DAL\bin\Release\Model.pdb
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\DAL\obj\Release\DAL.dll
+F:\Projects\DL-WebServices (9003)[20170912]\DL-WebServices (9003)\DAL\obj\Release\DAL.pdb
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\DAL\bin\Release\DAL.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\DAL\bin\Release\DAL.pdb
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\DAL\bin\Release\Model.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\DAL\bin\Release\Model.pdb
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\DAL\obj\Release\DAL.dll
+F:\Projects\DL-WebServices (9003)[20180605]\DL-WebServices (9003)\DAL\obj\Release\DAL.pdb
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\DAL\bin\Release\DAL.dll
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\DAL\bin\Release\DAL.pdb
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\DAL\bin\Release\Model.dll
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\DAL\bin\Release\Model.pdb
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\DAL\obj\Release\DAL.dll
+F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\DAL\obj\Release\DAL.pdb
