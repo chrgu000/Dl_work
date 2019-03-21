@@ -1,0 +1,18 @@
+﻿连接远程服务器：192.168.0.249  密码：wsdd
+webservices正式地址：
+http://192.168.0.249:9003/dlop/wx/WeiXin.asmx(微信消息接口)
+http://192.168.0.249:9003/other/SendSMS2Customer.asmx（短信消息接口）
+
+网单正式前台：dl_op_1234
+网单正式后台：dl_op_4321
+网单测试地址：dl_op_8开头的
+
+SQL Server
+数据库正式：192.168.0.252
+sa duoliansa
+UFDATA_005_2015
+
+--1
+--删除微信原电话账号,新增现在的电话账号
+--2,修改子操作账号电话
+SELECT * FROM dbo.Dl_opUser_Ex WHERE strSubPhone ='' --如果存在,则需要变更该电话号码

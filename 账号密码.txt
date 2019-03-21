@@ -1,0 +1,71 @@
+企业服务号
+xxb1@duolian.com
+1234qwerasdf
+
+企业公众号
+duolian@duolian.com
+lianduo123
+
+192.168.0.29
+用户名：administrator
+密码：Dl@r00t123
+
+
+用户名：administrator
+密码：Dl@admin123
+SQL:sa
+密码：Dlsql@admin123
+
+
+一、	网上订单
+
+
+1、	产品需求及省外分仓版本源码：DingDan_WebForm_V2_SignalR
+2、	正式地址：http://192.168.0.249:1234/
+3、	测试地址：http://192.168.0.249:8001/
+4、	
+5、	公司内部版本源码：DuoLian_InteralApp
+正式地址：http://192.168.0.27:1236/
+测试地址：http://192.168.0.27:8001/
+
+二、	WebService
+最新源码：DL-WebServices (9003)[20180808]
+正式地址：http://192.168.0.249:9003/
+测试地址：http://192.168.0.249:9001/
+
+
+三、	短信平台
+1：黑名单功能 网址：mas.10086.cn
+企业名称：四川多联实业有限公司
+用户名：admin
+密码: X8g85?yt1
+
+
+2: 白名单功能 网址：https://mas.ecloud.10086.cn/
+企业名称：四川多联实业有限公司
+用户名：admin
+密码:ephH*959
+
+四、	微信
+
+五、	广告机
+服务器地址：http://192.168.0.23:8366
+用户名：admin
+密码: admin
+
+六、	阿里云官网
+1、	阿里云登录
+地址：https://www.aliyun.com/
+账号：xxb@duolian.com
+密码:Xin306
+2、	CentOS SSH
+Ip:47.94.194.84:22
+Username:root
+Password:Dl@r00t123
+3、	数据库
+用户名：root
+密码：duoliansa
+4、	官网后台
+地址：www.duolian.com/admin.php
+用户名：duolian
+密码:duoliansa
