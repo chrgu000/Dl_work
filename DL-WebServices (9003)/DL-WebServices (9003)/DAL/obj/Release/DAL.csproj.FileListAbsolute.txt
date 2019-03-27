@@ -54,3 +54,10 @@ F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\DAL
 F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
 F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\DAL\obj\Release\DAL.dll
 F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\DAL\obj\Release\DAL.pdb
+F:\dengsheng\Github\Dl_work\DL-WebServices (9003)\DL-WebServices (9003)\DAL\bin\Release\DAL.dll
+F:\dengsheng\Github\Dl_work\DL-WebServices (9003)\DL-WebServices (9003)\DAL\bin\Release\DAL.pdb
+F:\dengsheng\Github\Dl_work\DL-WebServices (9003)\DL-WebServices (9003)\DAL\bin\Release\Model.dll
+F:\dengsheng\Github\Dl_work\DL-WebServices (9003)\DL-WebServices (9003)\DAL\bin\Release\Model.pdb
+F:\dengsheng\Github\Dl_work\DL-WebServices (9003)\DL-WebServices (9003)\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+F:\dengsheng\Github\Dl_work\DL-WebServices (9003)\DL-WebServices (9003)\DAL\obj\Release\DAL.dll
+F:\dengsheng\Github\Dl_work\DL-WebServices (9003)\DL-WebServices (9003)\DAL\obj\Release\DAL.pdb

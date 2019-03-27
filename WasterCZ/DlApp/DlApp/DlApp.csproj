@@ -428,6 +428,7 @@
       <LastGenOutput>SxDBContext.cs</LastGenOutput>
     </Content>
     <None Include="Properties\PublishProfiles\cfg.pubxml" />
+    <None Include="Properties\PublishProfiles\IISconfig.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\assets\css\admin.css" />
     <Content Include="Scripts\assets\css\amazeui.css" />

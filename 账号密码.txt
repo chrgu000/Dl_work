@@ -5,6 +5,10 @@ xxb1@duolian.com
 企业公众号
 duolian@duolian.com
 lianduo123
+微信服务号
+https://mp.weixin.qq.com
+账号：xxb1@duolian.com Xin306
+密码：1234qwerasdf
 
 192.168.0.29
 用户名：administrator

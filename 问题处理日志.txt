@@ -1,3 +1,9 @@
-2019/03/18  网单系统
+﻿2019/03/18  网单系统
 
 存储过程 DLproc_cInvCode_Unit_ByIns
+
+
+2019/03/25   网单系统（原币税额）
+使用地：代客户下单
+代码文件：BLL>AdminManager.cs (DLproc_NewOrderByIns_Admin>GetBodyDataTable)
+引用文件：AdminHandler.ashx.cs（DLproc_NewOrderByIns_Admin）

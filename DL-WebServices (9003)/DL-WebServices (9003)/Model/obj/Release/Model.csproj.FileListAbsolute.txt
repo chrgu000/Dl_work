@@ -35,3 +35,8 @@ F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\Mod
 F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\Model\obj\Release\Model.csprojResolveAssemblyReference.cache
 F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\Model\obj\Release\Model.dll
 F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\Model\obj\Release\Model.pdb
+F:\dengsheng\Github\Dl_work\DL-WebServices (9003)\DL-WebServices (9003)\Model\bin\Release\Model.dll
+F:\dengsheng\Github\Dl_work\DL-WebServices (9003)\DL-WebServices (9003)\Model\bin\Release\Model.pdb
+F:\dengsheng\Github\Dl_work\DL-WebServices (9003)\DL-WebServices (9003)\Model\obj\Release\Model.dll
+F:\dengsheng\Github\Dl_work\DL-WebServices (9003)\DL-WebServices (9003)\Model\obj\Release\Model.pdb
+F:\dengsheng\Github\Dl_work\DL-WebServices (9003)\DL-WebServices (9003)\Model\obj\Release\Model.csprojResolveAssemblyReference.cache

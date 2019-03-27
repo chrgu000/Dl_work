@@ -5,8 +5,6 @@
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LastUsedBuildConfiguration>Release</LastUsedBuildConfiguration>
-    <LastUsedPlatform>Any CPU</LastUsedPlatform>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <_PublishTargetUrl>F:\dengsheng\发布版本\duolianCZ</_PublishTargetUrl>
   </PropertyGroup>
@@ -21,7 +19,7 @@
       <publishTime>10/20/2010 11:18:24</publishTime>
     </File>
     <File Include="bin/DlApp.dll">
-      <publishTime>03/22/2019 17:00:40</publishTime>
+      <publishTime>03/25/2019 10:57:47</publishTime>
     </File>
     <File Include="bin/DotNetAssemblyProtocol.dll">
       <publishTime>10/20/2010 11:19:06</publishTime>
@@ -64,9 +62,6 @@
     </File>
     <File Include="bin/Interop.U8APITransactionProxy.dll">
       <publishTime>10/20/2010 11:18:40</publishTime>
-    </File>
-    <File Include="bin/Interop.U8Login.dll">
-      <publishTime>05/21/2018 12:54:09</publishTime>
     </File>
     <File Include="bin/Interop.VBAsyncPluginInvoker.dll">
       <publishTime>10/20/2010 11:18:42</publishTime>
@@ -443,14 +438,8 @@
     <File Include="Global.asax">
       <publishTime>04/19/2017 21:13:28</publishTime>
     </File>
-    <File Include="Models/SxDBContext.Context.tt">
-      <publishTime>04/19/2017 21:13:22</publishTime>
-    </File>
     <File Include="Models/SxDBContext.edmx.diagram">
       <publishTime>02/28/2019 14:17:31</publishTime>
-    </File>
-    <File Include="Models/SxDBContext.tt">
-      <publishTime>04/19/2017 21:13:22</publishTime>
     </File>
     <File Include="packages.config">
       <publishTime>04/19/2017 21:13:22</publishTime>
@@ -714,7 +703,7 @@
       <publishTime>04/19/2017 21:13:28</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/22/2019 17:00:41</publishTime>
+      <publishTime>03/25/2019 10:57:47</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -32,3 +32,9 @@ F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\U8A
 F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\U8API\obj\Release\U8API.csprojResolveAssemblyReference.cache
 F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\U8API\obj\Release\U8API.dll
 F:\工作目录\陈佳\DL-WebServices (9003)[20180808]\DL-WebServices (9003)\U8API\obj\Release\U8API.pdb
+F:\dengsheng\Github\Dl_work\DL-WebServices (9003)\DL-WebServices (9003)\U8API\bin\Release\U8API.dll
+F:\dengsheng\Github\Dl_work\DL-WebServices (9003)\DL-WebServices (9003)\U8API\bin\Release\U8API.pdb
+F:\dengsheng\Github\Dl_work\DL-WebServices (9003)\DL-WebServices (9003)\U8API\bin\Release\Interop.MSXML2.dll
+F:\dengsheng\Github\Dl_work\DL-WebServices (9003)\DL-WebServices (9003)\U8API\obj\Release\U8API.dll
+F:\dengsheng\Github\Dl_work\DL-WebServices (9003)\DL-WebServices (9003)\U8API\obj\Release\U8API.pdb
+F:\dengsheng\Github\Dl_work\DL-WebServices (9003)\DL-WebServices (9003)\U8API\obj\Release\U8API.csprojResolveAssemblyReference.cache
